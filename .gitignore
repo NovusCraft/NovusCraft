@@ -1,0 +1,8 @@
+# Files
+*.suo
+*.user
+
+# Directories
+_Resharper*
+bin
+obj
