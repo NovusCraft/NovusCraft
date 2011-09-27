@@ -2,6 +2,7 @@
 using Machine.Specifications;
 using NovusCraft.Specifications.Utils;
 using NovusCraft.Web;
+using NovusCraft.Web.Controllers;
 
 namespace NovusCraft.Specifications.WebSpecs.MvcApplicationSpecs
 {
@@ -13,7 +14,10 @@ namespace NovusCraft.Specifications.WebSpecs.MvcApplicationSpecs
 		It should_add_handle_error_filter_to_global_filters =
 			() => GlobalFilters.Filters.ShouldContain(f => f.Instance.GetType().Name == typeof (HandleErrorAttribute).Name);
 
-		It should_registed_axd_ignore_route =
+		It should_register_about_route =
+			() => "~/About".ShouldMapTo<HomeController>(controller => controller.About());
+
+		It should_register_axd_ignore_route =
 			() => "resource.axd".ShouldBeIgnored();
 	}
 }

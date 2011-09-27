@@ -20,6 +20,8 @@ namespace NovusCraft.Web
 		static void RegisterRoutes(RouteCollection routes)
 		{
 			routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+
+			routes.MapRoute("About", "About", new {controller = "Home", action = "About"});
 		}
 	}
 }
