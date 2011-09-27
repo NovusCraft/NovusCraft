@@ -13,8 +13,5 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.HomeControllerSpecs
 
 		It should_return_the_about_page =
 			() => result.ShouldBeAView().And().ShouldUseDefaultView();
-
-		It should_set_the_page_title =
-			() => ShouldExtensionMethods.ShouldEqual(((ViewResult)result).ViewBag.Title, "About");
 	}
 }

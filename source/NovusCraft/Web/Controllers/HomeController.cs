@@ -6,8 +6,6 @@ namespace NovusCraft.Web.Controllers
 	{
 		public ActionResult About()
 		{
-			ViewBag.Title = "About";
-
 			return View();
 		}
 	}
