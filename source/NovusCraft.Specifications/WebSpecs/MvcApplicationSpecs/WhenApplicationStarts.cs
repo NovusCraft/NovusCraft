@@ -3,7 +3,7 @@ using Machine.Specifications;
 using NovusCraft.Specifications.Utils;
 using NovusCraft.Web;
 
-namespace NovusCraft.Specifications.Web.MvcApplicationSpecs
+namespace NovusCraft.Specifications.WebSpecs.MvcApplicationSpecs
 {
 	[Subject(typeof (MvcApplication))]
 	public class when_application_starts : MvcApplicationSpec

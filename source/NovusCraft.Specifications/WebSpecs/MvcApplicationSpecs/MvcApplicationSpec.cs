@@ -1,7 +1,7 @@
 ﻿using Machine.Specifications;
 using NovusCraft.Web;
 
-namespace NovusCraft.Specifications.Web.MvcApplicationSpecs
+namespace NovusCraft.Specifications.WebSpecs.MvcApplicationSpecs
 {
 	public abstract class MvcApplicationSpec
 	{
