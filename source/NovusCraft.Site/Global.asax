@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="NovusCraft.Site.MvcApplication" Language="C#" %>
+﻿<%@ Application ="NovusCraft.Web.MvcApplication" Language="C#" %>
