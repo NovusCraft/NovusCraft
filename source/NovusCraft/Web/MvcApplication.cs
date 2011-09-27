@@ -12,12 +12,12 @@ namespace NovusCraft.Web
 			RegisterRoutes(RouteTable.Routes);
 		}
 
-		private static void RegisterGlobalFilters(GlobalFilterCollection filters)
+		static void RegisterGlobalFilters(GlobalFilterCollection filters)
 		{
 			filters.Add(new HandleErrorAttribute());
 		}
 
-		private static void RegisterRoutes(RouteCollection routes)
+		static void RegisterRoutes(RouteCollection routes)
 		{
 			routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 		}
