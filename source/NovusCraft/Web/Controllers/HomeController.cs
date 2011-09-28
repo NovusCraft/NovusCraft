@@ -1,5 +1,4 @@
-﻿using System;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace NovusCraft.Web.Controllers
 {
@@ -15,9 +14,9 @@ namespace NovusCraft.Web.Controllers
 			return View();
 		}
 
-		public void Contact()
+		public ActionResult Contact()
 		{
-			throw new NotImplementedException();
+			return View();
 		}
 	}
 }
