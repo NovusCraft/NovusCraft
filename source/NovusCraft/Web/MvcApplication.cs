@@ -4,7 +4,7 @@ using System.Web.Routing;
 
 namespace NovusCraft.Web
 {
-	public sealed class MvcApplication : HttpApplication
+	public class MvcApplication : HttpApplication
 	{
 		public void Application_Start()
 		{
