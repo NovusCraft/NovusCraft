@@ -22,7 +22,8 @@ namespace NovusCraft.Web
 			routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
 			routes.MapRoute("Home", string.Empty, new {controller = "Home", action = "Index"});
-			routes.MapRoute("About", "About", new {controller = "Home", action = "About"});
+			routes.MapRoute("About", "about", new {controller = "Home", action = "About"});
+			routes.MapRoute("Contact", "contact", new {controller = "Home", action = "Contact"});
 		}
 	}
 }

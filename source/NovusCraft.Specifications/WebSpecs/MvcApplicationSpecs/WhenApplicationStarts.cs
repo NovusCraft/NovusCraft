@@ -15,10 +15,13 @@ namespace NovusCraft.Specifications.WebSpecs.MvcApplicationSpecs
 			() => GlobalFilters.Filters.ShouldContain(f => f.Instance.GetType().Name == typeof (HandleErrorAttribute).Name);
 
 		It should_register_about_route =
-			() => "~/About".ShouldMapTo<HomeController>(controller => controller.About());
+			() => "~/about".ShouldMapTo<HomeController>(controller => controller.About());
 
 		It should_register_axd_ignore_route =
 			() => "resource.axd".ShouldBeIgnored();
+
+		It should_register_contact_route =
+			() => "~/contact".ShouldMapTo<HomeController>(controller => controller.Contact());
 
 		It should_register_home_route =
 			() => "~/".ShouldMapTo<HomeController>(controller => controller.Index());
