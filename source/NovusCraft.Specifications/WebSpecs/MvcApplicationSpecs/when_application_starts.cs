@@ -24,6 +24,6 @@ namespace NovusCraft.Specifications.WebSpecs.MvcApplicationSpecs
 			() => "~/contact".ShouldMapTo<HomeController>(controller => controller.Contact());
 
 		It should_register_home_route =
-			() => "~/".ShouldMapTo<HomeController>(controller => controller.Index());
+			() => "~/".ShouldMapTo<HomeController>(controller => controller.Home());
 	}
 }
