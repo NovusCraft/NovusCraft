@@ -5,9 +5,9 @@ namespace NovusCraft.Web.Controllers
 {
 	public sealed class HomeController : Controller
 	{
-		public void Index()
+		public ActionResult Index()
 		{
-			throw new NotImplementedException();
+			return View();
 		}
 
 		public ActionResult About()
