@@ -37,12 +37,12 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\RouteTestExtensions.cs" />
-    <Compile Include="WebSpecs\ControllerSpecs\HomeControllerSpecs\WhenContactPageIsRequested.cs" />
-    <Compile Include="WebSpecs\ControllerSpecs\HomeControllerSpecs\WhenHomePageIsRequested.cs" />
+    <Compile Include="WebSpecs\ControllerSpecs\HomeControllerSpecs\when_contact_page_is_requested.cs" />
+    <Compile Include="WebSpecs\ControllerSpecs\HomeControllerSpecs\when_home_page_is_requested.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\HomeControllerSpecs\HomeControllerSpec.cs" />
-    <Compile Include="WebSpecs\ControllerSpecs\HomeControllerSpecs\WhenAboutPageIsRequested.cs" />
+    <Compile Include="WebSpecs\ControllerSpecs\HomeControllerSpecs\when_about_page_is_requested.cs" />
     <Compile Include="WebSpecs\MvcApplicationSpecs\MvcApplicationSpec.cs" />
-    <Compile Include="WebSpecs\MvcApplicationSpecs\WhenApplicationStarts.cs" />
+    <Compile Include="WebSpecs\MvcApplicationSpecs\when_application_starts.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Machine.Specifications">
