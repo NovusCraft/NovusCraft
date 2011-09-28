@@ -40,7 +40,21 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="apple-touch-icon-114x114-precomposed.png" />
+    <Content Include="apple-touch-icon-57x57-precomposed.png" />
+    <Content Include="apple-touch-icon-72x72-precomposed.png" />
+    <Content Include="apple-touch-icon-precomposed.png" />
+    <Content Include="apple-touch-icon.png" />
+    <Content Include="crossdomain.xml" />
+    <Content Include="css\style.css" />
+    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="humans.txt" />
+    <Content Include="js\libs\jquery-1.6.4.min.js" />
+    <Content Include="js\libs\modernizr-2.0.6.min.js" />
+    <Content Include="js\plugins.js" />
+    <Content Include="js\script.js" />
+    <Content Include="robots.txt" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
