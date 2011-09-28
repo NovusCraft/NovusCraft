@@ -19,5 +19,8 @@ namespace NovusCraft.Specifications.WebSpecs.MvcApplicationSpecs
 
 		It should_register_axd_ignore_route =
 			() => "resource.axd".ShouldBeIgnored();
+
+		It should_register_home_route =
+			() => "~/".ShouldMapTo<HomeController>(controller => controller.Index());
 	}
 }
