@@ -18,5 +18,12 @@ namespace NovusCraft.Web.Controllers
 		{
 			return View();
 		}
+
+		public ActionResult PageNotFound()
+		{
+			Response.StatusCode = 404;
+
+			return View("404");
+		}
 	}
 }

@@ -14,6 +14,9 @@ namespace NovusCraft.Specifications.WebSpecs.MvcApplicationSpecs
 		It should_add_handle_error_filter_to_global_filters =
 			() => GlobalFilters.Filters.ShouldContain(f => f.Instance.GetType().Name == typeof (HandleErrorAttribute).Name);
 
+		It should_register_404_route =
+			() => "~/this-page-does-not-exist".ShouldMapTo<HomeController>(controller => controller.PageNotFound());
+
 		It should_register_about_route =
 			() => "~/about".ShouldMapTo<HomeController>(controller => controller.About());
 

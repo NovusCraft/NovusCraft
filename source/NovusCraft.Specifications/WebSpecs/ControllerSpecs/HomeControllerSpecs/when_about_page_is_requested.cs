@@ -5,7 +5,7 @@ using NovusCraft.Web.Controllers;
 
 namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.HomeControllerSpecs
 {
-	[Subject(typeof (HomeController))]
+	[Subject(typeof(HomeController))]
 	public class when_about_page_is_requested : HomeControllerSpec
 	{
 		static ActionResult result;

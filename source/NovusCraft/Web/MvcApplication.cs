@@ -24,6 +24,8 @@ namespace NovusCraft.Web
 			routes.MapRoute("Home", string.Empty, new {controller = "Home", action = "Home"});
 			routes.MapRoute("About", "about", new {controller = "Home", action = "About"});
 			routes.MapRoute("Contact", "contact", new {controller = "Home", action = "Contact"});
+
+			routes.MapRoute("404", "{*url}", new {controller = "Home", action = "PageNotFound"});
 		}
 	}
 }
