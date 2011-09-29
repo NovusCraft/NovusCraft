@@ -3,10 +3,10 @@ using NovusCraft.Web;
 
 namespace NovusCraft.Specifications.WebSpecs.MvcApplicationSpecs
 {
-	public abstract class MvcApplicationSpec
+	public abstract class mvc_application_spec
 	{
-		protected static MvcApplication Application;
+		protected static MvcApplication application;
 
-		Establish context = () => { Application = new MvcApplication(); };
+		Establish context = () => { application = new MvcApplication(); };
 	}
 }

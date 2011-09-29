@@ -6,13 +6,13 @@ using NovusCraft.Web.Controllers;
 
 namespace NovusCraft.Specifications.WebSpecs.MvcApplicationSpecs
 {
-	[Subject(typeof (MvcApplication))]
-	public class when_application_starts : MvcApplicationSpec
+	[Subject(typeof(MvcApplication))]
+	public class when_application_starts : mvc_application_spec
 	{
-		Because of = () => Application.Application_Start();
+		Because of = () => application.Application_Start();
 
 		It should_add_handle_error_filter_to_global_filters =
-			() => GlobalFilters.Filters.ShouldContain(f => f.Instance.GetType().Name == typeof (HandleErrorAttribute).Name);
+			() => GlobalFilters.Filters.ShouldContain(f => f.Instance.GetType().Name == typeof(HandleErrorAttribute).Name);
 
 		It should_register_404_route =
 			() => "~/this-page-does-not-exist".ShouldMapTo<HomeController>(controller => controller.PageNotFound());

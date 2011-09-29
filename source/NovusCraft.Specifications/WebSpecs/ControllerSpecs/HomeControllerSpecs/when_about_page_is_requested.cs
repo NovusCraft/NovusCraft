@@ -6,10 +6,10 @@ using NovusCraft.Web.Controllers;
 namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.HomeControllerSpecs
 {
 	[Subject(typeof(HomeController))]
-	public class when_about_page_is_requested : HomeControllerSpec
+	public class when_about_page_is_requested : home_controller_spec
 	{
 		static ActionResult result;
-		Because of = () => result = Controller.About();
+		Because of = () => result = controller.About();
 
 		It should_return_the_about_page =
 			() => result.ShouldBeAView().And().ShouldUseDefaultView();

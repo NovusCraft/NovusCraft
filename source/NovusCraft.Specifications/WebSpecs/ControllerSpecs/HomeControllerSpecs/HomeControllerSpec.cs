@@ -6,19 +6,19 @@ using NovusCraft.Web.Controllers;
 
 namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.HomeControllerSpecs
 {
-	public abstract class HomeControllerSpec
+	public abstract class home_controller_spec
 	{
-		protected static HomeController Controller;
-		protected static Mock<ControllerContext> ControllerContext;
-		protected static Mock<HttpResponseBase> HttpResponse;
+		protected static HomeController controller;
+		protected static Mock<ControllerContext> controller_context;
+		protected static Mock<HttpResponseBase> http_response;
 
 		Establish context = () =>
 		                    	{
-		                    		ControllerContext = new Mock<ControllerContext>();
-		                    		HttpResponse = new Mock<HttpResponseBase>();
-		                    		ControllerContext.SetupGet(cc => cc.HttpContext.Response).Returns(HttpResponse.Object);
+		                    		controller_context = new Mock<ControllerContext>();
+		                    		http_response = new Mock<HttpResponseBase>();
+		                    		controller_context.SetupGet(cc => cc.HttpContext.Response).Returns(http_response.Object);
 
-		                    		Controller = new HomeController {ControllerContext = ControllerContext.Object};
+		                    		controller = new HomeController {ControllerContext = controller_context.Object};
 		                    	};
 	}
 }

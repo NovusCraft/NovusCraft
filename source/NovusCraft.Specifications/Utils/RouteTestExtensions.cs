@@ -28,7 +28,7 @@ namespace NovusCraft.Specifications.Utils
 			var routeData = RouteTable.Routes.GetRouteData(httpContext.Object);
 			routeData.ShouldNotBeNull();
 
-			var controllerName = typeof (TController).Name.Replace("Controller", string.Empty);
+			var controllerName = typeof(TController).Name.Replace("Controller", string.Empty);
 			routeData.Values["controller"].ShouldEqual(controllerName);
 
 			var actionName = ((MethodCallExpression)action.Body).Method.Name;
