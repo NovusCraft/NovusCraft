@@ -3,18 +3,15 @@
 
 
 /* TEAM */
-  <your title>: <your name>
-  Site: 
-  Twitter: 
-  Location: 
-
-/* THANKS */
-  Names (& URL): 
+  Lead Developer: Arnold Zokas
+  Site: http://novuscraft.com
+  Twitter: @arnoldzokas
+  Location: London, UK
 
 /* SITE */
   Standards: HTML5, CSS3
-  Components: Modernizr, jQuery
-  Software:
+  Components: ASP.NET MVC 3, Modernizr, jQuery
+  Software: Visual Studio 2010, IIS 7.5
   
 
                                     
