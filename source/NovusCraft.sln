@@ -6,6 +6,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A17C975C-BE00-4D21-98D3-6DED50BD741F}"
 	ProjectSection(SolutionItems) = preProject
 		..\.gitignore = ..\.gitignore
+		readme.md = readme.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovusCraft.Specifications", "NovusCraft.Specifications\NovusCraft.Specifications.csproj", "{C8A5A61A-A26A-4132-9E4C-6073775AB862}"
