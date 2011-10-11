@@ -1,4 +1,7 @@
-﻿using System.Web.Mvc;
+﻿// # Copyright © 2011, Novus Craft
+// # All rights reserved. 
+
+using System.Web.Mvc;
 using Machine.Specifications;
 using Machine.Specifications.Mvc;
 using NovusCraft.Web.Controllers;

@@ -1,8 +1,12 @@
+// # Copyright © 2011, Novus Craft
+// # All rights reserved. 
+
 using System;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
 #if DEBUG
+
 [assembly: AssemblyConfiguration("DEBUG")]
 #elif RELEASE
 [assembly: AssemblyConfiguration("RELEASE")]

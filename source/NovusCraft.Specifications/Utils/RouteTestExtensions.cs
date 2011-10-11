@@ -1,4 +1,7 @@
-﻿using System;
+﻿// # Copyright © 2011, Novus Craft
+// # All rights reserved. 
+
+using System;
 using System.Linq.Expressions;
 using System.Web;
 using System.Web.Mvc;

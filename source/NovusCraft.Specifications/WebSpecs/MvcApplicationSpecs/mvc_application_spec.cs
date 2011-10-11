@@ -1,4 +1,7 @@
-﻿using Machine.Specifications;
+﻿// # Copyright © 2011, Novus Craft
+// # All rights reserved. 
+
+using Machine.Specifications;
 using NovusCraft.Web;
 
 namespace NovusCraft.Specifications.WebSpecs.MvcApplicationSpecs
