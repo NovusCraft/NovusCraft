@@ -1,4 +1,4 @@
-Website: http://novuscraft.com
+Website: http://novuscraft.com  
 Developer: Arnold Zokas (NovusCraft)
 
 ## Stack
