@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovusCraft.Site", "NovusCraft.Site\NovusCraft.Site.csproj", "{822188FD-D29F-4A03-BF66-691D519E334C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A17C975C-BE00-4D21-98D3-6DED50BD741F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "miscellaneous", "miscellaneous", "{A17C975C-BE00-4D21-98D3-6DED50BD741F}"
 	ProjectSection(SolutionItems) = preProject
 		..\.gitignore = ..\.gitignore
 		..\license = ..\license
@@ -13,6 +13,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovusCraft.Specifications", "NovusCraft.Specifications\NovusCraft.Specifications.csproj", "{C8A5A61A-A26A-4132-9E4C-6073775AB862}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovusCraft", "NovusCraft\NovusCraft.csproj", "{F52BAE5B-A49D-4068-B766-80E7A4D12744}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{D5A5F37C-1543-41DF-8191-D40727A32513}"
+	ProjectSection(SolutionItems) = preProject
+		..\build\build.bat = ..\build\build.bat
+		..\build\build.csproj = ..\build\build.csproj
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<PropertyGroup>
+		<BuildConfiguration>Debug</BuildConfiguration>
+		
+		<SolutionDir>$(MSBuildProjectDirectory)</SolutionDir>
+		<SourceDir>$(MSBuildProjectDirectory)\..\source</SourceDir>
+		
+		<MSpecConsoleExe>$(SourceDir)\packages\Machine.Specifications.0.4.24.0\tools\mspec-clr4.exe</MSpecConsoleExe>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<SolutionFile Include="$(SourceDir)\NovusCraft.sln" />
+		<Specifications Include="$(SourceDir)\NovusCraft.Specifications\bin\$(BuildConfiguration)\NovusCraft.Specifications.dll" />
+	</ItemGroup>
+	
+	<Target Name="Build" DependsOnTargets="__test" />
+	
+	<Target Name="__compile">
+		<MSBuild Projects="@(SolutionFile)" Properties="Configuration=$(BuildConfiguration)" BuildInParallel="true" />
+	</Target>
+	
+	<Target Name="__test" DependsOnTargets="__compile">
+		<Error Text="Unable to find MSpecConsoleExe at path &quot;$(MSpecConsoleExe)&quot;" Condition="!Exists($(MSpecConsoleExe))" />
+		<Exec Command="$(MSpecConsoleExe) &quot;@(Specifications)&quot;"  />
+	</Target>
+
+</Project>
