@@ -16,12 +16,12 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.HomeControllerSpecs
 		protected static Mock<HttpResponseBase> http_response;
 
 		Establish context = () =>
-		                    	{
-		                    		controller_context = new Mock<ControllerContext>();
-		                    		http_response = new Mock<HttpResponseBase>();
-		                    		controller_context.SetupGet(cc => cc.HttpContext.Response).Returns(http_response.Object);
+			{
+				controller_context = new Mock<ControllerContext>();
+				http_response = new Mock<HttpResponseBase>();
+				controller_context.SetupGet(cc => cc.HttpContext.Response).Returns(http_response.Object);
 
-		                    		controller = new HomeController {ControllerContext = controller_context.Object};
-		                    	};
+				controller = new HomeController {ControllerContext = controller_context.Object};
+			};
 	}
 }
