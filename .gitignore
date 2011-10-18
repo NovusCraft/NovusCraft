@@ -5,6 +5,6 @@
 *.user
 
 # Directories
-_Resharper*
+_Re[Ss]harper*
 bin
 obj
