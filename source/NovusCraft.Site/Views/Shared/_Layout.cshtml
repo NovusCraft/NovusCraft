@@ -15,15 +15,37 @@
 	<script src="/js/libs/modernizr-2.0.6.min.js"></script>
 </head>
 <body>
-<div id="container">
-	<header>
-		HEADER
+<div id="container" class="container_16">
+	<header id="header">
+		<h1 class="grid_4">
+			<a href="/" title="NovusCraft homepage">
+				<img src="/img/logo.png" alt="Novus Craft" />
+			</a>
+		</h1>
+		<nav class="grid_4 prefix_8">
+			<ul>
+				<li>@Html.ActionLink("Home", "Home", null, new { title = "NovusCraft homepage", @class = "active" })</li>
+				<li>@Html.ActionLink("About", "About", null, new { title = "About NovusCraft" })</li>
+				<li>@Html.ActionLink("Contact", "Contact", null, new { title = "Contact NovusCraft" })</li>
+			</ul>
+		</nav>
 	</header>
-	<div id="main" role="main">
+	<div class="clear"></div>
+	<section class="grid_11">
 		@RenderBody()
-	</div>
-	<footer>
-		FOOTER
+	</section>
+	<aside class="grid_4 prefix_1">
+		<section id="about-mini">
+			<p>Hi, my name is Arnold Zokas.<br />I create websites using ASP.NET MVC, Sitecore, beautifully crafted HTML, CSS, and JS</p>
+			<a href="http://stackexchange.com/users/415edd37188f4c96aeda3a1b9e8cf4bd">
+				<img src="http://stackexchange.com/users/flair/415edd37188f4c96aeda3a1b9e8cf4bd.png" alt="profile for Arnold Zokas on Stack Exchange, a network of free, community-driven Q&amp;A sites" title="profile for Arnold Zokas on Stack Exchange, a network of free, community-driven Q&amp;A sites">
+			</a>
+		</section>
+	</aside>
+	<div class="clear"></div>
+	<footer id="footer">
+		<span class="grid_4">Copyright &copy; 2011 Novus Craft</span>
+		<span class="grid_4 prefix_8">Source code is available on <a href="https://github.com/NovusCraft/NovusCraft" title="novuscraft.com public Git repository">Github</a></span>
 	</footer>
 </div><!--! end of #container -->
 
