@@ -654,10 +654,9 @@ body {
 body { background:#fff; color:#555; font-family:"Segoe UI", Segoe, Tahoma, Geneva, sans-serif; font-size:62.5%; margin:0; padding:0; }
 aside { color:#444; font-size:1.4em; }
 p { margin:0; }
-a { color:#d93c3c; }
-a:hover { background:#efefef; color:#000; }
+a { border-bottom:dotted 1px #d93c3c; color:#d93c3c; text-decoration:none; }
+a:hover { background:#efefef; border-bottom-style:solid; }
 a:visited { color:#a33131; }
-a:visited:hover { color:#000; }
 
 /* CONTENT */
 .post header { margin-top:2em; }
@@ -668,18 +667,18 @@ a:visited:hover { color:#000; }
 
 /* ASIDE */
 #about-mini { margin-top:5.8em; line-height:1.5em; }
-#about-mini a { display:block; height:58px; margin-top:1em; width:208px; }
+#about-mini a { border:none; display:block; height:58px; margin-top:1em; width:208px; }
 
 /* PAGE */
 #header { height:7em; }
 #header h1 { font-size:1em; margin-top:0.5em; }
-#header h1 a { display:block; height:5em; width:15em; }
+#header h1 a { border:none; display:block; height:5em; width:15em; }
 #header li { float:left; }
 #header li+li { margin-left:2.6em; }
 #header nav { margin-top:2.3em; }
-#header nav a { color:#777; font-size:1.6em; text-decoration:none; text-transform:uppercase; }
-#header nav a:hover { color:#000; }
-#header .active { color:#000; }
+#header nav a { border:none; color:#777; font-size:1.6em; text-decoration:none; text-transform:uppercase; }
+#header nav a:hover { border-top:solid 2px #e8a7a7; color:#000; }
+#header .active { border-top:solid 2px #d93c3c; color:#000; }
 #footer { font-size:1.3em; height:6em; }
 #footer span { margin-top:2em; }
 
