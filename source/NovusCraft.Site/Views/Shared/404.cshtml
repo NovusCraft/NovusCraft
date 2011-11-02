@@ -1,15 +1,18 @@
-﻿@{
-	Layout = null;
+﻿@model object
+
+@{
+	ViewBag.Title = "Page not found (404) | novuscraft.com";
 }
 
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Error</title>
-	</head>
-	<body>
-		<h2>
-			Sorry, the page you are looking for could not be found.
-		</h2>
-	</body>
-</html>
+<article class="post">
+	<header>
+		<h1>Uh, oh. The page you are looking for could not be found.</h1>
+	</header>
+	<p>Not sure how this happened &ndash; I'm sorry :-(</p>
+	<ul>
+		<li>Was it lost?</li>
+		<li>Was it deleted?</li>
+		<li>Did it ever exist?</li>
+	</ul>
+	<p>We will never know, but why don't you @Html.ActionLink("visit the home page", "Home").</p>
+</article>

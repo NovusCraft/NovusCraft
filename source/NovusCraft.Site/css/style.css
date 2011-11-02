@@ -662,6 +662,8 @@ a:visited { color:#a33131; }
 .post header { margin-top:2em; }
 .post h1 { color:#333; font-size:2.4em; font-weight:normal; margin:0 0 30px 0; }
 .post p { font-size:1.5em; line-height:1.5em; }
+.post ul { padding-left:3em; }
+.post li { font-size:1.5em; list-style-type:circle; }
 .post p+p { margin-top:1em; text-indent:1em; }
 .post footer { font-size:1.5em; font-style:italic; margin-top:1em; }
 
