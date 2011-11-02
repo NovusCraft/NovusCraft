@@ -665,7 +665,7 @@ a:visited { color:#a33131; }
 .post ul { padding-left:3em; }
 .post li { font-size:1.5em; list-style-type:circle; }
 .post p+p { margin-top:1em; text-indent:1em; }
-.post footer { font-size:1.5em; font-style:italic; margin-top:1em; }
+.post footer { font-size:1.4em; font-style:italic; margin-top:1em; }
 
 /* ASIDE */
 #about-mini { margin-top:5.8em; line-height:1.5em; }
