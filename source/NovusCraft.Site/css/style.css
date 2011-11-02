@@ -679,6 +679,7 @@ a:visited { color:#a33131; }
 #header nav a { border:none; color:#777; font-size:1.6em; text-decoration:none; text-transform:uppercase; }
 #header nav a:hover { border-top:solid 2px #e8a7a7; color:#000; }
 #header .active { border-top:solid 2px #d93c3c; color:#000; }
+#header .active:hover { border-top-color:#d93c3c; }
 #footer { font-size:1.3em; height:6em; }
 #footer span { margin-top:2em; }
 
