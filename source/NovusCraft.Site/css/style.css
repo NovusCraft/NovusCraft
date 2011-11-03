@@ -674,7 +674,8 @@ a:visited { color:#a33131; }
 /* PAGE */
 #header { height:7em; }
 #header h1 { font-size:1em; margin-top:0.5em; }
-#header h1 a { border:none; display:block; height:5em; width:15em; }
+#header h1 a { background:url(../img/logo.png) no-repeat; border:none; display:block; height:5em; text-indent:-9999em; width:15em; }
+#header h1 a:hover { background-position:-16em 0; }
 #header li { float:left; }
 #header li+li { margin-left:2.6em; }
 #header nav { margin-top:2.3em; }
