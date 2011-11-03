@@ -52,6 +52,7 @@
     <Content Include="js\plugins.js" />
     <Content Include="js\script.js" />
     <Content Include="robots.txt" />
+    <Content Include="sitemap.xml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
