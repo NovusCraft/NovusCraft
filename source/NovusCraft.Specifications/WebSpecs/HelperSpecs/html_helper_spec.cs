@@ -33,6 +33,7 @@ namespace NovusCraft.Specifications.WebSpecs.HelperSpecs
 				var requestContext = new RequestContext(httpContextBase.Object, route_data);
 				var viewContext = new ViewContext {RequestContext = requestContext};
 				var viewDataContainer = new Mock<IViewDataContainer>();
+				viewDataContainer.SetupGet(vdc => vdc.ViewData).Returns(new ViewDataDictionary());
 
 				helper = new HtmlHelper<dynamic>(viewContext, viewDataContainer.Object);
 
