@@ -6,7 +6,7 @@ using Machine.Specifications;
 using NovusCraft.Web;
 using NovusCraft.Web.Helpers;
 
-namespace NovusCraft.Specifications.WebSpecs.HelperSpecs
+namespace NovusCraft.Specifications.WebSpecs.HelperSpecs.HtmlHelperSpecs
 {
 	[Subject(typeof(MvcApplication))]
 	public class when_menu_link_is_created : html_helper_spec

@@ -8,7 +8,7 @@ using Machine.Specifications;
 using Moq;
 using It = Moq.It;
 
-namespace NovusCraft.Specifications.WebSpecs.HelperSpecs
+namespace NovusCraft.Specifications.WebSpecs.HelperSpecs.HtmlHelperSpecs
 {
 	public abstract class html_helper_spec
 	{
