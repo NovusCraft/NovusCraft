@@ -1,0 +1,15 @@
+﻿@model NovusCraft.Web.ViewModels.ViewPostModel
+
+@{
+	ViewBag.Title = string.Format("{0} | novuscraft.com", @Model.Title);
+}
+
+<article class="post grid_11">
+	<header>
+		<h1>@Model.Title</h1>
+	</header>
+	@Model.Content
+	<footer>
+		Published by @Html.ActionLink("Arnold Zokas", "About", "Home", null, new { rel="author" }) on <time datetime='@Model.PublishedOn.ToString("yyyy-MM-ddTHH:mm:sszzz")' pubdate>@Model.PublishedOn</time> in category <strong>@Model.CategoryTitle</strong>.
+	</footer>
+</article>
