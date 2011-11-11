@@ -1,0 +1,14 @@
+<Configuration>
+  <CoverageFilters>
+    <IncludeFilters>
+      <Filter ModuleMask="*" ClassMask="*" FunctionMask="*" />
+    </IncludeFilters>
+    <ExcludeFilters>
+      <Filter ModuleMask="*" ClassMask="NovusCraft.Data.Blog.*Repository" FunctionMask="*" />
+      <Filter ModuleMask="*" ClassMask="*" FunctionMask="GetControllerInstance" />
+    </ExcludeFilters>
+  </CoverageFilters>
+  <SnapshotDialog>
+    <InitialDirectory>E:\NovusCraft\source</InitialDirectory>
+  </SnapshotDialog>
+</Configuration>
