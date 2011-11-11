@@ -9,7 +9,7 @@ namespace NovusCraft.Web.Helpers
 {
 	public static class HtmlHelpers
 	{
-		public static MvcHtmlString MenuLink(this HtmlHelper<dynamic> html, string actionName, string linkText, string linkTitle)
+		public static MvcHtmlString MenuLink(this HtmlHelper<dynamic> html, string actionName, string controllerName, string linkText, string linkTitle)
 		{
 			object htmlAttributes;
 			var contextActionName = html.ViewContext.RouteData.Values["action"] ?? string.Empty;
@@ -18,7 +18,7 @@ namespace NovusCraft.Web.Helpers
 			else
 				htmlAttributes = new {title = linkTitle};
 
-			return html.ActionLink(linkText, actionName, null, htmlAttributes);
+			return html.ActionLink(linkText, actionName, controllerName, null, htmlAttributes);
 		}
 	}
 }

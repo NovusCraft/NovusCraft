@@ -16,7 +16,7 @@ namespace NovusCraft.Specifications.WebSpecs.HelperSpecs.HtmlHelperSpecs
 		Because of = () =>
 			{
 				route_data.Values["action"] = "RouteB";
-				menu_link = helper.MenuLink("RouteB", "Test", "test page");
+				menu_link = helper.MenuLink("RouteB", "Home", "Test", "test page");
 			};
 
 		It should_return_anchor_html_with_class_active =

@@ -1,4 +1,15 @@
-﻿<!doctype html>
+﻿@helper GeneratePageTitle(string titleFragment) {
+	if (string.IsNullOrWhiteSpace(titleFragment))
+	{
+		@: Novus Craft
+	}
+	else
+	{
+		@: @titleFragment | Novus Craft
+	}
+}
+
+<!doctype html>
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
@@ -8,7 +19,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	
-	<title>@ViewBag.Title</title>
+	<title>@GeneratePageTitle(@ViewBag.Title)</title>
 	<meta name="author" content="Arnold Zokas">
 	
 	<link rel="stylesheet" href="/css/style.css">
@@ -24,9 +35,9 @@
 		</h1>
 		<nav class="grid_4 prefix_8">
 			<ul>
-				<li>@Html.MenuLink("Home", "Home", "NovusCraft homepage")</li>
-				<li>@Html.MenuLink("About", "About", "About NovusCraft")</li>
-				<li>@Html.MenuLink("Contact", "Contact", "Contact NovusCraft")</li>
+				<li>@Html.MenuLink("Home", "Home", "Home", "NovusCraft homepage")</li>
+				<li>@Html.MenuLink("About", "Home", "About", "About NovusCraft")</li>
+				<li>@Html.MenuLink("Contact", "Home", "Contact", "Contact NovusCraft")</li>
 			</ul>
 		</nav>
 	</header>
@@ -47,7 +58,7 @@
 	</footer>
 </div><!--! end of #container -->
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+<script src="../../js/libs/jquery/1.7/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="/js/libs/jquery-1.7.min.js"><\/script>')</script>
 
 <script src="/js/plugins.js"></script>
