@@ -51,7 +51,8 @@
     <Compile Include="WebSpecs\HelperSpecs\HtmlHelperSpecs\when_menu_link_is_created.cs" />
     <Compile Include="WebSpecs\MvcApplicationSpecs\mvc_application_spec.cs" />
     <Compile Include="WebSpecs\MvcApplicationSpecs\when_application_starts.cs" />
-    <Compile Include="WebSpecs\UtilSpecs\FormatExtensionSpecs\when_to_long_date_is_invoked.cs" />
+    <Compile Include="WebSpecs\UtilSpecs\FormatExtensionSpecs\when_date_is_formatted_to_iso_date.cs" />
+    <Compile Include="WebSpecs\UtilSpecs\FormatExtensionSpecs\when_date_is_formatted_to_long_date.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Machine.Specifications">

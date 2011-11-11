@@ -7,6 +7,11 @@ namespace NovusCraft.Web.Utils
 {
 	public static class FormatExtensions
 	{
+		public static string ToIsoDate(this DateTimeOffset date)
+		{
+			return date.ToString("yyyy-MM-ddTHH:mm:sszzz");
+		}
+
 		public static string ToLongDate(this DateTimeOffset date)
 		{
 			return string.Format("{0:%d}{1} {0:MMMM} {0:yyyy}", date, GetDaySuffix(date.Day));

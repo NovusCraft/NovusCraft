@@ -9,7 +9,7 @@ using NovusCraft.Web.Utils;
 namespace NovusCraft.Specifications.WebSpecs.UtilSpecs.FormatExtensionSpecs
 {
 	[Subject(typeof(FormatExtensions))]
-	public class when_to_long_date_is_invoked : html_helper_spec
+	public class when_date_is_formatted_to_long_date : html_helper_spec
 	{
 		It should_return_formatted_long_date_for_day_1 =
 			() => new DateTimeOffset(2011, 11, 1, 09, 08, 07, TimeSpan.FromHours(1)).ToLongDate().ShouldEqual("1st November 2011");

@@ -11,6 +11,6 @@
 	</header>
 	@Model.Content
 	<footer>
-		Published by @Html.ActionLink("Arnold Zokas", "About", "Home", null, new { rel="author" }) on <time datetime='@Model.PublishedOn.ToString("yyyy-MM-ddTHH:mm:sszzz")' pubdate>@Model.PublishedOn.ToLongDate()</time> in category <strong>@Model.CategoryTitle</strong>.
+		Published by @Html.ActionLink("Arnold Zokas", "About", "Home", null, new { rel="author" }) on <time datetime="@Model.PublishedOn.ToIsoDate()" pubdate>@Model.PublishedOn.ToLongDate()</time> in category <strong>@Model.CategoryTitle</strong>.
 	</footer>
 </article>
