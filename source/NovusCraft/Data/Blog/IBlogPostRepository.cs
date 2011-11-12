@@ -3,7 +3,7 @@
 
 namespace NovusCraft.Data.Blog
 {
-	public interface IBlogCategoryRepository
+	public interface IBlogPostRepository
 	{
 		BlogPost GetBlogPost(string slug);
 	}

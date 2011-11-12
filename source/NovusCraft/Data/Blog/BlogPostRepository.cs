@@ -5,9 +5,9 @@ using System;
 
 namespace NovusCraft.Data.Blog
 {
-	public sealed class BlogPostCategoryRepository : IBlogCategoryRepository
+	public sealed class BlogPostRepository : IBlogPostRepository
 	{
-		#region IBlogCategoryRepository Members
+		#region IBlogPostRepository Members
 
 		public BlogPost GetBlogPost(string slug)
 		{

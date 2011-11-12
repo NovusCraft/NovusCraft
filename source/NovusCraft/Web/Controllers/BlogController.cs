@@ -10,16 +10,16 @@ namespace NovusCraft.Web.Controllers
 {
 	public sealed class BlogController : Controller
 	{
-		readonly IBlogCategoryRepository _blogCategoryRepository;
+		readonly IBlogPostRepository _blogPostRepository;
 
-		public BlogController(IBlogCategoryRepository blogCategoryRepository)
+		public BlogController(IBlogPostRepository blogPostRepository)
 		{
-			_blogCategoryRepository = blogCategoryRepository;
+			_blogPostRepository = blogPostRepository;
 		}
 
 		public ActionResult ViewPost(string slug)
 		{
-			var blogPost = _blogCategoryRepository.GetBlogPost(slug);
+			var blogPost = _blogPostRepository.GetBlogPost(slug);
 
 			if (blogPost == null)
 			{

@@ -15,6 +15,6 @@ namespace NovusCraft.Specifications.DataSpecs.StructureMapConfigurationRegistryS
 		Because of = () => container = new Container(registry);
 
 		It should_register_blog_category_repository =
-			() => container.GetInstance<IBlogCategoryRepository>().ShouldBeOfType<BlogPostCategoryRepository>();
+			() => container.GetInstance<IBlogPostRepository>().ShouldBeOfType<BlogPostRepository>();
 	}
 }
