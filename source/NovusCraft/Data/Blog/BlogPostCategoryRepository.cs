@@ -11,6 +11,9 @@ namespace NovusCraft.Data.Blog
 
 		public BlogPost GetBlogPost(string slug)
 		{
+			if (slug != "welcome-to-my-blog")
+				return null;
+
 			return new BlogPost
 			       	{
 			       		Title = "Welcome to my blog",

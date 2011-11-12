@@ -1,6 +1,7 @@
 ﻿// # Copyright © 2011, Novus Craft
 // # All rights reserved. 
 
+using System.Net;
 using System.Web.Mvc;
 
 namespace NovusCraft.Web.Controllers
@@ -24,9 +25,9 @@ namespace NovusCraft.Web.Controllers
 
 		public ActionResult PageNotFound()
 		{
-			Response.StatusCode = 404;
+			Response.StatusCode = (int)HttpStatusCode.NotFound;
 
-			return View("404");
+			return View();
 		}
 	}
 }

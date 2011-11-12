@@ -15,7 +15,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.HomeControllerSpecs
 		Because of = () => result = controller.PageNotFound();
 
 		It should_return_the_404_page =
-			() => result.ShouldBeAView().And().ViewName.ShouldEqual("404");
+			() => result.ShouldBeAView().And().ShouldUseDefaultView();
 
 		It should_set_status_code_to_404 =
 			() => http_response.VerifySet(hr => hr.StatusCode = 404);

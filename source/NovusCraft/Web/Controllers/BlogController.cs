@@ -1,6 +1,7 @@
 ﻿// # Copyright © 2011, Novus Craft
 // # All rights reserved. 
 
+using System.Net;
 using System.Web.Mvc;
 using NovusCraft.Data.Blog;
 using NovusCraft.Web.ViewModels;
@@ -16,10 +17,16 @@ namespace NovusCraft.Web.Controllers
 			_blogCategoryRepository = blogCategoryRepository;
 		}
 
-		// TODO: handle missing blog posts
 		public ActionResult ViewPost(string slug)
 		{
 			var blogPost = _blogCategoryRepository.GetBlogPost(slug);
+
+			if (blogPost == null)
+			{
+				Response.StatusCode = (int)HttpStatusCode.NotFound;
+				return View("PageNotFound");
+			}
+
 			var model = new ViewPostModel
 			            	{
 			            		Title = blogPost.Title,

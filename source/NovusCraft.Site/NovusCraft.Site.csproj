@@ -90,7 +90,7 @@
     <Content Include="Views\Home\Home.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\404.cshtml" />
+    <Content Include="Views\Shared\PageNotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Blog\ViewPost.cshtml" />
