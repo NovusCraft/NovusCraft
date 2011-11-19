@@ -51,7 +51,7 @@ namespace NovusCraft.Data.Blog
 				       		          "<p>If you use something other than ReSharper you can skip this stage. If you are not using <em>any</em> productivity plugin &mdash; install <a href=\"http://www.jetbrains.com/resharper/download/index.html\" title=\"ReSharper download page\">ReSharper</a> right now (you will thank me later).</p>" +
 				       		          "<h3>Install ReSharper runner</h3>" +
 				       		          "<p>Default installation of ReSharper has no knowledge of what an MSpec specification is. To enable MSpec support you need to install a ReSharper plugin.</p>" +
-				       		          "<p>MSpec provides plugins compatible with ReSharper v4.1, v4.5, v5.0, v5.1, v6.0 for Visual Studio 2008 and 2010. To install the plugin you need to open MSpec installation directory and execute on the the following scripts:</p>" +
+				       		          "<p>MSpec provides plugins compatible with ReSharper v4.1, v4.5, v5.0, v5.1, v6.0 for Visual Studio 2008 and 2010. To install the plugin you need to open MSpec installation directory and execute on the following scripts:</p>" +
 				       		          "<ul>" +
 				       		          "<li>ReSharper v4.1<br><code>InstallResharperRunner.4.1.bat</code></li>" +
 				       		          "<li>ReSharper v4.5<br><code>InstallResharperRunner.4.5.bat</code></li>" +
