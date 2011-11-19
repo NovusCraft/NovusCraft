@@ -37,7 +37,7 @@
     </Compile>
     <Compile Include="Data\Blog\BlogPost.cs" />
     <Compile Include="Data\Blog\BlogPostCategory.cs" />
-    <Compile Include="Data\Blog\BlogPostRepository.cs" />
+    <Compile Include="Data\Blog\InMemoryBlogPostRepository.cs" />
     <Compile Include="Data\Blog\IBlogPostRepository.cs" />
     <Compile Include="Data\StructureMapConfigurationRegistry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

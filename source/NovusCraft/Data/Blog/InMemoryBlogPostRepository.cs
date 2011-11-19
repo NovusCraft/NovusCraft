@@ -5,7 +5,7 @@ using System;
 
 namespace NovusCraft.Data.Blog
 {
-	public sealed class BlogPostRepository : IBlogPostRepository
+	public sealed class InMemoryBlogPostRepository : IBlogPostRepository
 	{
 		#region IBlogPostRepository Members
 
