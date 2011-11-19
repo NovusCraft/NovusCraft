@@ -29,7 +29,7 @@ namespace NovusCraft.Data.Blog
 			if (slug == "getting-started-with-mspec")
 				return new BlogPost
 				       	{
-							Title = "Getting started with MSpec",
+				       		Title = "Getting started with MSpec",
 				       		Content = "<p>I am a long-time fan of <a href=\"http://xunit.codeplex.com/\" title=\"xUnit.net project on CodePlex\">xUnit.net</a>. I have been using it since it was in early beta and it is my default choice for almost any project. For building Novus Craft, I decided to use something new and very different &mdash; a Context/Specification framework called <a href=\"https://github.com/machine/machine.specifications\" title=\"Machine.Specification project on GitHub\">Machine.Specifications</a>.</p>" +
 				       		          "<p>On my journey to learn MSpec, I have come across a number of helpful tips, instructions and tweaks, so I decided to put together a quick guide on how to get started. I am not going to talk about why or when you should use MSpec. If you want to read about that, check out Aaron Jensen&rsquo;s <a href=\"http://codebetter.com/aaronjensen/2008/05/08/introducing-machine-specifications-or-mspec-for-short/\" title=\"\">Introducing Machine.Specifications (or MSpec for short)</a>. Instead, I will focus on how to setup your development environment.</p>" +
 				       		          "<h2>How to get MSpec</h2>" +
