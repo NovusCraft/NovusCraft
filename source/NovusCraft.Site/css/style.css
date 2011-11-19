@@ -661,11 +661,18 @@ a:visited { color:#a33131; }
 /* CONTENT */
 .post header { margin-top:2em; }
 .post h1 { color:#333; font-size:2.4em; font-weight:normal; margin:0 0 30px 0; }
-.post p { font-size:1.5em; line-height:1.5em; }
-.post ul { padding-left:0; }
-.post li { font-size:1.5em; line-height:1.5em; list-style-type:disc; }
+.post h2 { color:#777; font-size:2em; }
+.post h3 { color:#777; font-size:1.5em; }
+.post p { font-size:1.5em; line-height:1.6em; }
+.post p.warning { background:#feffc3; padding:0 1em; text-indent:0; }
+.post ul,
+.post ol { padding-left:0em; }
+.post ul li { font-size:1.5em; line-height:1.6em; list-style-type:disc; }
+.post ol li { font-size:1.5em; line-height:1.6em; list-style-type:decimal; }
+.post code { color:#444; background-color:#eee; font-family:Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif; padding:0.1em 0.3em; }
 .post p+p { margin-top:1em; text-indent:1em; }
 .post footer { font-size:1.4em; font-style:italic; margin-top:1em; }
+.post .readyForPublishing { background-color:#99eb66; }
 
 /* ASIDE */
 #about-mini { margin-top:5.6em; line-height:1.5em; }
