@@ -33,6 +33,43 @@
 		<p>MSpec is an open-source project, so you can simply pull down the latest source using Git and compile it yourself. Check out <a href="https://github.com/machine/machine.specifications/blob/master/README.markdown" title="MSpec readme file">MSpec readme file</a> for more information.</p>
 		<h2>How to setup MSpec with ReSharper</h2>
 		<p>If you use something other than ReSharper you can skip this stage. If you are not using <em>any</em> productivity plugin &mdash; install <a href="http://www.jetbrains.com/resharper/download/index.html" title="ReSharper download page">ReSharper</a> right now (you will thank me later).</p>
+		<h3>Install ReSharper runner</h3>
+		<p>Default installation of ReSharper has no knowledge of what an MSpec specification is. To enable MSpec support you need to install a ReSharper plugin.</p>
+		<p>MSpec provides plugins compatible with ReSharper v4.1, v4.5, v5.0, v5.1, v6.0 for Visual Studio 2008 and 2010. To install the plugin you need to open MSpec installation directory and execute on the the following scripts:</p>
+		<ul>
+			<li>
+				ReSharper v4.1<br>
+				<code>InstallResharperRunner.4.1.bat</code>
+			</li>
+			<li>
+				ReSharper v4.5<br>
+				<code>InstallResharperRunner.4.5.bat</code>
+			</li>
+			<li>
+				ReSharper v5.0 on Visual Studio 2008<br>
+				<code>InstallResharperRunner.5.0 - VS2008.bat</code>
+			</li>
+			<li>
+				ReSharper v5.0 on Visual Studio 2010<br>
+				<code>InstallResharperRunner.5.0 - VS2010.bat</code>
+			</li>
+			<li>
+				ReSharper v5.1 on Visual Studio 2008<br>
+				<code>InstallResharperRunner.5.1 - VS2008.bat</code>
+			</li>
+			<li>
+				ReSharper v5.1 on Visual Studio 2010<br>
+				<code>InstallResharperRunner.5.1 - VS2010.bat</code>
+			</li>
+			<li>
+				ReSharper v6.0 on Visual Studio 2008<br>
+				<code>InstallResharperRunner.6.0 - VS2008.bat</code>
+			</li>
+			<li>
+				ReSharper v6.0 on Visual Studio 2010<br>
+				<code>InstallResharperRunner.6.0 - VS2010.bat</code>
+			</li>
+		</ul>
 		<h3>Configure ReSharper Naming Rules for MSpec</h3>
 		<p>One of the things you will notice straight away is ReSharper doesn't like MSpec naming conventions. Fortunately, you can configure ReSharper to understand MSpec naming conventions and even warn you when you are not naming you specifications correctly. Derek Greer&rsquo;s article (<a href="http://www.aspiringcraftsman.com/2010/02/11/resharper-naming-style-for-machine-specifications/">Resharper Naming Style for Machine.Specifications</a>) explains how to do this correctly.</p>
 		<h3>Suppress &lsquo;Field is never used&rsquo; warnings</h3>
@@ -47,7 +84,7 @@
 		<h2>Other Resources</h2>
 		<p>I hope you found this information useful. There are lots of other resources available. Check out Byron Sommardahl&rsquo;s <a href="http://www.awkwardcoder.com/index.php/2010/04/13/how-to-mspec/">How to MSpec?</a> for lots of useful links. Another good place is <a href="http://stackoverflow.com/questions/tagged/mspec?sort=newest">StackOveflow questions tagged with MSpec</a>.</p>
 		<footer>
-			Published by @Html.ActionLink("Arnold Zokas", "About", null, new { rel="author" }) on <time datetime="2011-11-12T16:46:05+00:00" pubdate>12th November 2011</time> in category <strong>Testing</strong>.
+			Published by @Html.ActionLink("Arnold Zokas", "About", null, new { rel="author" }) on <time datetime="2011-11-19T16:58:37+00:00" pubdate>19th November 2011</time> in category <strong>Testing</strong>.
 		</footer>
 	</article>
 	<article class="post">
