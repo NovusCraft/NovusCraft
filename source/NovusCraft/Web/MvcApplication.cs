@@ -1,22 +1,43 @@
 ﻿// # Copyright © 2011, Novus Craft
 // # All rights reserved. 
 
+using System;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using NovusCraft.Data;
+using Raven.Client;
+using Raven.Client.Embedded;
 using StructureMap;
 
 namespace NovusCraft.Web
 {
 	public class MvcApplication : HttpApplication
 	{
+		const string RavenDbSession = "RavenDB.Session";
+
+		public MvcApplication()
+		{
+			// NOTE: Don't have a way of testing this. Yet.
+			BeginRequest += (sender, e) => HttpContext.Current.Items[RavenDbSession] = DocumentStore.OpenSession();
+			EndRequest += (sender, e) => ((IDisposable)HttpContext.Current.Items[RavenDbSession]).Dispose();
+		}
+
+		public static EmbeddableDocumentStore DocumentStore { get; set; }
+
 		public void Application_Start()
 		{
+			InitialiseRavenDb();
 			RegisterGlobalFilters(GlobalFilters.Filters);
 			RegisterRoutes(RouteTable.Routes);
 			InitialiseStructureMap();
 			RegisterStructureMapControllerFactory();
+		}
+
+		static void InitialiseRavenDb()
+		{
+			DocumentStore = new EmbeddableDocumentStore {DataDirectory = "App_Data/NovusCraft.RavenDb"};
+			DocumentStore.Initialize();
 		}
 
 		static void RegisterGlobalFilters(GlobalFilterCollection filters)
@@ -41,7 +62,13 @@ namespace NovusCraft.Web
 
 		static void InitialiseStructureMap()
 		{
-			ObjectFactory.Configure(c => c.AddRegistry<StructureMapConfigurationRegistry>());
+			ObjectFactory.Configure(c =>
+				{
+					c.AddRegistry<StructureMapConfigurationRegistry>();
+
+					// NOTE: Don't have a way of testing this. Yet.
+					c.For<IDocumentSession>().HybridHttpOrThreadLocalScoped().Use(ce => (IDocumentSession)HttpContext.Current.Items[RavenDbSession]);
+				});
 		}
 
 		static void RegisterStructureMapControllerFactory()

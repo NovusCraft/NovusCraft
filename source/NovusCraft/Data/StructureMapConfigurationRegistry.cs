@@ -12,7 +12,7 @@ namespace NovusCraft.Data
 	{
 		public StructureMapConfigurationRegistry()
 		{
-			For<IBlogPostRepository>().Singleton().Use<InMemoryBlogPostRepository>();
+			For<IBlogPostRepository>().Singleton().Use<BlogPostRepository>();
 		}
 	}
 }

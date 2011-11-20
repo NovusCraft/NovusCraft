@@ -37,7 +37,7 @@
     </Compile>
     <Compile Include="Data\Blog\BlogPost.cs" />
     <Compile Include="Data\Blog\BlogPostCategory.cs" />
-    <Compile Include="Data\Blog\InMemoryBlogPostRepository.cs" />
+    <Compile Include="Data\Blog\BlogPostRepository.cs" />
     <Compile Include="Data\Blog\IBlogPostRepository.cs" />
     <Compile Include="Data\StructureMapConfigurationRegistry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -51,6 +51,15 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Raven.Client.Embedded">
+      <HintPath>..\..\lib\RavenDB build 531\Raven.Client.Embedded.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Client.Lightweight">
+      <HintPath>..\..\lib\RavenDB build 531\Raven.Client.Lightweight.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Storage.Esent">
+      <HintPath>..\..\lib\RavenDB build 531\Raven.Storage.Esent.dll</HintPath>
+    </Reference>
     <Reference Include="StructureMap">
       <HintPath>..\packages\structuremap.2.6.3\lib\StructureMap.dll</HintPath>
     </Reference>

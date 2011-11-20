@@ -1,6 +1,7 @@
 ﻿// # Copyright © 2011, Novus Craft
 // # All rights reserved. 
 
+using System.Linq;
 using Machine.Specifications;
 using NovusCraft.Data;
 using NovusCraft.Data.Blog;
@@ -15,6 +16,6 @@ namespace NovusCraft.Specifications.DataSpecs.StructureMapConfigurationRegistryS
 		Because of = () => container = new Container(registry);
 
 		It should_register_blog_category_repository =
-			() => container.GetInstance<IBlogPostRepository>().ShouldBeOfType<InMemoryBlogPostRepository>();
+			() => container.Model.PluginTypes.Any(pt => pt.PluginType == typeof(IBlogPostRepository) && pt.Default.ConcreteType == typeof(BlogPostRepository)).ShouldBeTrue();
 	}
 }

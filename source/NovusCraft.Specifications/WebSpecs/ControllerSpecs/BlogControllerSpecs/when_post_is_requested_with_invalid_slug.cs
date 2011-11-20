@@ -16,5 +16,8 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 
 		It should_return_404_page =
 			() => result.ShouldBeAView().And().ViewName.ShouldEqual("PageNotFound");
+
+		It should_set_status_code_to_404 =
+			() => http_response.VerifySet(hr => hr.StatusCode = 404);
 	}
 }
