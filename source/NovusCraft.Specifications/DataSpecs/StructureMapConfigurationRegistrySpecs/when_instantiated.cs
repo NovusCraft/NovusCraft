@@ -17,5 +17,8 @@ namespace NovusCraft.Specifications.DataSpecs.StructureMapConfigurationRegistryS
 
 		It should_register_blog_category_repository =
 			() => container.Model.PluginTypes.Any(pt => pt.PluginType == typeof(IBlogPostRepository) && pt.Default.ConcreteType == typeof(BlogPostRepository)).ShouldBeTrue();
+
+		It should_set_blog_category_repository_lifecycle_as_hybrid =
+			() => container.Model.PluginTypes.Single(pt => pt.PluginType == typeof(IBlogPostRepository) && pt.Default.ConcreteType == typeof(BlogPostRepository)).Lifecycle.ShouldEqual("Hybrid");
 	}
 }
