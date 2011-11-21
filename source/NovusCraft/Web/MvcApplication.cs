@@ -55,7 +55,7 @@ namespace NovusCraft.Web
 			routes.MapRoute("Contact", "contact", new {controller = "Home", action = "Contact"});
 
 			// blog section
-			routes.MapRoute("Blog Post", "blog/{year}/{month}/{slug}", new {controller = "Blog", action = "ViewPost"}, new {year = @"\d{4,4}", month = @"\d{2,2}"});
+			routes.MapRoute("Blog Post", "blog/{slug}", new {controller = "Blog", action = "ViewPost"});
 
 			routes.MapRoute("404", "{*url}", new {controller = "Home", action = "PageNotFound"});
 		}

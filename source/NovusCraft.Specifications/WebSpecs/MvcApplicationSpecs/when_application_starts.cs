@@ -26,7 +26,7 @@ namespace NovusCraft.Specifications.WebSpecs.MvcApplicationSpecs
 			() => "~/".ShouldMapTo<HomeController>(controller => controller.Home());
 
 		It should_register_blog_post_route =
-			() => "~/blog/2011/11/post-slug".ShouldMapTo<BlogController>(controller => controller.ViewPost("post-slug"));
+			() => "~/blog/post-slug".ShouldMapTo<BlogController>(controller => controller.ViewPost("post-slug"));
 
 		It should_register_about_route =
 			() => "~/about".ShouldMapTo<HomeController>(controller => controller.About());
