@@ -27,12 +27,17 @@ namespace NovusCraft.Web.Controllers
 				return View("PageNotFound");
 			}
 
+			var requestUrl = Request.Url;
+			var permalink = string.Format("{0}://{1}{2}", requestUrl.Scheme, requestUrl.Host, requestUrl.AbsolutePath);
+			var disqusId = blogPost.Id.Substring(blogPost.Id.LastIndexOf("/") + 1);
 			var model = new ViewPostModel
 			            	{
 			            		Title = blogPost.Title,
 			            		Content = new MvcHtmlString(blogPost.Content),
+			            		Permalink = permalink,
 			            		CategoryTitle = blogPost.Category.Title,
-			            		PublishedOn = blogPost.PublishedOn
+			            		PublishedOn = blogPost.PublishedOn,
+			            		DisqusId = disqusId
 			            	};
 
 			return View(model);

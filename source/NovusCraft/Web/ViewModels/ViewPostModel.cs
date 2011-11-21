@@ -8,8 +8,10 @@ namespace NovusCraft.Web.ViewModels
 {
 	public sealed class ViewPostModel
 	{
+		public string DisqusId { get; set; }
 		public string Title { get; set; }
 		public IHtmlString Content { get; set; }
+		public string Permalink { get; set; }
 		public string CategoryTitle { get; set; }
 		public DateTimeOffset PublishedOn { get; set; }
 	}

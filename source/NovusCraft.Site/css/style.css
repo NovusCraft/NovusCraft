@@ -672,7 +672,6 @@ a:visited { color:#a33131; }
 .post code { color:#444; background-color:#eee; font-family:Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif; padding:0.1em 0.3em; }
 .post p+p { margin-top:1em; text-indent:1em; }
 .post footer { font-size:1.4em; font-style:italic; margin-top:1em; }
-.post .readyForPublishing { background-color:#99eb66; }
 
 /* ASIDE */
 #about-mini { margin-top:5.6em; line-height:1.5em; }
