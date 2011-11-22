@@ -6,6 +6,24 @@
 	</header>
 	<article class="post">
 		<header>
+			<h1>@Html.ActionLink("Hello, Raven DB", "ViewPost", "Blog", new { slug = "hello-raven-db" }, null)</h1>
+		</header>
+		<p>Goodbye, hard-coded HTML &mdash; hello, <a href="http://ravendb.net/" title="Raven is an Open Source (with a commercial option) document database for the .NET/Windows platform.">Raven DB</a>. I finally managed to find some time to have a good think about my persistence strategy. Raven DB has been on my radar since it was first announced by Ayende, but I had no opporunity to use it until now.</p>
+		<p>This is my first Raven DB implementation and so far I am pleased with the way it is going:</p>
+		<ul>
+			<li><strong>It is very easy to pick up and just feels natural:</strong> it took me about an hour to implement basic <em>display blog post</em> functionality</li>
+			<li><strong>It took about 15 lines of code to implement:</strong> including UnitOfWork and StructureMap wiring, exluding specifications and the usual IRepository scaffolding</li>
+			<li><strong>It is incredibly fast:</strong> I am using the embedded mode, so there is no network cost</li>
+			<li><strong>There is a strong community growing around it:</strong> as evidenced by <a href="http://stackoverflow.com/questions/tagged/ravendb" title="StackOverflow questions tagged Raven DB">StackOverflow</a> and <a href="http://www.google.co.uk/search?q=ravendb+get+started" title="Google search results for 'ravendb get started'">Google</a></li>
+			<li><strong>The project has great visibility:</strong> it is available publicly <a href="https://github.com/ravendb/ravendb" title="Raven DB project on GitHub">on GitHub</a>, so you can play around with the source and <a href="https://github.com/ravendb/ravendb/issues" title="Raven DB issues">post bug reports</a> (Ayende usually replies very quickly, the man never rests)</li>
+		</ul>
+		<p>Another thing worth mentioning is that API is not yet stable, so there are articles containing outdated code samples. Of course, this will change as Raven DB gains adoption.</p>
+		<footer>
+			Published by @Html.ActionLink("Arnold Zokas", "About", null, new { rel="author" }) on <time datetime="2011-11-22T00:40:21+00:00" pubdate>22nd November 2011</time> in category <strong>Databases</strong>.
+		</footer>
+	</article>
+	<article class="post">
+		<header>
 			<h1>@Html.ActionLink("Getting started with MSpec", "ViewPost", "Blog", new { slug = "getting-started-with-mspec" }, null)</h1>
 		</header>
 		<p>I am a long-time fan of <a href="http://xunit.codeplex.com/" title="xUnit.net project on CodePlex">xUnit.net</a>. I have been using it since it was in early beta and it is my default choice for almost any project. For building Novus Craft, I decided to use something new and very different &mdash; a Context/Specification framework called <a href="https://github.com/machine/machine.specifications" title="Machine.Specification project on GitHub">Machine.Specifications</a>.</p>
