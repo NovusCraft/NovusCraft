@@ -7,6 +7,7 @@ using Machine.Specifications;
 using NovusCraft.Specifications.Utils;
 using NovusCraft.Web;
 using NovusCraft.Web.Controllers;
+using Raven.Client;
 using StructureMap;
 
 namespace NovusCraft.Specifications.WebSpecs.MvcApplicationSpecs
@@ -15,6 +16,12 @@ namespace NovusCraft.Specifications.WebSpecs.MvcApplicationSpecs
 	public class when_application_starts : mvc_application_spec
 	{
 		Because of = () => application.Application_Start();
+
+		Cleanup after = () =>
+			{
+				var documentStore = ObjectFactory.GetInstance<IDocumentStore>();
+				if (documentStore != null) documentStore.Dispose();
+			};
 
 		It should_add_handle_error_filter_to_global_filters =
 			() => GlobalFilters.Filters.ShouldContain(f => f.Instance.GetType().Name == typeof(HandleErrorAttribute).Name);
@@ -43,11 +50,5 @@ namespace NovusCraft.Specifications.WebSpecs.MvcApplicationSpecs
 
 		It should_register_structuremap_controller_factory =
 			() => ControllerBuilder.Current.GetControllerFactory().ShouldBeOfType<StructureMapControllerFactory>();
-
-		It should_initialise_ravendb_document_store =
-			() => MvcApplication.RavenDbDocumentStore.DocumentDatabase.ShouldNotBeNull();
-
-		It should_set_ravendb_document_store_connection_string_to_raven =
-			() => MvcApplication.RavenDbDocumentStore.ConnectionStringName.ShouldEqual("Raven");
 	}
 }

@@ -5,30 +5,18 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using NovusCraft.Data;
-using Raven.Client.Embedded;
 using StructureMap;
 
 namespace NovusCraft.Web
 {
 	public class MvcApplication : HttpApplication
 	{
-		const string RavenDbConnectionStringName = "Raven";
-
-		public static EmbeddableDocumentStore RavenDbDocumentStore { get; private set; }
-
 		public void Application_Start()
 		{
-			InitialiseRavenDb();
 			RegisterGlobalFilters(GlobalFilters.Filters);
 			RegisterRoutes(RouteTable.Routes);
 			InitialiseStructureMap();
 			RegisterStructureMapControllerFactory();
-		}
-
-		static void InitialiseRavenDb()
-		{
-			RavenDbDocumentStore = new EmbeddableDocumentStore {ConnectionStringName = RavenDbConnectionStringName};
-			RavenDbDocumentStore.Initialize();
 		}
 
 		static void RegisterGlobalFilters(GlobalFilterCollection filters)

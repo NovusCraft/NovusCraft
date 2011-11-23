@@ -3,7 +3,6 @@
 
 using System;
 using NovusCraft.Data.Blog;
-using NovusCraft.Web;
 using Raven.Client;
 using StructureMap.Configuration.DSL;
 
@@ -14,14 +13,15 @@ namespace NovusCraft.Data
 	{
 		public StructureMapConfigurationRegistry()
 		{
-			RegisterDocumentSession();
+			RegisterRavenDb();
 
 			For<IBlogPostRepository>().HybridHttpOrThreadLocalScoped().Use<BlogPostRepository>();
 		}
 
-		void RegisterDocumentSession()
+		void RegisterRavenDb()
 		{
-			For<IDocumentSession>().HybridHttpOrThreadLocalScoped().Use(() => MvcApplication.RavenDbDocumentStore.OpenSession());
+			ForSingletonOf<IDocumentStore>().Use(DocumentStoreFactory.CreateEmbeddableDocumentStore());
+			For<IDocumentSession>().HybridHttpOrThreadLocalScoped().Use(context => context.GetInstance<IDocumentStore>().OpenSession());
 		}
 	}
 }

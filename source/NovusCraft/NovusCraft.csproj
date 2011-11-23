@@ -39,6 +39,7 @@
     <Compile Include="Data\Blog\BlogPostCategory.cs" />
     <Compile Include="Data\Blog\BlogPostRepository.cs" />
     <Compile Include="Data\Blog\IBlogPostRepository.cs" />
+    <Compile Include="Data\DocumentStoreFactory.cs" />
     <Compile Include="Data\StructureMapConfigurationRegistry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Web\Controllers\BlogController.cs" />
