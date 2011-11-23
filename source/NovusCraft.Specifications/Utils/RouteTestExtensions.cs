@@ -15,20 +15,16 @@ namespace NovusCraft.Specifications.Utils
 	{
 		public static void ShouldBeIgnored(this string requestUrl)
 		{
-			var httpContext = new Mock<HttpContextBase>();
-			httpContext.Setup(c => c.Request.AppRelativeCurrentExecutionFilePath).Returns(requestUrl);
+			var routeData = GetRouteData(requestUrl);
 
-			var routeData = RouteTable.Routes.GetRouteData(httpContext.Object);
 			routeData.ShouldNotBeNull();
 			routeData.RouteHandler.ShouldBeOfType<StopRoutingHandler>();
 		}
 
 		public static void ShouldMapTo<TController>(this string requestUrl, Expression<Action<TController>> action) where TController : Controller
 		{
-			var httpContext = new Mock<HttpContextBase>();
-			httpContext.Setup(c => c.Request.AppRelativeCurrentExecutionFilePath).Returns(requestUrl);
+			var routeData = GetRouteData(requestUrl);
 
-			var routeData = RouteTable.Routes.GetRouteData(httpContext.Object);
 			routeData.ShouldNotBeNull();
 
 			var controllerName = typeof(TController).Name.Replace("Controller", string.Empty);
@@ -36,6 +32,15 @@ namespace NovusCraft.Specifications.Utils
 
 			var actionName = ((MethodCallExpression)action.Body).Method.Name;
 			routeData.Values["action"].ShouldEqual(actionName);
+		}
+
+		static RouteData GetRouteData(string requestUrl)
+		{
+			var httpContext = new Mock<HttpContextBase>();
+			httpContext.Setup(c => c.Request.AppRelativeCurrentExecutionFilePath).Returns(requestUrl);
+
+			var routeData = RouteTable.Routes.GetRouteData(httpContext.Object);
+			return routeData;
 		}
 	}
 }
