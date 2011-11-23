@@ -14,10 +14,11 @@ namespace NovusCraft.Web.Controllers
 			if (filterContext.IsChildAction)
 				return;
 
-			var documentSession = ObjectFactory.GetInstance<IDocumentSession>();
-			if (filterContext.Exception == null)
-				documentSession.SaveChanges();
-			documentSession.Dispose();
+			using (var documentSession = ObjectFactory.GetInstance<IDocumentSession>())
+			{
+				if (filterContext.Exception == null)
+					documentSession.SaveChanges();
+			}
 
 			base.OnActionExecuted(filterContext);
 		}
