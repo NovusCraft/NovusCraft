@@ -8,7 +8,7 @@ using NovusCraft.Web.ViewModels;
 
 namespace NovusCraft.Web.Controllers
 {
-	public sealed class BlogController : Controller
+	public sealed class BlogController : ControllerBase
 	{
 		readonly IBlogPostRepository _blogPostRepository;
 

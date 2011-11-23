@@ -4,7 +4,8 @@
       <Filter ModuleMask="*" ClassMask="*" FunctionMask="*" />
     </IncludeFilters>
     <ExcludeFilters>
-      <Filter ModuleMask="*" ClassMask="*" FunctionMask="GetControllerInstance" />
+      <Filter ModuleMask="NovusCraft" ClassMask="NovusCraft.Data.StructureMapConfigurationRegistry" FunctionMask="RegisterDocumentSession" />
+      <Filter ModuleMask="NovusCraft" ClassMask="NovusCraft.Web.StructureMapControllerFactory" FunctionMask="GetControllerInstance" />
     </ExcludeFilters>
   </CoverageFilters>
   <SnapshotDialog>

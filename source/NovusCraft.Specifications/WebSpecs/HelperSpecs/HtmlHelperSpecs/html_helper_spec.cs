@@ -15,8 +15,6 @@ namespace NovusCraft.Specifications.WebSpecs.HelperSpecs.HtmlHelperSpecs
 		protected static HtmlHelper<dynamic> helper;
 		protected static RouteData route_data;
 
-		Cleanup cleanup = () => RouteTable.Routes.Clear();
-
 		Establish context = () =>
 			{
 				var httpRequestBase = new Mock<HttpRequestBase>();
@@ -40,5 +38,7 @@ namespace NovusCraft.Specifications.WebSpecs.HelperSpecs.HtmlHelperSpecs
 				RouteTable.Routes.MapRoute("Route A", "route-a", new {controller = "Home", action = "RouteA"});
 				RouteTable.Routes.MapRoute("Route B", "route-b", new {controller = "Home", action = "RouteB"});
 			};
+
+		Cleanup after = () => RouteTable.Routes.Clear();
 	}
 }

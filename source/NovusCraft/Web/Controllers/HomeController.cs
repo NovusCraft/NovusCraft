@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace NovusCraft.Web.Controllers
 {
-	public sealed class HomeController : Controller
+	public sealed class HomeController : ControllerBase
 	{
 		public ActionResult Home()
 		{

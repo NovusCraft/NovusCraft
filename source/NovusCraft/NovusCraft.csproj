@@ -42,6 +42,7 @@
     <Compile Include="Data\StructureMapConfigurationRegistry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Web\Controllers\BlogController.cs" />
+    <Compile Include="Web\Controllers\ControllerBase.cs" />
     <Compile Include="Web\Controllers\HomeController.cs" />
     <Compile Include="Web\Helpers\HtmlHelpers.cs" />
     <Compile Include="Web\MvcApplication.cs" />

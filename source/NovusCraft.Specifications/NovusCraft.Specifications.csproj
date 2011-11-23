@@ -46,6 +46,10 @@
     <Compile Include="WebSpecs\ControllerSpecs\BlogControllerSpecs\blog_controller_spec.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\BlogControllerSpecs\when_post_is_requested_with_invalid_slug.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\BlogControllerSpecs\when_post_is_requested.cs" />
+    <Compile Include="WebSpecs\ControllerSpecs\ControllerBaseSpecs\blog_controller_spec.cs" />
+    <Compile Include="WebSpecs\ControllerSpecs\ControllerBaseSpecs\when_action_is_executed_with_exception.cs" />
+    <Compile Include="WebSpecs\ControllerSpecs\ControllerBaseSpecs\when_action_is_executed.cs" />
+    <Compile Include="WebSpecs\ControllerSpecs\ControllerBaseSpecs\when_child_action_is_executed.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\HomeControllerSpecs\when_invalid_page_is_requested.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\HomeControllerSpecs\when_contact_page_is_requested.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\HomeControllerSpecs\when_home_page_is_requested.cs" />
@@ -60,6 +64,18 @@
     <Compile Include="WebSpecs\UtilSpecs\FormatExtensionSpecs\when_date_is_formatted_to_long_date.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="ICSharpCode.NRefactory">
+      <HintPath>..\..\lib\RavenDB build 531\ICSharpCode.NRefactory.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net">
+      <HintPath>..\..\lib\RavenDB build 531\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Spatial">
+      <HintPath>..\..\lib\RavenDB build 531\Lucene.Net.Contrib.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.SpellChecker">
+      <HintPath>..\..\lib\RavenDB build 531\Lucene.Net.Contrib.SpellChecker.dll</HintPath>
+    </Reference>
     <Reference Include="Machine.Specifications">
       <HintPath>..\packages\Machine.Specifications.0.4.24.0\lib\Machine.Specifications.dll</HintPath>
     </Reference>
@@ -77,6 +93,7 @@
     <Reference Include="Raven.Client.Lightweight">
       <HintPath>..\..\lib\RavenDB build 531\Raven.Client.Lightweight.dll</HintPath>
     </Reference>
+    <Reference Include="Raven.Database, Version=1.0.0.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL" />
     <Reference Include="Raven.Storage.Esent">
       <HintPath>..\..\lib\RavenDB build 531\Raven.Storage.Esent.dll</HintPath>
     </Reference>
@@ -91,6 +108,7 @@
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

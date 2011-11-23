@@ -7,6 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "miscellaneous", "miscellane
 	ProjectSection(SolutionItems) = preProject
 		..\.gitignore = ..\.gitignore
 		..\license = ..\license
+		NovusCraft.1.1.dotCover = NovusCraft.1.1.dotCover
 		..\readme.md = ..\readme.md
 	EndProjectSection
 EndProject

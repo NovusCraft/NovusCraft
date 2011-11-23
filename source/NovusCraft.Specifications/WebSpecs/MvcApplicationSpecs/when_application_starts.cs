@@ -44,7 +44,10 @@ namespace NovusCraft.Specifications.WebSpecs.MvcApplicationSpecs
 		It should_register_structuremap_controller_factory =
 			() => ControllerBuilder.Current.GetControllerFactory().ShouldBeOfType<StructureMapControllerFactory>();
 
-		It should_initialise_ravendb =
-			() => MvcApplication.DocumentStore.Identifier.ShouldNotBeEmpty();
+		It should_initialise_ravendb_document_store =
+			() => MvcApplication.RavenDbDocumentStore.DocumentDatabase.ShouldNotBeNull();
+
+		It should_set_ravendb_document_store_connection_string_to_raven =
+			() => MvcApplication.RavenDbDocumentStore.ConnectionStringName.ShouldEqual("Raven");
 	}
 }
