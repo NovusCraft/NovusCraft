@@ -645,6 +645,91 @@ body {
   zoom: 1;
 }
 
+
+/* =============================================================================
+   Visual Studio-like style based on original C# coloring by Jason Diamond <jason@diamond.name>
+   ========================================================================== */
+
+pre code { 
+  display: block; padding: 0.5em;
+}
+
+pre .comment,
+pre .annotation,
+pre .template_comment,
+pre .diff .header,
+pre .chunk,
+pre .apache .cbracket {
+  color: rgb(0, 128, 0);
+}
+
+pre .keyword,
+pre .id,
+pre .title,
+pre .built_in,
+pre .aggregate,
+pre .smalltalk .class,
+pre .winutils,
+pre .bash .variable,
+pre .tex .command {
+  color: rgb(0, 0, 255);
+}
+
+pre .string,
+pre .title,
+pre .parent,
+pre .tag .value,
+pre .rules .value,
+pre .rules .value .number,
+pre .ruby .symbol,
+pre .ruby .symbol .string,
+pre .ruby .symbol .keyword,
+pre .ruby .symbol .keymethods,
+pre .instancevar,
+pre .aggregate,
+pre .template_tag,
+pre .django .variable,
+pre .addition,
+pre .flow,
+pre .stream,
+pre .apache .tag,
+pre .date,
+pre .tex .formula {
+  color: rgb(163, 21, 21);
+}
+
+pre .ruby .string,
+pre .decorator,
+pre .filter .argument,
+pre .localvars,
+pre .array,
+pre .attr_selector,
+pre .pseudo,
+pre .pi,
+pre .doctype,
+pre .deletion,
+pre .envvar,
+pre .shebang,
+pre .preprocessor,
+pre .userType,
+pre .apache .sqbracket,
+pre .nginx .built_in,
+pre .tex .special,
+pre .input_number {
+  color: rgb(43, 145, 175);
+}
+
+pre .phpdoc,
+pre .javadoc,
+pre .xmlDocTag {
+  color: rgb(128, 128, 128);
+}
+
+pre .vhdl .type { font-weight: bold; }
+pre .vhdl .string { color: #666666; }
+pre .vhdl .literal { color: rgb(163, 21, 21); }
+
+
 /* =============================================================================
    Primary styles
    Author: Arnold Zokas
@@ -659,19 +744,29 @@ a:hover { background:#efefef; border-bottom-style:solid; }
 a:visited { color:#a33131; }
 
 /* CONTENT */
+/* post */
 .post header { margin-top:2em; }
 .post h1 { color:#333; font-size:2.4em; font-weight:normal; margin:0 0 30px 0; }
 .post h2 { color:#777; font-size:2em; }
 .post h3 { color:#777; font-size:1.5em; }
 .post p { font-size:1.5em; line-height:1.6em; }
 .post p.warning { background:#feffc3; padding:0 1em; text-indent:0; }
+.post p.warning:before { content:"Note: "; }
 .post ul,
 .post ol { padding-left:1.5em; }
 .post ul li { font-size:1.5em; line-height:1.6em; list-style-type:disc; }
 .post ol li { font-size:1.5em; line-height:1.6em; list-style-type:decimal; }
-.post code { color:#444; background-color:#eee; font-family:Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif; padding:0.1em 0.3em; }
+.post p code,
+.post li code { color:#444; background-color:#eee; font-family:Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif; padding:0.1em 0.3em; }
+.post pre+p,
 .post p+p { margin-top:1em; text-indent:1em; }
 .post footer { font-size:1.4em; font-style:italic; margin-top:1em; }
+
+/* post (code sample) */
+pre { font-family:Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif; margin:0; }
+p+pre { margin-top:1em; }
+pre+pre { margin-top:2em; }
+pre code { border-left:solid 0.5em #ccc; font-size:1.4em; line-height:1.3em; margin-left:-1.5em; padding:0 0 0 1em; }
 
 /* ASIDE */
 #about-mini { margin-top:5.6em; line-height:1.5em; }

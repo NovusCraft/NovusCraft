@@ -6,6 +6,87 @@
 	</header>
 	<article class="post">
 		<header>
+			<h1>@Html.ActionLink("How to implement Raven DB UnitOfWork in an ASP.NET MVC application", "ViewPost", "Blog", new { slug = "how-to-implement-raven-db-unitofwork-in-an-asp-net-mvc-application" }, null)</h1>
+		</header>
+		<p>I have been looking at ways to implement UnitOfWork pattern for Raven DB. The three implementations I have found did not match my needs, so in the end decided to roll my own.</p>
+		<h2>Implementation #1</h2>
+		<p>Shiju Varghese&rsquo;s <a href="http://weblogs.asp.net/shijuvarghese/archive/2010/05/26/nosql-with-ravendb-and-asp-net-mvc-part-1.aspx" title="'NoSQL with RavenDB and ASP.NET MVC - Part 1' by Shiju Varghese">NoSQL with RavenDB and ASP.NET MVC - Part 1</a> is the least complicated of the three, but suffers from a few problems:</p>
+		<ul>
+			<li><strong>Bad <code>IDocumentSession</code> lifetime management:</strong> <code>IDocumentSession</code> lifetime is controlled via HttpApplication <code>BeginRequest</code>/<code>EndRequest</code> event handlers. This makes unit testing complicated</li>
+			<li><strong><code>IDocumentSession</code> is exposed as a static property of HttpApplication:</strong> a repository should not have a dependency on HttpApplication. Dependencies like that should be managed via constructor/property injection</li>
+			<li><strong>Calls to <code>IDocumentSession.SaveChanges()</code> method at repository level: </strong> this prevents Raven DB from optimising write operations when you make multiple inserts/updates/deletes within a single HttpRequest. <code>SaveChanges()</code> should, in most cases, be called only once and at the end of the request</li>
+		</ul>
+		<p class="warning">I have been using Raven DB for about 5 hours, so my understanding of its inner workings could be completely wrong. Feel free to point out any errors in the comments.</p>
+		<h2>Implementation #2</h2>
+		<p>Justin Schwartzenberger&rsquo;s <a href="http://msdn.microsoft.com/en-us/magazine/hh547101.aspx" title="'Embedding RavenDB into an ASP.NET MVC 3 Application' by Justin Schwartzenberger">Embedding RavenDB into an ASP.NET MVC 3 Application</a> takes the shared base Controller class approach.</p>
+		<p>I find using custom Controller base class to handle <code>IDocumentSession</code> lifetime messy. It breaks Single Responsibility Principle. The controller should not be responsible for lifetime management of its dependencies. This is an infrastructure concern and should be handled elsewhere.</p>
+		<h2>Implementation #3</h2>
+		<p>Primary Objects&rsquo; <a href="http://www.primaryobjects.com/CMS/Article125.aspx" title="'Generating Flying Creatures in NoSQL RavenDB with C# ASP .NET MVC Razor' by Primary Objects">Generating Flying Creatures in NoSQL RavenDB with C# ASP .NET MVC Razor</a> is the top ranking result for <a href="http://www.google.co.uk/search?q=ravendb+unitofwork+mvc" title="Google ravendb+unitofwork+mvc">Google search (ravendb+unitofwork+mvc)</a>. It is very close to what I need, but has some unwanted characteristics:</p>
+		<ul>
+			<li><strong>Wrappers, wrappers and more wrappers:</strong> you don't <em>need</em> a UnitOfWork wrapper with Raven DB. The same lifetime management logic can be handled by a properly configured IOC/DI framework</li>
+			<li><strong>Weighty Repository pattern implementation:</strong> I like my repositories lean: plain class with some get/put/delete methods</li>
+			<li><strong>Calls to <code>IDocumentSession.SaveChanges()</code> method at repository level:</strong> <em>same comments as Implementation 1</em></li>
+		</ul>
+		<h2>Requirements</h2>
+		<p>I am looking for a solution that:</p>
+		<ul>
+			<li>Disposes Raven DB DocumentSession automatically at the end of the HttpRequest</li>
+			<li>Calls IDocumentSession.SaveChanges() automatically at the end of the HttpRequest</li>
+			<li>Does not rely on custom Controller base class</li>
+			<li>Is testable and has 100% coverage</li>
+			<li>Is clean (self-contained)</li>
+			<li>Is simple (no wrappers)</li>
+		</ul>
+		<h2>My implementation</h2>
+		<p>Borrowing some concepts from other solutions, I have put together a basic implementation that satisfies these requirements. I am using StructureMap, but this can probably be easily replicated with any other IOC/DI frameworks.</p>
+		<pre><code class="c#">public class MvcApplication : HttpApplication
+{
+	public void Application_Start()
+	{
+		// initialise StructureMap
+		ObjectFactory.Initialize(iex => {
+			iex.ForSingletonOf&lt;IDocumentStore&gt;()
+			   .Use(DocumentStoreFactory.CreateDocumentStore());
+		
+			iex.For&lt;IDocumentSession&gt;()
+			   .HybridHttpOrThreadLocalScoped()
+			   .Use(c => c.GetInstance&lt;IDocumentStore&gt;().OpenSession());
+		});
+		
+		// register global filters, register routes, etc...
+	}
+
+	public void Application_EndRequest()
+	{
+		var model = ObjectFactory.Container.Model;
+		var reference = model.InstancesOf&lt;IDocumentSession&gt;().Single();
+
+		if (reference.ObjectHasBeenCreated() == false)
+			return; // object was not constructed so there is nothing to do
+		
+		var documentSession = ObjectFactory.GetInstance&lt;IDocumentSession&gt;();
+		documentSession.SaveChanges();
+		documentSession.Dispose();
+	}
+}</code></pre>
+<pre><code class="c#">public static class DocumentStoreFactory
+{
+	public static IDocumentStore CreateDocumentStore()
+	{
+		var documentStore = new DocumentStore();
+		documentStore.ConnectionStringName = "Raven";
+		documentStore.Initialize();
+
+		return documentStore;
+	}
+}</code></pre>
+		<p>For implementation and test examples have a look at <a href="https://github.com/NovusCraft/NovusCraft" title="novuscraft.com project on GitHub">novuscraft.com Git repository</a>.</p>
+		<footer>
+			Published by @Html.ActionLink("Arnold Zokas", "About", null, new { rel="author" }) on <time datetime="2011-11-24T03:18:18+00:00" pubdate>24th November 2011</time> in category <strong>Databases</strong>.
+		</footer>
+	</article>
+	<article class="post">
+		<header>
 			<h1>@Html.ActionLink("Hello, Raven DB", "ViewPost", "Blog", new { slug = "hello-raven-db" }, null)</h1>
 		</header>
 		<p>Goodbye, hard-coded HTML &mdash; hello, <a href="http://ravendb.net/" title="Raven is an Open Source (with a commercial option) document database for the .NET/Windows platform.">Raven DB</a>. I finally managed to find some time to have a good think about my persistence strategy. Raven DB has been on my radar since it was first announced by Ayende, but I had no opportunity to use it until now.</p>
