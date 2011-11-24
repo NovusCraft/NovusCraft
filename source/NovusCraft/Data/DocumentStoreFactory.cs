@@ -11,10 +11,10 @@ namespace NovusCraft.Data
 
 		public static EmbeddableDocumentStore CreateEmbeddableDocumentStore()
 		{
-			var embeddableDocumentStore = new EmbeddableDocumentStore {ConnectionStringName = ConnectionStringName};
-			embeddableDocumentStore.Initialize();
-
-			return embeddableDocumentStore;
+			var documentStore = new EmbeddableDocumentStore { ConnectionStringName = ConnectionStringName };
+			documentStore.Initialize();
+			
+			return documentStore;
 		}
 	}
 }

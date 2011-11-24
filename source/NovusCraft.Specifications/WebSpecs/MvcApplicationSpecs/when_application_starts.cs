@@ -7,7 +7,6 @@ using Machine.Specifications;
 using NovusCraft.Specifications.Utils;
 using NovusCraft.Web;
 using NovusCraft.Web.Controllers;
-using Raven.Client;
 using StructureMap;
 
 namespace NovusCraft.Specifications.WebSpecs.MvcApplicationSpecs
@@ -16,12 +15,6 @@ namespace NovusCraft.Specifications.WebSpecs.MvcApplicationSpecs
 	public class when_application_starts : mvc_application_spec
 	{
 		Because of = () => application.Application_Start();
-
-		Cleanup after = () =>
-			{
-				var documentStore = ObjectFactory.GetInstance<IDocumentStore>();
-				if (documentStore != null) documentStore.Dispose();
-			};
 
 		It should_add_handle_error_filter_to_global_filters =
 			() => GlobalFilters.Filters.ShouldContain(f => f.Instance.GetType().Name == typeof(HandleErrorAttribute).Name);

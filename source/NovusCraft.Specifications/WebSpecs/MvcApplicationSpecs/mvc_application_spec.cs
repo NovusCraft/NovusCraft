@@ -3,6 +3,8 @@
 
 using Machine.Specifications;
 using NovusCraft.Web;
+using Raven.Client;
+using StructureMap;
 
 namespace NovusCraft.Specifications.WebSpecs.MvcApplicationSpecs
 {
@@ -11,5 +13,11 @@ namespace NovusCraft.Specifications.WebSpecs.MvcApplicationSpecs
 		protected static MvcApplication application;
 
 		Establish context = () => { application = new MvcApplication(); };
+
+		Cleanup after = () =>
+			{
+				var documentStore = ObjectFactory.GetInstance<IDocumentStore>();
+				if (documentStore != null) documentStore.Dispose();
+			};
 	}
 }

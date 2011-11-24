@@ -1,10 +1,14 @@
 ﻿// # Copyright © 2011, Novus Craft
 // # All rights reserved. 
 
+using System;
+using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using NovusCraft.Data;
+using NovusCraft.Data.Blog;
+using Raven.Client;
 using StructureMap;
 
 namespace NovusCraft.Web
@@ -17,6 +21,17 @@ namespace NovusCraft.Web
 			RegisterRoutes(RouteTable.Routes);
 			InitialiseStructureMap();
 			RegisterStructureMapControllerFactory();
+		}
+
+		public void Application_EndRequest()
+		{
+			var documentSessionRef = ObjectFactory.Container.Model.InstancesOf<IDocumentSession>().Single();
+
+			if (documentSessionRef.ObjectHasBeenCreated() == false)
+				return;
+
+			using (var documentSession = ObjectFactory.GetInstance<IDocumentSession>())
+				documentSession.SaveChanges();
 		}
 
 		static void RegisterGlobalFilters(GlobalFilterCollection filters)
@@ -41,7 +56,7 @@ namespace NovusCraft.Web
 
 		static void InitialiseStructureMap()
 		{
-			ObjectFactory.Initialize(c => c.AddRegistry<StructureMapConfigurationRegistry>());
+			ObjectFactory.Initialize(ie => ie.AddRegistry<StructureMapConfigurationRegistry>());
 		}
 
 		static void RegisterStructureMapControllerFactory()

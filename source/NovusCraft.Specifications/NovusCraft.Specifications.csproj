@@ -47,10 +47,6 @@
     <Compile Include="WebSpecs\ControllerSpecs\BlogControllerSpecs\blog_controller_spec.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\BlogControllerSpecs\when_post_is_requested_with_invalid_slug.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\BlogControllerSpecs\when_post_is_requested.cs" />
-    <Compile Include="WebSpecs\ControllerSpecs\ControllerBaseSpecs\blog_controller_spec.cs" />
-    <Compile Include="WebSpecs\ControllerSpecs\ControllerBaseSpecs\when_action_is_executed_with_exception.cs" />
-    <Compile Include="WebSpecs\ControllerSpecs\ControllerBaseSpecs\when_action_is_executed.cs" />
-    <Compile Include="WebSpecs\ControllerSpecs\ControllerBaseSpecs\when_child_action_is_executed.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\HomeControllerSpecs\when_invalid_page_is_requested.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\HomeControllerSpecs\when_contact_page_is_requested.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\HomeControllerSpecs\when_home_page_is_requested.cs" />
@@ -59,6 +55,8 @@
     <Compile Include="WebSpecs\HelperSpecs\HtmlHelperSpecs\when_menu_link_is_created_for_current_page.cs" />
     <Compile Include="WebSpecs\HelperSpecs\HtmlHelperSpecs\html_helper_spec.cs" />
     <Compile Include="WebSpecs\HelperSpecs\HtmlHelperSpecs\when_menu_link_is_created.cs" />
+    <Compile Include="WebSpecs\MvcApplicationSpecs\when_request_having_used_ravendb_ends.cs" />
+    <Compile Include="WebSpecs\MvcApplicationSpecs\when_request_not_having_used_ravendb_ends.cs" />
     <Compile Include="WebSpecs\MvcApplicationSpecs\mvc_application_spec.cs" />
     <Compile Include="WebSpecs\MvcApplicationSpecs\when_application_starts.cs" />
     <Compile Include="WebSpecs\UtilSpecs\FormatExtensionSpecs\when_date_is_formatted_to_iso_date.cs" />
