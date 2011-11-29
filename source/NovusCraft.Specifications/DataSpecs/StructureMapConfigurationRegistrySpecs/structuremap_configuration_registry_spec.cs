@@ -15,6 +15,7 @@ namespace NovusCraft.Specifications.DataSpecs.StructureMapConfigurationRegistryS
 		[CLSCompliant(false)]
 		protected static Registry registry;
 
+		[CLSCompliant(false)]
 		protected static Container container;
 
 		Establish context = () => { registry = new StructureMapConfigurationRegistry(); };
