@@ -21,7 +21,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.HomeControllerSpecs
 				var controllerContext = new Mock<ControllerContext>();
 				controllerContext.SetupGet(cc => cc.HttpContext.Response).Returns(http_response.Object);
 
-				controller = new HomeController {ControllerContext = controllerContext.Object};
+				controller = new HomeController { ControllerContext = controllerContext.Object };
 			};
 	}
 }

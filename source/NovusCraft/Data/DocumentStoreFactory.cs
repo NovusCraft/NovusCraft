@@ -13,7 +13,7 @@ namespace NovusCraft.Data
 		{
 			var documentStore = new EmbeddableDocumentStore { ConnectionStringName = ConnectionStringName };
 			documentStore.Initialize();
-			
+
 			return documentStore;
 		}
 	}

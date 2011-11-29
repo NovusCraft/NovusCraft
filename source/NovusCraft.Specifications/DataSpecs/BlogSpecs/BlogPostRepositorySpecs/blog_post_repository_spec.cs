@@ -13,7 +13,7 @@ namespace NovusCraft.Specifications.DataSpecs.BlogSpecs.BlogPostRepositorySpecs
 
 		Establish context = () =>
 			{
-				var documentStore = new EmbeddableDocumentStore {RunInMemory = true};
+				var documentStore = new EmbeddableDocumentStore { RunInMemory = true };
 				documentStore.Initialize();
 
 				using (var session = documentStore.OpenSession())

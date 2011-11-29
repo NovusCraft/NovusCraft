@@ -41,7 +41,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 				                                                            		PublishedOn = new DateTimeOffset(2011, 11, 10, 09, 08, 07, TimeSpan.Zero)
 				                                                            	});
 
-				controller = new BlogController(repository.Object) {ControllerContext = controllerContext.Object};
+				controller = new BlogController(repository.Object) { ControllerContext = controllerContext.Object };
 			};
 	}
 }

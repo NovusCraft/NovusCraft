@@ -14,9 +14,9 @@ namespace NovusCraft.Web.Helpers
 			object htmlAttributes;
 			var contextActionName = html.ViewContext.RouteData.Values["action"] ?? string.Empty;
 			if (string.Compare(contextActionName.ToString(), actionName, StringComparison.OrdinalIgnoreCase) == 0)
-				htmlAttributes = new {title = linkTitle, @class = "active"};
+				htmlAttributes = new { title = linkTitle, @class = "active" };
 			else
-				htmlAttributes = new {title = linkTitle};
+				htmlAttributes = new { title = linkTitle };
 
 			return html.ActionLink(linkText, actionName, controllerName, null, htmlAttributes);
 		}

@@ -29,14 +29,14 @@ namespace NovusCraft.Specifications.WebSpecs.HelperSpecs.HtmlHelperSpecs
 
 				route_data = new RouteData();
 				var requestContext = new RequestContext(httpContextBase.Object, route_data);
-				var viewContext = new ViewContext {RequestContext = requestContext};
+				var viewContext = new ViewContext { RequestContext = requestContext };
 				var viewDataContainer = new Mock<IViewDataContainer>();
 				viewDataContainer.SetupGet(vdc => vdc.ViewData).Returns(new ViewDataDictionary());
 
 				helper = new HtmlHelper<dynamic>(viewContext, viewDataContainer.Object);
 
-				RouteTable.Routes.MapRoute("Route A", "route-a", new {controller = "Home", action = "RouteA"});
-				RouteTable.Routes.MapRoute("Route B", "route-b", new {controller = "Home", action = "RouteB"});
+				RouteTable.Routes.MapRoute("Route A", "route-a", new { controller = "Home", action = "RouteA" });
+				RouteTable.Routes.MapRoute("Route B", "route-b", new { controller = "Home", action = "RouteB" });
 			};
 
 		Cleanup after = () => RouteTable.Routes.Clear();
