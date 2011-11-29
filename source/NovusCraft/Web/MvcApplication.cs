@@ -45,6 +45,7 @@ namespace NovusCraft.Web
 			routes.MapRoute("Home", string.Empty, new { controller = "Home", action = "Home" });
 			routes.MapRoute("About", "about", new { controller = "Home", action = "About" });
 			routes.MapRoute("Contact", "contact", new { controller = "Home", action = "Contact" });
+			routes.MapRoute("Feed", "feed", new { controller = "Home", action = "Feed" });
 
 			// blog section
 			routes.MapRoute("Blog Post", "blog/{slug}", new { controller = "Blog", action = "ViewPost" });

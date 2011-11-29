@@ -10,12 +10,12 @@ namespace NovusCraft.Specifications.DataSpecs.BlogSpecs.BlogPostRepositorySpecs
 	public class when_blog_post_is_retrieved : blog_post_repository_spec
 	{
 		static BlogPost blog_post;
-		Because of = () => blog_post = repository.GetBlogPost(slug: "test");
+		Because of = () => blog_post = repository.GetBlogPost(slug: "blog-post-1");
 
 		It should_return_blog_post_with_id_1 =
 			() => blog_post.Id.ShouldEqual("blogposts/1");
 
 		It should_return_blog_post_with_title_test =
-			() => blog_post.Title.ShouldEqual("Test");
+			() => blog_post.Title.ShouldEqual("Blog Post #1");
 	}
 }

@@ -22,6 +22,8 @@
 	<title>@GeneratePageTitle(@ViewBag.Title)</title>
 	<meta name="author" content="Arnold Zokas">
 	
+	<link rel="alternate" type="application/rss+xml" title="Novus Craft RSS feed" href="http://dev.novuscraft.com/feed">
+
 	<link rel="stylesheet" href="/css/style.css">
 	<script src="/js/libs/modernizr-2.0.6.min.js"></script>
 </head>
@@ -47,6 +49,7 @@
 		@if (IsSectionDefined("aside")) {
 			@RenderSection("aside", required: false)
 		} else {
+			<a id="subscribe" href='@Url.Action("Feed", "Home")' title="Subcribe to latest articles published on novuscraft.com">Subcribe to the RSS feed</a>
 			Html.RenderPartial("Bio");
 		}
 	</aside>

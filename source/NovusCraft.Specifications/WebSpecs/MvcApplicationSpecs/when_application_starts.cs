@@ -37,6 +37,9 @@ namespace NovusCraft.Specifications.WebSpecs.MvcApplicationSpecs
 		It should_register_404_route =
 			() => "~/this-page-does-not-exist".ShouldMapTo<HomeController>(controller => controller.PageNotFound());
 
+		It should_register_feed_route =
+			() => "~/feed".ShouldMapTo<HomeController>(controller => controller.Feed());
+
 		// if current plugin instance count is greater than default plugin instance count, then StructureMap is initialised
 		It should_initialise_structuremap_container =
 			() => ObjectFactory.Model.AllInstances.Count().ShouldBeGreaterThan(new Container().Model.AllInstances.Count());

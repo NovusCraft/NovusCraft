@@ -769,7 +769,9 @@ pre+pre { margin-top:2em; }
 pre code { border-left:solid 0.5em #ccc; font-size:1.4em; line-height:1.3em; margin-left:-1.5em; padding:0 0 0 1em; }
 
 /* ASIDE */
-#about-mini { margin-top:5.6em; line-height:1.5em; }
+#subscribe { background:url("/img/feed-icon-28x28.png") no-repeat; border:none; display:block; height:2em; margin-top:1.8em; padding:0.4em 0 0 2.5em; }
+
+#about-mini { margin-top:1em; line-height:1.5em; }
 #about-mini a { border:none; display:block; height:58px; margin-top:1em; width:208px; }
 
 /* PAGE */

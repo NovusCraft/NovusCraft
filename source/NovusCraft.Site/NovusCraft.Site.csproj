@@ -47,6 +47,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="humans.txt" />
+    <Content Include="img\feed-icon-28x28.png" />
     <Content Include="img\logo.png" />
     <Content Include="js\libs\jquery-1.7.min.js" />
     <Content Include="js\libs\modernizr-2.0.6.min.js" />
