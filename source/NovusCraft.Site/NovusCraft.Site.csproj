@@ -96,9 +96,7 @@
   <ItemGroup>
     <Content Include="Views\Blog\ViewPost.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Views\Shared\Bio.cshtml" />
   </ItemGroup>
