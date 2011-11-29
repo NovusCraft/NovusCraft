@@ -30,8 +30,8 @@
 		<h2>Requirements</h2>
 		<p>I am looking for a solution that:</p>
 		<ul>
-			<li>Disposes Raven DB DocumentSession automatically at the end of the HttpRequest</li>
-			<li>Calls IDocumentSession.SaveChanges() automatically at the end of the HttpRequest</li>
+			<li>Disposes Raven DB <code>IDocumentSession</code> automatically at the end of the HttpRequest</li>
+			<li>Calls <code>IDocumentSession.SaveChanges()</code> automatically at the end of the HttpRequest</li>
 			<li>Does not rely on custom Controller base class</li>
 			<li>Is testable and has 100% coverage</li>
 			<li>Is clean (self-contained)</li>
@@ -80,9 +80,29 @@
 		return documentStore;
 	}
 }</code></pre>
+<pre><code class="c#">public class SampleRepository : ISampleRepository
+{
+	readonly IDocumentSession _documentSession;
+
+	public SampleRepository(IDocumentSession documentSession)
+	{
+		_documentSession = documentSession;
+	}
+
+	public void UpdateSomething(Something something)
+	{
+		documentSession.Store(something);
+	}
+}</code></pre>
+		<p>Highlights:</p>
+		<ul>
+			<li>Lightweight</li>
+			<li>Fully testable</li>
+			<li><code>IDocumentSession</code> lifetime managed via StructureMap</li>
+		</ul>
 		<p>For implementation and test examples have a look at <a href="https://github.com/NovusCraft/NovusCraft" title="novuscraft.com project on GitHub">novuscraft.com Git repository</a>.</p>
 		<footer>
-			Published by @Html.ActionLink("Arnold Zokas", "About", null, new { rel="author" }) on <time datetime="2011-11-24T03:18:18+00:00" pubdate>24th November 2011</time> in category <strong>Databases</strong>.
+			Published by @Html.ActionLink("Arnold Zokas", "About", null, new { rel="author" }) on <time datetime="2011-11-29T12:49:22+00:00" pubdate>29th November 2011</time> in category <strong>Databases</strong>.
 		</footer>
 	</article>
 	<article class="post">
