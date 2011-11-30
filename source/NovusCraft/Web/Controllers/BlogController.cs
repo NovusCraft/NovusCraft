@@ -27,8 +27,7 @@ namespace NovusCraft.Web.Controllers
 				return View("PageNotFound");
 			}
 
-			var requestUrl = Request.Url;
-			var permalink = string.Format("{0}://{1}{2}", requestUrl.Scheme, requestUrl.Host, requestUrl.AbsolutePath);
+			var permalink = Url.Action("ViewPost", null, new { slug }, Request.Url.Scheme);
 			var disqusId = blogPost.Id.Substring(blogPost.Id.LastIndexOf("/") + 1);
 			var model = new ViewPostModel
 			            	{

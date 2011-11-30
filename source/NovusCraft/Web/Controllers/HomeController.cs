@@ -65,7 +65,7 @@ namespace NovusCraft.Web.Controllers
 				syndicationItem.LastUpdatedTime = blogPost.PublishedOn;
 				syndicationItem.PublishDate = blogPost.PublishedOn;
 
-				syndicationItem.AddPermalink(new Uri("http://novuscraft.com/blog/" + blogPost.Slug)); // TODO: IPermalinkGenerator
+				syndicationItem.AddPermalink(new Uri(Url.Action("ViewPost", "Blog", new { slug = blogPost.Slug }, Request.Url.Scheme)));
 
 				syndicationItems.Add(syndicationItem);
 			}

@@ -62,6 +62,7 @@
     <Compile Include="WebSpecs\MvcApplicationSpecs\when_request_not_having_used_ravendb_ends.cs" />
     <Compile Include="WebSpecs\MvcApplicationSpecs\mvc_application_spec.cs" />
     <Compile Include="WebSpecs\MvcApplicationSpecs\when_application_starts.cs" />
+    <Compile Include="WebSpecs\RouteConfiguratorSpecs\when_initialised.cs" />
     <Compile Include="WebSpecs\UtilSpecs\FormatExtensionSpecs\when_date_is_formatted_to_iso_date.cs" />
     <Compile Include="WebSpecs\UtilSpecs\FormatExtensionSpecs\when_date_is_formatted_to_long_date.cs" />
   </ItemGroup>

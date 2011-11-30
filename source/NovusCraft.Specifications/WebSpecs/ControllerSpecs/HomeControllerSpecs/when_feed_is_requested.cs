@@ -33,11 +33,14 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.HomeControllerSpecs
 				                      			},
 				                      		new BlogPost
 				                      			{
+				                      				Slug = "blog-post-2",
 				                      				Category = new BlogPostCategory { Title = "Category B" },
 				                      				PublishedOn = new DateTimeOffset(2011, 12, 13, 14, 15, 16, TimeSpan.Zero)
 				                      			}
 				                      	};
 				blog_post_repository.Setup(bpr => bpr.GetRecentBlogPosts()).Returns(recentBlogPosts);
+
+				http_request.SetupGet(hr => hr.Url).Returns(new Uri("http://novuscraft.com/"));
 
 				result = controller.Feed();
 			};
@@ -88,6 +91,6 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.HomeControllerSpecs
 			() => ((RssResult)result).Feed.Items.First().LastUpdatedTime.ShouldEqual(new DateTimeOffset(2011, 11, 12, 13, 14, 15, TimeSpan.Zero));
 
 		It should_set_feed_item_permalink =
-			() => ((RssResult)result).Feed.Items.First().Links.Single(l => l.RelationshipType == "alternate" && l.Uri.ToString() == "http://novuscraft.com/blog/blog-post-1").ShouldNotBeNull();
+			() => ((RssResult)result).Feed.Items.First().Links.Single(l => l.RelationshipType == "alternate").Uri.ShouldEqual(new Uri("http://novuscraft.com/blog/blog-post-1"));
 	}
 }

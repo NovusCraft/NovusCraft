@@ -1,6 +1,7 @@
 ﻿// # Copyright © 2011, Novus Craft
 // # All rights reserved. 
 
+using System.Web.Routing;
 using Machine.Specifications;
 using NovusCraft.Web;
 using Raven.Client;
@@ -16,6 +17,8 @@ namespace NovusCraft.Specifications.WebSpecs.MvcApplicationSpecs
 
 		Cleanup after = () =>
 			{
+				RouteTable.Routes.Clear();
+
 				var documentStore = ObjectFactory.GetInstance<IDocumentStore>();
 				if (documentStore != null) documentStore.Dispose();
 			};

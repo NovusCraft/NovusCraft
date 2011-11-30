@@ -17,18 +17,18 @@ namespace NovusCraft.Specifications.WebSpecs.HelperSpecs.HtmlHelperSpecs
 
 		Establish context = () =>
 			{
-				var httpRequestBase = new Mock<HttpRequestBase>();
-				httpRequestBase.SetupGet(hrb => hrb.ApplicationPath).Returns("");
+				var httpRequest = new Mock<HttpRequestBase>();
+				httpRequest.SetupGet(hr => hr.ApplicationPath).Returns(string.Empty);
 
-				var httpResponseBase = new Mock<HttpResponseBase>();
-				httpResponseBase.Setup(hrb => hrb.ApplyAppPathModifier(It.IsAny<string>())).Returns((string s) => s);
+				var httpResponse = new Mock<HttpResponseBase>();
+				httpResponse.Setup(hr => hr.ApplyAppPathModifier(It.IsAny<string>())).Returns((string s) => s);
 
-				var httpContextBase = new Mock<HttpContextBase>();
-				httpContextBase.SetupGet(hcb => hcb.Request).Returns(httpRequestBase.Object);
-				httpContextBase.SetupGet(hcb => hcb.Response).Returns(httpResponseBase.Object);
+				var httpContext = new Mock<HttpContextBase>();
+				httpContext.SetupGet(hc => hc.Request).Returns(httpRequest.Object);
+				httpContext.SetupGet(hc => hc.Response).Returns(httpResponse.Object);
 
 				route_data = new RouteData();
-				var requestContext = new RequestContext(httpContextBase.Object, route_data);
+				var requestContext = new RequestContext(httpContext.Object, route_data);
 				var viewContext = new ViewContext { RequestContext = requestContext };
 				var viewDataContainer = new Mock<IViewDataContainer>();
 				viewDataContainer.SetupGet(vdc => vdc.ViewData).Returns(new ViewDataDictionary());
