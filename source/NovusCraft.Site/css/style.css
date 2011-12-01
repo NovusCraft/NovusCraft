@@ -865,6 +865,7 @@ pre code { border-left:solid 0.5em #ccc; font-size:1.4em; line-height:1.3em; mar
   .post footer { font-size:1.6em; }
   .post footer a { text-decoration:none; }
   .post footer strong { font-weight:normal; }
+  #subscribe { display:none; }
   #footer { font-size:1.6em; }
   #footer .source { display:none; }
 }
