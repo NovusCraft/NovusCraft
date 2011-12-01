@@ -1,4 +1,5 @@
-﻿@helper GeneratePageTitle(string titleFragment) {
+﻿@using SquishIt.Framework
+@helper GeneratePageTitle(string titleFragment) {
 	if (string.IsNullOrWhiteSpace(titleFragment))
 	{
 		@: Novus Craft
@@ -24,7 +25,7 @@
 	
 	<link rel="alternate" type="application/rss+xml" title="Novus Craft RSS feed" href="http://feeds.feedburner.com/novuscraft">
 
-	<link rel="stylesheet" href="/css/style.css">
+	@Html.Raw(Bundle.Css().Add("~/css/style.css").Render("~/css/novuscraft_#.css"))
 	<script src="/js/libs/modernizr-2.0.6.min.js"></script>
 </head>
 <body>
@@ -63,8 +64,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="/js/libs/jquery-1.7.min.js"><\/script>')</script>
 
-<script src="/js/plugins.js"></script>
-<script src="/js/script.js"></script>
+@Html.Raw(Bundle.JavaScript().Add("~/js/plugins.js", "~/js/script.js").Render("~/js/novuscraft_#.js"))
 
 @if (HttpContext.Current.IsDebuggingEnabled == false)
 {
