@@ -3,12 +3,11 @@
 
 using System.Web.Mvc;
 using Machine.Specifications;
-using NovusCraft.Web;
 using NovusCraft.Web.Helpers;
 
 namespace NovusCraft.Specifications.WebSpecs.HelperSpecs.HtmlHelperSpecs
 {
-	[Subject(typeof(MvcApplication))]
+	[Subject(typeof(HtmlHelpers))]
 	public class when_menu_link_is_created_for_current_page : html_helper_spec
 	{
 		static MvcHtmlString menu_link;

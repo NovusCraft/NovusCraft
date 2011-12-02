@@ -9,12 +9,11 @@ using System.Web.Mvc;
 using Machine.Specifications;
 using Moq;
 using NovusCraft.Web.ActionResults;
-using NovusCraft.Web.Controllers;
 using It = Machine.Specifications.It;
 
 namespace NovusCraft.Specifications.WebSpecs.ActionResultSpecs.RssResultSpecs
 {
-	[Subject(typeof(HomeController))]
+	[Subject(typeof(RssResult))]
 	public class when_result_is_executed
 	{
 		static RssResult rss_result;
@@ -63,4 +62,4 @@ namespace NovusCraft.Specifications.WebSpecs.ActionResultSpecs.RssResultSpecs
 		It should_set_feed_last_updated_time_to_valid_date_conforming_to_rfc822 =
 			() => output_writer.ToString().ShouldContain("<lastBuildDate>Sat, 12 Nov 2011 13:14:15 Z</lastBuildDate>");
 	}
-}
+} ;

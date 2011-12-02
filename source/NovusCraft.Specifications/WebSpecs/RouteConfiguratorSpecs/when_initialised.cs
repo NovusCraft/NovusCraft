@@ -10,7 +10,7 @@ using NovusCraft.Web.Controllers;
 
 namespace NovusCraft.Specifications.WebSpecs.RouteConfiguratorSpecs
 {
-	[Subject(typeof(MvcApplication))]
+	[Subject(typeof(RouteConfigurator))]
 	public class when_initialised : mvc_application_spec
 	{
 		Because of = () => RouteConfigurator.Initialise();
