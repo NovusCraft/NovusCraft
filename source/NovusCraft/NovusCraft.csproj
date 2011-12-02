@@ -45,11 +45,13 @@
     <Compile Include="Web\ActionResults\RssResult.cs" />
     <Compile Include="Web\Controllers\BlogController.cs" />
     <Compile Include="Web\Controllers\HomeController.cs" />
+    <Compile Include="Web\Helpers\UrlHelpers.cs" />
     <Compile Include="Web\Helpers\HtmlHelpers.cs" />
     <Compile Include="Web\MvcApplication.cs" />
     <Compile Include="Web\RouteConfigurator.cs" />
     <Compile Include="Web\StructureMapControllerFactory.cs" />
     <Compile Include="Web\Utils\FormatExtensions.cs" />
+    <Compile Include="Web\ViewModels\FacebookButtonModel.cs" />
     <Compile Include="Web\ViewModels\ViewPostModel.cs" />
   </ItemGroup>
   <ItemGroup>

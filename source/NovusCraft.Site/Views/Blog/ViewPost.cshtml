@@ -1,4 +1,4 @@
-﻿@model NovusCraft.Web.ViewModels.ViewPostModel
+﻿@model ViewPostModel
 
 @{
 	ViewBag.Title = @Model.Title + " | Blog";
@@ -10,6 +10,7 @@
 	</header>
 	@Model.Content
 	<footer>
+		@{ Html.RenderPartial("FacebookButton", new FacebookButtonModel { Action = "recommend" }); }
 		<span class="meta">Published by @Html.ActionLink("Arnold Zokas", "About", "Home", null, new { rel="author" }) on <time datetime="@Model.PublishedOn.ToIsoDate()" pubdate>@Model.PublishedOn.ToLongDate()</time> in category <strong>@Model.CategoryTitle</strong>.</span>
 		<div id="disqus_thread"></div>
 		<script type="text/javascript">

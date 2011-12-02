@@ -47,8 +47,9 @@
 	@RenderBody()
 	<aside class="grid_4 prefix_1">
 		@if (IsSectionDefined("aside")) {
-			@RenderSection("aside", required: false)
+			@RenderSection("aside")
 		} else {
+			Html.RenderPartial("FacebookButton", new FacebookButtonModel { Action = "like" });
 			<a id="subscribe" href="http://feeds.feedburner.com/novuscraft" title="Subcribe to latest articles published on novuscraft.com">Subcribe to the RSS feed</a>
 			Html.RenderPartial("Bio");
 		}
@@ -58,17 +59,31 @@
 		<span class="grid_4">Copyright &copy; 2011 Novus Craft</span>
 		<span class="grid_4 prefix_8 source">Source code is available on <a href="https://github.com/NovusCraft/NovusCraft" title="novuscraft.com public Git repository">GitHub</a></span>
 	</footer>
-</div><!--! end of #container -->
+</div>
 
+@* ++BEGIN JS *@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="/js/libs/jquery-1.7.1.min.js"><\/script>')</script>
-
 @Html.Raw(Bundle.JavaScript().Add("~/js/plugins.js", "~/js/script.js").Render("~/js/novuscraft_#.js"))
+@* --END JS *@
 
+@* ++BEGIN FACEBOOK JSSDK *@
+<div id="fb-root"></div>
+<script>
+	(function (d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) { return; }
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
+		fjs.parentNode.insertBefore(js, fjs);
+	} (document, 'script', 'facebook-jssdk'));
+</script>
+@* --END FACEBOOK JSSDK *@
+
+@* ++BEGIN GA *@
 @if (HttpContext.Current.IsDebuggingEnabled == false)
 {
 	<script type="text/javascript">
-
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', 'UA-6456308-6']);
 		_gaq.push(['_trackPageview']);
@@ -79,14 +94,16 @@
 			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 		})();
-
 	</script>
 }
+@* --END GA *@
 
+@* ++BEGIN CHROME FRAME *@
 <!--[if lt IE 7 ]>
 	<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
 	<script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"});})</script>
 <![endif]-->
+@* --END CHROME FRAME *@
 
 </body>
 </html>
