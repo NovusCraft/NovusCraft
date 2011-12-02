@@ -4,6 +4,7 @@
 using System.Net;
 using System.Web.Mvc;
 using NovusCraft.Data.Blog;
+using NovusCraft.Web.Helpers;
 using NovusCraft.Web.ViewModels;
 
 namespace NovusCraft.Web.Controllers
@@ -27,13 +28,13 @@ namespace NovusCraft.Web.Controllers
 				return View("PageNotFound");
 			}
 
-			var permalink = Url.Action("ViewPost", null, new { slug }, Request.Url.Scheme);
+			var permalink = Url.Permalink("ViewPost", "Blog", new { slug });
 			var disqusId = blogPost.Id.Substring(blogPost.Id.LastIndexOf("/") + 1);
 			var model = new ViewPostModel
 			            	{
 			            		Title = blogPost.Title,
 			            		Content = new MvcHtmlString(blogPost.Content),
-			            		Permalink = permalink,
+			            		Permalink = permalink.ToString(),
 			            		CategoryTitle = blogPost.Category.Title,
 			            		PublishedOn = blogPost.PublishedOn,
 			            		DisqusId = disqusId

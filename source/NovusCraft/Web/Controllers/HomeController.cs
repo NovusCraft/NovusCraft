@@ -9,6 +9,7 @@ using System.ServiceModel.Syndication;
 using System.Web.Mvc;
 using NovusCraft.Data.Blog;
 using NovusCraft.Web.ActionResults;
+using NovusCraft.Web.Helpers;
 
 namespace NovusCraft.Web.Controllers
 {
@@ -65,7 +66,7 @@ namespace NovusCraft.Web.Controllers
 				syndicationItem.LastUpdatedTime = blogPost.PublishedOn;
 				syndicationItem.PublishDate = blogPost.PublishedOn;
 
-				syndicationItem.AddPermalink(new Uri(Url.Action("ViewPost", "Blog", new { slug = blogPost.Slug }, Request.Url.Scheme)));
+				syndicationItem.AddPermalink(Url.Permalink("ViewPost", "Blog", new { slug = blogPost.Slug }));
 
 				syndicationItems.Add(syndicationItem);
 			}
