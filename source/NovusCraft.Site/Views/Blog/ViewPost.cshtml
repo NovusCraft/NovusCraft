@@ -10,9 +10,13 @@
 	</header>
 	@Model.Content
 	<footer>
-		@{ Html.RenderPartial("FacebookButton", new FacebookButtonModel { Action = "recommend" }); }
-		@{ Html.RenderPartial("TwitterButton", new TwitterButtonModel { Text = @Model.Title }); }
 		<span class="meta">Published by @Html.ActionLink("Arnold Zokas", "About", "Home", null, new { rel="author" }) on <time datetime="@Model.PublishedOn.ToIsoDate()" pubdate>@Model.PublishedOn.ToLongDate()</time> in category <strong>@Model.CategoryTitle</strong>.</span>
+		<div class="share">
+			<div class="twitter">@{ Html.RenderPartial("TwitterButton", new TwitterButtonModel { Text = @Model.Title }); }</div>
+			<div class="google">@{ Html.RenderPartial("GoogleButton"); }</div>
+			<div class="facebook">@{ Html.RenderPartial("FacebookButton", new FacebookButtonModel { Action = "recommend" }); }</div>
+		</div>
+		<div class="clearfix"></div>
 		<div id="disqus_thread"></div>
 		<script type="text/javascript">
 			var disqus_shortname = "novuscraft";

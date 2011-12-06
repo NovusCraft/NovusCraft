@@ -18,7 +18,6 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<meta property="fb:page_id" content="183357961677485" />
 	
 	<title>@GeneratePageTitle(@ViewBag.Title)</title>
 	<meta name="author" content="Arnold Zokas">
@@ -67,6 +66,22 @@
 @Html.Raw(Bundle.JavaScript().Add("~/js/plugins.js", "~/js/script.js").Render("~/js/novuscraft_#.js"))
 @* --END JS *@
 
+@* ++BEGIN TWITTER JS *@
+<script src="//platform.twitter.com/widgets.js"></script>
+@* --END TWITTER JS *@
+
+@* ++BEGIN G+ JS *@
+<script>
+	window.___gcfg = { lang: 'en-GB' };
+
+	(function () {
+		var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+		po.src = 'https://apis.google.com/js/plusone.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+	})();
+</script>
+@* --END G+ JS *@
+
 @* ++BEGIN FACEBOOK JSSDK *@
 <div id="fb-root"></div>
 <script>
@@ -79,10 +94,6 @@
 	} (document, 'script', 'facebook-jssdk'));
 </script>
 @* --END FACEBOOK JSSDK *@
-
-@* ++BEGIN TWITTER JS *@
-<script src="//platform.twitter.com/widgets.js"></script>
-@* --END TWITTER JS *@
 
 @* ++BEGIN GA *@
 @if (HttpContext.Current.IsDebuggingEnabled == false)

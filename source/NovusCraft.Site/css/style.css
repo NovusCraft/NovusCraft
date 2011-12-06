@@ -760,7 +760,12 @@ a:visited { color:#a33131; }
 .post li code { color:#444; background-color:#eee; font-family:Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif; padding:0.1em 0.3em; }
 .post pre+p,
 .post p+p { margin-top:1em; text-indent:1em; }
-.post footer { font-size:1.4em; font-style:italic; margin-top:1em; }
+.post footer { margin-top:1em; }
+.post footer .meta { font-size:1.4em; font-style:italic; }
+.post footer .share { margin-top:2em; }
+.post footer .twitter { float:left; }
+.post footer .google { float:left; margin-left:2em; }
+.post footer .facebook { float:left; }
 
 /* post (code sample) */
 pre { font-family:Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif; margin:0; }
