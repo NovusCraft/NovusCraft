@@ -49,7 +49,6 @@
 		@if (IsSectionDefined("aside")) {
 			@RenderSection("aside")
 		} else {
-			Html.RenderPartial("FacebookButton", new FacebookButtonModel { Action = "like" });
 			<a id="subscribe" href="http://feeds.feedburner.com/novuscraft" title="Subcribe to latest articles published on novuscraft.com">Subcribe to the RSS feed</a>
 			Html.RenderPartial("Bio");
 		}
@@ -79,6 +78,10 @@
 	} (document, 'script', 'facebook-jssdk'));
 </script>
 @* --END FACEBOOK JSSDK *@
+
+@* ++BEGIN TWITTER JS *@
+<script src="//platform.twitter.com/widgets.js"></script>
+@* --END TWITTER JS *@
 
 @* ++BEGIN GA *@
 @if (HttpContext.Current.IsDebuggingEnabled == false)
