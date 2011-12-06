@@ -67,17 +67,25 @@
 @* --END JS *@
 
 @* ++BEGIN TWITTER JS *@
-<script src="//platform.twitter.com/widgets.js"></script>
+<script>
+	(function () {
+		var script = document.createElement("script");
+		script.async = true;
+		script.src = '//platform.twitter.com/widgets.js';
+		document.getElementsByTagName("body")[0].appendChild(script);
+	})();
+</script>
 @* --END TWITTER JS *@
 
 @* ++BEGIN G+ JS *@
 <script>
 	window.___gcfg = { lang: 'en-GB' };
-
+	
 	(function () {
-		var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-		po.src = 'https://apis.google.com/js/plusone.js';
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		var script = document.createElement("script");
+		script.async = true;
+		script.src = 'https://apis.google.com/js/plusone.js';
+		document.getElementsByTagName("body")[0].appendChild(script);
 	})();
 </script>
 @* --END G+ JS *@
@@ -85,13 +93,13 @@
 @* ++BEGIN FACEBOOK JSSDK *@
 <div id="fb-root"></div>
 <script>
-	(function (d, s, id) {
-		var js, fjs = d.getElementsByTagName(s)[0];
-		if (d.getElementById(id)) { return; }
-		js = d.createElement(s); js.id = id;
-		js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
-		fjs.parentNode.insertBefore(js, fjs);
-	} (document, 'script', 'facebook-jssdk'));
+	(function () {
+		var script = document.createElement("script");
+		script.id = 'facebook-jssdk';
+		script.async = true;
+		script.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
+		document.getElementsByTagName("body")[0].appendChild(script);
+	})();
 </script>
 @* --END FACEBOOK JSSDK *@
 
@@ -105,9 +113,10 @@
 		_gaq.push(['_trackPageLoadTime']);
 
 		(function () {
-			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			var script = document.createElement("script");
+			script.async = true;
+			script.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			document.getElementsByTagName("body")[0].appendChild(script);
 		})();
 	</script>
 }
