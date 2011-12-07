@@ -49,11 +49,11 @@ namespace NovusCraft.Web.Controllers
 			var recentBlogPosts = _blogPostRepository.GetRecentBlogPosts();
 
 			var feed = new SyndicationFeed();
-			feed.Id = "novus_craft";
-			feed.Title = new TextSyndicationContent("Novus Craft");
-			feed.Authors.Add(new SyndicationPerson("arnold.zokas@novuscraft.com"));
-			feed.Copyright = new TextSyndicationContent("Copyright © 2011 Novus Craft");
-			feed.Language = "en-GB";
+			feed.Id = "novus_craft";	// TODO: Move to config
+			feed.Title = new TextSyndicationContent("Novus Craft");	// TODO: Move to config
+			feed.Authors.Add(new SyndicationPerson("arnold.zokas@novuscraft.com"));	// TODO: Move to config
+			feed.Copyright = new TextSyndicationContent("Copyright © 2011 Novus Craft");	// TODO: Move to config
+			feed.Language = "en-GB";	// TODO: Move to config
 			feed.LastUpdatedTime = recentBlogPosts.Max(bp => bp.PublishedOn);
 
 			var syndicationItems = new List<SyndicationItem>();
