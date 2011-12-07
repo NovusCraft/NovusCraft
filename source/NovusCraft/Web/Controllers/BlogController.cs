@@ -42,5 +42,24 @@ namespace NovusCraft.Web.Controllers
 
 			return View(model);
 		}
+
+		public ActionResult EditPost(string slug)
+		{
+			var blogPost = _blogPostRepository.GetBlogPost(slug);
+
+			var permalink = Url.Permalink("ViewPost", "Blog", new { slug });
+			var disqusId = blogPost.Id.Substring(blogPost.Id.LastIndexOf("/") + 1);
+			var model = new ViewPostModel
+			{
+				Title = blogPost.Title,
+				Content = new MvcHtmlString(blogPost.Content),
+				Permalink = permalink.ToString(),
+				CategoryTitle = blogPost.Category.Title,
+				PublishedOn = blogPost.PublishedOn,
+				DisqusId = disqusId
+			};
+
+			return View(model);
+		}
 	}
 }

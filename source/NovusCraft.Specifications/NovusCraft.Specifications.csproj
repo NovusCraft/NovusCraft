@@ -47,6 +47,7 @@
     <Compile Include="Utils\RouteTestExtensions.cs" />
     <Compile Include="WebSpecs\ActionResultSpecs\RssResultSpecs\when_result_is_executed.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\BlogControllerSpecs\blog_controller_spec.cs" />
+    <Compile Include="WebSpecs\ControllerSpecs\BlogControllerSpecs\when_post_is_requested_for_editing.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\BlogControllerSpecs\when_post_is_requested_with_invalid_slug.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\BlogControllerSpecs\when_post_is_requested.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\HomeControllerSpecs\when_feed_is_requested.cs" />
