@@ -7,7 +7,8 @@ namespace NovusCraft.Data.Blog
 {
 	public interface IBlogPostRepository
 	{
-		BlogPost GetBlogPost(string slug);
 		IList<BlogPost> GetRecentBlogPosts();
+		BlogPost GetBlogPost(string slug);
+		void UpdateBlogPost(string id, string title, string content, string categoryTitle);
 	}
 }

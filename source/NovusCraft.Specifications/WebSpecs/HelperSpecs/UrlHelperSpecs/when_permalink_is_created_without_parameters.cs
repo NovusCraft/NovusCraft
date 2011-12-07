@@ -11,6 +11,7 @@ namespace NovusCraft.Specifications.WebSpecs.HelperSpecs.UrlHelperSpecs
 	public class when_permalink_is_created_without_parameters : url_helper_spec
 	{
 		static Uri permalink;
+
 		Because of = () =>
 			{
 				route_data.Values.Add("controller", "Home");

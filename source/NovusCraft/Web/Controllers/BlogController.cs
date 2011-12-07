@@ -37,7 +37,7 @@ namespace NovusCraft.Web.Controllers
 			            		Permalink = permalink.ToString(),
 			            		CategoryTitle = blogPost.Category.Title,
 			            		PublishedOn = blogPost.PublishedOn,
-			            		DisqusId = disqusId
+			            		Id = disqusId
 			            	};
 
 			return View(model);
@@ -50,16 +50,24 @@ namespace NovusCraft.Web.Controllers
 			var permalink = Url.Permalink("ViewPost", "Blog", new { slug });
 			var disqusId = blogPost.Id.Substring(blogPost.Id.LastIndexOf("/") + 1);
 			var model = new ViewPostModel
-			{
-				Title = blogPost.Title,
-				Content = new MvcHtmlString(blogPost.Content),
-				Permalink = permalink.ToString(),
-				CategoryTitle = blogPost.Category.Title,
-				PublishedOn = blogPost.PublishedOn,
-				DisqusId = disqusId
-			};
+			            	{
+			            		Title = blogPost.Title,
+			            		Content = new MvcHtmlString(blogPost.Content),
+			            		Permalink = permalink.ToString(),
+			            		CategoryTitle = blogPost.Category.Title,
+			            		PublishedOn = blogPost.PublishedOn,
+			            		Id = disqusId
+			            	};
 
 			return View(model);
+		}
+
+		[HttpPost]
+		public ActionResult EditPost(EditPostModel editPostModel)
+		{
+			_blogPostRepository.UpdateBlogPost(editPostModel.Id, editPostModel.Title, editPostModel.Content, editPostModel.CategoryTitle);
+
+			return View();
 		}
 	}
 }

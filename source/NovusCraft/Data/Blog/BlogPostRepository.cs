@@ -19,14 +19,25 @@ namespace NovusCraft.Data.Blog
 
 		#region IBlogPostRepository Members
 
+		public IList<BlogPost> GetRecentBlogPosts()
+		{
+			return _documentSession.Query<BlogPost>().OrderByDescending(bp => bp.PublishedOn).ToList();
+		}
+
 		public BlogPost GetBlogPost(string slug)
 		{
 			return _documentSession.Query<BlogPost>().Where(bp => bp.Slug == slug).SingleOrDefault();
 		}
 
-		public IList<BlogPost> GetRecentBlogPosts()
+		public void UpdateBlogPost(string id, string title, string content, string categoryTitle)
 		{
-			return _documentSession.Query<BlogPost>().OrderByDescending(bp => bp.PublishedOn).ToList();
+			var blogPost = _documentSession.Query<BlogPost>().Single(bp => bp.Id == id);
+
+			blogPost.Title = title;
+			blogPost.Content = content;
+			blogPost.Category.Title = categoryTitle;
+
+			_documentSession.Store(blogPost);
 		}
 
 		#endregion

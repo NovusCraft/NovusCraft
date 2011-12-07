@@ -51,9 +51,10 @@
     <Compile Include="Web\RouteConfigurator.cs" />
     <Compile Include="Web\StructureMapControllerFactory.cs" />
     <Compile Include="Web\Utils\FormatExtensions.cs" />
+    <Compile Include="Web\ViewModels\ViewPostModel.cs" />
     <Compile Include="Web\ViewModels\TwitterButtonModel.cs" />
     <Compile Include="Web\ViewModels\FacebookButtonModel.cs" />
-    <Compile Include="Web\ViewModels\ViewPostModel.cs" />
+    <Compile Include="Web\ViewModels\EditPostModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />

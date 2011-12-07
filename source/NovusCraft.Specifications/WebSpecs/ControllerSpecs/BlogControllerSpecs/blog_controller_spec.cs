@@ -18,6 +18,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 	{
 		protected static BlogController controller;
 		protected static Mock<HttpResponseBase> http_response;
+		protected static Mock<IBlogPostRepository> repository;
 
 		Establish context = () =>
 			{
@@ -39,7 +40,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 
 				RouteConfigurator.Initialise(); // this requires cleanup
 
-				var repository = new Mock<IBlogPostRepository>();
+				repository = new Mock<IBlogPostRepository>();
 				repository.Setup(r => r.GetBlogPost("test-slug-1")).Returns(new BlogPost
 				                                                            	{
 				                                                            		Id = "blogposts/1",
