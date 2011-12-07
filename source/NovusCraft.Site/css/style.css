@@ -777,7 +777,7 @@ pre code { border-left:solid 0.5em #ccc; font-size:1.4em; line-height:1.3em; mar
 #subscribe { background:url("/img/feed-icon-28x28.png") no-repeat; border:none; display:block; height:2em; margin-top:1.8em; padding:0.4em 0 0 2.5em; }
 
 #about-mini { margin-top:1em; line-height:1.5em; }
-#about-mini a { border:none; display:block; height:58px; margin-top:1em; width:208px; }
+#about-mini a { border:none; display:block; height:4em; margin-top:1em; width:14.9em; }
 
 /* PAGE */
 #header { height:7em; }
@@ -788,8 +788,8 @@ pre code { border-left:solid 0.5em #ccc; font-size:1.4em; line-height:1.3em; mar
 #header li+li { margin-left:2.6em; }
 #header nav { margin-top:2.3em; }
 #header nav a { border:none; color:#777; font-size:1.6em; text-decoration:none; text-transform:uppercase; }
-#header nav a:hover { border-top:solid 2px #e8a7a7; color:#000; }
-#header .active { border-top:solid 2px #d93c3c; color:#000; }
+#header nav a:hover { border-top:solid 0.2em #e8a7a7; color:#000; }
+#header .active { border-top:solid 0.2em #d93c3c; color:#000; }
 #header .active:hover { border-top-color:#d93c3c; }
 #footer { font-size:1.3em; height:6em; }
 #footer span { margin-top:2em; }
