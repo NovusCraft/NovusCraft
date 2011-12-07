@@ -14,7 +14,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.HomeControllerSpecs
 		static ActionResult result;
 		Because of = () => result = controller.Contact();
 
-		It should_return_the_home_page =
+		It should_display_home_page =
 			() => result.ShouldBeAView().And().ShouldUseDefaultView();
 	}
 }

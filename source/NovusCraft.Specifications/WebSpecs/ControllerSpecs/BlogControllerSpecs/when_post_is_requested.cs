@@ -16,7 +16,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 		static ActionResult result;
 		Because of = () => result = controller.ViewPost(slug: "test-slug-1");
 
-		It should_return_the_post =
+		It should_display_post =
 			() => result.ShouldBeAView().And().ShouldUseDefaultView();
 
 		It should_return_post_with_title_hello_world =

@@ -45,7 +45,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.HomeControllerSpecs
 				result = controller.Feed();
 			};
 
-		It should_return_rss_action_result =
+		It should_return_rss_feed =
 			() => result.ShouldBeOfType<RssResult>();
 
 		It should_set_feed_id_to_novus_craft =

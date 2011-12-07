@@ -14,7 +14,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.HomeControllerSpecs
 		static ActionResult result;
 		Because of = () => result = controller.About();
 
-		It should_return_the_about_page =
+		It should_display_about_page =
 			() => result.ShouldBeAView().And().ShouldUseDefaultView();
 	}
 }

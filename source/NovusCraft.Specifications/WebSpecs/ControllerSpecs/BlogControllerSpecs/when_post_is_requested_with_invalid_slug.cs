@@ -14,7 +14,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 		static ActionResult result;
 		Because of = () => result = controller.ViewPost(slug: "test-slug-?");
 
-		It should_return_404_page =
+		It should_display_page =
 			() => result.ShouldBeAView().And().ViewName.ShouldEqual("PageNotFound");
 
 		It should_set_status_code_to_404 =
