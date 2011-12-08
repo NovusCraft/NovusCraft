@@ -1,7 +1,6 @@
 // # Copyright © 2011, Novus Craft
 // # All rights reserved. 
 
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Raven.Client;
@@ -27,7 +26,7 @@ namespace NovusCraft.Data.Blog
 
 		public BlogPost GetBlogPost(int id)
 		{
-			throw new NotImplementedException();
+			return _documentSession.Query<BlogPost>().SingleOrDefault(bp => bp.Id == id);
 		}
 
 		public BlogPost GetBlogPost(string slug)

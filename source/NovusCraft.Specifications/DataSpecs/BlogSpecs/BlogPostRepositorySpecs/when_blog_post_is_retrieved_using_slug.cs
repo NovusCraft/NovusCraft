@@ -7,7 +7,7 @@ using NovusCraft.Data.Blog;
 namespace NovusCraft.Specifications.DataSpecs.BlogSpecs.BlogPostRepositorySpecs
 {
 	[Subject(typeof(BlogPostRepository))]
-	public class when_blog_post_is_retrieved : blog_post_repository_spec
+	public class when_blog_post_is_retrieved_using_slug : blog_post_repository_spec
 	{
 		static BlogPost blog_post;
 		Because of = () => blog_post = repository.GetBlogPost(slug: "blog-post-1");
