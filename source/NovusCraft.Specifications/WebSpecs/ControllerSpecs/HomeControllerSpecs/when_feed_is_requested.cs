@@ -24,7 +24,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.HomeControllerSpecs
 				                      	{
 				                      		new BlogPost
 				                      			{
-				                      				Id = "blogposts/1",
+				                      				Id = 1,
 				                      				Title = "Blog Post #1",
 				                      				Slug = "blog-post-1",
 				                      				Category = new BlogPostCategory { Title = "Category A" },

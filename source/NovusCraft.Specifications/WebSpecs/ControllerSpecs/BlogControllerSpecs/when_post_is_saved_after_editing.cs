@@ -16,7 +16,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 			{
 				var editPostModel = new EditPostModel
 				                    	{
-				                    		Id = "1",
+				                    		Id = 1,
 				                    		Title = "New Title",
 				                    		Content = "New content.",
 				                    		CategoryTitle = "New Category Title"
@@ -28,7 +28,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 		// TODO: spec for :after behaviour
 
 		It should_save_post_data =
-			() => repository.Verify(r => r.UpdateBlogPost("1", "New Title", "New content.", "New Category Title"));
+			() => repository.Verify(r => r.UpdateBlogPost(1, "New Title", "New content.", "New Category Title"));
 
 		It should_only_allow_post_requests =
 			() => This.Action<BlogController>(bc => bc.EditPost((EditPostModel)null)).ShouldBeDecoratedWith<HttpPostAttribute>();

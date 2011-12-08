@@ -9,6 +9,6 @@ namespace NovusCraft.Data.Blog
 	{
 		IList<BlogPost> GetRecentBlogPosts();
 		BlogPost GetBlogPost(string slug);
-		void UpdateBlogPost(string id, string title, string content, string categoryTitle);
+		void UpdateBlogPost(int id, string title, string content, string categoryTitle);
 	}
 }

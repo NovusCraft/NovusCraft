@@ -43,7 +43,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 				repository = new Mock<IBlogPostRepository>();
 				repository.Setup(r => r.GetBlogPost("test-slug-1")).Returns(new BlogPost
 				                                                            	{
-				                                                            		Id = "blogposts/1",
+				                                                            		Id = 1,
 				                                                            		Title = "Test Post Title 1",
 				                                                            		Slug = "test-slug-1",
 				                                                            		Content = "Test Post Content 1",

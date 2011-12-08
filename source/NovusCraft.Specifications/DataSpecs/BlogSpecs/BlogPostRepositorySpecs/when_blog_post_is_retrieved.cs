@@ -13,7 +13,7 @@ namespace NovusCraft.Specifications.DataSpecs.BlogSpecs.BlogPostRepositorySpecs
 		Because of = () => blog_post = repository.GetBlogPost(slug: "blog-post-1");
 
 		It should_return_blog_post_with_id_1 =
-			() => blog_post.Id.ShouldEqual("blogposts/1");
+			() => blog_post.Id.ShouldEqual(1);
 
 		It should_return_blog_post_with_title_test =
 			() => blog_post.Title.ShouldEqual("Blog Post #1");

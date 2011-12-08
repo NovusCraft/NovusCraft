@@ -14,7 +14,7 @@ namespace NovusCraft.Specifications.DataSpecs.BlogSpecs.BlogPostRepositorySpecs
 
 		Because of = () =>
 			{
-				string id;
+				int id;
 				using (var session = document_store.OpenSession())
 					id = session.Query<BlogPost>().First().Id;
 

@@ -29,7 +29,7 @@ namespace NovusCraft.Data.Blog
 			return _documentSession.Query<BlogPost>().Where(bp => bp.Slug == slug).SingleOrDefault();
 		}
 
-		public void UpdateBlogPost(string id, string title, string content, string categoryTitle)
+		public void UpdateBlogPost(int id, string title, string content, string categoryTitle)
 		{
 			var blogPost = _documentSession.Query<BlogPost>().Single(bp => bp.Id == id);
 

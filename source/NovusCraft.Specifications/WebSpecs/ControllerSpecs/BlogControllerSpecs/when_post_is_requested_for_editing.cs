@@ -20,7 +20,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 			() => result.ShouldBeAView().And().ShouldUseDefaultView();
 
 		It should_return_post_with_id_1 =
-			() => result.Model<EditPostModel>().Id.ShouldEqual("blogposts/1");
+			() => result.Model<EditPostModel>().Id.ShouldEqual(1);
 
 		It should_return_post_with_title_hello_world =
 			() => result.Model<EditPostModel>().Title.ShouldEqual("Test Post Title 1");

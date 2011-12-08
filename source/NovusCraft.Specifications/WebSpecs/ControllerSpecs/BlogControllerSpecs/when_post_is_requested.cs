@@ -19,6 +19,9 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 		It should_display_post =
 			() => result.ShouldBeAView().And().ShouldUseDefaultView();
 
+		It should_return_post_with_id_1 =
+			() => result.Model<ViewPostModel>().Id.ShouldEqual(1);
+
 		It should_return_post_with_title_hello_world =
 			() => result.Model<ViewPostModel>().Title.ShouldEqual("Test Post Title 1");
 
@@ -33,8 +36,5 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 
 		It should_return_post_with_publish_date_of_10_november_2011_09_hours_08_minutes_07_seconds =
 			() => result.Model<ViewPostModel>().PublishedOn.ShouldEqual(new DateTimeOffset(2011, 11, 10, 09, 08, 07, TimeSpan.Zero));
-
-		It should_return_post_with_disqus_id_1 =
-			() => result.Model<ViewPostModel>().DisqusId.ShouldEqual("1");
 	}
 }
