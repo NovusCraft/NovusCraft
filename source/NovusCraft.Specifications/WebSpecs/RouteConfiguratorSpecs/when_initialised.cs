@@ -39,6 +39,6 @@ namespace NovusCraft.Specifications.WebSpecs.RouteConfiguratorSpecs
 			() => "~/feed".ShouldMapTo<HomeController>(controller => controller.Feed());
 
 		It should_register_edit_blogpost_route =
-			() => "~/dashboard/blog/edit/post-slug".ShouldMapTo<BlogController>(controller => controller.EditPost("post-slug"));
+			() => "~/dashboard/blog/edit/blogposts-1".ShouldMapTo<BlogController>(controller => controller.EditPost("blogposts/1"));
 	}
 }

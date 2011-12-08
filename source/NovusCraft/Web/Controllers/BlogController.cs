@@ -30,33 +30,30 @@ namespace NovusCraft.Web.Controllers
 
 			var permalink = Url.Permalink("ViewPost", "Blog", new { slug });
 			var disqusId = blogPost.Id.Substring(blogPost.Id.LastIndexOf("/") + 1);
-			var model = new ViewPostModel
+			var model = new ViewPostModel	// TODO: Use AutoMapper?
 			            	{
+			            		Id = disqusId,
 			            		Title = blogPost.Title,
 			            		Content = new MvcHtmlString(blogPost.Content),
 			            		Permalink = permalink.ToString(),
 			            		CategoryTitle = blogPost.Category.Title,
-			            		PublishedOn = blogPost.PublishedOn,
-			            		Id = disqusId
+			            		PublishedOn = blogPost.PublishedOn
 			            	};
 
 			return View(model);
 		}
 
-		public ActionResult EditPost(string slug)
+		public ActionResult EditPost(string id)
 		{
-			var blogPost = _blogPostRepository.GetBlogPost(slug);
+			var blogPost = _blogPostRepository.GetBlogPost(id);
 
-			var permalink = Url.Permalink("ViewPost", "Blog", new { slug });
-			var disqusId = blogPost.Id.Substring(blogPost.Id.LastIndexOf("/") + 1);
-			var model = new ViewPostModel
+			var model = new EditPostModel	// TODO: Use AutoMapper?
 			            	{
+			            		Id = blogPost.Id,
 			            		Title = blogPost.Title,
-			            		Content = new MvcHtmlString(blogPost.Content),
-			            		Permalink = permalink.ToString(),
+								Content = blogPost.Content,
 			            		CategoryTitle = blogPost.Category.Title,
 			            		PublishedOn = blogPost.PublishedOn,
-			            		Id = disqusId
 			            	};
 
 			return View(model);
