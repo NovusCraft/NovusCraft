@@ -42,7 +42,7 @@ namespace NovusCraft.Web.Controllers
 			return View(model);
 		}
 
-		public ActionResult EditPost(string id)
+		public ActionResult EditPost(int id)
 		{
 			var blogPost = _blogPostRepository.GetBlogPost(id);
 

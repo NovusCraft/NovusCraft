@@ -14,7 +14,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 	public class when_post_is_requested_for_editing : blog_controller_spec
 	{
 		static ActionResult result;
-		Because of = () => result = controller.EditPost(id: "test-slug-1");
+		Because of = () => result = controller.EditPost(1);
 
 		It should_display_post_for_editing =
 			() => result.ShouldBeAView().And().ShouldUseDefaultView();

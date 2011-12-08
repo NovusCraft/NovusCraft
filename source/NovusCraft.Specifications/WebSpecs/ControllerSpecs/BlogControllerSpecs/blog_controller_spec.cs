@@ -41,18 +41,20 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 				RouteConfigurator.Initialise(); // this requires cleanup
 
 				repository = new Mock<IBlogPostRepository>();
-				repository.Setup(r => r.GetBlogPost("test-slug-1")).Returns(new BlogPost
-				                                                            	{
-				                                                            		Id = 1,
-				                                                            		Title = "Test Post Title 1",
-				                                                            		Slug = "test-slug-1",
-				                                                            		Content = "Test Post Content 1",
-				                                                            		Category = new BlogPostCategory
-				                                                            		           	{
-				                                                            		           		Title = "Category 1"
-				                                                            		           	},
-				                                                            		PublishedOn = new DateTimeOffset(2011, 11, 10, 09, 08, 07, TimeSpan.Zero)
-				                                                            	});
+				var blogPost = new BlogPost
+				               	{
+				               		Id = 1,
+				               		Title = "Test Post Title 1",
+				               		Slug = "test-slug-1",
+				               		Content = "Test Post Content 1",
+				               		Category = new BlogPostCategory
+				               		           	{
+				               		           		Title = "Category 1"
+				               		           	},
+				               		PublishedOn = new DateTimeOffset(2011, 11, 10, 09, 08, 07, TimeSpan.Zero)
+				               	};
+				repository.Setup(r => r.GetBlogPost(1)).Returns(blogPost);
+				repository.Setup(r => r.GetBlogPost("test-slug-1")).Returns(blogPost);
 
 				controller = new BlogController(repository.Object) { ControllerContext = controllerContext.Object, Url = urlHelper };
 			};

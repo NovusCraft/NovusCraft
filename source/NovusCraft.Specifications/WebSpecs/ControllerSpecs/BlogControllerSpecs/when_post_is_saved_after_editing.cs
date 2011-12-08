@@ -31,6 +31,6 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 			() => repository.Verify(r => r.UpdateBlogPost(1, "New Title", "New content.", "New Category Title"));
 
 		It should_only_allow_post_requests =
-			() => This.Action<BlogController>(bc => bc.EditPost((EditPostModel)null)).ShouldBeDecoratedWith<HttpPostAttribute>();
+			() => This.Action<BlogController>(bc => bc.EditPost(null)).ShouldBeDecoratedWith<HttpPostAttribute>();
 	}
 }
