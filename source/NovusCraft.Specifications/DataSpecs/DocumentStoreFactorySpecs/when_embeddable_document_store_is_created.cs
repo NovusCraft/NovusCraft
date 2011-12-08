@@ -18,7 +18,7 @@ namespace NovusCraft.Specifications.DataSpecs.DocumentStoreFactorySpecs
 		It should_return_initialised_ravendb_document_store =
 			() => document_store.DocumentDatabase.ShouldNotBeNull();
 
-		It should_return_ravendb_document_store_connection_string_raven =
+		It should_set_connection_string_to_raven =
 			() => document_store.ConnectionStringName.ShouldEqual("Raven");
 	}
 }
