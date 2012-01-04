@@ -10,6 +10,49 @@
 	</header>
 	<article class="post">
 		<header>
+			<h1>@Html.ActionLink("Looking back at 2011", "ViewPost", "Blog", new { slug = "looking-back-at-2011" }, null)</h1>
+		</header>
+		<p>Another year begins and this is a good opportunity to look back at memorable aspects of 2011.</p>
+		<h2>Developed and launched first client website</h2>
+		<p>Aside from a few small projects, 2011 was occupied developing <a href="http://www.scottdunn.com/">ScottDunn.com</a>. It was a fun project with a great team and I have learned a lot from it.</p>
+		<h2>Developed new website and blog</h2>
+		<p>This has been on my list for a long time, so I am very pleased I had some time to set it up. It is far from finished. Lots of outstanding tasks on my <a href="https://github.com/NovusCraft/NovusCraft/issues?sort=created&amp;direction=desc&amp;state=open&amp;page=1&amp;milestone=2" title="Open novuscraft.com issues in GitHub backlog">backlog</a>, so this will keep me busy for a while.</p>
+		<h2>Learned a lot</h2>
+		<p>Through projects, books and blogs I have learned a lot of new tools and techniques:</p>
+		<ul>
+			<li>Sitecore customisation, performance optimisation and security hardening</li>
+			<li>HTML 5, HTML 5 Boilerplate, CSS 3</li>
+			<li>Lots of new jQuery techniques and Backbone.js</li>
+			<li>Website performance optimisation</li>
+			<li>MVC 3</li>
+			<li>Raven DB</li>
+		</ul>
+		<p>I also took some time out to attend <a href="http://london2011.codeken.com/">CodeKen 2011</a> and met Jon Skeet, Stefan Plattner and many other great people.</p>
+		<h2>Kindle has revolutionised the way I read books</h2>
+		<p>I bought my first Kindle (3rd generation WiFi model) almost a year ago. I read more books now than I have ever done. In the past year I have read 19 books: 10 technical + 9 non-technical. E-books are a lot cheaper and I was rapidly running out of space for storing my books, so getting a Kindle has paid off in many ways.</p>
+		<h2>Good time management is very important</h2>
+		<p>One of the reasons I started my own company was so I could invest more time in personal projects. I underestimated just how much time non-technical part of operating a business would absorb. I had to adapt (and fast), so I experimented lots and came up with a more manageable way handle routine tasks:</p>
+		<ul>
+			<li>Gmail + Getting Things Done to prioritise incoming mail</li>
+			<li><a href="http://www.rememberthemilk.com">RemeberTheMilk</a> to organise my tasks and reminders</li>
+			<li>Google Calendar to organise future and recurring events</li>
+		</ul>
+		<p>I also unsubscribed from all non-essential email notifications, cleaned-up RSS feed subscriptions and pretty much stopped watching TV.</p>
+		<h2>2012 will be even better</h2>
+		<p>I have lots in mind for 2012:</p>
+		<ul>
+			<li><strong>Continue training my software development skills:</strong> very interested in Raven DB and Sitecore Customer Engagement Platform</li>
+			<li><strong>Contribute to an open-source project:</strong> I am considering SquishIt, Noda Time and Lucene.net</li>
+			<li><strong>Develop and launch my own open-source project:</strong> haven’t quite decided what I am going to do yet</li>
+			<li><strong>Read 12 technical books:</strong> one every month not counting non-technical</li>
+			<li><strong>Post 26 articles:</strong> two articles per month not counting meta articles such as this one</li>
+		</ul>
+		<footer>
+			Published by @Html.ActionLink("Arnold Zokas", "About", null, new { rel = "author" }) on <time datetime="2012-01-04T00:40:22+00:00" pubdate>4th January 2012</time> in category <strong>Meta</strong>.
+		</footer>
+	</article>
+	<article class="post">
+		<header>
 			<h1>@Html.ActionLink("How to implement Raven DB UnitOfWork in an ASP.NET MVC application", "ViewPost", "Blog", new { slug = "how-to-implement-raven-db-unitofwork-in-an-asp-net-mvc-application" }, null)</h1>
 		</header>
 		<p>I have been looking at ways to implement UnitOfWork pattern for Raven DB. The three implementations I have found did not match my needs, so in the end decided to roll my own.</p>
