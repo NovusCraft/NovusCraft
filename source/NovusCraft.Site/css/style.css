@@ -742,6 +742,8 @@ p { margin:0; }
 a { border-bottom:dotted 1px #d93c3c; color:#d93c3c; text-decoration:none; }
 a:hover { background:#efefef; border-bottom-style:solid; }
 a:visited { color:#a33131; }
+hr { border:none; font-size:3em; text-align:center; margin:0.75em 0 1.5em; }
+hr:after { content:'\223e'; }
 
 /* CONTENT */
 /* post */
