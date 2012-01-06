@@ -11,5 +11,10 @@ namespace NovusCraft.Web.Controllers
 		{
 			throw new System.NotImplementedException();
 		}
+
+		public void LogOut()
+		{
+			throw new System.NotImplementedException();
+		}
 	}
 }

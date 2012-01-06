@@ -41,6 +41,9 @@ namespace NovusCraft.Specifications.WebSpecs.RouteConfiguratorSpecs
 		It should_register_login_route =
 			() => "~/dashboard/login".ShouldMapTo<AccountController>(controller => controller.LogIn());
 
+		It should_register_logout_route =
+			() => "~/dashboard/logout".ShouldMapTo<AccountController>(controller => controller.LogOut());
+
 		It should_register_edit_blogpost_route =
 			() => "~/dashboard/blog/edit/1".ShouldMapTo<BlogController>(controller => controller.EditPost(1));
 	}
