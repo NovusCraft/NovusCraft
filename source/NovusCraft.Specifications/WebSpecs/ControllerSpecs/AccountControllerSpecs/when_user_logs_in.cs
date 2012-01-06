@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using Machine.Specifications;
 using Machine.Specifications.Mvc;
 using NovusCraft.Web.Controllers;
+using NovusCraft.Web.ViewModels;
 
 namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.AccountControllerSpecs
 {
@@ -15,8 +16,8 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.AccountControllerSp
 
 		Because of = () =>
 			{
-				account_management_service.Setup(ams => ams.AuthenticateUser(Moq.It.IsAny<string>(), Moq.It.IsAny<string>())).Returns(true);
-				result = controller.LogIn(email: "example@company.com", password: "password");
+				account_management_service.Setup(ams => ams.AuthenticateUser(Moq.It.IsAny<LogInDetails>())).Returns(true);
+				result = controller.LogIn(new LogInDetails { Email = "example@company.com", Password = "password" });
 			};
 
 		It should_display_dashboard_page =

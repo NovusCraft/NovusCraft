@@ -5,6 +5,7 @@ using System;
 using System.Web.Mvc;
 using NovusCraft.Data.Security;
 using NovusCraft.Resources;
+using NovusCraft.Web.ViewModels;
 
 namespace NovusCraft.Web.Controllers
 {
@@ -22,12 +23,15 @@ namespace NovusCraft.Web.Controllers
 			return View();
 		}
 
-		public ActionResult LogIn(string email, string password)
+		public ActionResult LogIn(LogInDetails logInDetails)
 		{
-			var isAuthenticated = _accountManagementService.AuthenticateUser(email, password);
+			if (ModelState.IsValid)
+			{
+				var isAuthenticated = _accountManagementService.AuthenticateUser(logInDetails);
 
-			if (isAuthenticated) // valid credentials
-				return RedirectToAction("Dashboard", "Dashboard");
+				if (isAuthenticated) // valid credentials
+					return RedirectToAction("Dashboard", "Dashboard");
+			}
 
 			ModelState.AddModelError(string.Empty, ErrorMessages.InvalidLoginDetails);
 			return View(); // invalid credentials
