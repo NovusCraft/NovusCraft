@@ -31,6 +31,6 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.AccountControllerSp
 			() => result.ShouldBeARedirectToRoute().And().ActionName().ShouldEqual("Dashboard");
 
 		It only_http_post_is_allowed =
-			() => controller.GetType().GetMethod("LogIn", new[] { typeof(LogInDetails) }).ShouldBeDecoratedWith<HttpPostAttribute>();
+			() => This.Action<AccountController>(controller => controller.LogIn(Moq.It.IsAny<LogInDetails>())).ShouldBeDecoratedWith<HttpPostAttribute>();
 	}
 }
