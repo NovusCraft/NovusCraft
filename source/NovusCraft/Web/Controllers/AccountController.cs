@@ -23,11 +23,12 @@ namespace NovusCraft.Web.Controllers
 			return View();
 		}
 
+		[HttpPost]
 		public ActionResult LogIn(LogInDetails logInDetails)
 		{
 			if (ModelState.IsValid)
 			{
-				var isAuthenticated = _accountManagementService.AuthenticateUser(logInDetails);
+				var isAuthenticated = _accountManagementService.LogIn(logInDetails);
 
 				if (isAuthenticated) // valid credentials
 					return RedirectToAction("Dashboard", "Dashboard");

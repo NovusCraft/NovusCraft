@@ -16,7 +16,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.AccountControllerSp
 
 		Because of = () =>
 			{
-				account_management_service.Setup(ams => ams.AuthenticateUser(Moq.It.IsAny<LogInDetails>())).Returns(false);
+				account_management_service.Setup(ams => ams.LogIn(Moq.It.IsAny<LogInDetails>())).Returns(false);
 				result = controller.LogIn(new LogInDetails { Email = "invalid_email@company.com", Password = "invalid_password" });
 			};
 
