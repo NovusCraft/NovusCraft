@@ -8,5 +8,6 @@ namespace NovusCraft.Data.Security
 	public interface IAccountManagementService
 	{
 		bool LogIn(LogInDetails logInDetails);
+		void LogOut();
 	}
 }

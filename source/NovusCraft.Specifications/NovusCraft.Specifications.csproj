@@ -52,6 +52,7 @@
     <Compile Include="Utils\This.cs" />
     <Compile Include="WebSpecs\ActionResultSpecs\RssResultSpecs\when_result_is_executed.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\AccountControllerSpecs\account_controller_spec.cs" />
+    <Compile Include="WebSpecs\ControllerSpecs\AccountControllerSpecs\when_user_logs_out.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\AccountControllerSpecs\when_user_tries_to_log_in_with_invalid_credentials.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\AccountControllerSpecs\when_user_tries_to_log_in_with_false_credentials.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\AccountControllerSpecs\when_user_logs_in.cs" />

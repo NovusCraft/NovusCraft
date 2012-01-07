@@ -1,7 +1,6 @@
 ﻿// # Copyright © 2011, Novus Craft
 // # All rights reserved. 
 
-using System;
 using System.Web.Mvc;
 using NovusCraft.Data.Security;
 using NovusCraft.Resources;
@@ -38,9 +37,11 @@ namespace NovusCraft.Web.Controllers
 			return View(); // invalid credentials
 		}
 
-		public void LogOut()
+		public ActionResult LogOut()
 		{
-			throw new NotImplementedException();
+			_accountManagementService.LogOut();
+
+			return RedirectToAction("Home", "Home");
 		}
 	}
 }
