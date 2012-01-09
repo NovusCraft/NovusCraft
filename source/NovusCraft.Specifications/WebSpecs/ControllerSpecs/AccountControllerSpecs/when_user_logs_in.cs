@@ -30,7 +30,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.AccountControllerSp
 		It should_display_dashboard_page =
 			() => result.ShouldBeARedirectToRoute().And().ActionName().ShouldEqual("Dashboard");
 
-		It only_http_post_is_allowed =
+		It can_only_post_page =
 			() => This.Action<AccountController>(controller => controller.LogIn(Moq.It.IsAny<LogInDetails>())).ShouldBeDecoratedWith<HttpPostAttribute>();
 	}
 }
