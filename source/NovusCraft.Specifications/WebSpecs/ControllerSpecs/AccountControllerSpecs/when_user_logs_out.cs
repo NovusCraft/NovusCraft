@@ -20,7 +20,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.AccountControllerSp
 		Because of = () => result = controller.LogOut();
 
 		It should_log_user_in =
-			() => account_management_service.Verify(ams => ams.LogOut(), Times.Exactly(1));
+			() => authentication_service.Verify(ams => ams.LogOut(), Times.Exactly(1));
 
 		It should_display_home_page =
 			() => result.ShouldBeARedirectToRoute().And().ActionName().ShouldEqual("Home");

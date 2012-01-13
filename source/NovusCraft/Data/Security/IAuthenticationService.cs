@@ -5,7 +5,7 @@ using NovusCraft.Web.ViewModels;
 
 namespace NovusCraft.Data.Security
 {
-	public interface IAccountManagementService
+	public interface IAuthenticationService
 	{
 		bool LogIn(LogInModel logInModel);
 		void LogOut();

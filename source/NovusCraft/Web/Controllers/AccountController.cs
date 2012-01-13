@@ -10,11 +10,11 @@ namespace NovusCraft.Web.Controllers
 {
 	public sealed class AccountController : Controller
 	{
-		readonly IAccountManagementService _accountManagementService;
+		readonly IAuthenticationService _authenticationService;
 
-		public AccountController(IAccountManagementService accountManagementService)
+		public AccountController(IAuthenticationService authenticationService)
 		{
-			_accountManagementService = accountManagementService;
+			_authenticationService = authenticationService;
 		}
 
 		public ActionResult LogIn()
@@ -27,7 +27,7 @@ namespace NovusCraft.Web.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				var isAuthenticated = _accountManagementService.LogIn(logInModel);
+				var isAuthenticated = _authenticationService.LogIn(logInModel);
 
 				if (isAuthenticated) // valid credentials
 					return RedirectToAction("Dashboard", "Dashboard");
@@ -39,7 +39,7 @@ namespace NovusCraft.Web.Controllers
 
 		public ActionResult LogOut()
 		{
-			_accountManagementService.LogOut();
+			_authenticationService.LogOut();
 
 			return RedirectToAction("Home", "Home");
 		}

@@ -40,7 +40,7 @@
     <Compile Include="Data\Blog\BlogPostRepository.cs" />
     <Compile Include="Data\Blog\IBlogPostRepository.cs" />
     <Compile Include="Data\DocumentStoreFactory.cs" />
-    <Compile Include="Data\Security\IAccountManagementService.cs" />
+    <Compile Include="Data\Security\IAuthenticationService.cs" />
     <Compile Include="Data\StructureMapConfigurationRegistry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\ErrorMessages.Designer.cs">

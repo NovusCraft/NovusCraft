@@ -20,12 +20,12 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.AccountControllerSp
 
 		Because of = () =>
 			{
-				account_management_service.Setup(ams => ams.LogIn(Moq.It.IsAny<LogInModel>())).Returns(true);
+				authentication_service.Setup(ams => ams.LogIn(Moq.It.IsAny<LogInModel>())).Returns(true);
 				result = controller.LogIn(log_in_model);
 			};
 
 		It should_log_user_in =
-			() => account_management_service.Verify(ams => ams.LogIn(log_in_model), Times.Exactly(1));
+			() => authentication_service.Verify(ams => ams.LogIn(log_in_model), Times.Exactly(1));
 
 		It should_display_dashboard_page =
 			() => result.ShouldBeARedirectToRoute().And().ActionName().ShouldEqual("Dashboard");

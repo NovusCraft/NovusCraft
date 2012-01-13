@@ -20,7 +20,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.AccountControllerSp
 			{
 				controller.ModelState.AddModelError(string.Empty, "error");
 				result = controller.LogIn(new LogInModel());
-				account_management_service.Verify(ams => ams.LogIn(Moq.It.IsAny<LogInModel>()), Times.Never());
+				authentication_service.Verify(ams => ams.LogIn(Moq.It.IsAny<LogInModel>()), Times.Never());
 			};
 
 		It should_redisplay_login_page =

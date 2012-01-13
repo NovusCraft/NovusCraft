@@ -11,13 +11,13 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.AccountControllerSp
 	public abstract class account_controller_spec
 	{
 		protected static AccountController controller;
-		protected static Mock<IAccountManagementService> account_management_service;
+		protected static Mock<IAuthenticationService> authentication_service;
 
 		Establish context = () =>
 			{
-				account_management_service = new Mock<IAccountManagementService>();
+				authentication_service = new Mock<IAuthenticationService>();
 
-				controller = new AccountController(account_management_service.Object);
+				controller = new AccountController(authentication_service.Object);
 			};
 	}
 }
