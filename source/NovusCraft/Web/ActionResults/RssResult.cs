@@ -8,7 +8,7 @@ using System.Xml;
 
 namespace NovusCraft.Web.ActionResults
 {
-	public class RssResult : FileResult
+	public sealed class RssResult : FileResult
 	{
 		public RssResult(SyndicationFeed feed) : base("application/rss+xml")
 		{
