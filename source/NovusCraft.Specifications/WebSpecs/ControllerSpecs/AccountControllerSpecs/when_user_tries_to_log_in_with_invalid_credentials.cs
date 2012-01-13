@@ -19,8 +19,8 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.AccountControllerSp
 		Because of = () =>
 			{
 				controller.ModelState.AddModelError(string.Empty, "error");
-				result = controller.LogIn(new LogInDetails());
-				account_management_service.Verify(ams => ams.LogIn(Moq.It.IsAny<LogInDetails>()), Times.Never());
+				result = controller.LogIn(new LogInModel());
+				account_management_service.Verify(ams => ams.LogIn(Moq.It.IsAny<LogInModel>()), Times.Never());
 			};
 
 		It should_redisplay_login_page =

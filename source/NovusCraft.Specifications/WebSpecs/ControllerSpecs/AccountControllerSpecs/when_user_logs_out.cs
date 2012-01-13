@@ -15,7 +15,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.AccountControllerSp
 	public class when_user_logs_out : account_controller_spec
 	{
 		static ActionResult result;
-		static readonly LogInDetails log_in_details = new LogInDetails { Email = "example@company.com", Password = "password" };
+		static readonly LogInModel log_in_model = new LogInModel { Email = "example@company.com", Password = "password" };
 
 		Because of = () => result = controller.LogOut();
 

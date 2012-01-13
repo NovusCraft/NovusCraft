@@ -16,8 +16,8 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.AccountControllerSp
 
 		Because of = () =>
 			{
-				account_management_service.Setup(ams => ams.LogIn(Moq.It.IsAny<LogInDetails>())).Returns(false);
-				result = controller.LogIn(new LogInDetails { Email = "invalid_email@company.com", Password = "invalid_password" });
+				account_management_service.Setup(ams => ams.LogIn(Moq.It.IsAny<LogInModel>())).Returns(false);
+				result = controller.LogIn(new LogInModel { Email = "invalid_email@company.com", Password = "invalid_password" });
 			};
 
 		It should_redisplay_login_page =

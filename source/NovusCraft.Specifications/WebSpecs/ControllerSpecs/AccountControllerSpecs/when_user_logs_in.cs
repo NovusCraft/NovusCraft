@@ -16,21 +16,21 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.AccountControllerSp
 	public class when_user_logs_in : account_controller_spec
 	{
 		static ActionResult result;
-		static readonly LogInDetails log_in_details = new LogInDetails { Email = "example@company.com", Password = "password" };
+		static readonly LogInModel log_in_model = new LogInModel { Email = "example@company.com", Password = "password" };
 
 		Because of = () =>
 			{
-				account_management_service.Setup(ams => ams.LogIn(Moq.It.IsAny<LogInDetails>())).Returns(true);
-				result = controller.LogIn(log_in_details);
+				account_management_service.Setup(ams => ams.LogIn(Moq.It.IsAny<LogInModel>())).Returns(true);
+				result = controller.LogIn(log_in_model);
 			};
 
 		It should_log_user_in =
-			() => account_management_service.Verify(ams => ams.LogIn(log_in_details), Times.Exactly(1));
+			() => account_management_service.Verify(ams => ams.LogIn(log_in_model), Times.Exactly(1));
 
 		It should_display_dashboard_page =
 			() => result.ShouldBeARedirectToRoute().And().ActionName().ShouldEqual("Dashboard");
 
 		It can_only_post_page =
-			() => This.Action<AccountController>(controller => controller.LogIn(Moq.It.IsAny<LogInDetails>())).ShouldBeDecoratedWith<HttpPostAttribute>();
+			() => This.Action<AccountController>(controller => controller.LogIn(Moq.It.IsAny<LogInModel>())).ShouldBeDecoratedWith<HttpPostAttribute>();
 	}
 }

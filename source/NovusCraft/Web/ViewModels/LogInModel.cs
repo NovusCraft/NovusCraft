@@ -3,7 +3,7 @@
 
 namespace NovusCraft.Web.ViewModels
 {
-	public sealed class LogInDetails
+	public sealed class LogInModel
 	{
 		public string Email { get; set; }
 		public string Password { get; set; }
