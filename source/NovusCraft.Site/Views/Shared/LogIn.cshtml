@@ -1,0 +1,31 @@
+﻿@model LogInModel
+
+@{
+	ViewBag.Title = "Log In";
+}
+
+<article class="post grid_11">
+	<header>
+		<h1>Log In</h1>
+	</header>
+	@Html.ValidationSummary("Login was unsuccessful. Please correct the errors and try again.")
+	
+	@using (Html.BeginForm()) {
+		<fieldset>
+			<div>
+				@Html.LabelFor(m => m.Email)
+				@Html.TextBoxFor(m => m.Email)
+				@Html.ValidationMessageFor(m => m.Email)
+			</div>
+			<div>
+				@Html.LabelFor(m => m.Password)
+				@Html.PasswordFor(m => m.Password)
+				@Html.ValidationMessageFor(m => m.Password)
+			</div>
+			<div>
+				<input type="submit" value="Log In" />
+			</div>
+		</fieldset>
+	}
+
+</article>
