@@ -11,7 +11,7 @@ namespace NovusCraft.Specifications.DataSpecs.BlogSpecs.BlogPostRepositorySpecs
 {
 	public abstract class blog_post_repository_spec
 	{
-		protected static IBlogPostRepository repository;
+		protected static BlogPostRepository repository;
 		protected static EmbeddableDocumentStore document_store;
 		protected static IDocumentSession document_session;
 

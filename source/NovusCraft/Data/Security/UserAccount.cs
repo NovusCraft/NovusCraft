@@ -5,5 +5,7 @@ namespace NovusCraft.Data.Security
 {
 	public sealed class UserAccount
 	{
+		public string Email { get; set; }
+		public string PasswordHash { get; set; }
 	}
 }
