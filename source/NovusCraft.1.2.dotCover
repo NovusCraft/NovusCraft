@@ -6,6 +6,7 @@
     <ExcludeFilters>
       <Filter ModuleMask="NovusCraft" ClassMask="NovusCraft.Web.StructureMapControllerFactory" FunctionMask="GetControllerInstance" />
       <Filter ModuleMask="NovusCraft" ClassMask="NovusCraft.Resources.*" FunctionMask="*" />
+      <Filter ModuleMask="NovusCraft" ClassMask="NovusCraft.Security.FormsAuthenticationWrapper" FunctionMask="*" />
     </ExcludeFilters>
   </CoverageFilters>
   <SnapshotDialog>

@@ -3,6 +3,7 @@
 
 using Machine.Specifications;
 using Moq;
+using NovusCraft.Data.Security;
 using NovusCraft.Security;
 using NovusCraft.Web.ViewModels;
 using It = Machine.Specifications.It;
@@ -13,7 +14,12 @@ namespace NovusCraft.Specifications.SecuritySpecs.AuthenticationServiceSpecs
 	public class when_user_logs_in : authentication_service_spec
 	{
 		static bool result;
-		Because of = () => result = service.LogIn(new LogInModel { Email = "example@company.com", Password = "password" });
+
+		Because of = () =>
+			{
+				user_account_repository.Setup(uar => uar.GetUserByEmailAndPassword("example@company.com", "password")).Returns(new UserAccount());
+				result = service.LogIn(new LogInModel { Email = "example@company.com", Password = "password" });
+			};
 
 		It should_log_user_in =
 			() => result.ShouldBeTrue();

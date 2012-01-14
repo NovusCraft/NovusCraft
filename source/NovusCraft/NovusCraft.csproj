@@ -43,6 +43,7 @@
     <Compile Include="Data\Security\IUserAccountRepository.cs" />
     <Compile Include="Data\Security\UserAccount.cs" />
     <Compile Include="Security\AuthenticationService.cs" />
+    <Compile Include="Security\FormsAuthenticationWrapper.cs" />
     <Compile Include="Security\IAuthenticationService.cs" />
     <Compile Include="Data\StructureMapConfigurationRegistry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
