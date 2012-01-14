@@ -24,8 +24,8 @@ namespace NovusCraft.Web
 			routes.MapRoute("View Blog Post", "blog/{slug}", new { controller = "Blog", action = "ViewPost" });
 
 			// dashboard section
-			routes.MapRoute("Log In", "dashboard/login", new { controller = "Account", action = "LogIn" });
-			routes.MapRoute("Log Out", "dashboard/logout", new { controller = "Account", action = "LogOut" });
+			routes.MapRoute("Log In", "dashboard/login", new { controller = "UserAccount", action = "LogIn" });
+			routes.MapRoute("Log Out", "dashboard/logout", new { controller = "UserAccount", action = "LogOut" });
 			routes.MapRoute("Edit Blog Post", "dashboard/blog/edit/{id}", new { controller = "Blog", action = "EditPost" });
 
 			// 404 page

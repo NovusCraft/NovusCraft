@@ -7,9 +7,9 @@ using Machine.Specifications.Mvc;
 using NovusCraft.Web.Controllers;
 using NovusCraft.Web.ViewModels;
 
-namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.AccountControllerSpecs
+namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.UserAccountControllerSpecs
 {
-	[Subject(typeof(AccountController))]
+	[Subject(typeof(UserAccountController))]
 	public class when_user_tries_to_log_in_with_false_credentials : account_controller_spec
 	{
 		static ActionResult result;

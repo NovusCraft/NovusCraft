@@ -6,9 +6,9 @@ using Machine.Specifications;
 using Machine.Specifications.Mvc;
 using NovusCraft.Web.Controllers;
 
-namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.AccountControllerSpecs
+namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.UserAccountControllerSpecs
 {
-	[Subject(typeof(AccountController))]
+	[Subject(typeof(UserAccountController))]
 	public class when_login_page_is_requested : account_controller_spec
 	{
 		static ActionResult result;

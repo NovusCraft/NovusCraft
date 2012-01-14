@@ -8,11 +8,11 @@ using NovusCraft.Web.ViewModels;
 
 namespace NovusCraft.Web.Controllers
 {
-	public sealed class AccountController : Controller
+	public sealed class UserAccountController : Controller
 	{
 		readonly IAuthenticationService _authenticationService;
 
-		public AccountController(IAuthenticationService authenticationService)
+		public UserAccountController(IAuthenticationService authenticationService)
 		{
 			_authenticationService = authenticationService;
 		}
@@ -30,7 +30,7 @@ namespace NovusCraft.Web.Controllers
 				var isAuthenticated = _authenticationService.LogIn(logInModel);
 
 				if (isAuthenticated) // valid credentials
-					return RedirectToAction("Dashboard", "Dashboard");
+					return RedirectToAction("Dashboard", "Home");
 			}
 
 			ModelState.AddModelError(string.Empty, ErrorMessages.InvalidLoginDetails);

@@ -9,9 +9,9 @@ using NovusCraft.Web.Controllers;
 using NovusCraft.Web.ViewModels;
 using It = Machine.Specifications.It;
 
-namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.AccountControllerSpecs
+namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.UserAccountControllerSpecs
 {
-	[Subject(typeof(AccountController))]
+	[Subject(typeof(UserAccountController))]
 	public class when_user_logs_out : account_controller_spec
 	{
 		static ActionResult result;

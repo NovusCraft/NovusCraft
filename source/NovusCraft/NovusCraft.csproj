@@ -55,7 +55,7 @@
     </Compile>
     <Compile Include="Security\IFormsAuthenticationWrapper.cs" />
     <Compile Include="Web\ActionResults\RssResult.cs" />
-    <Compile Include="Web\Controllers\AccountController.cs" />
+    <Compile Include="Web\Controllers\UserAccountController.cs" />
     <Compile Include="Web\Controllers\BlogController.cs" />
     <Compile Include="Web\Controllers\HomeController.cs" />
     <Compile Include="Web\Helpers\UrlHelpers.cs" />

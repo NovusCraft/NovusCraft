@@ -10,9 +10,9 @@ using NovusCraft.Web.Controllers;
 using NovusCraft.Web.ViewModels;
 using It = Machine.Specifications.It;
 
-namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.AccountControllerSpecs
+namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.UserAccountControllerSpecs
 {
-	[Subject(typeof(AccountController))]
+	[Subject(typeof(UserAccountController))]
 	public class when_user_logs_in : account_controller_spec
 	{
 		static ActionResult result;
@@ -31,6 +31,6 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.AccountControllerSp
 			() => result.ShouldBeARedirectToRoute().And().ActionName().ShouldEqual("Dashboard");
 
 		It can_only_post_page =
-			() => This.Action<AccountController>(controller => controller.LogIn(Moq.It.IsAny<LogInModel>())).ShouldBeDecoratedWith<HttpPostAttribute>();
+			() => This.Action<UserAccountController>(controller => controller.LogIn(Moq.It.IsAny<LogInModel>())).ShouldBeDecoratedWith<HttpPostAttribute>();
 	}
 }
