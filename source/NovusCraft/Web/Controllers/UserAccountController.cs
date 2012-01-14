@@ -22,7 +22,7 @@ namespace NovusCraft.Web.Controllers
 			return View();
 		}
 
-		[HttpPost]
+		[HttpPost, ValidateAntiForgeryToken]
 		public ActionResult LogIn(LogInModel logInModel)
 		{
 			if (ModelState.IsValid)

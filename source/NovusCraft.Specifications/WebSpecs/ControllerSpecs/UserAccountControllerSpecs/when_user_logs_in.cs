@@ -30,6 +30,9 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.UserAccountControll
 		It should_display_dashboard_page =
 			() => result.ShouldBeARedirectToRoute().And().ActionName().ShouldEqual("Dashboard");
 
+		It is_protected_against_xsrf =
+			() => This.Action<UserAccountController>(controller => controller.LogIn(Moq.It.IsAny<LogInModel>())).ShouldBeDecoratedWith<ValidateAntiForgeryTokenAttribute>();
+
 		It can_only_post_page =
 			() => This.Action<UserAccountController>(controller => controller.LogIn(Moq.It.IsAny<LogInModel>())).ShouldBeDecoratedWith<HttpPostAttribute>();
 	}
