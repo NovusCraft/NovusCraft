@@ -17,7 +17,7 @@ namespace NovusCraft.Specifications.SecuritySpecs.AuthenticationServiceSpecs
 
 		Because of = () =>
 			{
-				user_account_repository.Setup(uar => uar.GetUserByEmailAndPassword("example@company.com", "password")).Returns(new UserAccount());
+				user_account_repository.Setup(uar => uar.GetUserByEmailAndPassword("example@company.com", "虜ꘕ‷倯॰៘倂쭮猱◡參齙甇⽯䅖")).Returns(new UserAccount());
 				result = service.LogIn(new LogInModel { Email = "example@company.com", Password = "password" });
 			};
 
@@ -28,6 +28,6 @@ namespace NovusCraft.Specifications.SecuritySpecs.AuthenticationServiceSpecs
 			() => forms_authentication_wrapper.Verify(faw => faw.SetAuthCookie("example@company.com"), Times.Exactly(1));
 
 		It should_verify_user =
-			() => user_account_repository.Verify(uar => uar.GetUserByEmailAndPassword("example@company.com", "password"), Times.Exactly(1));
+			() => user_account_repository.Verify(uar => uar.GetUserByEmailAndPassword("example@company.com", "虜ꘕ‷倯॰៘倂쭮猱◡參齙甇⽯䅖"), Times.Exactly(1));
 	}
 }
