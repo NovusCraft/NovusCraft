@@ -2,8 +2,8 @@
 // # All rights reserved. 
 
 using System.Web.Mvc;
-using NovusCraft.Data.Security;
 using NovusCraft.Resources;
+using NovusCraft.Security;
 using NovusCraft.Web.ViewModels;
 
 namespace NovusCraft.Web.Controllers

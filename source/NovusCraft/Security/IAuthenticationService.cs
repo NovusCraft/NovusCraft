@@ -3,7 +3,7 @@
 
 using NovusCraft.Web.ViewModels;
 
-namespace NovusCraft.Data.Security
+namespace NovusCraft.Security
 {
 	public interface IAuthenticationService
 	{

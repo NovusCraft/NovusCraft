@@ -3,7 +3,7 @@
 
 using Machine.Specifications;
 using Moq;
-using NovusCraft.Data.Security;
+using NovusCraft.Security;
 using NovusCraft.Web.Controllers;
 
 namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.AccountControllerSpecs
