@@ -22,6 +22,6 @@ namespace NovusCraft.Specifications.SecuritySpecs.AuthenticationServiceSpecs
 			() => forms_authentication_wrapper.Verify(faw => faw.SetAuthCookie("example@company.com"), Times.Never());
 
 		It should_verify_user =
-			() => user_account_repository.Verify(uar => uar.GetUserByEmailAndPassword(Moq.It.IsAny<string>(), Moq.It.IsAny<string>()), Times.Exactly(1));
+			() => user_account_repository.Verify(uar => uar.GetUserAccountByEmailAndPasswordHash(Moq.It.IsAny<string>(), Moq.It.IsAny<string>()), Times.Exactly(1));
 	}
 }

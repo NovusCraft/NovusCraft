@@ -17,7 +17,7 @@ namespace NovusCraft.Data.Security
 
 		#region IUserAccountRepository Members
 
-		public UserAccount GetUserByEmailAndPassword(string email, string passwordHash)
+		public UserAccount GetUserAccountByEmailAndPasswordHash(string email, string passwordHash)
 		{
 			return _documentSession.Query<UserAccount>().SingleOrDefault(ua => ua.Email == email && ua.PasswordHash == passwordHash);
 		}

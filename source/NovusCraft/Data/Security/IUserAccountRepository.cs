@@ -5,6 +5,6 @@ namespace NovusCraft.Data.Security
 {
 	public interface IUserAccountRepository
 	{
-		UserAccount GetUserByEmailAndPassword(string email, string passwordHash);
+		UserAccount GetUserAccountByEmailAndPasswordHash(string email, string passwordHash);
 	}
 }

@@ -30,7 +30,7 @@ namespace NovusCraft.Security
 		{
 			var passwordHash = GenerateHash(logInModel.Password);
 
-			var userAccount = _userAccountRepository.GetUserByEmailAndPassword(logInModel.Email, passwordHash);
+			var userAccount = _userAccountRepository.GetUserAccountByEmailAndPasswordHash(logInModel.Email, passwordHash);
 			if (userAccount == null)
 				return false;
 
