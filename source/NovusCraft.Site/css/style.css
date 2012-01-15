@@ -777,6 +777,8 @@ pre + pre { margin-top:2em; }
 pre code { border-left:solid 0.5em #ccc; font-size:1.4em; line-height:1.3em; margin-left:-1.5em; padding:0 0 0 1em; }
 
 /* forms */
+.validation-summary-errors { color:#d93c3c; font-size:1.5em; }
+.field-validation-error { color:#d93c3c; font-size:1.4em; margin-left:1em; }
 fieldset div { height:3em; }
 fieldset label { float:left; font-size:1.5em; width:6em; }
 fieldset input { font-size:1.5em; width:15em; }

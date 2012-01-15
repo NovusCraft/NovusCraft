@@ -8,7 +8,7 @@
 	<header>
 		<h1>Log In</h1>
 	</header>
-	@Html.ValidationSummary("Login was unsuccessful. Please correct the errors and try again.")
+	@Html.ValidationSummary(true, "Login was unsuccessful. Please correct the errors and try again.")
 	
 	@using (Html.BeginForm()) {
 		<fieldset>
