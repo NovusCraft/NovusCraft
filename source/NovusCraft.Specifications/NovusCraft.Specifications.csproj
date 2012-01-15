@@ -57,6 +57,8 @@
     <Compile Include="Utils\RouteTestExtensions.cs" />
     <Compile Include="Utils\This.cs" />
     <Compile Include="WebSpecs\ActionResultSpecs\RssResultSpecs\when_result_is_executed.cs" />
+    <Compile Include="WebSpecs\ControllerSpecs\DashboardControllerSpecs\dashboard_controller_spec.cs" />
+    <Compile Include="WebSpecs\ControllerSpecs\DashboardControllerSpecs\when_home_page_is_requested.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\UserAccountControllerSpecs\account_controller_spec.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\UserAccountControllerSpecs\when_user_logs_out.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\UserAccountControllerSpecs\when_user_tries_to_log_in_with_invalid_credentials.cs" />

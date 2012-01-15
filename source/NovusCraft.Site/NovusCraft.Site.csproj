@@ -117,7 +117,9 @@
   <ItemGroup>
     <Content Include="Views\Shared\GoogleButton.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Views\Dashboard\Home.cshtml" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\LogIn.cshtml" />
   </ItemGroup>

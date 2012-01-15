@@ -29,7 +29,7 @@ namespace NovusCraft.Web.Controllers
 			{
 				var isAuthenticated = _authenticationService.LogIn(logInModel);
 				if (isAuthenticated) // valid credentials
-					return RedirectToAction("Dashboard", "Home");
+					return RedirectToAction("Home", "Dashboard");
 
 				// authentication failed
 				ModelState.AddModelError(string.Empty, ErrorMessages.InvalidLoginDetails);

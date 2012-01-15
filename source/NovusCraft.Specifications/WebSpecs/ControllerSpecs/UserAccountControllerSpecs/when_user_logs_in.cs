@@ -28,7 +28,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.UserAccountControll
 			() => authentication_service.Verify(ams => ams.LogIn(log_in_model), Times.Exactly(1));
 
 		It should_display_dashboard_page =
-			() => result.ShouldBeARedirectToRoute().And().ActionName().ShouldEqual("Dashboard");
+			() => result.ShouldBeARedirectToRoute().And().ActionName().ShouldEqual("Home");
 
 		It is_protected_against_xsrf =
 			() => This.Action<UserAccountController>(controller => controller.LogIn(Moq.It.IsAny<LogInModel>())).ShouldBeDecoratedWith<ValidateAntiForgeryTokenAttribute>();
