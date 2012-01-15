@@ -762,7 +762,7 @@ hr:after { content:'\223e'; }
 .post li code { color:#444; background-color:#eee; font-family:Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif; padding:0.1em 0.3em; }
 .post pre+p,
 .post p+p { margin-top:1em; text-indent:1em; }
-.post footer { margin-top:1em; }
+.post footer { margin-top:1.4em; }
 .post footer .meta { font-size:1.4em; font-style:italic; }
 .post footer .share { margin-top:2em; }
 .post footer .twitter { float:left; }
@@ -853,32 +853,61 @@ fieldset input[type=submit] { border:solid 0.1em #ccc; color:#444; margin-left:6
    Print styles.
    Inlined to avoid required HTTP connection: www.phpied.com/delay-loading-your-print-css/
    ========================================================================== */
- 
+   
+/*For print debugging use: @media screen and (max-width:8.5in)*/
 @media print {
-  * { background: transparent !important; color: black !important; font-family:"Times New Roman",Times,serif; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: sanbeiji.com/archives/953 */
-  a, a:visited { border:none; border-bottom:dotted 0.1em black; color:black !important; text-decoration:none; }
-  li a[href]:after,
-  p a[href]:after { content: " (" attr(href) ")"; }
-  h1 a { border:none; }
-  abbr[title]:after { content: " (" attr(title) ")"; }
-  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  /* Don't show links for images, or javascript/internal links */
-  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
-  thead { display: table-header-group; } /* css-discuss.incutio.com/wiki/Printing_Tables */
-  tr, img { page-break-inside: avoid; }
-  img { max-width: 100% !important; }
-  @page { margin: 0.5cm; }
-  p, h2, h3 { orphans: 3; widows: 3; }
-  h2, h3{ page-break-after: avoid; }
-  
-  #header h1 a { font-size:3.6em; height:1em; margin:0; padding:0; text-decoration:none; text-indent:0; }
-  #header nav { display:none; }
-  .post p { font-size:1.6em; }
-  .post li { padding-left:1em;}
-  .post li:before { content: "● "; }
-  .post footer { font-size:1.6em; }
-  .post footer a { text-decoration:none; }
-  .post footer strong { font-weight:normal; }
-  #subscribe { display:none; }
-  #footer { font-size:1.6em; }
-  #footer .source { display:none; }
+	* { background:transparent !important; color:black !important; font-family:"Times New Roman", Times, serif; text-shadow:none !important; filter:none !important; -ms-filter:none !important; } /* Black prints faster: sanbeiji.com/archives/953 */
+	a,
+	a:visited { border:none !important; color:black !important; text-decoration:none; }
+	li a[href]:after,
+	p a[href]:after { content:" (" attr(href) ")"; font-size:90%; }
+	h1 a { border:none; }
+	abbr[title]:after { content:" (" attr(title) ")"; }
+	.ir a:after,
+	a[href^="javascript:"]:after,
+	a[href^="#"]:after { content:""; }  /* Don't show links for images, or javascript/internal links */
+	pre,
+	blockquote { border:1pt solid #999; page-break-inside:avoid; }
+	thead { display:table-header-group; } /* css-discuss.incutio.com/wiki/Printing_Tables */
+	tr,
+	img { page-break-inside:avoid; }
+	img { max-width:100% !important; }
+	@page {
+		margin:0.5cm;
+	}
+	p,
+	h2,
+	h3 { orphans:3; widows:3; }
+	h2,
+	h3 { page-break-after:avoid; }
+	
+	/* PAGE HEADER */
+	#header { height:auto; }
+	#header h1 { margin:0; width:100%; }
+	#header h1 a { font-size:14pt; height:auto; text-indent:0; width:100%; }
+	#header h1 a:after { content:"(Thank you for printing. Please visit http://novuscraft.com for latest articles.)"; font-size:12pt; font-weight:normal; }
+	#header nav { display:none; }
+	
+	/* CONTENT */
+	html,
+	body,
+	#container { width:100% !important; min-width:0; }
+	.post { float:none; }
+	.post h1 { font-size:20pt; margin:0; line-height:30pt; }
+	.post p { font-size:12pt; }
+	.post ul li { font-size:12pt; margin-left:6pt; }
+
+	.post footer a { border:none; }
+	.post footer .meta { font-size:12pt; }
+	.post footer .share { display:none; }
+	#disqus_thread { display:none; }	
+	
+	/* SIDEBAR */
+	#subscribe { display:none; }
+	aside.grid_4 { display:none; }
+	
+	/* FOOTER */
+	#footer { font-size:12pt; height:auto; }
+	#footer span { margin:12pt 0 0 0; }
+	#footer .source { display:none; }
 }
