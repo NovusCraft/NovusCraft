@@ -760,8 +760,8 @@ hr:after { content:'\223e'; }
 .post ol li { font-size:1.5em; line-height:1.6em; list-style-type:decimal; }
 .post p code,
 .post li code { color:#444; background-color:#eee; font-family:Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif; padding:0.1em 0.3em; }
-.post pre+p,
-.post p+p { margin-top:1em; text-indent:1em; }
+.post pre + p,
+.post p + p { margin-top:1em; text-indent:1em; }
 .post footer { margin-top:1.4em; }
 .post footer .meta { font-size:1.4em; font-style:italic; }
 .post footer .share { margin-top:2em; }
@@ -771,8 +771,8 @@ hr:after { content:'\223e'; }
 
 /* post (code sample) */
 pre { font-family:Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif; margin:0; }
-p+pre { margin-top:1em; }
-pre+pre { margin-top:2em; }
+p + pre { margin-top:1em; }
+pre + pre { margin-top:2em; }
 pre code { border-left:solid 0.5em #ccc; font-size:1.4em; line-height:1.3em; margin-left:-1.5em; padding:0 0 0 1em; }
 
 /* forms */
@@ -793,7 +793,7 @@ fieldset input[type=submit] { border:solid 0.1em #ccc; color:#444; margin-left:6
 #header h1 a { background:url(../img/logo.png) no-repeat; border:none; display:block; height:5em; text-indent:-9999em; width:18em; }
 #header h1 a:hover { background-position:-18em 0; }
 #header li { float:left; }
-#header li+li { margin-left:2.6em; }
+#header li + li { margin-left:2.6em; }
 #header nav { margin-top:2.3em; }
 #header nav a { border:none; color:#777; font-size:1.6em; text-decoration:none; text-transform:uppercase; }
 #header nav a:hover { border-top:solid 0.2em #e8a7a7; color:#000; }
