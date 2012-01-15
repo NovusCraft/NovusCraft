@@ -764,6 +764,7 @@ hr:after { content:'\223e'; }
 .post p + p { margin-top:1em; text-indent:1em; }
 .post footer { margin-top:1.4em; }
 .post footer .meta { font-size:1.4em; font-style:italic; }
+.post footer .profile-link { border:none; vertical-align:middle; }
 .post footer .share { margin-top:2em; }
 .post footer .twitter { float:left; }
 .post footer .google { float:left; margin-left:2em; }
