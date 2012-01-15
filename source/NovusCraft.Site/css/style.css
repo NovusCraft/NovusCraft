@@ -897,9 +897,9 @@ fieldset input[type=submit] { border:solid 0.1em #ccc; color:#444; margin-left:6
 	.post h1 { font-size:20pt; margin:0; line-height:30pt; }
 	.post p { font-size:12pt; }
 	.post ul li { font-size:12pt; margin-left:6pt; }
-
 	.post footer a { border:none; }
 	.post footer .meta { font-size:12pt; }
+	.post footer .profile-link { display:none; }
 	.post footer .share { display:none; }
 	#disqus_thread { display:none; }	
 	
