@@ -76,6 +76,7 @@
     <Compile Include="WebSpecs\ControllerSpecs\HomeControllerSpecs\when_home_page_is_requested.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\HomeControllerSpecs\home_controller_spec.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\HomeControllerSpecs\when_about_page_is_requested.cs" />
+    <Compile Include="WebSpecs\DataAnnotationSpecs\when_instantiated.cs" />
     <Compile Include="WebSpecs\HelperSpecs\HtmlHelperSpecs\when_menu_link_is_created_for_current_page.cs" />
     <Compile Include="WebSpecs\HelperSpecs\HtmlHelperSpecs\html_helper_spec.cs" />
     <Compile Include="WebSpecs\HelperSpecs\HtmlHelperSpecs\when_menu_link_is_created.cs" />
@@ -127,6 +128,7 @@
       <HintPath>..\packages\structuremap.2.6.3\lib\StructureMap.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />

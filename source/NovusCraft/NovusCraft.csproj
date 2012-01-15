@@ -43,6 +43,11 @@
     <Compile Include="Data\Security\BlogPostRepository.cs" />
     <Compile Include="Data\Security\IUserAccountRepository.cs" />
     <Compile Include="Data\Security\UserAccount.cs" />
+    <Compile Include="Resources\ValidationMessages.Designer.cs">
+      <DependentUpon>ValidationMessages.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Security\AuthenticationService.cs" />
     <Compile Include="Security\FormsAuthenticationWrapper.cs" />
     <Compile Include="Security\IAuthenticationService.cs" />
@@ -59,6 +64,7 @@
     <Compile Include="Web\Controllers\UserAccountController.cs" />
     <Compile Include="Web\Controllers\BlogController.cs" />
     <Compile Include="Web\Controllers\HomeController.cs" />
+    <Compile Include="Web\DataAnnotations\RequiredAttribute.cs" />
     <Compile Include="Web\Helpers\UrlHelpers.cs" />
     <Compile Include="Web\Helpers\HtmlHelpers.cs" />
     <Compile Include="Web\MvcApplication.cs" />
@@ -102,6 +108,11 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <EmbeddedResource Include="Resources\ValidationMessages.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ValidationMessages.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\ErrorMessages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ErrorMessages.Designer.cs</LastGenOutput>
