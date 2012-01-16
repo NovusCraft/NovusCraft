@@ -10,6 +10,7 @@ namespace NovusCraft.Data.Blog
 		IList<BlogPost> GetRecentBlogPosts();
 		BlogPost GetBlogPost(int id);
 		BlogPost GetBlogPost(string slug);
+		void CreateBlogPost(string title, string content, string categoryTitle);
 		void UpdateBlogPost(int id, string title, string content, string categoryTitle);
 	}
 }

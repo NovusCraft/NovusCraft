@@ -34,6 +34,21 @@ namespace NovusCraft.Data.Blog
 			return _documentSession.Query<BlogPost>().SingleOrDefault(bp => bp.Slug == slug);
 		}
 
+		public void CreateBlogPost(string title, string content, string categoryTitle)
+		{
+			var blogPost = new BlogPost
+			               	{
+			               		Title = title,
+			               		Content = content,
+			               		Category = new BlogPostCategory
+			               		           	{
+			               		           		Title = categoryTitle
+			               		           	}
+			               	};
+
+			_documentSession.Store(blogPost);
+		}
+
 		public void UpdateBlogPost(int id, string title, string content, string categoryTitle)
 		{
 			var blogPost = _documentSession.Query<BlogPost>().Single(bp => bp.Id == id);

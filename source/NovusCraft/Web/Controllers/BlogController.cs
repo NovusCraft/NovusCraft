@@ -42,6 +42,17 @@ namespace NovusCraft.Web.Controllers
 			return View(model);
 		}
 
+		public ActionResult CreatePost()
+		{
+			return View();
+		}
+
+		[HttpPost]
+		public void CreatePost(CreatePostModel model)
+		{
+			_blogPostRepository.CreateBlogPost(model.Title, model.Content, model.CategoryTitle);
+		}
+
 		public ActionResult EditPost(int id)
 		{
 			var blogPost = _blogPostRepository.GetBlogPost(id);
@@ -59,11 +70,9 @@ namespace NovusCraft.Web.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult EditPost(EditPostModel editPostModel)
+		public void EditPost(EditPostModel model)
 		{
-			_blogPostRepository.UpdateBlogPost(editPostModel.Id, editPostModel.Title, editPostModel.Content, editPostModel.CategoryTitle);
-
-			return View();
+			_blogPostRepository.UpdateBlogPost(model.Id, model.Title, model.Content, model.CategoryTitle);
 		}
 	}
 }
