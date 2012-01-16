@@ -64,7 +64,7 @@
     <Compile Include="Web\Controllers\UserAccountController.cs" />
     <Compile Include="Web\Controllers\BlogController.cs" />
     <Compile Include="Web\Controllers\HomeController.cs" />
-    <Compile Include="Web\DataAnnotations\RequiredAttribute.cs" />
+    <Compile Include="Web\DataAnnotations\ResourceAwareRequiredAttributeAdapter.cs" />
     <Compile Include="Web\Helpers\UrlHelpers.cs" />
     <Compile Include="Web\Helpers\HtmlHelpers.cs" />
     <Compile Include="Web\MvcApplication.cs" />

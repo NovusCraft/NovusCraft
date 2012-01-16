@@ -76,7 +76,7 @@
     <Compile Include="WebSpecs\ControllerSpecs\HomeControllerSpecs\when_home_page_is_requested.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\HomeControllerSpecs\home_controller_spec.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\HomeControllerSpecs\when_about_page_is_requested.cs" />
-    <Compile Include="WebSpecs\DataAnnotationSpecs\when_instantiated.cs" />
+    <Compile Include="WebSpecs\DataAnnotationSpecs\ResourceAwareRequiredAttributeAdapterSpecs\when_instantiated.cs" />
     <Compile Include="WebSpecs\HelperSpecs\HtmlHelperSpecs\when_menu_link_is_created_for_current_page.cs" />
     <Compile Include="WebSpecs\HelperSpecs\HtmlHelperSpecs\html_helper_spec.cs" />
     <Compile Include="WebSpecs\HelperSpecs\HtmlHelperSpecs\when_menu_link_is_created.cs" />

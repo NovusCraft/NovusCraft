@@ -7,11 +7,11 @@ namespace NovusCraft.Web.ViewModels
 {
 	public sealed class LogInModel
 	{
-		[DataAnnotations.Required]
+		[Required]
 		[DataType(DataType.EmailAddress)]
 		public string Email { get; set; }
 
-		[DataAnnotations.Required]
+		[Required]
 		[DataType(DataType.Password)]
 		public string Password { get; set; }
 	}
