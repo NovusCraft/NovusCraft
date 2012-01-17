@@ -48,9 +48,9 @@ namespace NovusCraft.Specifications.WebSpecs.RouteConfiguratorSpecs
 			() => "~/dashboard".ShouldMapTo<DashboardController>(controller => controller.Home());
 
 		It should_register_create_blogpost_route =
-			() => "~/dashboard/blog/create".ShouldMapTo<BlogController>(controller => controller.CreateBlogPost());
+			() => "~/dashboard/blogpost/create".ShouldMapTo<BlogController>(controller => controller.CreateBlogPost());
 
 		It should_register_edit_blogpost_route =
-			() => "~/dashboard/blog/edit/1".ShouldMapTo<BlogController>(controller => controller.EditBlogPost(1));
+			() => "~/dashboard/blogpost/edit/1".ShouldMapTo<BlogController>(controller => controller.EditBlogPost(1));
 	}
 }
