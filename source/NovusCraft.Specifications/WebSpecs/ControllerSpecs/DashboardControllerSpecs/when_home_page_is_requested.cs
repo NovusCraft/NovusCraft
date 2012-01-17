@@ -57,7 +57,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.DashboardController
 		It should_return_list_of_blog_posts_with_blog_post_having_publish_date =
 			() => result.Model<IList<ViewBlogPostModel>>().First().PublishedOn.ShouldEqual(new DateTimeOffset(2012, 01, 17, 0, 0, 0, TimeSpan.Zero));
 
-		It can_only_view_if_logged_in =
+		It requires_authentication =
 			() => This.Action<DashboardController>(controller => controller.Home()).ShouldBeDecoratedWith<AuthorizeAttribute>();
 	}
 }

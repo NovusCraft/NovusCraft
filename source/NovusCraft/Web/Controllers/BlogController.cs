@@ -42,17 +42,19 @@ namespace NovusCraft.Web.Controllers
 			return View(model);
 		}
 
+		[Authorize]
 		public ActionResult CreateBlogPost()
 		{
 			return View();
 		}
 
-		[HttpPost]
+		[HttpPost, Authorize]
 		public void CreateBlogPost(CreatePostModel model)
 		{
 			_blogPostRepository.CreateBlogPost(model.Title, model.Content, model.CategoryTitle);
 		}
 
+		[Authorize]
 		public ActionResult EditBlogPost(int id)
 		{
 			var blogPost = _blogPostRepository.GetBlogPost(id);
@@ -69,7 +71,7 @@ namespace NovusCraft.Web.Controllers
 			return View(model);
 		}
 
-		[HttpPost]
+		[HttpPost, Authorize]
 		public void EditBlogPost(EditPostModel model)
 		{
 			_blogPostRepository.UpdateBlogPost(model.Id, model.Title, model.Content, model.CategoryTitle);

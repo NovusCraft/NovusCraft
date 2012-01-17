@@ -4,6 +4,7 @@
 using System.Web.Mvc;
 using Machine.Specifications;
 using Machine.Specifications.Mvc;
+using NovusCraft.Specifications.Utils;
 using NovusCraft.Web.Controllers;
 
 namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
@@ -16,5 +17,8 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 
 		It should_display_post_for_editing =
 			() => result.ShouldBeAView().And().ShouldUseDefaultView();
+
+		It requires_authentication =
+			() => This.Action<BlogController>(controller => controller.CreateBlogPost()).ShouldBeDecoratedWith<AuthorizeAttribute>();
 	}
 }
