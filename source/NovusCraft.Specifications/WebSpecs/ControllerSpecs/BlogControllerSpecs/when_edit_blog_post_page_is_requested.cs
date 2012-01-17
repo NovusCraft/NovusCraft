@@ -11,10 +11,10 @@ using NovusCraft.Web.ViewModels;
 namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 {
 	[Subject(typeof(BlogController))]
-	public class when_post_is_requested_for_editing : blog_controller_spec
+	public class when_edit_blog_post_page_is_requested : blog_controller_spec
 	{
 		static ActionResult result;
-		Because of = () => result = controller.EditPost(1);
+		Because of = () => result = controller.EditBlogPost(1);
 
 		It should_display_post_for_editing =
 			() => result.ShouldBeAView().And().ShouldUseDefaultView();

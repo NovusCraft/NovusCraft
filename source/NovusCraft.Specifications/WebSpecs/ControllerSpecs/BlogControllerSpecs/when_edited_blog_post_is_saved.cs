@@ -10,7 +10,7 @@ using NovusCraft.Web.ViewModels;
 namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 {
 	[Subject(typeof(BlogController))]
-	public class when_post_is_saved_after_editing : blog_controller_spec
+	public class when_edited_blog_post_is_saved : blog_controller_spec
 	{
 		Because of = () =>
 			{
@@ -22,7 +22,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 				                    		CategoryTitle = "New Category Title"
 				                    	};
 
-				controller.EditPost(editPostModel);
+				controller.EditBlogPost(editPostModel);
 			};
 
 		// TODO: spec for :after behaviour
@@ -30,7 +30,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 		It should_save_post_data =
 			() => repository.Verify(r => r.UpdateBlogPost(1, "New Title", "New content.", "New Category Title"));
 
-		It should_only_allow_post_requests =
-			() => This.Action<BlogController>(bc => bc.EditPost(null)).ShouldBeDecoratedWith<HttpPostAttribute>();
+		It should_only_allow_http_post =
+			() => This.Action<BlogController>(bc => bc.EditBlogPost(null)).ShouldBeDecoratedWith<HttpPostAttribute>();
 	}
 }

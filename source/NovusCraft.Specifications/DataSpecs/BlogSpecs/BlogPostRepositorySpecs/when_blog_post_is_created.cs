@@ -14,8 +14,6 @@ namespace NovusCraft.Specifications.DataSpecs.BlogSpecs.BlogPostRepositorySpecs
 
 		Because of = () =>
 			{
-				int id;
-
 				repository.CreateBlogPost("Title", "Content", "Category Title");
 				document_session.SaveChanges(); // normally handled by HttpApplication.End_Request()
 

@@ -100,7 +100,7 @@
     <Content Include="Views\Shared\PageNotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Blog\ViewPost.cshtml" />
+    <Content Include="Views\Blog\ViewBlogPost.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -124,7 +124,7 @@
     <Content Include="Views\Shared\LogIn.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Blog\CreatePost.cshtml" />
+    <Content Include="Views\Blog\CreateBlogPost.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

@@ -9,10 +9,10 @@ using NovusCraft.Web.Controllers;
 namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 {
 	[Subject(typeof(BlogController))]
-	public class when_create_post_page_is_requested : blog_controller_spec
+	public class when_create_blog_post_page_is_requested : blog_controller_spec
 	{
 		static ActionResult result;
-		Because of = () => result = controller.CreatePost();
+		Because of = () => result = controller.CreateBlogPost();
 
 		It should_display_post_for_editing =
 			() => result.ShouldBeAView().And().ShouldUseDefaultView();

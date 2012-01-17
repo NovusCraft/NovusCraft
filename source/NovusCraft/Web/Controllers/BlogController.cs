@@ -18,7 +18,7 @@ namespace NovusCraft.Web.Controllers
 			_blogPostRepository = blogPostRepository;
 		}
 
-		public ActionResult ViewPost(string slug)
+		public ActionResult ViewBlogPost(string slug)
 		{
 			var blogPost = _blogPostRepository.GetBlogPost(slug);
 
@@ -28,7 +28,7 @@ namespace NovusCraft.Web.Controllers
 				return View("PageNotFound");
 			}
 
-			var permalink = Url.Permalink("ViewPost", "Blog", new { slug });
+			var permalink = Url.Permalink("ViewBlogPost", "Blog", new { slug });
 			var model = new ViewPostModel // TODO: Use AutoMapper?
 			            	{
 			            		Id = blogPost.Id,
@@ -42,18 +42,18 @@ namespace NovusCraft.Web.Controllers
 			return View(model);
 		}
 
-		public ActionResult CreatePost()
+		public ActionResult CreateBlogPost()
 		{
 			return View();
 		}
 
 		[HttpPost]
-		public void CreatePost(CreatePostModel model)
+		public void CreateBlogPost(CreatePostModel model)
 		{
 			_blogPostRepository.CreateBlogPost(model.Title, model.Content, model.CategoryTitle);
 		}
 
-		public ActionResult EditPost(int id)
+		public ActionResult EditBlogPost(int id)
 		{
 			var blogPost = _blogPostRepository.GetBlogPost(id);
 
@@ -70,7 +70,7 @@ namespace NovusCraft.Web.Controllers
 		}
 
 		[HttpPost]
-		public void EditPost(EditPostModel model)
+		public void EditBlogPost(EditPostModel model)
 		{
 			_blogPostRepository.UpdateBlogPost(model.Id, model.Title, model.Content, model.CategoryTitle);
 		}

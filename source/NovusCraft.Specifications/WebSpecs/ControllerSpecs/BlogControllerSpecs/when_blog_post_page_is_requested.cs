@@ -11,10 +11,10 @@ using NovusCraft.Web.ViewModels;
 namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 {
 	[Subject(typeof(BlogController))]
-	public class when_post_is_requested : blog_controller_spec
+	public class when_blog_post_page_is_requested : blog_controller_spec
 	{
 		static ActionResult result;
-		Because of = () => result = controller.ViewPost(slug: "test-slug-1");
+		Because of = () => result = controller.ViewBlogPost(slug: "test-slug-1");
 
 		It should_display_post =
 			() => result.ShouldBeAView().And().ShouldUseDefaultView();

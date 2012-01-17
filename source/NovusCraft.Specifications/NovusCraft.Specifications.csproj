@@ -58,8 +58,8 @@
     <Compile Include="Utils\RouteTestExtensions.cs" />
     <Compile Include="Utils\This.cs" />
     <Compile Include="WebSpecs\ActionResultSpecs\RssResultSpecs\when_result_is_executed.cs" />
-    <Compile Include="WebSpecs\ControllerSpecs\BlogControllerSpecs\when_new_post_is_saved.cs" />
-    <Compile Include="WebSpecs\ControllerSpecs\BlogControllerSpecs\when_create_post_page_is_requested.cs" />
+    <Compile Include="WebSpecs\ControllerSpecs\BlogControllerSpecs\when_new_blog_post_is_saved.cs" />
+    <Compile Include="WebSpecs\ControllerSpecs\BlogControllerSpecs\when_create_blog_post_page_is_requested.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\DashboardControllerSpecs\dashboard_controller_spec.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\DashboardControllerSpecs\when_home_page_is_requested.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\UserAccountControllerSpecs\account_controller_spec.cs" />
@@ -69,10 +69,10 @@
     <Compile Include="WebSpecs\ControllerSpecs\UserAccountControllerSpecs\when_user_logs_in.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\UserAccountControllerSpecs\when_login_page_is_requested.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\BlogControllerSpecs\blog_controller_spec.cs" />
-    <Compile Include="WebSpecs\ControllerSpecs\BlogControllerSpecs\when_post_is_saved_after_editing.cs" />
-    <Compile Include="WebSpecs\ControllerSpecs\BlogControllerSpecs\when_post_is_requested_for_editing.cs" />
-    <Compile Include="WebSpecs\ControllerSpecs\BlogControllerSpecs\when_post_is_requested_with_invalid_slug.cs" />
-    <Compile Include="WebSpecs\ControllerSpecs\BlogControllerSpecs\when_post_is_requested.cs" />
+    <Compile Include="WebSpecs\ControllerSpecs\BlogControllerSpecs\when_edited_blog_post_is_saved.cs" />
+    <Compile Include="WebSpecs\ControllerSpecs\BlogControllerSpecs\when_edit_blog_post_page_is_requested.cs" />
+    <Compile Include="WebSpecs\ControllerSpecs\BlogControllerSpecs\when_blog_post_page_is_requested_with_invalid_slug.cs" />
+    <Compile Include="WebSpecs\ControllerSpecs\BlogControllerSpecs\when_blog_post_page_is_requested.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\HomeControllerSpecs\when_feed_is_requested.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\HomeControllerSpecs\when_invalid_page_is_requested.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\HomeControllerSpecs\when_contact_page_is_requested.cs" />
