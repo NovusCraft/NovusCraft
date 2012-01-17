@@ -4,13 +4,14 @@
 	ViewBag.Description = "Novus Craft are a software development consultancy delivering top solutions using Sitecore CMS, ASP.NET, ASP.NET MVC and other Microsoft technologies.";
 }
 
-<section class="grid_11">
+<section class="primary-content">
 	<header class="visuallyhidden">
 		<h1>Recent Articles</h1>
 	</header>
 	<article class="post">
 		<header>
 			<h1>@Html.ActionLink("Looking back at 2011", "ViewBlogPost", "Blog", new { slug = "looking-back-at-2011" }, null)</h1>
+			<p class="meta">Published by @Html.ActionLink("Arnold Zokas", "About") <a class="profile-link" rel="author" href="https://plus.google.com/105019550316988242906"><img alt="Arnold Zokas's profile on Google Plus" src="http://www.google.com/images/icons/ui/gprofile_button-16.png" width="16" height="16"></a> on <time datetime="2012-01-04T00:40:22+00:00" pubdate>4th January 2012</time> in category <strong>Meta</strong>.</p>
 		</header>
 		<p>Another year begins and this is a good opportunity to look back at memorable aspects of 2011.</p>
 		<h2>Developed and launched first client website</h2>
@@ -47,14 +48,12 @@
 			<li><strong>Read 12 technical books:</strong> one every month not counting non-technical</li>
 			<li><strong>Post 26 articles:</strong> two articles per month not counting meta articles such as this one</li>
 		</ul>
-		<footer>
-			<div class="meta">Published by @Html.ActionLink("Arnold Zokas", "About") <a class="profile-link" rel="author" href="https://plus.google.com/105019550316988242906"><img alt="Arnold Zokas's profile on Google Plus" src="http://www.google.com/images/icons/ui/gprofile_button-16.png" width="16" height="16"></a> on <time datetime="2012-01-04T00:40:22+00:00" pubdate>4th January 2012</time> in category <strong>Meta</strong>.</div>
-		</footer>
 	</article>
 	<hr>
 	<article class="post">
 		<header>
 			<h1>@Html.ActionLink("How to implement Raven DB UnitOfWork in an ASP.NET MVC application", "ViewBlogPost", "Blog", new { slug = "how-to-implement-raven-db-unitofwork-in-an-asp-net-mvc-application" }, null)</h1>
+			<p class="meta">Published by @Html.ActionLink("Arnold Zokas", "About") <a class="profile-link" rel="author" href="https://plus.google.com/105019550316988242906"><img alt="Arnold Zokas's profile on Google Plus" src="http://www.google.com/images/icons/ui/gprofile_button-16.png" width="16" height="16"></a> on <time datetime="2011-11-29T12:49:22+00:00" pubdate>29th November 2011</time> in category <strong>Databases</strong>.</p>
 		</header>
 		<p>I have been looking at ways to implement UnitOfWork pattern for Raven DB. The three implementations I have found did not match my needs, so in the end decided to roll my own.</p>
 		<h2>Implementation #1</h2>
@@ -149,14 +148,12 @@
 			<li><code>IDocumentSession</code> lifetime managed via StructureMap</li>
 		</ul>
 		<p>For implementation and test examples have a look at <a href="https://github.com/NovusCraft/NovusCraft" title="novuscraft.com project on GitHub">novuscraft.com Git repository</a>.</p>
-		<footer>
-			<div class="meta">Published by @Html.ActionLink("Arnold Zokas", "About") <a class="profile-link" rel="author" href="https://plus.google.com/105019550316988242906"><img alt="Arnold Zokas's profile on Google Plus" src="http://www.google.com/images/icons/ui/gprofile_button-16.png" width="16" height="16"></a> on <time datetime="2011-11-29T12:49:22+00:00" pubdate>29th November 2011</time> in category <strong>Databases</strong>.</div>
-		</footer>
 	</article>
 	<hr>
 	<article class="post">
 		<header>
 			<h1>@Html.ActionLink("Hello, Raven DB", "ViewBlogPost", "Blog", new { slug = "hello-raven-db" }, null)</h1>
+			<p class="meta">Published by @Html.ActionLink("Arnold Zokas", "About") <a class="profile-link" rel="author" href="https://plus.google.com/105019550316988242906"><img alt="Arnold Zokas's profile on Google Plus" src="http://www.google.com/images/icons/ui/gprofile_button-16.png" width="16" height="16"></a> on <time datetime="2011-11-22T00:40:21+00:00" pubdate>22nd November 2011</time> in category <strong>Databases</strong>.</p>
 		</header>
 		<p>Goodbye, hard-coded HTML &mdash; hello, <a href="http://ravendb.net/" title="Raven is an Open Source (with a commercial option) document database for the .NET/Windows platform.">Raven DB</a>. I finally managed to find some time to have a good think about my persistence strategy. Raven DB has been on my radar since it was first announced by Ayende, but I had no opportunity to use it until now.</p>
 		<p>This is my first Raven DB implementation and so far I am pleased with the way it is going:</p>
@@ -168,14 +165,12 @@
 			<li><strong>The project has great visibility:</strong> it is available publicly <a href="https://github.com/ravendb/ravendb" title="Raven DB project on GitHub">on GitHub</a>, so you can play around with the source and <a href="https://github.com/ravendb/ravendb/issues" title="Raven DB issues">post bug reports</a> (Ayende usually replies very quickly, the man never rests)</li>
 		</ul>
 		<p>Another thing worth mentioning is that API is not yet stable, so there are articles containing outdated code samples. Of course, this will change as Raven DB gains adoption.</p>
-		<footer>
-			<div class="meta">Published by @Html.ActionLink("Arnold Zokas", "About") <a class="profile-link" rel="author" href="https://plus.google.com/105019550316988242906"><img alt="Arnold Zokas's profile on Google Plus" src="http://www.google.com/images/icons/ui/gprofile_button-16.png" width="16" height="16"></a> on <time datetime="2011-11-22T00:40:21+00:00" pubdate>22nd November 2011</time> in category <strong>Databases</strong>.</div>
-		</footer>
 	</article>
 	<hr>
 	<article class="post">
 		<header>
 			<h1>@Html.ActionLink("Getting started with MSpec", "ViewBlogPost", "Blog", new { slug = "getting-started-with-mspec" }, null)</h1>
+			<p class="meta">Published by @Html.ActionLink("Arnold Zokas", "About") <a class="profile-link" rel="author" href="https://plus.google.com/105019550316988242906"><img alt="Arnold Zokas's profile on Google Plus" src="http://www.google.com/images/icons/ui/gprofile_button-16.png" width="16" height="16"></a> on <time datetime="2011-11-19T16:58:37+00:00" pubdate>19th November 2011</time> in category <strong>Testing</strong>.</p>
 		</header>
 		<p>I am a long-time fan of <a href="http://xunit.codeplex.com/" title="xUnit.net project on CodePlex">xUnit.net</a>. I have been using it since it was in early beta and it is my default choice for almost any project. For building Novus Craft, I decided to use something new and very different &mdash; a Context/Specification framework called <a href="https://github.com/machine/machine.specifications" title="Machine.Specification project on GitHub">Machine.Specifications</a>.</p>
 		<p>On my journey to learn MSpec, I have come across a number of helpful tips, instructions and tweaks, so I decided to put together a quick guide on how to get started. I am not going to talk about why or when you should use MSpec. If you want to read about that, check out Aaron Jensen&rsquo;s <a href="http://codebetter.com/aaronjensen/2008/05/08/introducing-machine-specifications-or-mspec-for-short/" title="">Introducing Machine.Specifications (or MSpec for short)</a>. Instead, I will focus on how to setup your development environment.</p>
@@ -252,21 +247,16 @@
 		</ol>
 		<h2>Other Resources</h2>
 		<p>I hope you found this information useful. There are lots of other resources available. Check out Byron Sommardahl&rsquo;s <a href="http://www.awkwardcoder.com/index.php/2010/04/13/how-to-mspec/">How to MSpec?</a> for lots of useful links. Another good place is <a href="http://stackoverflow.com/questions/tagged/mspec?sort=newest">StackOveflow questions tagged with MSpec</a>.</p>
-		<footer>
-			<div class="meta">Published by @Html.ActionLink("Arnold Zokas", "About") <a class="profile-link" rel="author" href="https://plus.google.com/105019550316988242906"><img alt="Arnold Zokas's profile on Google Plus" src="http://www.google.com/images/icons/ui/gprofile_button-16.png" width="16" height="16"></a> on <time datetime="2011-11-19T16:58:37+00:00" pubdate>19th November 2011</time> in category <strong>Testing</strong>.</div>
-		</footer>
 	</article>
 	<hr>
 	<article class="post">
 		<header>
 			<h1>@Html.ActionLink("Welcome to my blog", "ViewBlogPost", "Blog", new { slug = "welcome-to-my-blog" }, null)</h1>
+			<p class="meta">Published by @Html.ActionLink("Arnold Zokas", "About") <a class="profile-link" rel="author" href="https://plus.google.com/105019550316988242906"><img alt="Arnold Zokas's profile on Google Plus" src="http://www.google.com/images/icons/ui/gprofile_button-16.png" width="16" height="16"></a> on <time datetime="2011-10-23T22:50:00+00:00" pubdate>23rd October 2011</time> in category <strong>Meta</strong>.</p>
 		</header>
 		<p>I have been wanting to set one up for a while, but for various reasons kept postponing. One of the things that prompted me to start a blog is my desire to learn ASP.NET MVC. I could not think of a better way to learn than building a blogging engine.</p>
 		<p>Currently, the blog engine is just a skeleton implementation constructed with ASP.NET MVC 3 (C# 4 + Razor views) and HTML5 + CSS3 + jQuery. Source code is available publicly on <a href="https://github.com/NovusCraft/NovusCraft" title="novuscraft.com project on GitHub">GitHub</a>.</p>
 		<p>My other reason for starting a blog is I <del>want</del> need a place where I can share my discoveries and ideas. It bugs me that every time I have solved a rare challenge (rare in a sense that Google had no answer to it) I have not shared the solution.</p>
 		<p>I have lots of things on my <a href="https://github.com/NovusCraft/NovusCraft/issues?sort=created&direction=desc&state=open&page=1&milestone=2" title="Open novuscraft.com issues in GitHub backlog">backlog</a> (<a href="http://ravendb.net/" title="RavenDB - an Open Source document database for the .NET/Windows platform">RavenDB</a>, <a href="https://github.com/jetheredge/SquishIt" title="SquishIt lets you squish some JavaScript and CSS">SquishIt</a>, and more), so this should keep me busy for a while.</p>
-		<footer>
-			<div class="meta">Published by @Html.ActionLink("Arnold Zokas", "About") <a class="profile-link" rel="author" href="https://plus.google.com/105019550316988242906"><img alt="Arnold Zokas's profile on Google Plus" src="http://www.google.com/images/icons/ui/gprofile_button-16.png" width="16" height="16"></a> on <time datetime="2011-10-23T22:50:00+00:00" pubdate>23rd October 2011</time> in category <strong>Meta</strong>.</div>
-		</footer>
 	</article>
 </section>

@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="apple-touch-icon.png" />
+    <Content Include="img\bg.png" />
     <Content Include="_App_Offline.htm" />
     <Content Include="crossdomain.xml" />
     <Content Include="css\style.css" />
@@ -107,15 +108,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\Bio.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Shared\FacebookButton.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Shared\TwitterButton.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Shared\GoogleButton.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Dashboard\Home.cshtml" />

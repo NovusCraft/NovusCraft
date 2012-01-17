@@ -29,14 +29,13 @@
 	<script src="/js/libs/modernizr-2.0.6.min.js"></script>
 </head>
 <body>
-<div id="container" class="container_16">
 	<header id="header">
-		<h1 class="grid_4">
+		<h1>
 			<a href="/" title="NovusCraft homepage">
 				Novus Craft
 			</a>
 		</h1>
-		<nav class="grid_4 prefix_8">
+		<nav>
 			<ul>
 				<li>@Html.MenuLink("Home", "Home", "Home", "Novus Craft homepage")</li>
 				<li>@Html.MenuLink("About", "Home", "About", "About Novus Craft")</li>
@@ -44,91 +43,48 @@
 			</ul>
 		</nav>
 	</header>
-	<div class="clear"></div>
-	@RenderBody()
-	<aside class="grid_4 prefix_1">
-		@if (IsSectionDefined("aside")) {
-			@RenderSection("aside")
-		} else {
-			<a id="subscribe" href="http://feeds.feedburner.com/novuscraft" title="Subcribe to latest articles published on novuscraft.com">Subcribe to the RSS feed</a>
-			Html.RenderPartial("Bio");
-		}
-	</aside>
-	<div class="clear"></div>
-	<footer id="footer">
-		<span class="grid_4">Copyright &copy; 2011 Novus Craft</span>
-		<span class="grid_4 prefix_8 source">Source code is available on <a href="https://github.com/NovusCraft/NovusCraft" title="novuscraft.com public Git repository">GitHub</a></span>
-	</footer>
-</div>
+	<div class="clearfix"></div>
+	<div id="container">
+		@RenderBody()
+		<aside>
+			@if (IsSectionDefined("aside")) {
+				@RenderSection("aside")
+			} else {
+				<a id="subscribe" href="http://feeds.feedburner.com/novuscraft" title="Subcribe to latest articles published on novuscraft.com">Subcribe to the RSS feed</a>
+				Html.RenderPartial("Bio");
+			}
+		</aside>
+		<div class="clearfix"></div>
+		<footer id="footer">
+			<span>Copyright &copy; 2011-2012 Novus Craft</span>
+		</footer>
+	</div>
 
-@* ++BEGIN JS *@
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="/js/libs/jquery-1.7.1.min.js"><\/script>')</script>
-@Html.Raw(Bundle.JavaScript().Add("~/js/plugins.js", "~/js/script.js").Render("~/js/novuscraft_#.js"))
-@* --END JS *@
-
-@* ++BEGIN TWITTER JS *@
-<script>
-	(function () {
-		var script = document.createElement("script");
-		script.async = true;
-		script.src = '//platform.twitter.com/widgets.js';
-		document.getElementsByTagName("body")[0].appendChild(script);
-	})();
-</script>
-@* --END TWITTER JS *@
-
-@* ++BEGIN G+ JS *@
-<script>
-	window.___gcfg = { lang: 'en-GB' };
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="/js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+	@Html.Raw(Bundle.JavaScript().Add("~/js/plugins.js", "~/js/script.js").Render("~/js/novuscraft_#.js"))
 	
-	(function () {
-		var script = document.createElement("script");
-		script.async = true;
-		script.src = 'https://apis.google.com/js/plusone.js';
-		document.getElementsByTagName("body")[0].appendChild(script);
-	})();
-</script>
-@* --END G+ JS *@
+	@if (HttpContext.Current.IsDebuggingEnabled == false)
+	{
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-6456308-6']);
+			_gaq.push(['_trackPageview']);
+			_gaq.push(['_trackPageLoadTime']);
 
-@* ++BEGIN FACEBOOK JSSDK *@
-<div id="fb-root"></div>
-<script>
-	(function () {
-		var script = document.createElement("script");
-		script.id = 'facebook-jssdk';
-		script.async = true;
-		script.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
-		document.getElementsByTagName("body")[0].appendChild(script);
-	})();
-</script>
-@* --END FACEBOOK JSSDK *@
-
-@* ++BEGIN GA *@
-@if (HttpContext.Current.IsDebuggingEnabled == false)
-{
-	<script type="text/javascript">
-		var _gaq = _gaq || [];
-		_gaq.push(['_setAccount', 'UA-6456308-6']);
-		_gaq.push(['_trackPageview']);
-		_gaq.push(['_trackPageLoadTime']);
-
-		(function () {
-			var script = document.createElement("script");
-			script.async = true;
-			script.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			document.getElementsByTagName("body")[0].appendChild(script);
-		})();
-	</script>
-}
-@* --END GA *@
-
-@* ++BEGIN CHROME FRAME *@
-<!--[if lt IE 7 ]>
-	<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
-	<script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"});})</script>
-<![endif]-->
-@* --END CHROME FRAME *@
-
+			(function () {
+				var script = document.createElement("script");
+				script.async = true;
+				script.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				document.getElementsByTagName("body")[0].appendChild(script);
+			})();
+		</script>
+	}
+	
+	<!--[if lt IE 7 ]>
+		<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
+		<script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"});})</script>
+	<![endif]-->
+	
 </body>
 </html>

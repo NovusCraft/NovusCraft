@@ -4,18 +4,14 @@
 	ViewBag.Title = @Model.Title;
 }
 
-<article class="post grid_11">
+<article class="post">
 	<header>
 		<h1>@Model.Title</h1>
+		<p class="meta">Published by @Html.ActionLink("Arnold Zokas", "About", "Home") <a class="profile-link" rel="author" href="https://plus.google.com/105019550316988242906"><img alt="Arnold Zokas's profile on Google Plus" src="http://www.google.com/images/icons/ui/gprofile_button-16.png" width="16" height="16"></a> on <time datetime="@Model.PublishedOn.ToIsoDate()" pubdate>@Model.PublishedOn.ToLongDate()</time> in category <strong>@Model.CategoryTitle</strong>.</p>
 	</header>
 	@Model.Content
 	<footer>
-		<div class="meta">Published by @Html.ActionLink("Arnold Zokas", "About", "Home") <a class="profile-link" rel="author" href="https://plus.google.com/105019550316988242906"><img alt="Arnold Zokas's profile on Google Plus" src="http://www.google.com/images/icons/ui/gprofile_button-16.png" width="16" height="16"></a> on <time datetime="@Model.PublishedOn.ToIsoDate()" pubdate>@Model.PublishedOn.ToLongDate()</time> in category <strong>@Model.CategoryTitle</strong>.</div>
-		<div class="share">
-			<div class="twitter">@{ Html.RenderPartial("TwitterButton", new TwitterButtonModel { Text = @Model.Title }); }</div>
-			<div class="google">@{ Html.RenderPartial("GoogleButton"); }</div>
-			<div class="facebook">@{ Html.RenderPartial("FacebookButton", new FacebookButtonModel { Action = "recommend" }); }</div>
-		</div>
+		@{Html.RenderPartial("Social");}
 		<div class="clearfix"></div>
 		<div id="disqus_thread"></div>
 		<script type="text/javascript">

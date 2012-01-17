@@ -74,8 +74,6 @@
     <Compile Include="Web\ViewModels\CreatePostModel.cs" />
     <Compile Include="Web\ViewModels\LogInModel.cs" />
     <Compile Include="Web\ViewModels\ViewBlogPostModel.cs" />
-    <Compile Include="Web\ViewModels\TwitterButtonModel.cs" />
-    <Compile Include="Web\ViewModels\FacebookButtonModel.cs" />
     <Compile Include="Web\ViewModels\EditPostModel.cs" />
   </ItemGroup>
   <ItemGroup>
