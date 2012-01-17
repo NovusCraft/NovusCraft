@@ -29,7 +29,7 @@ namespace NovusCraft.Web.Controllers
 			}
 
 			var permalink = Url.Permalink("ViewBlogPost", "Blog", new { slug });
-			var model = new ViewPostModel // TODO: Use AutoMapper?
+			var model = new ViewBlogPostModel // TODO: Use AutoMapper?
 			            	{
 			            		Id = blogPost.Id,
 			            		Title = blogPost.Title,

@@ -6,7 +6,7 @@ using System.Web;
 
 namespace NovusCraft.Web.ViewModels
 {
-	public sealed class ViewPostModel
+	public sealed class ViewBlogPostModel
 	{
 		public int Id { get; set; }
 		public string Title { get; set; }

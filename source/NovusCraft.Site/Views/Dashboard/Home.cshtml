@@ -1,4 +1,4 @@
-﻿@model object
+﻿@model IList<ViewBlogPostModel>
 		   
 @section aside
 {
@@ -9,4 +9,25 @@
 	<header>
 		<h1>Dashboard</h1>
 	</header>
+	<table>
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Category</th>
+				<th>Published On</th>
+			</tr>
+		</thead>
+		<tbody>
+			@{
+				foreach (var viewBlogPostModel in Model)
+				{
+					<tr>
+						<td>@Html.ActionLink(@viewBlogPostModel.Title, "EditBlogPost", "Blog")</td>
+						<td>@viewBlogPostModel.CategoryTitle</td>
+						<td>@viewBlogPostModel.PublishedOn</td>
+					</tr>
+				}
+			}
+		</tbody>
+	</table>
 </section>

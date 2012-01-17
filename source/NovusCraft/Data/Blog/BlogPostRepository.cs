@@ -19,6 +19,11 @@ namespace NovusCraft.Data.Blog
 
 		#region IBlogPostRepository Members
 
+		public IList<BlogPost> GetBlogPosts()
+		{
+			return _documentSession.Query<BlogPost>().ToList();
+		}
+
 		public IList<BlogPost> GetRecentBlogPosts()
 		{
 			return _documentSession.Query<BlogPost>().OrderByDescending(bp => bp.PublishedOn).ToList();
