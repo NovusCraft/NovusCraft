@@ -40,7 +40,7 @@
     <Compile Include="Data\Blog\BlogPostRepository.cs" />
     <Compile Include="Data\Blog\IBlogPostRepository.cs" />
     <Compile Include="Data\DocumentStoreFactory.cs" />
-    <Compile Include="Data\Security\BlogPostRepository.cs" />
+    <Compile Include="Data\Security\UserAccountRepository.cs" />
     <Compile Include="Data\Security\IUserAccountRepository.cs" />
     <Compile Include="Data\Security\UserAccount.cs" />
     <Compile Include="Resources\ValidationMessages.Designer.cs">
