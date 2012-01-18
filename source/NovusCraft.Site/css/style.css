@@ -290,7 +290,8 @@ a:hover { background:#efefef;  color:#000; }
 a:visited { color:#a33131; }
 hr { border-top:solid 0.1em #ccc; float:left; font-size:2em; height:1em; margin:0 0 0 1em; padding:0; text-align:center; width:32em; }
 hr:after { background:#fff; content:'§'; padding:0 1em; position:relative; top:-0.8em; }
-
+.ie hr:after { content:none; }
+.i6 hr, .ie7 hr { display:none; }
 
 /* PAGE */
 #header { margin:0 auto; width:96em; }
@@ -307,7 +308,7 @@ hr:after { background:#fff; content:'§'; padding:0 1em; position:relative; top:
 #container .primary-content { float:left; width:67.9em; }
 #container aside { border-left:solid 0.1em #eee; float:left; padding:3em 2em 2em 3em; width:23em; }
 
-#footer { background:#efefef; border-top:solid 0.1em #ddd; padding:3em 2em 2em 2em; -webkit-border-bottom-right-radius:0.5em; -webkit-border-bottom-left-radius:0.5em; -moz-border-radius-bottomright:0.5em; -moz-border-radius-bottomleft:0.5em; border-bottom-right-radius:0.5em; border-bottom-left-radius:0.5em; }
+#footer { background:#efefef; border-top:solid 0.1em #ddd; padding:3em 2em 2em 2em; width:92em; -webkit-border-bottom-right-radius:0.5em; -webkit-border-bottom-left-radius:0.5em; -moz-border-radius-bottomright:0.5em; -moz-border-radius-bottomleft:0.5em; border-bottom-right-radius:0.5em; border-bottom-left-radius:0.5em; }
 #footer span { display:block; font-size:1.4em; }
 
 
@@ -411,7 +412,7 @@ fieldset input[type=submit] { border:solid 0.1em #ccc; color:#444; margin-left:6
    Inlined to avoid required HTTP connection: www.phpied.com/delay-loading-your-print-css/
    ========================================================================== */
    
-/*For print debugging use: @media screen and (max-width:8.5in)*/
+/*For print debugging use: [at]media screen and (max-width:8.5in)*/
 @media print {
 	* { background:transparent !important; color:black !important; font-family:"Times New Roman", Times, serif; text-shadow:none !important; filter:none !important; -ms-filter:none !important; } /* Black prints faster: sanbeiji.com/archives/953 */
 	a,
@@ -469,5 +470,4 @@ fieldset input[type=submit] { border:solid 0.1em #ccc; color:#444; margin-left:6
 	/* FOOTER */
 	#footer { border:none; padding:24pt 0 0 0; }
 	#footer span { font-size:12pt; }
-	 
 }
