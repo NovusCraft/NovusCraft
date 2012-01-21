@@ -2,7 +2,6 @@
 // # All rights reserved. 
 
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel.Syndication;
 using System.Web.Mvc;
@@ -20,25 +19,29 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.HomeControllerSpecs
 
 		Because of = () =>
 			{
-				var recentBlogPosts = new List<BlogPost>
-				                      	{
-				                      		new BlogPost
-				                      			{
-				                      				Id = 1,
-				                      				Title = "Blog Post #1",
-				                      				Slug = "blog-post-1",
-				                      				Category = new BlogPostCategory { Title = "Category A" },
-				                      				Content = "Content #1",
-				                      				PublishedOn = new DateTimeOffset(2011, 11, 12, 13, 14, 15, TimeSpan.Zero)
-				                      			},
-				                      		new BlogPost
-				                      			{
-				                      				Slug = "blog-post-2",
-				                      				Category = new BlogPostCategory { Title = "Category B" },
-				                      				PublishedOn = new DateTimeOffset(2011, 12, 13, 14, 15, 16, TimeSpan.Zero)
-				                      			}
-				                      	};
-				blog_post_repository.Setup(bpr => bpr.GetRecentBlogPosts()).Returns(recentBlogPosts);
+				using (var session = document_store.OpenSession())
+				{
+					session.Store(new BlogPost
+					              	{
+					              		Id = 1,
+					              		Title = "Blog Post #1",
+										Slug = "blog-post-1",
+										Content = "Content #1",
+					              		Category = new BlogPostCategory { Title = "Category A" },
+					              		PublishedOn = new DateTimeOffset(2011, 11, 12, 13, 14, 15, TimeSpan.Zero)
+					              	});
+					session.Store(new BlogPost
+					              	{
+										Id = 2,
+										Title = "Blog Post #1",
+										Slug = "blog-post-2",
+										Content = "Content #2",
+										Category = new BlogPostCategory { Title = "Category B" },
+					              		PublishedOn = new DateTimeOffset(2011, 12, 13, 14, 15, 16, TimeSpan.Zero)
+					              	});
+
+					session.SaveChanges();
+				}
 
 				http_request.SetupGet(hr => hr.Url).Returns(new Uri("http://novuscraft.com/"));
 
@@ -70,27 +73,27 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.HomeControllerSpecs
 			() => ((RssResult)result).Feed.Items.Count().ShouldBeGreaterThan(0);
 
 		It should_set_feed_item_id =
-			() => ((RssResult)result).Feed.Items.First().Id.ShouldEqual("http://novuscraft.com/blog/blog-post-1");
+			() => ((RssResult)result).Feed.Items.First().Id.ShouldEqual("http://novuscraft.com/blog/blog-post-2");
 
 		It should_set_feed_item_title =
 			() => ((RssResult)result).Feed.Items.First().Title.Text.ShouldEqual("Blog Post #1");
 
 		It should_set_feed_item_category =
-			() => ((RssResult)result).Feed.Items.First().Categories.First().Name.ShouldEqual("Category A");
+			() => ((RssResult)result).Feed.Items.First().Categories.First().Name.ShouldEqual("Category B");
 
 		It should_set_feed_item_content =
-			() => ((TextSyndicationContent)((RssResult)result).Feed.Items.First().Content).Text.ShouldEqual("Content #1");
+			() => ((TextSyndicationContent)((RssResult)result).Feed.Items.First().Content).Text.ShouldEqual("Content #2");
 
 		It should_set_feed_item_content_type_to_html =
 			() => ((RssResult)result).Feed.Items.First().Content.Type.ShouldEqual("html");
 
 		It should_set_feed_item_last_updated_time =
-			() => ((RssResult)result).Feed.Items.First().LastUpdatedTime.ShouldEqual(new DateTimeOffset(2011, 11, 12, 13, 14, 15, TimeSpan.Zero));
+			() => ((RssResult)result).Feed.Items.First().LastUpdatedTime.ShouldEqual(new DateTimeOffset(2011, 12, 13, 14, 15, 16, TimeSpan.Zero));
 
 		It should_set_feed_item_last_publish_date =
-			() => ((RssResult)result).Feed.Items.First().LastUpdatedTime.ShouldEqual(new DateTimeOffset(2011, 11, 12, 13, 14, 15, TimeSpan.Zero));
+			() => ((RssResult)result).Feed.Items.First().LastUpdatedTime.ShouldEqual(new DateTimeOffset(2011, 12, 13, 14, 15, 16, TimeSpan.Zero));
 
 		It should_set_feed_item_permalink =
-			() => ((RssResult)result).Feed.Items.First().Links.Single(l => l.RelationshipType == "alternate").Uri.ShouldEqual(new Uri("http://novuscraft.com/blog/blog-post-1"));
+			() => ((RssResult)result).Feed.Items.First().Links.Single(l => l.RelationshipType == "alternate").Uri.ShouldEqual(new Uri("http://novuscraft.com/blog/blog-post-2"));
 	}
 }

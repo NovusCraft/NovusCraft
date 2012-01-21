@@ -6,24 +6,22 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using Machine.Specifications;
 using Moq;
-using NovusCraft.Data.Blog;
 using NovusCraft.Web;
 using NovusCraft.Web.Controllers;
+using Raven.Client.Embedded;
 using It = Moq.It;
 
 namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.HomeControllerSpecs
 {
 	public abstract class home_controller_spec
 	{
-		protected static Mock<IBlogPostRepository> blog_post_repository;
+		protected static HomeController controller;
 		protected static Mock<HttpRequestBase> http_request;
 		protected static Mock<HttpResponseBase> http_response;
-		protected static HomeController controller;
+		protected static EmbeddableDocumentStore document_store;
 
 		Establish context = () =>
 			{
-				blog_post_repository = new Mock<IBlogPostRepository>();
-
 				http_request = new Mock<HttpRequestBase>();
 				http_response = new Mock<HttpResponseBase>();
 				http_response.Setup(hrb => hrb.ApplyAppPathModifier(It.IsAny<string>())).Returns((string s) => s);
@@ -37,9 +35,14 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.HomeControllerSpecs
 				httpContext.SetupGet(hc => hc.Response).Returns(http_response.Object);
 				var urlHelper = new UrlHelper(new RequestContext(httpContext.Object, new RouteData()));
 
-				RouteConfigurator.Initialise(); // this requires cleanup
+				RouteConfigurator.Initialise(); // this populates route table, so ensure RouteTable.Routes.Clear() is called during cleanup
 
-				controller = new HomeController(blog_post_repository.Object) { ControllerContext = controllerContext.Object, Url = urlHelper };
+				document_store = new EmbeddableDocumentStore { RunInMemory = true };
+				document_store.Initialize();
+
+				var session = document_store.OpenSession();
+
+				controller = new HomeController(session) { ControllerContext = controllerContext.Object, Url = urlHelper };
 			};
 
 		Cleanup after = () => RouteTable.Routes.Clear();

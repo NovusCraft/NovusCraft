@@ -37,14 +37,8 @@
       <Link>Properties\GlobalAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="DataSpecs\BlogSpecs\BlogPostRepositorySpecs\blog_post_repository_spec.cs" />
-    <Compile Include="DataSpecs\BlogSpecs\BlogPostRepositorySpecs\when_blog_posts_are_retrieved.cs" />
     <Compile Include="DataSpecs\BlogSpecs\BlogPostRepositorySpecs\when_blog_post_is_created.cs" />
-    <Compile Include="DataSpecs\BlogSpecs\BlogPostRepositorySpecs\when_blog_post_is_retrieved_using_invalid_id.cs" />
-    <Compile Include="DataSpecs\BlogSpecs\BlogPostRepositorySpecs\when_blog_post_is_retrieved_using_id.cs" />
     <Compile Include="DataSpecs\BlogSpecs\BlogPostRepositorySpecs\when_blog_post_is_updated.cs" />
-    <Compile Include="DataSpecs\BlogSpecs\BlogPostRepositorySpecs\when_recent_blog_posts_are_retrieved.cs" />
-    <Compile Include="DataSpecs\BlogSpecs\BlogPostRepositorySpecs\when_blog_post_is_retrieved_using_invalid_slug.cs" />
-    <Compile Include="DataSpecs\BlogSpecs\BlogPostRepositorySpecs\when_blog_post_is_retrieved_using_slug.cs" />
     <Compile Include="DataSpecs\DocumentStoreFactorySpecs\when_embeddable_document_store_is_created.cs" />
     <Compile Include="DataSpecs\SecuritySpecs\UserAccountRepositorySpecs\user_account_repository_spec.cs" />
     <Compile Include="DataSpecs\SecuritySpecs\UserAccountRepositorySpecs\when_user_account_is_retrieved_using_email_and_password_hash.cs" />

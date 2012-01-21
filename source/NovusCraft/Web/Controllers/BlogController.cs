@@ -1,26 +1,30 @@
 ﻿// # Copyright © 2011, Novus Craft
 // # All rights reserved. 
 
+using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using NovusCraft.Data.Blog;
 using NovusCraft.Web.Helpers;
 using NovusCraft.Web.ViewModels;
+using Raven.Client;
 
 namespace NovusCraft.Web.Controllers
 {
 	public sealed class BlogController : Controller
 	{
 		readonly IBlogPostRepository _blogPostRepository;
+		readonly IDocumentSession _documentSession;
 
-		public BlogController(IBlogPostRepository blogPostRepository)
+		public BlogController(IBlogPostRepository blogPostRepository, IDocumentSession documentSession)
 		{
 			_blogPostRepository = blogPostRepository;
+			_documentSession = documentSession;
 		}
 
 		public ActionResult ViewBlogPost(string slug)
 		{
-			var blogPost = _blogPostRepository.GetBlogPost(slug);
+			var blogPost = _documentSession.Query<BlogPost>().SingleOrDefault(bp => bp.Slug == slug);
 
 			if (blogPost == null)
 			{
@@ -29,14 +33,14 @@ namespace NovusCraft.Web.Controllers
 			}
 
 			var permalink = Url.Permalink("ViewBlogPost", "Blog", new { slug });
-			var model = new ViewBlogPostModel // TODO: Use AutoMapper?
+			var model = new ViewBlogPostModel // TODO: Consider using AutoMapper?
 			            	{
 			            		Id = blogPost.Id,
 			            		Title = blogPost.Title,
-			            		Content = new MvcHtmlString(blogPost.Content),
-			            		Permalink = permalink.ToString(),
+			            		Content = blogPost.Content,
 			            		CategoryTitle = blogPost.Category.Title,
-			            		PublishedOn = blogPost.PublishedOn
+			            		PublishedOn = blogPost.PublishedOn,
+			            		Permalink = permalink.ToString()
 			            	};
 
 			return View(model);
@@ -57,7 +61,7 @@ namespace NovusCraft.Web.Controllers
 		[Authorize]
 		public ActionResult EditBlogPost(int id)
 		{
-			var blogPost = _blogPostRepository.GetBlogPost(id);
+			var blogPost = _documentSession.Query<BlogPost>().SingleOrDefault(bp => bp.Id == id);
 
 			var model = new EditPostModel // TODO: Use AutoMapper?
 			            	{

@@ -10,6 +10,8 @@ using Moq;
 using NovusCraft.Data.Blog;
 using NovusCraft.Web;
 using NovusCraft.Web.Controllers;
+using Raven.Client;
+using Raven.Client.Embedded;
 using It = Moq.It;
 
 namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
@@ -19,6 +21,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 		protected static BlogController controller;
 		protected static Mock<HttpResponseBase> http_response;
 		protected static Mock<IBlogPostRepository> repository;
+		protected static IDocumentStore document_store;
 
 		Establish context = () =>
 			{
@@ -38,25 +41,16 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 				httpContext.SetupGet(hc => hc.Response).Returns(http_response.Object);
 				var urlHelper = new UrlHelper(new RequestContext(httpContext.Object, new RouteData()));
 
-				RouteConfigurator.Initialise(); // this requires cleanup
+				RouteConfigurator.Initialise(); // this populates route table, so ensure RouteTable.Routes.Clear() is called during cleanup
 
 				repository = new Mock<IBlogPostRepository>();
-				var blogPost = new BlogPost
-				               	{
-				               		Id = 1,
-				               		Title = "Test Post Title 1",
-				               		Slug = "test-slug-1",
-				               		Content = "Test Post Content 1",
-				               		Category = new BlogPostCategory
-				               		           	{
-				               		           		Title = "Category 1"
-				               		           	},
-				               		PublishedOn = new DateTimeOffset(2011, 11, 10, 09, 08, 07, TimeSpan.Zero)
-				               	};
-				repository.Setup(r => r.GetBlogPost(1)).Returns(blogPost);
-				repository.Setup(r => r.GetBlogPost("test-slug-1")).Returns(blogPost);
 
-				controller = new BlogController(repository.Object) { ControllerContext = controllerContext.Object, Url = urlHelper };
+				document_store = new EmbeddableDocumentStore { RunInMemory = true };
+				document_store.Initialize();
+
+				var session = document_store.OpenSession();
+
+				controller = new BlogController(repository.Object, session) { ControllerContext = controllerContext.Object, Url = urlHelper };
 			};
 
 		Cleanup after = () => RouteTable.Routes.Clear();

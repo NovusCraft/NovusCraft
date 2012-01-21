@@ -412,7 +412,7 @@ fieldset input[type=submit] { border:solid 0.1em #ccc; color:#444; margin-left:6
    Inlined to avoid required HTTP connection: www.phpied.com/delay-loading-your-print-css/
    ========================================================================== */
    
-/*For print debugging use: [at]media screen and (max-width:8.5in)*/
+/*For print debugging use: @media screen and (max-width:8.5in)*/
 @media print {
 	* { background:transparent !important; color:black !important; font-family:"Times New Roman", Times, serif; text-shadow:none !important; filter:none !important; -ms-filter:none !important; } /* Black prints faster: sanbeiji.com/archives/953 */
 	a,

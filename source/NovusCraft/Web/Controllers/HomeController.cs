@@ -9,16 +9,17 @@ using System.Web.Mvc;
 using NovusCraft.Data.Blog;
 using NovusCraft.Web.ActionResults;
 using NovusCraft.Web.Helpers;
+using Raven.Client;
 
 namespace NovusCraft.Web.Controllers
 {
 	public sealed class HomeController : Controller
 	{
-		readonly IBlogPostRepository _blogPostRepository;
+		readonly IDocumentSession _documentSession;
 
-		public HomeController(IBlogPostRepository blogPostRepository)
+		public HomeController(IDocumentSession documentSession)
 		{
-			_blogPostRepository = blogPostRepository;
+			_documentSession = documentSession;
 		}
 
 		public ActionResult Home()
@@ -45,7 +46,7 @@ namespace NovusCraft.Web.Controllers
 
 		public RssResult Feed()
 		{
-			var recentBlogPosts = _blogPostRepository.GetRecentBlogPosts();
+			var recentBlogPosts = _documentSession.Query<BlogPost>().OrderByDescending(bp => bp.PublishedOn).ToList();
 
 			var feed = new SyndicationFeed();
 			feed.Id = "novus_craft"; // TODO: Move to config

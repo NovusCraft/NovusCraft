@@ -2,21 +2,23 @@
 // # All rights reserved. 
 
 using Machine.Specifications;
-using Moq;
-using NovusCraft.Data.Blog;
 using NovusCraft.Web.Controllers;
+using Raven.Client.Embedded;
 
 namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.DashboardControllerSpecs
 {
 	public abstract class dashboard_controller_spec
 	{
 		protected static DashboardController controller;
-		protected static Mock<IBlogPostRepository> repository;
+		protected static EmbeddableDocumentStore document_store;
 
 		Establish context = () =>
 			{
-				repository = new Mock<IBlogPostRepository>();
-				controller = new DashboardController(repository.Object);
+				document_store = new EmbeddableDocumentStore { RunInMemory = true };
+				document_store.Initialize();
+				var session = document_store.OpenSession();
+
+				controller = new DashboardController(session);
 			};
 	}
 }

@@ -5,6 +5,7 @@ using System;
 using System.Web.Mvc;
 using Machine.Specifications;
 using Machine.Specifications.Mvc;
+using NovusCraft.Data.Blog;
 using NovusCraft.Specifications.Utils;
 using NovusCraft.Web.Controllers;
 using NovusCraft.Web.ViewModels;
@@ -15,7 +16,25 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 	public class when_edit_blog_post_page_is_requested : blog_controller_spec
 	{
 		static ActionResult result;
-		Because of = () => result = controller.EditBlogPost(1);
+
+		Because of = () =>
+			{
+				using (var session = document_store.OpenSession())
+				{
+					session.Store(new BlogPost
+					              	{
+					              		Id = 1,
+					              		Title = "Test Post Title 1",
+					              		Content = "Test Post Content 1",
+					              		Category = new BlogPostCategory { Title = "Category 1" },
+					              		PublishedOn = new DateTimeOffset(2011, 11, 10, 09, 08, 07, TimeSpan.Zero)
+					              	});
+
+					session.SaveChanges();
+				}
+
+				result = controller.EditBlogPost(1);
+			};
 
 		It should_display_post_for_editing =
 			() => result.ShouldBeAView().And().ShouldUseDefaultView();

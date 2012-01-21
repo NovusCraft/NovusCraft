@@ -73,8 +73,8 @@
     <Compile Include="Web\Utils\FormatExtensions.cs" />
     <Compile Include="Web\ViewModels\CreatePostModel.cs" />
     <Compile Include="Web\ViewModels\LogInModel.cs" />
-    <Compile Include="Web\ViewModels\ViewBlogPostModel.cs" />
     <Compile Include="Web\ViewModels\EditPostModel.cs" />
+    <Compile Include="Web\ViewModels\ViewBlogPostModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">

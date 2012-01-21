@@ -5,6 +5,7 @@ using System;
 using System.Web.Mvc;
 using Machine.Specifications;
 using Machine.Specifications.Mvc;
+using NovusCraft.Data.Blog;
 using NovusCraft.Web.Controllers;
 using NovusCraft.Web.ViewModels;
 
@@ -14,7 +15,26 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 	public class when_blog_post_page_is_requested : blog_controller_spec
 	{
 		static ActionResult result;
-		Because of = () => result = controller.ViewBlogPost(slug: "test-slug-1");
+
+		Because of = () =>
+			{
+				using (var session = document_store.OpenSession())
+				{
+					session.Store(new BlogPost
+					              	{
+					              		Id = 1,
+					              		Title = "Test Post Title 1",
+					              		Slug = "test-slug-1",
+					              		Content = "Test Post Content 1",
+					              		Category = new BlogPostCategory { Title = "Category 1" },
+					              		PublishedOn = new DateTimeOffset(2011, 11, 10, 09, 08, 07, TimeSpan.Zero)
+					              	});
+
+					session.SaveChanges();
+				}
+
+				result = controller.ViewBlogPost(slug: "test-slug-1");
+			};
 
 		It should_display_post =
 			() => result.ShouldBeAView().And().ShouldUseDefaultView();
@@ -26,7 +46,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 			() => result.Model<ViewBlogPostModel>().Title.ShouldEqual("Test Post Title 1");
 
 		It should_return_post_with_content_test =
-			() => result.Model<ViewBlogPostModel>().Content.ToHtmlString().ShouldEqual("Test Post Content 1");
+			() => result.Model<ViewBlogPostModel>().Content.ShouldEqual("Test Post Content 1");
 
 		It should_return_post_with_permalink =
 			() => result.Model<ViewBlogPostModel>().Permalink.ShouldEqual("http://novuscraft.com/blog/test-slug-1");
