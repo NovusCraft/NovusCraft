@@ -14,15 +14,13 @@ namespace NovusCraft.Web.Controllers
 {
 	public sealed class BlogController : Controller
 	{
-		readonly IBlogPostRepository _blogPostRepository;
-		readonly CommandDispatcher _commandDispatcher;
 		readonly IDocumentSession _documentSession;
+		readonly CommandDispatcher _commandDispatcher;
 
-		public BlogController(IBlogPostRepository blogPostRepository, CommandDispatcher commandDispatcher, IDocumentSession documentSession)
+		public BlogController(IDocumentSession documentSession, CommandDispatcher commandDispatcher)
 		{
-			_blogPostRepository = blogPostRepository;
-			_commandDispatcher = commandDispatcher;
 			_documentSession = documentSession;
+			_commandDispatcher = commandDispatcher;
 		}
 
 		public ActionResult ViewBlogPost(string slug)
@@ -66,7 +64,7 @@ namespace NovusCraft.Web.Controllers
 		{
 			var blogPost = _documentSession.Query<BlogPost>().SingleOrDefault(bp => bp.Id == id);
 
-			var model = new EditPostModel // TODO: Use AutoMapper?
+			var model = new EditBlogPostModel // TODO: Use AutoMapper?
 			            	{
 			            		Id = blogPost.Id,
 			            		Title = blogPost.Title,
@@ -79,9 +77,9 @@ namespace NovusCraft.Web.Controllers
 		}
 
 		[HttpPost, Authorize]
-		public void EditBlogPost(EditPostModel model)
+		public void EditBlogPost(EditBlogPostModel model)
 		{
-			_blogPostRepository.UpdateBlogPost(model.Id, model.Title, model.Content, model.CategoryTitle);
+			_commandDispatcher.Dispatch(new UpdateBlogPostCommand(model));
 		}
 	}
 }

@@ -2,7 +2,6 @@
 // # All rights reserved. 
 
 using System;
-using NovusCraft.Data.Blog;
 using NovusCraft.Security;
 using Raven.Client;
 using StructureMap.Configuration.DSL;
@@ -16,9 +15,6 @@ namespace NovusCraft.Data
 		{
 			// Raven DB
 			RegisterRavenDb();
-
-			// Blog
-			For<IBlogPostRepository>().HybridHttpOrThreadLocalScoped().Use<BlogPostRepository>();
 
 			// Security
 			For<IFormsAuthenticationWrapper>().HybridHttpOrThreadLocalScoped().Use<FormsAuthenticationWrapper>();

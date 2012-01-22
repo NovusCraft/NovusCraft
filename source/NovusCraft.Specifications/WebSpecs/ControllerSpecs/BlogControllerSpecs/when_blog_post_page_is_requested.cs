@@ -23,17 +23,17 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 					session.Store(new BlogPost
 					              	{
 					              		Id = 1,
-					              		Title = "Test Post Title 1",
-					              		Slug = "test-slug-1",
-					              		Content = "Test Post Content 1",
-					              		Category = new BlogPostCategory { Title = "Category 1" },
+					              		Title = "Test blog post",
+					              		Slug = "test-blog-post",
+					              		Content = "Blog post content.",
+					              		Category = new BlogPostCategory { Title = "Category A" },
 					              		PublishedOn = new DateTimeOffset(2011, 11, 10, 09, 08, 07, TimeSpan.Zero)
 					              	});
 
 					session.SaveChanges();
 				}
 
-				result = controller.ViewBlogPost(slug: "test-slug-1");
+				result = controller.ViewBlogPost(slug: "test-blog-post");
 			};
 
 		It should_display_post =
@@ -43,16 +43,16 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 			() => result.Model<ViewBlogPostModel>().Id.ShouldEqual(1);
 
 		It should_return_post_with_title_hello_world =
-			() => result.Model<ViewBlogPostModel>().Title.ShouldEqual("Test Post Title 1");
+			() => result.Model<ViewBlogPostModel>().Title.ShouldEqual("Test blog post");
 
 		It should_return_post_with_content_test =
-			() => result.Model<ViewBlogPostModel>().Content.ShouldEqual("Test Post Content 1");
+			() => result.Model<ViewBlogPostModel>().Content.ShouldEqual("Blog post content.");
 
 		It should_return_post_with_permalink =
-			() => result.Model<ViewBlogPostModel>().Permalink.ShouldEqual("http://novuscraft.com/blog/test-slug-1");
+			() => result.Model<ViewBlogPostModel>().Permalink.ShouldEqual("http://novuscraft.com/blog/test-blog-post");
 
 		It should_return_post_with_category_title_meta =
-			() => result.Model<ViewBlogPostModel>().CategoryTitle.ShouldEqual("Category 1");
+			() => result.Model<ViewBlogPostModel>().CategoryTitle.ShouldEqual("Category A");
 
 		It should_return_post_with_publish_date_of_10_november_2011_09_hours_08_minutes_07_seconds =
 			() => result.Model<ViewBlogPostModel>().PublishedOn.ShouldEqual(new DateTimeOffset(2011, 11, 10, 09, 08, 07, TimeSpan.Zero));

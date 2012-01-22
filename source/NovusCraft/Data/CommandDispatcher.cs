@@ -8,10 +8,10 @@ namespace NovusCraft.Data
 {
 	public sealed class CommandDispatcher
 	{
-		readonly Container _container;
+		readonly IContainer _container;
 
 		[CLSCompliant(false)]
-		public CommandDispatcher(Container container)
+		public CommandDispatcher(IContainer container)
 		{
 			_container = container;
 		}

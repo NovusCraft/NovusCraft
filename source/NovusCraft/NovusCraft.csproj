@@ -38,11 +38,11 @@
     <Compile Include="Data\Blog\AddBlogPostHandler.cs" />
     <Compile Include="Data\Blog\BlogPost.cs" />
     <Compile Include="Data\Blog\BlogPostCategory.cs" />
-    <Compile Include="Data\Blog\BlogPostRepository.cs" />
     <Compile Include="Data\Blog\AddBlogPostCommand.cs" />
+    <Compile Include="Data\Blog\UpdateBlogPostHandler.cs" />
+    <Compile Include="Data\Blog\UpdateBlogPostCommand.cs" />
     <Compile Include="Data\Command.cs" />
     <Compile Include="Data\CommandHandler.cs" />
-    <Compile Include="Data\Blog\IBlogPostRepository.cs" />
     <Compile Include="Data\DocumentStoreFactory.cs" />
     <Compile Include="Data\CommandDispatcher.cs" />
     <Compile Include="Data\ICommand.cs" />
@@ -76,7 +76,7 @@
     <Compile Include="Web\Utils\FormatExtensions.cs" />
     <Compile Include="Web\ViewModels\CreateBlogPostModel.cs" />
     <Compile Include="Web\ViewModels\LogInModel.cs" />
-    <Compile Include="Web\ViewModels\EditPostModel.cs" />
+    <Compile Include="Web\ViewModels\EditBlogPostModel.cs" />
     <Compile Include="Web\ViewModels\ViewBlogPostModel.cs" />
   </ItemGroup>
   <ItemGroup>

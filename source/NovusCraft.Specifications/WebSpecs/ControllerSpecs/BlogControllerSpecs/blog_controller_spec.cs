@@ -8,7 +8,6 @@ using System.Web.Routing;
 using Machine.Specifications;
 using Moq;
 using NovusCraft.Data;
-using NovusCraft.Data.Blog;
 using NovusCraft.Web;
 using NovusCraft.Web.Controllers;
 using Raven.Client;
@@ -22,8 +21,10 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 	{
 		protected static BlogController controller;
 		protected static Mock<HttpResponseBase> http_response;
-		protected static Mock<IBlogPostRepository> repository;
 		protected static IDocumentStore document_store;
+
+		[CLSCompliant(false)]
+		protected static IContainer container;
 
 		Establish context = () =>
 			{
@@ -45,19 +46,16 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 
 				RouteConfigurator.Initialise(); // this populates route table, so ensure RouteTable.Routes.Clear() is called during cleanup
 
-				repository = new Mock<IBlogPostRepository>();
-
 				document_store = new EmbeddableDocumentStore { RunInMemory = true };
 				document_store.Initialize();
 
-				var container = new Container();
+				container = new Container();
 				container.Configure(ce => ce.For<IDocumentStore>().Use(document_store));
-				container.Configure(ce => ce.For<CommandHandler<AddBlogPostCommand>>().Use<AddBlogPostHandler>());
 				var dispatcher = new CommandDispatcher(container);
 
 				var session = document_store.OpenSession();
 
-				controller = new BlogController(repository.Object, dispatcher, session) { ControllerContext = controllerContext.Object, Url = urlHelper };
+				controller = new BlogController(session, dispatcher) { ControllerContext = controllerContext.Object, Url = urlHelper };
 			};
 
 		Cleanup after = () => RouteTable.Routes.Clear();

@@ -4,7 +4,6 @@
 using System.Linq;
 using Machine.Specifications;
 using NovusCraft.Data;
-using NovusCraft.Data.Blog;
 using NovusCraft.Security;
 using Raven.Client;
 using Raven.Client.Embedded;
@@ -29,13 +28,6 @@ namespace NovusCraft.Specifications.DataSpecs.StructureMapConfigurationRegistryS
 
 		It should_set_ravendb_document_session_lifecycle_as_hybrid =
 			() => container.Model.PluginTypes.Single(pt => pt.PluginType == typeof(IDocumentSession) && pt.Default.Description == "Instance is created by Func<object> function:  System.Func`2[StructureMap.IContext,Raven.Client.IDocumentSession]").Lifecycle.ShouldEqual(InstanceScope.Hybrid.ToString());
-
-		// Blog
-		It should_register_blog_category_repository =
-			() => container.Model.PluginTypes.SingleOrDefault(pt => pt.PluginType == typeof(IBlogPostRepository) && pt.Default.ConcreteType == typeof(BlogPostRepository)).ShouldNotBeNull();
-
-		It should_set_blog_category_repository_lifecycle_as_hybrid =
-			() => container.Model.PluginTypes.Single(pt => pt.PluginType == typeof(IBlogPostRepository) && pt.Default.ConcreteType == typeof(BlogPostRepository)).Lifecycle.ShouldEqual(InstanceScope.Hybrid.ToString());
 
 		// Security
 		It should_register_forms_authentication_wrapper =
