@@ -43,11 +43,5 @@ namespace NovusCraft.Specifications.DataSpecs.StructureMapConfigurationRegistryS
 
 		It should_set_forms_authentication_wrapper_lifecycle_as_hybrid =
 			() => container.Model.PluginTypes.Single(pt => pt.PluginType == typeof(IFormsAuthenticationWrapper) && pt.Default.ConcreteType == typeof(FormsAuthenticationWrapper)).Lifecycle.ShouldEqual(InstanceScope.Hybrid.ToString());
-
-		It should_register_authentication_service =
-			() => container.Model.PluginTypes.SingleOrDefault(pt => pt.PluginType == typeof(IAuthenticationService) && pt.Default.ConcreteType == typeof(AuthenticationService)).ShouldNotBeNull();
-
-		It should_set_authentication_service_lifecycle_as_hybrid =
-			() => container.Model.PluginTypes.Single(pt => pt.PluginType == typeof(IAuthenticationService) && pt.Default.ConcreteType == typeof(AuthenticationService)).Lifecycle.ShouldEqual(InstanceScope.Hybrid.ToString());
 	}
 }

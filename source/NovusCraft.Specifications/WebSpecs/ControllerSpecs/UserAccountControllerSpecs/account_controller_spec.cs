@@ -12,14 +12,11 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.UserAccountControll
 	public abstract class account_controller_spec
 	{
 		protected static UserAccountController controller;
-		protected static Mock<IAuthenticationService> authentication_service;
 		protected static EmbeddableDocumentStore document_store;
 		protected static Mock<IFormsAuthenticationWrapper> forms_authentication_wrapper;
 
 		Establish context = () =>
 			{
-				authentication_service = new Mock<IAuthenticationService>();
-
 				forms_authentication_wrapper = new Mock<IFormsAuthenticationWrapper>();
 
 				document_store = new EmbeddableDocumentStore { RunInMemory = true };
@@ -27,7 +24,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.UserAccountControll
 
 				var session = document_store.OpenSession();
 
-				controller = new UserAccountController(authentication_service.Object, session, forms_authentication_wrapper.Object);
+				controller = new UserAccountController(session, forms_authentication_wrapper.Object);
 			};
 	}
 }

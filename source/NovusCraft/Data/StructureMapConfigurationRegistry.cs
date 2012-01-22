@@ -22,7 +22,6 @@ namespace NovusCraft.Data
 
 			// Security
 			For<IFormsAuthenticationWrapper>().HybridHttpOrThreadLocalScoped().Use<FormsAuthenticationWrapper>();
-			For<IAuthenticationService>().HybridHttpOrThreadLocalScoped().Use<AuthenticationService>();
 		}
 
 		void RegisterRavenDb()

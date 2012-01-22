@@ -13,13 +13,11 @@ namespace NovusCraft.Web.Controllers
 {
 	public sealed class UserAccountController : Controller
 	{
-		readonly IAuthenticationService _authenticationService;
 		readonly IDocumentSession _documentSession;
 		readonly IFormsAuthenticationWrapper _formsAuthentication;
 
-		public UserAccountController(IAuthenticationService authenticationService, IDocumentSession documentSession, IFormsAuthenticationWrapper formsAuthentication)
+		public UserAccountController(IDocumentSession documentSession, IFormsAuthenticationWrapper formsAuthentication)
 		{
-			_authenticationService = authenticationService;
 			_documentSession = documentSession;
 			_formsAuthentication = formsAuthentication;
 		}
@@ -53,7 +51,7 @@ namespace NovusCraft.Web.Controllers
 
 		public ActionResult LogOut()
 		{
-			_authenticationService.LogOut();
+			_formsAuthentication.RemoveAuthCookie();
 
 			return RedirectToAction("Home", "Home");
 		}
