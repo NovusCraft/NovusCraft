@@ -37,7 +37,6 @@
       <Link>Properties\GlobalAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="DataSpecs\BlogSpecs\BlogPostRepositorySpecs\blog_post_repository_spec.cs" />
-    <Compile Include="DataSpecs\BlogSpecs\BlogPostRepositorySpecs\when_blog_post_is_created.cs" />
     <Compile Include="DataSpecs\BlogSpecs\BlogPostRepositorySpecs\when_blog_post_is_updated.cs" />
     <Compile Include="DataSpecs\DocumentStoreFactorySpecs\when_embeddable_document_store_is_created.cs" />
     <Compile Include="DataSpecs\StructureMapConfigurationRegistrySpecs\structuremap_configuration_registry_spec.cs" />

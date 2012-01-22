@@ -4,6 +4,7 @@
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+using NovusCraft.Data;
 using NovusCraft.Data.Blog;
 using NovusCraft.Web.Helpers;
 using NovusCraft.Web.ViewModels;
@@ -14,11 +15,13 @@ namespace NovusCraft.Web.Controllers
 	public sealed class BlogController : Controller
 	{
 		readonly IBlogPostRepository _blogPostRepository;
+		readonly CommandDispatcher _commandDispatcher;
 		readonly IDocumentSession _documentSession;
 
-		public BlogController(IBlogPostRepository blogPostRepository, IDocumentSession documentSession)
+		public BlogController(IBlogPostRepository blogPostRepository, CommandDispatcher commandDispatcher, IDocumentSession documentSession)
 		{
 			_blogPostRepository = blogPostRepository;
+			_commandDispatcher = commandDispatcher;
 			_documentSession = documentSession;
 		}
 
@@ -53,9 +56,9 @@ namespace NovusCraft.Web.Controllers
 		}
 
 		[HttpPost, Authorize]
-		public void CreateBlogPost(CreatePostModel model)
+		public void CreateBlogPost(CreateBlogPostModel newBlogPost)
 		{
-			_blogPostRepository.CreateBlogPost(model.Title, model.Content, model.CategoryTitle);
+			_commandDispatcher.Dispatch(new AddBlogPostCommand(newBlogPost));
 		}
 
 		[Authorize]

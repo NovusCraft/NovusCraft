@@ -7,11 +7,13 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using Machine.Specifications;
 using Moq;
+using NovusCraft.Data;
 using NovusCraft.Data.Blog;
 using NovusCraft.Web;
 using NovusCraft.Web.Controllers;
 using Raven.Client;
 using Raven.Client.Embedded;
+using StructureMap;
 using It = Moq.It;
 
 namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
@@ -48,9 +50,14 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 				document_store = new EmbeddableDocumentStore { RunInMemory = true };
 				document_store.Initialize();
 
+				var container = new Container();
+				container.Configure(ce => ce.For<IDocumentStore>().Use(document_store));
+				container.Configure(ce => ce.For<CommandHandler<AddBlogPostCommand>>().Use<AddBlogPostHandler>());
+				var dispatcher = new CommandDispatcher(container);
+
 				var session = document_store.OpenSession();
 
-				controller = new BlogController(repository.Object, session) { ControllerContext = controllerContext.Object, Url = urlHelper };
+				controller = new BlogController(repository.Object, dispatcher, session) { ControllerContext = controllerContext.Object, Url = urlHelper };
 			};
 
 		Cleanup after = () => RouteTable.Routes.Clear();
