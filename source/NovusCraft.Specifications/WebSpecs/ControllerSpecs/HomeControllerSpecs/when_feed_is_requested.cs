@@ -25,18 +25,18 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.HomeControllerSpecs
 					              	{
 					              		Id = 1,
 					              		Title = "Blog Post #1",
-										Slug = "blog-post-1",
-										Content = "Content #1",
+					              		Slug = "blog-post-1",
+					              		Content = "Content #1",
 					              		Category = new BlogPostCategory { Title = "Category A" },
 					              		PublishedOn = new DateTimeOffset(2011, 11, 12, 13, 14, 15, TimeSpan.Zero)
 					              	});
 					session.Store(new BlogPost
 					              	{
-										Id = 2,
-										Title = "Blog Post #1",
-										Slug = "blog-post-2",
-										Content = "Content #2",
-										Category = new BlogPostCategory { Title = "Category B" },
+					              		Id = 2,
+					              		Title = "Blog Post #1",
+					              		Slug = "blog-post-2",
+					              		Content = "Content #2",
+					              		Category = new BlogPostCategory { Title = "Category B" },
 					              		PublishedOn = new DateTimeOffset(2011, 12, 13, 14, 15, 16, TimeSpan.Zero)
 					              	});
 

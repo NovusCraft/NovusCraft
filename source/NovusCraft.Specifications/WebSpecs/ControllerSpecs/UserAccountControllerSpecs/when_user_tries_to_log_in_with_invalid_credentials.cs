@@ -5,10 +5,8 @@ using System.Linq;
 using System.Web.Mvc;
 using Machine.Specifications;
 using Machine.Specifications.Mvc;
-using Moq;
 using NovusCraft.Web.Controllers;
 using NovusCraft.Web.ViewModels;
-using It = Machine.Specifications.It;
 
 namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.UserAccountControllerSpecs
 {
@@ -21,7 +19,6 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.UserAccountControll
 			{
 				controller.ModelState.AddModelError(string.Empty, "invalid credentials");
 				result = controller.LogIn(new LogInModel());
-				authentication_service.Verify(ams => ams.LogIn(Moq.It.IsAny<LogInModel>()), Times.Never());
 			};
 
 		It should_redisplay_login_page =

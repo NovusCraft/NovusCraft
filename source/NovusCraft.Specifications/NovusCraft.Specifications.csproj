@@ -40,14 +40,10 @@
     <Compile Include="DataSpecs\BlogSpecs\BlogPostRepositorySpecs\when_blog_post_is_created.cs" />
     <Compile Include="DataSpecs\BlogSpecs\BlogPostRepositorySpecs\when_blog_post_is_updated.cs" />
     <Compile Include="DataSpecs\DocumentStoreFactorySpecs\when_embeddable_document_store_is_created.cs" />
-    <Compile Include="DataSpecs\SecuritySpecs\UserAccountRepositorySpecs\user_account_repository_spec.cs" />
-    <Compile Include="DataSpecs\SecuritySpecs\UserAccountRepositorySpecs\when_user_account_is_retrieved_using_email_and_password_hash.cs" />
     <Compile Include="DataSpecs\StructureMapConfigurationRegistrySpecs\structuremap_configuration_registry_spec.cs" />
     <Compile Include="DataSpecs\StructureMapConfigurationRegistrySpecs\when_instantiated.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SecuritySpecs\AuthenticationServiceSpecs\authentication_service_spec.cs" />
-    <Compile Include="SecuritySpecs\AuthenticationServiceSpecs\when_user_tries_to_log_in_with_false_credentials.cs" />
-    <Compile Include="SecuritySpecs\AuthenticationServiceSpecs\when_user_logs_in.cs" />
     <Compile Include="SecuritySpecs\AuthenticationServiceSpecs\when_user_logs_out.cs" />
     <Compile Include="Utils\ReflectionExtensions.cs" />
     <Compile Include="Utils\RouteTestExtensions.cs" />
@@ -141,7 +137,9 @@
       <Name>NovusCraft</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="DataSpecs\SecuritySpecs\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

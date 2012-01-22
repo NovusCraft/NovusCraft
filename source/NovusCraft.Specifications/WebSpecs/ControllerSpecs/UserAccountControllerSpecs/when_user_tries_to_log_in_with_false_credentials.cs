@@ -14,11 +14,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.UserAccountControll
 	{
 		static ActionResult result;
 
-		Because of = () =>
-			{
-				authentication_service.Setup(ams => ams.LogIn(Moq.It.IsAny<LogInModel>())).Returns(false);
-				result = controller.LogIn(new LogInModel { Email = "invalid_email@company.com", Password = "invalid_password" });
-			};
+		Because of = () => result = controller.LogIn(new LogInModel { Email = "invalid_email@company.com", Password = "invalid_password" });
 
 		It should_redisplay_login_page =
 			() => result.ShouldBeAView().And().ShouldUseDefaultView();

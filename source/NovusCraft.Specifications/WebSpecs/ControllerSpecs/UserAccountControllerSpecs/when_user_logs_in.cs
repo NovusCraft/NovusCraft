@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using Machine.Specifications;
 using Machine.Specifications.Mvc;
 using Moq;
+using NovusCraft.Data.Security;
 using NovusCraft.Specifications.Utils;
 using NovusCraft.Web.Controllers;
 using NovusCraft.Web.ViewModels;
@@ -20,12 +21,22 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.UserAccountControll
 
 		Because of = () =>
 			{
-				authentication_service.Setup(ams => ams.LogIn(Moq.It.IsAny<LogInModel>())).Returns(true);
+				using (var session = document_store.OpenSession())
+				{
+					session.Store(new UserAccount
+					              	{
+					              		Email = "example@company.com",
+					              		PasswordHash = "虜ꘕ‷倯॰៘倂쭮猱◡參齙甇⽯䅖"
+					              	});
+
+					session.SaveChanges();
+				}
+
 				result = controller.LogIn(log_in_model);
 			};
 
-		It should_log_user_in =
-			() => authentication_service.Verify(ams => ams.LogIn(log_in_model), Times.Exactly(1));
+		It should_set_authentication_cookie =
+			() => forms_authentication_wrapper.Verify(faw => faw.SetAuthCookie("example@company.com"), Times.Exactly(1));
 
 		It should_display_dashboard_page =
 			() => result.ShouldBeARedirectToRoute().And().ActionName().ShouldEqual("Home");

@@ -40,8 +40,6 @@
     <Compile Include="Data\Blog\BlogPostRepository.cs" />
     <Compile Include="Data\Blog\IBlogPostRepository.cs" />
     <Compile Include="Data\DocumentStoreFactory.cs" />
-    <Compile Include="Data\Security\UserAccountRepository.cs" />
-    <Compile Include="Data\Security\IUserAccountRepository.cs" />
     <Compile Include="Data\Security\UserAccount.cs" />
     <Compile Include="Resources\ValidationMessages.Designer.cs">
       <DependentUpon>ValidationMessages.resx</DependentUpon>
@@ -50,6 +48,7 @@
     </Compile>
     <Compile Include="Security\AuthenticationService.cs" />
     <Compile Include="Security\FormsAuthenticationWrapper.cs" />
+    <Compile Include="Security\HashUtility.cs" />
     <Compile Include="Security\IAuthenticationService.cs" />
     <Compile Include="Data\StructureMapConfigurationRegistry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
