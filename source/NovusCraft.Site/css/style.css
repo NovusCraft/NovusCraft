@@ -288,10 +288,6 @@ p { margin:0; }
 a { color:#d93c3c; text-decoration:none; }
 a:hover { background:#efefef;  color:#000; }
 a:visited { color:#a33131; }
-hr { border-top:solid 0.1em #ccc; float:left; font-size:2em; height:1em; margin:0 0 0 1em; padding:0; text-align:center; width:32em; }
-hr:after { background:#fff; content:'§'; padding:0 1em; position:relative; top:-0.8em; }
-.ie hr:after { content:none; }
-.i6 hr, .ie7 hr { display:none; }
 
 /* PAGE */
 #header { margin:0 auto; width:96em; }
@@ -451,7 +447,6 @@ fieldset input[type=submit] { border:solid 0.1em #ccc; color:#444; margin-left:6
 	body,
 	#container,
 	#container .primary-content { border:none; width:100%; -webkit-box-shadow:none; -moz-box-shadow:none; box-shadow:none; }
-	hr { display:none; }
 	.post { padding:0; width:auto; }
 	.post header { border:none; }
 	.post h1 { font-size:20pt; margin:12pt 0; line-height:30pt; }
