@@ -298,7 +298,7 @@ hr:after { background:#fff; content:'§'; padding:0 1em; position:relative; top:
 #header h1 { float:left; font-size:1em; margin:1em 0 0 2em; }
 #header h1 a { background:url(../img/logo.png) no-repeat; border:none; display:block; height:4em; text-indent:-9999em; width:15em; }
 
-#header nav { background:#fff; float:right; margin:2em 2em 0 0; -webkit-box-shadow:0 0 0.6em rgba(0, 0, 0, 0.2); -moz-box-shadow:0 0 0.6em rgba(0, 0, 0, 0.2); box-shadow:0 0 0.6em rgba(0, 0, 0, 0.2); -webkit-border-radius:0.5em; -moz-border-radius:0.5em; border-radius:0.5em; }
+#header nav { background:#fff; float:right; margin-top:2em; -webkit-box-shadow:0 0 0.6em rgba(0, 0, 0, 0.2); -moz-box-shadow:0 0 0.6em rgba(0, 0, 0, 0.2); box-shadow:0 0 0.6em rgba(0, 0, 0, 0.2); -webkit-border-radius:0.5em; -moz-border-radius:0.5em; border-radius:0.5em; }
 #header li { float:left; }
 #header li a { border:none; color:#888; display:block; font-size:1.4em; padding:0.4em 1em; text-decoration:none; text-transform:uppercase; }
 #header li a:hover { background:none; color:#d93c3c; }
