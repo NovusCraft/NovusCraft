@@ -14,8 +14,8 @@ namespace NovusCraft.Web.Controllers
 {
 	public sealed class BlogController : Controller
 	{
-		readonly IDocumentSession _documentSession;
 		readonly CommandDispatcher _commandDispatcher;
+		readonly IDocumentSession _documentSession;
 
 		public BlogController(IDocumentSession documentSession, CommandDispatcher commandDispatcher)
 		{

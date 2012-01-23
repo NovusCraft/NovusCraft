@@ -47,6 +47,7 @@
     <Compile Include="Data\CommandDispatcher.cs" />
     <Compile Include="Data\ICommand.cs" />
     <Compile Include="Data\Security\UserAccount.cs" />
+    <Compile Include="Data\SingletonConvention.cs" />
     <Compile Include="Resources\ValidationMessages.Designer.cs">
       <DependentUpon>ValidationMessages.resx</DependentUpon>
       <AutoGen>True</AutoGen>

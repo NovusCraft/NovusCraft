@@ -16,6 +16,15 @@ namespace NovusCraft.Data
 			// Raven DB
 			RegisterRavenDb();
 
+			// Blog
+			Scan(scanner =>
+				{
+					scanner.AssemblyContainingType<ICommand>();
+					scanner.IncludeNamespaceContainingType<ICommand>();
+					scanner.AddAllTypesOf(typeof(CommandHandler<>));
+					scanner.With(new SingletonConvention(typeof(CommandHandler<>)));
+				});
+
 			// Security
 			For<IFormsAuthenticationWrapper>().HybridHttpOrThreadLocalScoped().Use<FormsAuthenticationWrapper>();
 		}
