@@ -4,7 +4,7 @@ Developer: Arnold Zokas (Novus Craft)
 ## Stack
 * HTML5 + CSS3 + jQuery
 * ASP.NET MVC 3 / Razor / .NET 4.0
-* Raven DB
+* RavenDB
 * IIS
 
 ## Tools

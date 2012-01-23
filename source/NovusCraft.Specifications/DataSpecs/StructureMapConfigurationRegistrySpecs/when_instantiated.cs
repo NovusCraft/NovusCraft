@@ -17,7 +17,7 @@ namespace NovusCraft.Specifications.DataSpecs.StructureMapConfigurationRegistryS
 	{
 		Because of = () => container = new Container(registry);
 
-		// Raven DB
+		// RavenDB
 		It should_register_singleton_ravendb_document_store =
 			() => container.Model.PluginTypes.Single(pt => pt.PluginType == typeof(IDocumentStore) && pt.Default.ConcreteType == typeof(EmbeddableDocumentStore)).Lifecycle.ShouldEqual(InstanceScope.Singleton.ToString());
 

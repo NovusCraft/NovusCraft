@@ -13,8 +13,8 @@ namespace NovusCraft.Data
 	{
 		public StructureMapConfigurationRegistry()
 		{
-			// Raven DB
-			RegisterRavenDb();
+			// RavenDB
+			RegisterRavenDB();
 
 			// Blog
 			Scan(scanner =>
@@ -29,7 +29,7 @@ namespace NovusCraft.Data
 			For<IFormsAuthenticationWrapper>().HybridHttpOrThreadLocalScoped().Use<FormsAuthenticationWrapper>();
 		}
 
-		void RegisterRavenDb()
+		void RegisterRavenDB()
 		{
 			ForSingletonOf<IDocumentStore>().Use(DocumentStoreFactory.CreateEmbeddableDocumentStore());
 			For<IDocumentSession>().HybridHttpOrThreadLocalScoped().Use(context => context.GetInstance<IDocumentStore>().OpenSession());
