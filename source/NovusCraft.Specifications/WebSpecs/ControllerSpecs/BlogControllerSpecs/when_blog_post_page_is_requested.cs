@@ -36,25 +36,25 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 				result = controller.ViewBlogPost(slug: "test-blog-post");
 			};
 
-		It should_display_post =
+		It should_display_blog_post =
 			() => result.ShouldBeAView().And().ShouldUseDefaultView();
 
-		It should_return_post_with_id_1 =
+		It should_return_blog_post_with_id =
 			() => result.Model<ViewBlogPostModel>().Id.ShouldEqual(1);
 
-		It should_return_post_with_title_hello_world =
+		It should_return_blog_post_with_title =
 			() => result.Model<ViewBlogPostModel>().Title.ShouldEqual("Test blog post");
 
-		It should_return_post_with_content_test =
+		It should_return_blog_post_with_content =
 			() => result.Model<ViewBlogPostModel>().Content.ShouldEqual("Blog post content.");
 
-		It should_return_post_with_permalink =
+		It should_return_blog_post_with_permalink =
 			() => result.Model<ViewBlogPostModel>().Permalink.ShouldEqual("http://novuscraft.com/blog/test-blog-post");
 
-		It should_return_post_with_category_title_meta =
+		It should_return_blog_post_with_category_title =
 			() => result.Model<ViewBlogPostModel>().CategoryTitle.ShouldEqual("Category A");
 
-		It should_return_post_with_publish_date_of_10_november_2011_09_hours_08_minutes_07_seconds =
+		It should_return_blog_post_with_publish_date =
 			() => result.Model<ViewBlogPostModel>().PublishedOn.ShouldEqual(new DateTimeOffset(2011, 11, 10, 09, 08, 07, TimeSpan.Zero));
 	}
 }

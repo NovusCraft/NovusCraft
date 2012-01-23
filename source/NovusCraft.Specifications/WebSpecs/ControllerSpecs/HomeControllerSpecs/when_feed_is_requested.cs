@@ -51,22 +51,22 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.HomeControllerSpecs
 		It should_return_rss_feed =
 			() => result.ShouldBeOfType<RssResult>();
 
-		It should_set_feed_id_to_novus_craft =
+		It should_set_feed_id =
 			() => ((RssResult)result).Feed.Id.ShouldEqual("novus_craft");
 
-		It should_set_feed_title_to_novus_craft =
+		It should_set_feed_title =
 			() => ((RssResult)result).Feed.Title.Text.ShouldEqual("Novus Craft");
 
-		It should_set_feed_author_email_address_to_arnold_zokas_at_novuscraft_com =
+		It should_set_feed_author_email_address =
 			() => ((RssResult)result).Feed.Authors.First().Email.ShouldEqual("arnold.zokas@novuscraft.com");
 
-		It should_set_feed_copyright_to_novus_craft =
+		It should_set_feed_copyright =
 			() => ((RssResult)result).Feed.Copyright.Text.ShouldEqual("Copyright © 2011 Novus Craft");
 
-		It should_set_feed_language_to_en_gb =
+		It should_set_feed_language =
 			() => ((RssResult)result).Feed.Language.ShouldEqual("en-GB");
 
-		It should_set_feed_last_updated_time_to_last_updated_date_of_most_recent_feed_item =
+		It should_set_feed_last_updated_time =
 			() => ((RssResult)result).Feed.LastUpdatedTime.ShouldEqual(((RssResult)result).Feed.Items.Max(item => item.LastUpdatedTime));
 
 		It should_set_feed_contains_at_least_one_item =

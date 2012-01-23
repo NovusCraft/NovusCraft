@@ -41,25 +41,25 @@ namespace NovusCraft.Specifications.WebSpecs.ActionResultSpecs.RssResultSpecs
 				rss_result.ExecuteResult(controllerContext.Object);
 			};
 
-		It should_set_content_type_to_application_xml_rss =
+		It should_set_content_type =
 			() => http_response.VerifySet(hr => hr.ContentType = "application/rss+xml");
 
-		It should_set_feed_id_to_novus_craft =
+		It should_set_feed_id =
 			() => output_writer.ToString().ShouldContain("<a10:id>novus_craft</a10:id>");
 
-		It should_set_feed_title_to_novus_craft =
+		It should_set_feed_title =
 			() => output_writer.ToString().ShouldContain("<title>Novus Craft</title>");
 
-		It should_set_feed_author_email_address_to_arnold_zokas_at_novuscraft_com =
+		It should_set_feed_author_email_address =
 			() => output_writer.ToString().ShouldContain("<managingEditor>arnold.zokas@novuscraft.com</managingEditor>");
 
-		It should_set_feed_copyright_to_novus_craft =
+		It should_set_feed_copyright =
 			() => output_writer.ToString().ShouldContain("<copyright>Copyright © 2011 Novus Craft</copyright>");
 
-		It should_set_feed_language_to_en_gb =
+		It should_set_feed_language =
 			() => output_writer.ToString().ShouldContain("<language>en-GB</language>");
 
-		It should_set_feed_last_updated_time_to_valid_date_conforming_to_rfc822 =
+		It should_set_feed_last_updated_time =
 			() => output_writer.ToString().ShouldContain("<lastBuildDate>Sat, 12 Nov 2011 13:14:15 Z</lastBuildDate>");
 	}
 } ;

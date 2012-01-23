@@ -18,7 +18,7 @@ namespace NovusCraft.Specifications.WebSpecs.HelperSpecs.HtmlHelperSpecs
 				menu_link = helper.MenuLink("RouteB", "Home", "Test", "test page");
 			};
 
-		It should_return_anchor_html_with_class_active =
+		It should_return_anchor_html_with_css_class_active =
 			() => menu_link.ToHtmlString().ShouldEqual("<a class=\"active\" href=\"/route-b\" title=\"test page\">Test</a>");
 	}
 }

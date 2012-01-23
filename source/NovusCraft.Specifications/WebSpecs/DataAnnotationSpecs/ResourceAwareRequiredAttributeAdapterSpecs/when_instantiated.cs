@@ -22,10 +22,10 @@ namespace NovusCraft.Specifications.WebSpecs.DataAnnotationSpecs.ResourceAwareRe
 				new ResourceAwareRequiredAttributeAdapter(modelMetadata, controllerContext, attribute);
 			};
 
-		It should_set_error_message_resource_type_to_validation_messages =
+		It should_set_error_message_resource_type =
 			() => attribute.ErrorMessageResourceType.ShouldEqual(typeof(ValidationMessages));
 
-		It should_set_error_message_resource_name_to_property_value_required =
+		It should_set_error_message_resource_name =
 			() => attribute.ErrorMessageResourceName.ShouldEqual("PropertyValueRequired");
 	}
 }
