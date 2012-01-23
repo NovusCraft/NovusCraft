@@ -43,9 +43,9 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 					session.Store(new BlogPost
 					              	{
 					              		Id = 1,
-					              		Title = "Test blog post",
-					              		Slug = "test-blog-post",
-					              		Content = "Blog post content.",
+					              		Title = "Test Title",
+					              		Slug = "test-title",
+					              		Content = "Test Content",
 					              		Category = new BlogPostCategory { Title = "Category A" },
 					              		PublishedOn = new DateTimeOffset(2011, 11, 10, 09, 08, 07, TimeSpan.Zero)
 					              	});
@@ -53,7 +53,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 					session.SaveChanges();
 				}
 
-				result = controller.ViewBlogPost(slug: "test-blog-post");
+				result = controller.ViewBlogPost(slug: "test-title");
 			};
 
 		It should_display_blog_post =
@@ -63,13 +63,13 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 			() => result.Model<ViewBlogPostModel>().Id.ShouldEqual(1);
 
 		It should_return_blog_post_with_title =
-			() => result.Model<ViewBlogPostModel>().Title.ShouldEqual("Test blog post");
+			() => result.Model<ViewBlogPostModel>().Title.ShouldEqual("Test Title");
 
 		It should_return_blog_post_with_content =
-			() => result.Model<ViewBlogPostModel>().Content.ShouldEqual("Blog post content.");
+			() => result.Model<ViewBlogPostModel>().Content.ShouldEqual("Test Content");
 
 		It should_return_blog_post_with_permalink =
-			() => result.Model<ViewBlogPostModel>().Permalink.ShouldEqual("http://novuscraft.com/blog/test-blog-post");
+			() => result.Model<ViewBlogPostModel>().Permalink.ShouldEqual("http://novuscraft.com/blog/test-title");
 
 		It should_return_blog_post_with_category_title =
 			() => result.Model<ViewBlogPostModel>().CategoryTitle.ShouldEqual("Category A");

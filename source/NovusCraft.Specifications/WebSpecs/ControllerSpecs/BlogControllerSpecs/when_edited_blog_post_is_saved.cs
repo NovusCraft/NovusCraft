@@ -25,9 +25,9 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 					session.Store(new BlogPost
 					              	{
 					              		Id = 1,
-					              		Title = "Test blog post",
-					              		Slug = "test-blog-post",
-					              		Content = "Blog post content.",
+					              		Title = "Test Title",
+					              		Slug = "test-title",
+					              		Content = "Test Content",
 					              		Category = new BlogPostCategory { Title = "Category A" },
 					              		PublishedOn = new DateTimeOffset(2011, 11, 10, 09, 08, 07, TimeSpan.Zero)
 					              	});
@@ -38,9 +38,9 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 				var editPostModel = new EditBlogPostModel
 				                    	{
 				                    		Id = 1,
-				                    		Title = "New test blog post",
-				                    		Slug = "new-test-blog-post",
-				                    		Content = "New blog post content.",
+				                    		Title = "New Test Title",
+				                    		Slug = "new-test-title",
+				                    		Content = "New Test Content",
 				                    		CategoryTitle = "Category B"
 				                    	};
 
@@ -50,13 +50,13 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 		// TODO: spec for :after behaviour
 
 		It should_update_blog_post_title =
-			() => document_store.OpenSession().Query<BlogPost>().Single(bp => bp.Id == 1).Title.ShouldEqual("New test blog post");
+			() => document_store.OpenSession().Query<BlogPost>().Single(bp => bp.Id == 1).Title.ShouldEqual("New Test Title");
 
 		It should_update_blog_post_slug =
-			() => document_store.OpenSession().Query<BlogPost>().Single(bp => bp.Id == 1).Slug.ShouldEqual("new-test-blog-post");
+			() => document_store.OpenSession().Query<BlogPost>().Single(bp => bp.Id == 1).Slug.ShouldEqual("new-test-title");
 
 		It should_update_blog_post_content =
-			() => document_store.OpenSession().Query<BlogPost>().Single(bp => bp.Id == 1).Content.ShouldEqual("New blog post content.");
+			() => document_store.OpenSession().Query<BlogPost>().Single(bp => bp.Id == 1).Content.ShouldEqual("New Test Content");
 
 		It should_update_blog_post_category =
 			() => document_store.OpenSession().Query<BlogPost>().Single(bp => bp.Id == 1).Category.Title.ShouldEqual("Category B");

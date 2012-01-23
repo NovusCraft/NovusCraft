@@ -24,9 +24,9 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 					session.Store(new BlogPost
 					              	{
 					              		Id = 1,
-					              		Title = "Test Post Title 1",
-					              		Content = "Test Post Content 1",
-					              		Category = new BlogPostCategory { Title = "Category 1" },
+					              		Title = "Test Title",
+					              		Content = "Test Content",
+					              		Category = new BlogPostCategory { Title = "Category A" },
 					              		PublishedOn = new DateTimeOffset(2011, 11, 10, 09, 08, 07, TimeSpan.Zero)
 					              	});
 
@@ -43,13 +43,13 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 			() => result.Model<EditBlogPostModel>().Id.ShouldEqual(1);
 
 		It should_return_post_with_title_hello_world =
-			() => result.Model<EditBlogPostModel>().Title.ShouldEqual("Test Post Title 1");
+			() => result.Model<EditBlogPostModel>().Title.ShouldEqual("Test Title");
 
 		It should_return_post_with_content_test =
-			() => result.Model<EditBlogPostModel>().Content.ShouldEqual("Test Post Content 1");
+			() => result.Model<EditBlogPostModel>().Content.ShouldEqual("Test Content");
 
 		It should_return_post_with_category_title_meta =
-			() => result.Model<EditBlogPostModel>().CategoryTitle.ShouldEqual("Category 1");
+			() => result.Model<EditBlogPostModel>().CategoryTitle.ShouldEqual("Category A");
 
 		It should_return_post_with_publish_date_of_10_november_2011_09_hours_08_minutes_07_seconds =
 			() => result.Model<EditBlogPostModel>().PublishedOn.ShouldEqual(new DateTimeOffset(2011, 11, 10, 09, 08, 07, TimeSpan.Zero));

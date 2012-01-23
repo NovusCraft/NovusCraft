@@ -22,9 +22,9 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 
 				controller.CreateBlogPost(new CreateBlogPostModel
 				                          	{
-				                          		Title = "Test blog post",
-				                          		Slug = "test-blog-post",
-				                          		Content = "Blog post content.",
+				                          		Title = "Test Title",
+				                          		Slug = "test-title",
+				                          		Content = "Blog Content",
 				                          		CategoryTitle = "Category A"
 				                          	});
 			};
@@ -32,13 +32,13 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 		// TODO: spec for :after behaviour
 
 		It should_save_blog_post_with_title =
-			() => document_store.OpenSession().Query<BlogPost>().Count(bp => bp.Title == "Test blog post").ShouldEqual(1);
+			() => document_store.OpenSession().Query<BlogPost>().Count(bp => bp.Title == "Test Title").ShouldEqual(1);
 
 		It should_save_blog_post_with_slug =
-			() => document_store.OpenSession().Query<BlogPost>().Count(bp => bp.Slug == "test-blog-post").ShouldEqual(1);
+			() => document_store.OpenSession().Query<BlogPost>().Count(bp => bp.Slug == "test-title").ShouldEqual(1);
 
 		It should_save_blog_post_with_content =
-			() => document_store.OpenSession().Query<BlogPost>().Count(bp => bp.Content == "Blog post content.").ShouldEqual(1);
+			() => document_store.OpenSession().Query<BlogPost>().Count(bp => bp.Content == "Blog Content").ShouldEqual(1);
 
 		It should_save_blog_post_with_category_title =
 			() => document_store.OpenSession().Query<BlogPost>().Count(bp => bp.Category.Title == "Category A").ShouldEqual(1);
