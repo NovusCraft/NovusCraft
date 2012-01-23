@@ -2,12 +2,17 @@
 // # All rights reserved. 
 
 using System;
+using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using Machine.Specifications;
 using Machine.Specifications.Mvc;
+using Moq;
 using NovusCraft.Data.Blog;
+using NovusCraft.Web;
 using NovusCraft.Web.Controllers;
 using NovusCraft.Web.ViewModels;
+using It = Machine.Specifications.It;
 
 namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 {
@@ -18,6 +23,21 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 
 		Because of = () =>
 			{
+				var httpRequest = new Mock<HttpRequestBase>();
+				httpRequest.SetupGet(hr => hr.Url).Returns(new Uri("http://novuscraft.com/blog/test-slug-1"));
+
+				var httpResponse = new Mock<HttpResponseBase>();
+				httpResponse.Setup(hrb => hrb.ApplyAppPathModifier(Moq.It.IsAny<string>())).Returns((string s) => s);
+
+				var httpContext = new Mock<HttpContextBase>();
+				httpContext.SetupGet(hc => hc.Request).Returns(httpRequest.Object);
+				httpContext.SetupGet(hc => hc.Response).Returns(httpResponse.Object);
+				var urlHelper = new UrlHelper(new RequestContext(httpContext.Object, new RouteData()));
+
+				RouteConfigurator.Initialise(); // this populates route table, so ensure RouteTable.Routes.Clear() is called during cleanup
+
+				controller.Url = urlHelper;
+
 				using (var session = document_store.OpenSession())
 				{
 					session.Store(new BlogPost
