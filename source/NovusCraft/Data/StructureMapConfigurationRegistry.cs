@@ -32,7 +32,7 @@ namespace NovusCraft.Data
 		void RegisterRavenDB()
 		{
 			ForSingletonOf<IDocumentStore>().Use(DocumentStoreFactory.CreateEmbeddableDocumentStore());
-			For<IDocumentSession>().HybridHttpOrThreadLocalScoped().Use(context => context.GetInstance<IDocumentStore>().OpenSession());
+			ForSingletonOf<IDocumentSession>().Use(context => context.GetInstance<IDocumentStore>().OpenSession());
 		}
 	}
 }

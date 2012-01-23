@@ -72,8 +72,6 @@
     <Compile Include="WebSpecs\HelperSpecs\UrlHelperSpecs\when_permalink_is_created_without_parameters.cs" />
     <Compile Include="WebSpecs\HelperSpecs\UrlHelperSpecs\url_helper_spec.cs" />
     <Compile Include="WebSpecs\HelperSpecs\UrlHelperSpecs\when_permalink_is_created_with_route_name_controller_name_and_parameters.cs" />
-    <Compile Include="WebSpecs\MvcApplicationSpecs\when_request_having_used_ravendb_ends.cs" />
-    <Compile Include="WebSpecs\MvcApplicationSpecs\when_request_not_having_used_ravendb_ends.cs" />
     <Compile Include="WebSpecs\MvcApplicationSpecs\mvc_application_spec.cs" />
     <Compile Include="WebSpecs\MvcApplicationSpecs\when_application_starts.cs" />
     <Compile Include="WebSpecs\RouteConfiguratorSpecs\when_initialised.cs" />

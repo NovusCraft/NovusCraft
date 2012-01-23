@@ -7,6 +7,7 @@
       <Filter ModuleMask="NovusCraft" ClassMask="NovusCraft.Web.StructureMapControllerFactory" FunctionMask="GetControllerInstance" />
       <Filter ModuleMask="NovusCraft" ClassMask="NovusCraft.Resources.*" FunctionMask="*" />
       <Filter ModuleMask="NovusCraft" ClassMask="NovusCraft.Security.FormsAuthenticationWrapper" FunctionMask="*" />
+      <Filter ModuleMask="NovusCraft" ClassMask="NovusCraft.Data.StructureMapConfigurationRegistry" FunctionMask="RegisterRavenDB" />
     </ExcludeFilters>
   </CoverageFilters>
   <SnapshotDialog>

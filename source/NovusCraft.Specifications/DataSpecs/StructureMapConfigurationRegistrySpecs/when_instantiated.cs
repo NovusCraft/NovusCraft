@@ -21,8 +21,8 @@ namespace NovusCraft.Specifications.DataSpecs.StructureMapConfigurationRegistryS
 		It should_register_singleton_ravendb_document_store =
 			() => container.Model.PluginTypes.Single(pt => pt.PluginType == typeof(IDocumentStore) && pt.Default.ConcreteType == typeof(EmbeddableDocumentStore)).Lifecycle.ShouldEqual(InstanceScope.Singleton.ToString());
 
-		It should_register_hybrid_ravendb_document_session =
-			() => container.Model.PluginTypes.Single(pt => pt.PluginType == typeof(IDocumentSession) && pt.Default.Description == "Instance is created by Func<object> function:  System.Func`2[StructureMap.IContext,Raven.Client.IDocumentSession]").Lifecycle.ShouldEqual(InstanceScope.Hybrid.ToString());
+		It should_register_singleton_ravendb_document_session =
+			() => container.Model.PluginTypes.Single(pt => pt.PluginType == typeof(IDocumentSession)).Lifecycle.ShouldEqual(InstanceScope.Singleton.ToString());
 
 		// Blog
 		It should_register_singleton_add_blog_post_handler =
