@@ -4,14 +4,13 @@
 	ViewBag.Title = "Log In";
 }
 
-<article class="post">
+<section class="primary-content form">
 	<header>
 		<h1>Log In</h1>
 	</header>
-	@Html.ValidationSummary(true, "Login was unsuccessful. Please correct the errors and try again.")
-	
 	@using (Html.BeginForm()) {
 		<fieldset>
+			@Html.ValidationSummary(true, "Login was unsuccessful. Please correct the errors and try again.")
 			<div>
 				@Html.LabelFor(m => m.Email)
 				@Html.TextBoxFor(m => m.Email)
@@ -28,5 +27,4 @@
 			</div>
 		</fieldset>
 	}
-
-</article>
+</section>

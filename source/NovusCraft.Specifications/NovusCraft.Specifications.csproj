@@ -44,6 +44,7 @@
     <Compile Include="Utils\RouteTestExtensions.cs" />
     <Compile Include="Utils\This.cs" />
     <Compile Include="WebSpecs\ActionResultSpecs\RssResultSpecs\when_result_is_executed.cs" />
+    <Compile Include="WebSpecs\ControllerSpecs\BlogControllerSpecs\when_new_blog_post_is_submitted_with_invalid_details.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\BlogControllerSpecs\when_new_blog_post_is_saved.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\BlogControllerSpecs\when_create_blog_post_page_is_requested.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\DashboardControllerSpecs\dashboard_controller_spec.cs" />

@@ -54,9 +54,15 @@ namespace NovusCraft.Web.Controllers
 		}
 
 		[HttpPost, Authorize]
-		public void CreateBlogPost(CreateBlogPostModel newBlogPost)
+		public ActionResult CreateBlogPost(CreateBlogPostModel newBlogPost)
 		{
-			_commandDispatcher.Dispatch(new AddBlogPostCommand(newBlogPost));
+			if (ModelState.IsValid)
+			{
+				_commandDispatcher.Dispatch(new AddBlogPostCommand(newBlogPost));
+				return RedirectToAction("Home", "Dashboard");
+			}
+			
+			return View();
 		}
 
 		[Authorize]

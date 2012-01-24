@@ -1,12 +1,40 @@
-﻿@model object
+﻿@model CreateBlogPostModel
 		   
 @section aside
 {
 	Links, etc.
 }
 
-<section>
+<section class="primary-content form">
 	<header>
 		<h1>Create blog post</h1>
 	</header>
+	@Html.ValidationSummary(false, "Login was unsuccessful. Please correct the errors and try again.")
+	@using (Html.BeginForm()) {
+		<fieldset>
+			<div>
+				@Html.LabelFor(m => m.Title)
+				@Html.TextBoxFor(m => m.Title)
+				@Html.ValidationMessageFor(m => m.Title)
+			</div>
+			<div>
+				@Html.LabelFor(m => m.Slug)
+				@Html.TextBoxFor(m => m.Slug)
+				@Html.ValidationMessageFor(m => m.Slug)
+			</div>
+			<div>
+				@Html.LabelFor(m => m.Content)
+				@Html.TextAreaFor(m => m.Content)
+			</div>
+			<div>
+				@Html.LabelFor(m => m.CategoryTitle)
+				@Html.TextBoxFor(m => m.CategoryTitle)
+				@Html.ValidationMessageFor(m => m.CategoryTitle)
+			</div>
+			<div>
+				@Html.AntiForgeryToken()
+				<input type="submit" value="Save changes" />
+			</div>
+		</fieldset>
+	}
 </section>
