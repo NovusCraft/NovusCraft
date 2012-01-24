@@ -340,12 +340,12 @@ pre + pre { margin-top:2em; }
 pre code { border:solid 0.1em #ddd; font-size:1.4em; line-height:1.3em; padding:1em; -webkit-border-radius:0.5em; -moz-border-radius:0.5em; border-radius:0.5em; }
 
 /* forms */
-/*.validation-summary-errors { color:#d93c3c; font-size:1.5em; }
 .field-validation-error { color:#d93c3c; font-size:1.4em; margin-left:1em; }
 fieldset div { height:3em; }
 fieldset label { float:left; font-size:1.5em; width:6em; }
 fieldset input { font-size:1.5em; width:15em; }
-fieldset input[type=submit] { border:solid 0.1em #ccc; color:#444; margin-left:6em; padding:0.2em 0; width:8em; }*/
+fieldset input[type=submit] { background: #eeeeee; background: -moz-linear-gradient(top,  #eeeeee 0%, #dddddd 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(100%,#dddddd)); background: -webkit-linear-gradient(top,  #eeeeee 0%,#dddddd 100%); background: -o-linear-gradient(top,  #eeeeee 0%,#dddddd 100%); background: -ms-linear-gradient(top,  #eeeeee 0%,#dddddd 100%); background: linear-gradient(top,  #eeeeee 0%,#dddddd 100%); border:solid 0.1em #dddddd; color:#555; margin-left:7.2em; padding:0.4em 0; width:8em; font-size:1.25em; }
+fieldset input[type=submit]:active { border:solid 0.1em #ccc; color:#333; margin-left:7.2em; padding:0.4em 0; width:8em; font-size:1.25em; }
 
 /* ASIDE */
 #subscribe { background:url("/img/feed-icon-28x28.png") no-repeat; border:none; display:block; font-size:1.4em; margin-bottom:1em; padding:0.4em 0 1em 2.5em; }
@@ -353,7 +353,6 @@ fieldset input[type=submit] { border:solid 0.1em #ccc; color:#444; margin-left:6
 #about-mini { }
 #about-mini p { font-size:1.4em; line-height:1.6em; }
 #about-mini a { background:none; display:block; margin-top:1.6em; width:20.8em; }
-
 
 
 /* =============================================================================
@@ -383,7 +382,6 @@ fieldset input[type=submit] { border:solid 0.1em #ccc; color:#444; margin-left:6
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
 .clearfix { zoom: 1; }
-
 
 
 /* =============================================================================
