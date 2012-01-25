@@ -5,6 +5,7 @@ using System;
 using System.Linq;
 using System.Web.Mvc;
 using Machine.Specifications;
+using Machine.Specifications.Mvc;
 using NovusCraft.Data;
 using NovusCraft.Data.Blog;
 using NovusCraft.Specifications.Utils;
@@ -17,6 +18,8 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 	[Subject(typeof(BlogController))]
 	public class when_edited_blog_post_is_saved : blog_controller_spec
 	{
+		static ActionResult result;
+
 		Because of = () =>
 			{
 				container.Configure(ce => ce.For<CommandHandler<UpdateBlogPostCommand>>().Use<UpdateBlogPostHandler>());
@@ -45,12 +48,10 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 				                    		CategoryTitle = "Category B"
 				                    	};
 
-				controller.EditBlogPost(editPostModel);
+				result = controller.EditBlogPost(editPostModel);
 
 				container.GetInstance<IDocumentSession>().SaveChanges(); // normally called by StructureMapControllerFactory.ReleaseController(IController)
 			};
-
-		// TODO: spec for :after behaviour
 
 		It should_update_blog_post_title =
 			() => document_store.OpenSession().Query<BlogPost>().Single(bp => bp.Id == 1).Title.ShouldEqual("New Test Title");
@@ -66,6 +67,9 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 
 		It should_update_blog_post_publish_date =
 			() => document_store.OpenSession().Query<BlogPost>().Single(bp => bp.Id == 1).PublishedOn.ShouldBeGreaterThan(DateTimeOffset.Now.AddMinutes(-1));
+
+		It should_display_dashboard_page =
+			() => result.ShouldRedirectToAction<DashboardController>(c => c.Home());
 
 		It should_only_allow_http_post =
 			() => This.Action<BlogController>(bc => bc.EditBlogPost(null)).ShouldBeDecoratedWith<HttpPostAttribute>();

@@ -54,11 +54,11 @@ namespace NovusCraft.Web.Controllers
 		}
 
 		[HttpPost, Authorize]
-		public ActionResult CreateBlogPost(CreateBlogPostModel newBlogPost)
+		public ActionResult CreateBlogPost(CreateBlogPostModel blogPost)
 		{
 			if (ModelState.IsValid)
 			{
-				_commandDispatcher.Dispatch(new AddBlogPostCommand(newBlogPost));
+				_commandDispatcher.Dispatch(new AddBlogPostCommand(blogPost));
 				return RedirectToAction("Home", "Dashboard");
 			}
 
@@ -84,9 +84,15 @@ namespace NovusCraft.Web.Controllers
 		}
 
 		[HttpPost, Authorize]
-		public void EditBlogPost(EditBlogPostModel model)
+		public ActionResult EditBlogPost(EditBlogPostModel blogPost)
 		{
-			_commandDispatcher.Dispatch(new UpdateBlogPostCommand(model));
+			if (ModelState.IsValid)
+			{
+				_commandDispatcher.Dispatch(new UpdateBlogPostCommand(blogPost));
+				return RedirectToAction("Home", "Dashboard");
+			}
+
+			return View();
 		}
 	}
 }

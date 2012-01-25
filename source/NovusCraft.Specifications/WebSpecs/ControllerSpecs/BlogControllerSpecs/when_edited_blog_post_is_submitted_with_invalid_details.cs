@@ -10,7 +10,7 @@ using NovusCraft.Web.ViewModels;
 namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 {
 	[Subject(typeof(BlogController))]
-	public class when_new_blog_post_is_submitted_with_invalid_details : blog_controller_spec
+	public class when_edited_blog_post_is_submitted_with_invalid_details : blog_controller_spec
 	{
 		static ActionResult result;
 
@@ -18,7 +18,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 			{
 				controller.ModelState.AddModelError(string.Empty, "error");
 
-				result = controller.CreateBlogPost(new CreateBlogPostModel());
+				result = controller.EditBlogPost(new EditBlogPostModel());
 			};
 
 		It should_redisplay_page =
