@@ -1,11 +1,10 @@
 ﻿@model IList<ViewBlogPostModel>
 		   
-@section aside
-{
-	@Html.ActionLink("New post", "CreateBlogPost", "Blog")
+@{
+	Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
-<section>
+<section class="primary-content">
 	<header>
 		<h1>Dashboard</h1>
 	</header>
@@ -31,3 +30,8 @@
 		</tbody>
 	</table>
 </section>
+<aside>
+	<ul id="contextual-actions">
+		<li>@Html.ActionLink("Create Blog Post", "CreateBlogPost", "Blog", null, new { @class = "create" })</li>
+	</ul>
+</aside>

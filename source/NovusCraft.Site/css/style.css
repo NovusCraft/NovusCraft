@@ -341,7 +341,7 @@ pre + pre { margin-top:2em; }
 pre code { border:solid 0.1em #ddd; font-size:1.4em; line-height:1.3em; padding:1em; -webkit-border-radius:0.5em; -moz-border-radius:0.5em; border-radius:0.5em; }
 
 /* forms */
-.form h1 { color:#333; font-size:2.5em; font-weight:normal; line-height:1.5em; margin:0 0 0.5em 0; }
+.primary-content > header > h1 { color:#333; font-size:2.5em; font-weight:normal; line-height:1.5em; margin:0 0 0.5em 0; }
 .validation-summary-valid { display:none; }
 .validation-summary-errors { color:#d93c3c; font-size:1.4em; line-height:1.5em; padding:0; }
 .validation-summary-errors ul { padding:0 0 0 1.5em; }
@@ -358,6 +358,12 @@ form input[type=submit] { background:#eeeeee; background:-moz-linear-gradient(to
 form input[type=submit]:active { border:solid 0.1em #ccc; color:#333; }
 #live-preview { border-top:solid 0.2em #ccc; margin-top:3em; padding-top:2em; width:100%; }
 
+/* tables */
+table { width:100%; }
+th { font-size:1.5em; line-height:1.5em; text-align:left; }
+td { font-size:1.5em; line-height:1.5em; }
+td a { display:block; padding:0.5em 0; width:auto; }
+
 /* pagedown */
 .wmd-panel { }
 .wmd-button-bar { }
@@ -367,7 +373,7 @@ form input[type=submit]:active { border:solid 0.1em #ccc; color:#333; }
 .wmd-button-row { height:1.6em; margin:0 0 1em 0; padding:0; }
 .wmd-spacer { background-color:#C0C0C0; display:inline-block; height:2em; list-style:none; margin-left:1.4em; position:absolute; width:0.1em; }
 .wmd-button { cursor:pointer; display:inline-block; height:2em; list-style:none; padding:0 0.3em 0 0.2em; position:absolute; width:2em; }
-.wmd-button > span { background:url(/img/wmd-buttons.png) no-repeat 0px 0px; display:inline-block; height:2em; width:2em; }
+.wmd-button > span { background:url(/img/icons/wmd-buttons.png) no-repeat 0px 0px; display:inline-block; height:2em; width:2em; }
 .wmd-spacer1 { left:4.8em; }
 .wmd-spacer2 { left:17.5em; }
 .wmd-spacer3 { left:30em; }
@@ -380,11 +386,16 @@ form input[type=submit]:active { border:solid 0.1em #ccc; color:#333; }
 
 
 /* ASIDE */
-#subscribe { background:url("/img/feed-icon-28x28.png") no-repeat; border:none; display:block; font-size:1.4em; margin-bottom:1em; padding:0.4em 0 1em 2.5em; }
+#subscribe { background:url("/img/icons/feed-icon-28x28.png") no-repeat; border:none; display:block; font-size:1.4em; margin-bottom:1em; padding:0.4em 0 1em 2.5em; }
 
 #about-mini { }
 #about-mini p { font-size:1.4em; line-height:1.6em; }
 #about-mini a { background:none; display:block; margin-top:1.6em; width:20.8em; }
+
+#contextual-actions { margin:0; padding:0; }
+#contextual-actions li { list-style:none; }
+#contextual-actions a { font-size:1.5em; line-height:1.5em; }
+#contextual-actions a.create { background:url(/img/icons/doc_plus_icon_16.png) no-repeat 0 0.1em; padding-left:1.3em; }
 
 
 /* =============================================================================
