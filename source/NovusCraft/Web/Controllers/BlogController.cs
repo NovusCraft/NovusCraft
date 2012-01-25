@@ -74,6 +74,7 @@ namespace NovusCraft.Web.Controllers
 			            	{
 			            		Id = blogPost.Id,
 			            		Title = blogPost.Title,
+			            		Slug = blogPost.Slug,
 			            		Content = blogPost.Content,
 			            		CategoryTitle = blogPost.Category.Title,
 			            		PublishedOn = blogPost.PublishedOn,

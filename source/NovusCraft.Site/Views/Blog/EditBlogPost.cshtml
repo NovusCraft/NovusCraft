@@ -1,16 +1,17 @@
-﻿@model CreateBlogPostModel
+﻿@model EditBlogPostModel
 
 @{
 	Layout = "~/Views/Shared/_DashboardLayout.cshtml";
-	ViewBag.Title = "Create blog post";
+	ViewBag.Title = "Edit blog post";
 }
 
 <section id="blog-post-editor" class="primary-content form">
 	<header>
-		<h1>Create blog post</h1>
+		<h1>Edit blog post</h1>
 	</header>
 	@using (Html.BeginForm())
 	{
+		@Html.HiddenFor(m => m.Id)
 		@Html.ValidationSummary("Please correct the errors below:")
 		@Html.AntiForgeryToken()
 		<fieldset>
@@ -38,8 +39,8 @@
 	}
 	<article id="live-preview" class="post">
 		<header>
-			<h1 class="titlePreview">Blog post title</h1>
-			<p class="meta">Published by <a href="#">Arnold Zokas</a> <a class="profile-link" rel="author" href="#"><img alt="Arnold Zokas's profile on Google Plus" src="http://www.google.com/images/icons/ui/gprofile_button-16.png" width="16" height="16"></a> on @DateTimeOffset.Now.ToLongDate() in category <strong class="categoryPreview">Category title</strong>.</p>
+			<h1 class="titlePreview">@Model.Title</h1>
+			<p class="meta">Published by <a href="#">Arnold Zokas</a> <a class="profile-link" rel="author" href="#"><img alt="Arnold Zokas's profile on Google Plus" src="http://www.google.com/images/icons/ui/gprofile_button-16.png" width="16" height="16"></a> on @Model.PublishedOn.ToLongDate() in category <strong class="categoryPreview">@Model.CategoryTitle</strong>.</p>
 		</header>
 		<div id="wmd-preview"></div>
 	</article>

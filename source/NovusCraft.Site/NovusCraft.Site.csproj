@@ -45,6 +45,7 @@
     <Content Include="apple-touch-icon.png" />
     <Content Include="img\bg.png" />
     <Content Include="img\wmd-buttons.png" />
+    <Content Include="js\dashboard.js" />
     <Content Include="js\libs\pagedown.js" />
     <Content Include="Raven.Studio.xap" />
     <Content Include="_App_Offline.htm" />
@@ -137,6 +138,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Blog\CreateBlogPost.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_DashboardLayout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Blog\EditBlogPost.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

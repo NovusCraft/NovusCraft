@@ -22,7 +22,7 @@
 				foreach (var viewBlogPostModel in Model)
 				{
 					<tr>
-						<td>@Html.ActionLink(@viewBlogPostModel.Title, "EditBlogPost", "Blog")</td>
+						<td>@Html.ActionLink(@viewBlogPostModel.Title, "EditBlogPost", "Blog", new { viewBlogPostModel.Id }, null)</td>
 						<td>@viewBlogPostModel.CategoryTitle</td>
 						<td>@viewBlogPostModel.PublishedOn</td>
 					</tr>

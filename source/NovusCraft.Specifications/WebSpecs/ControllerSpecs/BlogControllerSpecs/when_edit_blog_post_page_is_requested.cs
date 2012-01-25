@@ -25,6 +25,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 					              	{
 					              		Id = 1,
 					              		Title = "Test Title",
+					              		Slug = "test-title",
 					              		Content = "Test Content",
 					              		Category = new BlogPostCategory { Title = "Category A" },
 					              		PublishedOn = new DateTimeOffset(2011, 11, 10, 09, 08, 07, TimeSpan.Zero)
@@ -39,19 +40,22 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 		It should_display_post_for_editing =
 			() => result.ShouldBeAView().And().ShouldUseDefaultView();
 
-		It should_return_post_with_id_1 =
+		It should_return_post_with_id =
 			() => result.Model<EditBlogPostModel>().Id.ShouldEqual(1);
 
-		It should_return_post_with_title_hello_world =
+		It should_return_post_with_title =
 			() => result.Model<EditBlogPostModel>().Title.ShouldEqual("Test Title");
 
-		It should_return_post_with_content_test =
+		It should_return_post_with_slug =
+			() => result.Model<EditBlogPostModel>().Slug.ShouldEqual("test-title");
+
+		It should_return_post_with_content =
 			() => result.Model<EditBlogPostModel>().Content.ShouldEqual("Test Content");
 
-		It should_return_post_with_category_title_meta =
+		It should_return_post_with_category_title =
 			() => result.Model<EditBlogPostModel>().CategoryTitle.ShouldEqual("Category A");
 
-		It should_return_post_with_publish_date_of_10_november_2011_09_hours_08_minutes_07_seconds =
+		It should_return_post_with_publish_date =
 			() => result.Model<EditBlogPostModel>().PublishedOn.ShouldEqual(new DateTimeOffset(2011, 11, 10, 09, 08, 07, TimeSpan.Zero));
 
 		It requires_authentication =
