@@ -10,6 +10,7 @@
 	</header>
 	@using (Html.BeginForm())
 	{
+		@Html.AntiForgeryToken()
 		<fieldset>
 			@Html.ValidationSummary(true, "Login was unsuccessful. Please correct the errors and try again.")
 			<div>
@@ -23,7 +24,6 @@
 				@Html.ValidationMessageFor(m => m.Password)
 			</div>
 			<div>
-				@Html.AntiForgeryToken()
 				<input type="submit" value="Log In" />
 			</div>
 		</fieldset>

@@ -1,11 +1,9 @@
 ﻿@model CreateBlogPostModel
-		   
-@section aside
-{
-	Links, etc.
-}
 
-<script src="/js/libs/pagedown.js" type="text/javascript"> </script>
+@{
+	Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+	ViewBag.Title = "Create blog post";
+}
 
 <section id="blog-post-editor" class="primary-content form">
 	<header>
@@ -13,16 +11,16 @@
 	</header>
 	@using (Html.BeginForm())
 	{
+		@Html.ValidationSummary("Please correct the errors below:")
+		@Html.AntiForgeryToken()
 		<fieldset>
 			<div>
 				@Html.LabelFor(m => m.Title)
 				@Html.TextBoxFor(m => m.Title, new { @class = "title" })
-				@Html.ValidationMessageFor(m => m.Title)
 			</div>
 			<div>
 				@Html.LabelFor(m => m.Slug)
 				@Html.TextBoxFor(m => m.Slug)
-				@Html.ValidationMessageFor(m => m.Slug)
 			</div>
 			<div>
 				@Html.LabelFor(m => m.Content)
@@ -32,10 +30,8 @@
 			<div>
 				@Html.LabelFor(m => m.CategoryTitle)
 				@Html.TextBoxFor(m => m.CategoryTitle)
-				@Html.ValidationMessageFor(m => m.CategoryTitle)
 			</div>
 			<div>
-				@Html.AntiForgeryToken()
 				<input type="submit" value="Save changes" />
 			</div>
 		</fieldset>
@@ -48,3 +44,6 @@
 		<div id="wmd-preview"></div>
 	</article>
 </section>
+<aside>
+	aside content
+</aside>

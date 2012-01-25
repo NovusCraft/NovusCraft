@@ -17,7 +17,7 @@ namespace NovusCraft.Web.ViewModels
 		public string Content { get; set; }
 
 		[Required]
-		[Display(Name = "Category title")]
+		[Display(Name = "Category")]
 		public string CategoryTitle { get; set; }
 	}
 }

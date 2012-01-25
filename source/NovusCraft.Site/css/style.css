@@ -311,7 +311,7 @@ a:visited { color:#a33131; }
 /* CONTENT */
 /* post */
 .post { background:#fff; float:left; padding:2em; width:63.9em; -webkit-border-top-left-radius:0.5em; -moz-border-radius-topleft:0.5em; border-top-left-radius:0.5em; }
-.primary-content .post { padding:0 0 4em 0; width:auto; }
+.primary-content .post { border-top-left-radius:0; padding:0 0 4em 0; width:auto; }
 .post header { border-bottom:dotted 0.1em #ccc; margin-bottom:1em; }
 .post h1 { color:#333; font-size:2.5em; font-weight:normal; line-height:1.5em; margin:0 0 0.5em 0; }
 .post .meta { font-size:1.4em; font-style:italic; }
@@ -342,17 +342,20 @@ pre code { border:solid 0.1em #ddd; font-size:1.4em; line-height:1.3em; padding:
 
 /* forms */
 .form h1 { color:#333; font-size:2.5em; font-weight:normal; line-height:1.5em; margin:0 0 0.5em 0; }
+.validation-summary-valid { display:none; }
+.validation-summary-errors { color:#d93c3c; font-size:1.4em; line-height:1.5em; padding:0; }
+.validation-summary-errors ul { padding:0 0 0 1.5em; }
 .input-validation-error { border-left-color:#ee8888; }
 .valid { border-left-color:#a1ee88; }
-.field-validation-error { color:#d93c3c; font-size:1.4em; margin-left:1em; }
-fieldset div { clear:both; padding:0.5em 0; }
-fieldset label { float:left; font-size:1.5em; padding-right:0.5em; width:8em; }
-fieldset input { border:solid 0.1em #aaa; border-left-width:0.2em; font-size:1.5em; padding:0.2em; width:12em; }
-fieldset textarea { border:solid 0.1em #aaa; border-left-width:0.2em; font-size:1.5em; height:12em; padding:0.2em; width:33.6em; }
-fieldset input:focus,
-fieldset textarea:focus { border-color:#888; outline:none; }
-fieldset input[type=submit] { background:#eeeeee; background:-moz-linear-gradient(top, #eeeeee 0%, #dddddd 100%); background:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #eeeeee), color-stop(100%, #dddddd)); background:-webkit-linear-gradient(top, #eeeeee 0%, #dddddd 100%); background:-o-linear-gradient(top, #eeeeee 0%, #dddddd 100%); background:-ms-linear-gradient(top, #eeeeee 0%, #dddddd 100%); background:linear-gradient(top, #eeeeee 0%, #dddddd 100%); border:solid 0.1em #dddddd; color:#555; margin-left:10.2em; padding:0.4em 0; width:8em; font-size:1.25em; }
-fieldset input[type=submit]:active { border:solid 0.1em #ccc; color:#333; }
+.field-validation-error { color:#d93c3c; font-size:1.4em; line-height:1.5em; margin-left:1em; }
+form div { clear:both; padding:0.5em 0; }
+form label { float:left; font-size:1.5em; line-height:1.5em; padding-right:0.5em; width:8em; }
+form input { border:solid 0.1em #aaa; border-left-width:0.2em; font-size:1.5em; padding:0.2em; width:12em; }
+form textarea { border:solid 0.1em #aaa; border-left-width:0.2em; font-size:1.5em; height:12em; margin-left:8.5em; padding:0.2em; width:33.5em; }
+form input:focus,
+form textarea:focus { border-color:#e0b554; outline:none; }
+form input[type=submit] { background:#eeeeee; background:-moz-linear-gradient(top, #eeeeee 0%, #dddddd 100%); background:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #eeeeee), color-stop(100%, #dddddd)); background:-webkit-linear-gradient(top, #eeeeee 0%, #dddddd 100%); background:-o-linear-gradient(top, #eeeeee 0%, #dddddd 100%); background:-ms-linear-gradient(top, #eeeeee 0%, #dddddd 100%); background:linear-gradient(top, #eeeeee 0%, #dddddd 100%); border:solid 0.1em #dddddd; color:#555; margin-left:10.2em; padding:0.4em 0; width:8em; font-size:1.25em; }
+form input[type=submit]:active { border:solid 0.1em #ccc; color:#333; }
 #live-preview { border-top:solid 0.2em #ccc; margin-top:3em; padding-top:2em; width:100%; }
 
 /* pagedown */
@@ -360,10 +363,11 @@ fieldset input[type=submit]:active { border:solid 0.1em #ccc; color:#333; }
 .wmd-button-bar { }
 .wmd-input { }
 .wmd-preview { }
-.wmd-button-row { position:relative; margin-left:5px; margin-right:5px; margin-bottom:5px; margin-top:10px; padding:0px; height:20px; }
-.wmd-spacer { width:1px; height:20px; margin-left:14px; position:absolute; background-color:Silver; display:inline-block; list-style:none; }
-.wmd-button { width:20px; height:20px; padding-left:2px; padding-right:3px; position:absolute; display:inline-block; list-style:none; cursor:pointer; }
-.wmd-button > span { background-image:url(/img/wmd-buttons.png); background-repeat:no-repeat; background-position:0px 0px; width:20px; height:20px; display:inline-block; }
+#wmd-button-bar { border-bottom:none; clear:none; float:left; padding:0; position:relative; width:37.4em; }
+.wmd-button-row { height:1.6em; margin:0 0 1em 0; padding:0; }
+.wmd-spacer { background-color:#C0C0C0; display:inline-block; height:2em; list-style:none; margin-left:1.4em; position:absolute; width:0.1em; }
+.wmd-button { cursor:pointer; display:inline-block; height:2em; list-style:none; padding:0 0.3em 0 0.2em; position:absolute; width:2em; }
+.wmd-button > span { background:url(/img/wmd-buttons.png) no-repeat 0px 0px; display:inline-block; height:2em; width:2em; }
 .wmd-spacer1 { left:4.8em; }
 .wmd-spacer2 { left:17.5em; }
 .wmd-spacer3 { left:30em; }

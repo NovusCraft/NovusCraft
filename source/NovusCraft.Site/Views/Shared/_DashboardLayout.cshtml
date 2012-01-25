@@ -1,0 +1,49 @@
+﻿@helper GeneratePageTitle(string titleFragment)
+{
+	if (string.IsNullOrWhiteSpace(titleFragment))
+	{
+		@: Novus Craft
+	}
+	else
+	{
+		@: @titleFragment | Dashboard | Novus Craft
+	}
+}
+
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	
+	<title>@GeneratePageTitle(@ViewBag.Title)</title>
+	
+	<link rel="alternate" type="application/rss+xml" title="Novus Craft RSS feed" href="http://feeds.feedburner.com/novuscraft">
+
+	@Html.Raw(Bundle.Css().Add("~/css/style.css").Render("~/css/novuscraft_#.css"))
+	<script src="/js/libs/modernizr-2.0.6.min.js"> </script>
+</head>
+<body>
+	<header id="header">
+		<h1>
+			<a href="/" title="NovusCraft homepage">
+				Novus Craft
+			</a>
+		</h1>
+	</header>
+	<div class="clearfix"></div>
+	<div id="container">
+		@RenderBody()
+		<div class="clearfix"></div>
+		<footer id="footer">
+			<span>Copyright &copy; 2011-2012 Novus Craft</span>
+		</footer>
+	</div>
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"> </script>
+	<script> window.jQuery || document.write('<script src="/js/libs/jquery-1.7.1.min.js"><\/script>') </script>
+	@Html.Raw(Bundle.JavaScript().Add("~/js/plugins.js", "~/js/libs/pagedown.js", "~/js/script.js").Render("~/js/novuscraft_dashboard_#.js"))
+	
+</body>
+</html>
