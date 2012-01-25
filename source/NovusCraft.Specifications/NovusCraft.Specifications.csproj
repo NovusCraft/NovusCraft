@@ -76,6 +76,9 @@
     <Compile Include="WebSpecs\MvcApplicationSpecs\mvc_application_spec.cs" />
     <Compile Include="WebSpecs\MvcApplicationSpecs\when_application_starts.cs" />
     <Compile Include="WebSpecs\RouteConfiguratorSpecs\when_initialised.cs" />
+    <Compile Include="WebSpecs\StructureMapControllerFactorySpecs\when_controller_instance_is_released.cs" />
+    <Compile Include="WebSpecs\StructureMapControllerFactorySpecs\structure_map_controller_factory_spec.cs" />
+    <Compile Include="WebSpecs\StructureMapControllerFactorySpecs\when_controller_instance_is_requested.cs" />
     <Compile Include="WebSpecs\UtilSpecs\FormatExtensionSpecs\when_date_is_formatted_to_iso_date.cs" />
     <Compile Include="WebSpecs\UtilSpecs\FormatExtensionSpecs\when_date_is_formatted_to_long_date.cs" />
   </ItemGroup>

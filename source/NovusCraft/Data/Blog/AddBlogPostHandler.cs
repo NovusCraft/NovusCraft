@@ -8,25 +8,22 @@ namespace NovusCraft.Data.Blog
 {
 	public sealed class AddBlogPostHandler : CommandHandler<AddBlogPostCommand>
 	{
-		public AddBlogPostHandler(IDocumentStore documentStore) : base(documentStore)
+		public AddBlogPostHandler(IDocumentSession session) : base(session)
 		{
 		}
 
 		public override void Execute(AddBlogPostCommand command)
 		{
-			using (var session = DocumentStore.OpenSession())
-			{
-				session.Store(new BlogPost
-				              	{
-				              		Title = command.Model.Title,
-				              		Slug = command.Model.Slug,
-				              		Content = command.Model.Content,
-				              		Category = new BlogPostCategory { Title = command.Model.CategoryTitle },
-				              		PublishedOn = DateTimeOffset.Now
-				              	});
+			Session.Store(new BlogPost
+			              	{
+			              		Title = command.Model.Title,
+			              		Slug = command.Model.Slug,
+			              		Content = command.Model.Content,
+			              		Category = new BlogPostCategory { Title = command.Model.CategoryTitle },
+			              		PublishedOn = DateTimeOffset.Now
+			              	});
 
-				session.SaveChanges();
-			}
+			Session.SaveChanges();
 		}
 	}
 }

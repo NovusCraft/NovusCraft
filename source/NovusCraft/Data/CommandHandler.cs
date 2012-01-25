@@ -7,11 +7,11 @@ namespace NovusCraft.Data
 {
 	public abstract class CommandHandler<TCommand>
 	{
-		protected readonly IDocumentStore DocumentStore;
+		protected readonly IDocumentSession Session;
 
-		protected CommandHandler(IDocumentStore documentStore)
+		protected CommandHandler(IDocumentSession session)
 		{
-			DocumentStore = documentStore;
+			Session = session;
 		}
 
 		public abstract void Execute(TCommand command);

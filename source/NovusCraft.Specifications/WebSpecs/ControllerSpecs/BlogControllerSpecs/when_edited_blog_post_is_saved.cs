@@ -10,6 +10,7 @@ using NovusCraft.Data.Blog;
 using NovusCraft.Specifications.Utils;
 using NovusCraft.Web.Controllers;
 using NovusCraft.Web.ViewModels;
+using Raven.Client;
 
 namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 {
@@ -45,6 +46,8 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 				                    	};
 
 				controller.EditBlogPost(editPostModel);
+
+				container.GetInstance<IDocumentSession>().SaveChanges(); // normally called by StructureMapControllerFactory.ReleaseController(IController)
 			};
 
 		// TODO: spec for :after behaviour

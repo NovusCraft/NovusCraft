@@ -21,7 +21,8 @@ namespace NovusCraft.Web.Controllers
 		[Authorize]
 		public ActionResult Home()
 		{
-			var model = (from blogPost in _documentSession.Query<BlogPost>().ToArray() // TODO: remove temporary workaround
+			var blogPosts = _documentSession.Query<BlogPost>().Customize(c => c.WaitForNonStaleResults()).ToArray(); // NOTE: .ToArray() is a temporary workaround to handle failing projections
+			var model = (from blogPost in blogPosts
 			             select new ViewBlogPostModel
 			                    	{
 			                    		Id = blogPost.Id,
