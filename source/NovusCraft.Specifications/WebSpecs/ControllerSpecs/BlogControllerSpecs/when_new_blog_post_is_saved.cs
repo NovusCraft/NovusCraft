@@ -18,17 +18,18 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 	public class when_new_blog_post_is_saved : blog_controller_spec
 	{
 		static ActionResult result;
+
 		Because of = () =>
 			{
 				container.Configure(ce => ce.For<CommandHandler<AddBlogPostCommand>>().Use<AddBlogPostHandler>());
 
 				result = controller.CreateBlogPost(new CreateBlogPostModel
-				                          	{
-				                          		Title = "Test Title",
-				                          		Slug = "test-title",
-				                          		Content = "Blog Content",
-				                          		CategoryTitle = "Category A"
-				                          	});
+				                                   	{
+				                                   		Title = "Test Title",
+				                                   		Slug = "test-title",
+				                                   		Content = "Blog Content",
+				                                   		CategoryTitle = "Category A"
+				                                   	});
 			};
 
 		It should_save_blog_post_with_title =

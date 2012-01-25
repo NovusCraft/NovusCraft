@@ -1,4 +1,5 @@
-﻿@helper GeneratePageTitle(string titleFragment) {
+﻿@helper GeneratePageTitle(string titleFragment)
+{
 	if (string.IsNullOrWhiteSpace(titleFragment))
 	{
 		@: Novus Craft
@@ -27,7 +28,7 @@
 	<link rel="alternate" type="application/rss+xml" title="Novus Craft RSS feed" href="http://feeds.feedburner.com/novuscraft">
 
 	@Html.Raw(Bundle.Css().Add("~/css/style.css").Render("~/css/novuscraft_#.css"))
-	<script src="/js/libs/modernizr-2.0.6.min.js"></script>
+	<script src="/js/libs/modernizr-2.0.6.min.js"> </script>
 </head>
 <body>
 	<header id="header">
@@ -48,9 +49,12 @@
 	<div id="container">
 		@RenderBody()
 		<aside>
-			@if (IsSectionDefined("aside")) {
+			@if (IsSectionDefined("aside"))
+			{
 				@RenderSection("aside")
-			} else {
+			}
+			else
+			{
 				<a id="subscribe" href="http://feeds.feedburner.com/novuscraft" title="Subcribe to latest articles published on novuscraft.com">Subcribe to the RSS feed</a>
 				Html.RenderPartial("Bio");
 			}
@@ -61,8 +65,8 @@
 		</footer>
 	</div>
 
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="/js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"> </script>
+	<script> window.jQuery || document.write('<script src="/js/libs/jquery-1.7.1.min.js"><\/script>') </script>
 	@Html.Raw(Bundle.JavaScript().Add("~/js/plugins.js", "~/js/script.js").Render("~/js/novuscraft_#.js"))
 	
 	@if (HttpContext.Current.IsDebuggingEnabled == false)
@@ -73,7 +77,7 @@
 			_gaq.push(['_trackPageview']);
 			_gaq.push(['_trackPageLoadTime']);
 
-			(function () {
+			(function() {
 				var script = document.createElement("script");
 				script.async = true;
 				script.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
@@ -83,8 +87,8 @@
 	}
 	
 	<!--[if lt IE 7 ]>
-		<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
-		<script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"});})</script>
+		<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"> </script>
+		<script> window.attachEvent("onload", function() { CFInstall.check({ mode: "overlay" }); }) </script>
 	<![endif]-->
 	
 </body>

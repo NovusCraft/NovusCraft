@@ -18,7 +18,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.UserAccountControll
 		Because of = () =>
 			{
 				controller.ModelState.AddModelError(string.Empty, "invalid credentials");
-				
+
 				result = controller.LogIn(new LogInModel());
 			};
 

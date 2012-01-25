@@ -61,7 +61,7 @@ namespace NovusCraft.Web.Controllers
 				_commandDispatcher.Dispatch(new AddBlogPostCommand(newBlogPost));
 				return RedirectToAction("Home", "Dashboard");
 			}
-			
+
 			return View();
 		}
 
