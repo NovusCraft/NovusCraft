@@ -5,16 +5,15 @@
 	Links, etc.
 }
 
-<section class="primary-content form">
+<section id="blog-post-editor" class="primary-content form">
 	<header>
 		<h1>Create blog post</h1>
 	</header>
-	@Html.ValidationSummary(false, "Login was unsuccessful. Please correct the errors and try again.")
 	@using (Html.BeginForm()) {
 		<fieldset>
 			<div>
 				@Html.LabelFor(m => m.Title)
-				@Html.TextBoxFor(m => m.Title)
+				@Html.TextBoxFor(m => m.Title, new {@class="title"})
 				@Html.ValidationMessageFor(m => m.Title)
 			</div>
 			<div>
@@ -24,7 +23,7 @@
 			</div>
 			<div>
 				@Html.LabelFor(m => m.Content)
-				@Html.TextAreaFor(m => m.Content)
+				@Html.TextAreaFor(m => m.Content, new {@class="content"})
 			</div>
 			<div>
 				@Html.LabelFor(m => m.CategoryTitle)
@@ -37,4 +36,13 @@
 			</div>
 		</fieldset>
 	}
+	<article id="live-preview" class="post">
+		<header>
+			<h1 class="titlePreview">Blog post title</h1>
+			<p class="meta">Published by <a href="#">Arnold Zokas</a> <a class="profile-link" rel="author" href="#"><img alt="Arnold Zokas's profile on Google Plus" src="http://www.google.com/images/icons/ui/gprofile_button-16.png" width="16" height="16"></a> on @DateTimeOffset.Now.ToLongDate() in category <strong>Category title</strong>.</p>
+		</header>
+		<div class="contentPreview">
+			<p>Start typing to see a live preview.</p>
+		</div>
+	</article>
 </section>
