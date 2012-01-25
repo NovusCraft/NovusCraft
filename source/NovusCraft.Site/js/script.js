@@ -7,21 +7,18 @@ $(document).ready(function() {
 
 var BlogPostEditor = Backbone.View.extend({
 	el: "#blog-post-editor",
-	initialize: function () {
+	initialize: function() {
 		this.titleInput = $(this.el).find(".title");
 		this.titlePreview = $(this.el).find(".titlePreview");
 
-		this.contentInput = $(this.el).find(".content");
-		this.contentPreview = $(this.el).find(".contentPreview");
+		var converter = new Markdown.Converter();
+		var editor = new Markdown.Editor(converter);
+		editor.run();
 	},
 	events: {
-		"keyup .title": "titleChanged",
-		"keyup .content": "contentChanged"
+		"keyup .title": "titleChanged"
 	},
-	titleChanged: function () {
+	titleChanged: function() {
 		this.titlePreview.text(this.titleInput.val());
-	},
-	contentChanged: function () {
-		this.contentPreview.html(this.contentInput.val());
 	}
 });

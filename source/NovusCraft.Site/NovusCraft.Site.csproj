@@ -44,6 +44,8 @@
   <ItemGroup>
     <Content Include="apple-touch-icon.png" />
     <Content Include="img\bg.png" />
+    <Content Include="img\wmd-buttons.png" />
+    <Content Include="js\libs\pagedown.js" />
     <Content Include="Raven.Studio.xap" />
     <Content Include="_App_Offline.htm" />
     <Content Include="crossdomain.xml" />
