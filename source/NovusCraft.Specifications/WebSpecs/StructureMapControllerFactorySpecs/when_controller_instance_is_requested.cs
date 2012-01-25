@@ -11,22 +11,19 @@ using StructureMap;
 
 namespace NovusCraft.Specifications.WebSpecs.StructureMapControllerFactorySpecs
 {
-	[Subject(typeof(MvcApplication))]
+	[Subject(typeof(StructureMapControllerFactory))]
 	public class when_controller_instance_is_requested : structure_map_controller_factory_spec
 	{
 		static IController controller;
 
 		Because of = () =>
 			{
-				ObjectFactory.Container.Configure(c =>
+				ObjectFactory.Container.Configure(c => c.For<IDocumentStore>().Use(() =>
 					{
-						c.For<IDocumentStore>().Use(() =>
-							{
-								var document_store = new EmbeddableDocumentStore { RunInMemory = true };
-								document_store.Initialize();
-								return document_store;
-							});
-					});
+						var documentStore = new EmbeddableDocumentStore { RunInMemory = true };
+						documentStore.Initialize();
+						return documentStore;
+					}));
 
 				controller = factory.GetControllerInstance(typeof(TestController));
 			};

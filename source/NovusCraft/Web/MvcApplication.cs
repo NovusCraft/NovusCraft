@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Web;
 using System.Web.Mvc;
 using NovusCraft.Data;
+using NovusCraft.Web.ActionFilters;
 using NovusCraft.Web.DataAnnotations;
 using StructureMap;
 
@@ -16,6 +17,7 @@ namespace NovusCraft.Web
 		{
 			// register global filters
 			GlobalFilters.Filters.Add(new HandleErrorAttribute());
+			GlobalFilters.Filters.Add(new RavenSessionAttribute());
 
 			// register routes
 			RouteConfigurator.Initialise();

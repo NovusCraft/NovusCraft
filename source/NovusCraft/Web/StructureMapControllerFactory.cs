@@ -21,13 +21,5 @@ namespace NovusCraft.Web
 
 			return ObjectFactory.GetInstance(controllerType) as Controller;
 		}
-
-		public override void ReleaseController(IController controller)
-		{
-			using (var session = ObjectFactory.GetInstance<IDocumentSession>())
-				session.SaveChanges();
-
-			base.ReleaseController(controller);
-		}
 	}
 }

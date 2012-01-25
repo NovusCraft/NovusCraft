@@ -43,6 +43,8 @@
     <Compile Include="Utils\ReflectionExtensions.cs" />
     <Compile Include="Utils\RouteTestExtensions.cs" />
     <Compile Include="Utils\This.cs" />
+    <Compile Include="WebSpecs\ActionFilterSpecs\RavenSessionAttributeSpecs\after_action_with_an_exception_is_executed.cs" />
+    <Compile Include="WebSpecs\ActionFilterSpecs\RavenSessionAttributeSpecs\raven_session_attribute_spec.cs" />
     <Compile Include="WebSpecs\ActionResultSpecs\RssResultSpecs\when_result_is_executed.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\BlogControllerSpecs\when_edited_blog_post_is_submitted_with_invalid_details.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\BlogControllerSpecs\when_new_blog_post_is_submitted_with_invalid_details.cs" />
@@ -77,7 +79,7 @@
     <Compile Include="WebSpecs\MvcApplicationSpecs\mvc_application_spec.cs" />
     <Compile Include="WebSpecs\MvcApplicationSpecs\when_application_starts.cs" />
     <Compile Include="WebSpecs\RouteConfiguratorSpecs\when_initialised.cs" />
-    <Compile Include="WebSpecs\StructureMapControllerFactorySpecs\when_controller_instance_is_released.cs" />
+    <Compile Include="WebSpecs\ActionFilterSpecs\RavenSessionAttributeSpecs\after_action_is_executed.cs" />
     <Compile Include="WebSpecs\StructureMapControllerFactorySpecs\structure_map_controller_factory_spec.cs" />
     <Compile Include="WebSpecs\StructureMapControllerFactorySpecs\when_controller_instance_is_requested.cs" />
     <Compile Include="WebSpecs\UtilSpecs\FormatExtensionSpecs\when_date_is_formatted_to_iso_date.cs" />
