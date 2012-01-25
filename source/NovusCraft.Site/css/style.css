@@ -354,7 +354,7 @@ form input { border:solid 0.1em #aaa; border-left-width:0.2em; font-size:1.5em; 
 form textarea { border:solid 0.1em #aaa; border-left-width:0.2em; font-size:1.5em; height:12em; margin-left:8.5em; padding:0.2em; width:33.5em; }
 form input:focus,
 form textarea:focus { border-color:#e0b554; outline:none; }
-form input[type=submit] { background:#eeeeee; background:-moz-linear-gradient(top, #eeeeee 0%, #dddddd 100%); background:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #eeeeee), color-stop(100%, #dddddd)); background:-webkit-linear-gradient(top, #eeeeee 0%, #dddddd 100%); background:-o-linear-gradient(top, #eeeeee 0%, #dddddd 100%); background:-ms-linear-gradient(top, #eeeeee 0%, #dddddd 100%); background:linear-gradient(top, #eeeeee 0%, #dddddd 100%); border:solid 0.1em #dddddd; color:#555; margin-left:10.2em; padding:0.4em 0; width:8em; font-size:1.25em; }
+form input[type=submit] { background:#eeeeee; background:-moz-linear-gradient(top, #eeeeee 0%, #dddddd 100%); background:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #eeeeee), color-stop(100%, #dddddd)); background:-webkit-linear-gradient(top, #eeeeee 0%, #dddddd 100%); background:-o-linear-gradient(top, #eeeeee 0%, #dddddd 100%); background:-ms-linear-gradient(top, #eeeeee 0%, #dddddd 100%); background:linear-gradient(top, #eeeeee 0%, #dddddd 100%); border:solid 0.1em #dddddd; color:#555; font-size:1.25em; margin-left:10.2em; padding:0.4em 0; width:8em; -webkit-border-radius:0.3em; -moz-border-radius:0.3em; border-radius:0.3em; }
 form input[type=submit]:active { border:solid 0.1em #ccc; color:#333; }
 #live-preview { border-top:solid 0.2em #ccc; margin-top:3em; padding-top:2em; width:100%; }
 
