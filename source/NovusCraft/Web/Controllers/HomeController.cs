@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.ServiceModel.Syndication;
 using System.Web.Mvc;
+using MarkdownSharp;
 using NovusCraft.Data.Blog;
 using NovusCraft.Web.ActionResults;
 using NovusCraft.Web.Helpers;
@@ -56,13 +57,17 @@ namespace NovusCraft.Web.Controllers
 			feed.Language = "en-GB"; // TODO: Move to config
 			feed.LastUpdatedTime = recentBlogPosts.Max(bp => bp.PublishedOn);
 
+			var markdownTransformer = new Markdown();
+
 			var syndicationItems = new List<SyndicationItem>();
 			foreach (var blogPost in recentBlogPosts)
 			{
+				var content = markdownTransformer.Transform(blogPost.Content);
+
 				var syndicationItem = new SyndicationItem();
 				syndicationItem.Title = new TextSyndicationContent(blogPost.Title);
 				syndicationItem.Categories.Add(new SyndicationCategory(blogPost.Category.Title));
-				syndicationItem.Content = new TextSyndicationContent(blogPost.Content, TextSyndicationContentKind.Html);
+				syndicationItem.Content = new TextSyndicationContent(content, TextSyndicationContentKind.Html);
 				syndicationItem.LastUpdatedTime = blogPost.PublishedOn;
 				syndicationItem.PublishDate = blogPost.PublishedOn;
 
