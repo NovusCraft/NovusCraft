@@ -22,8 +22,6 @@ namespace NovusCraft.Data.Blog
 			              		Category = new BlogPostCategory { Title = command.Model.CategoryTitle },
 			              		PublishedOn = DateTimeOffset.Now
 			              	});
-
-			Session.SaveChanges();
 		}
 	}
 }

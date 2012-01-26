@@ -39,6 +39,8 @@
     <Compile Include="Data\Blog\BlogPost.cs" />
     <Compile Include="Data\Blog\BlogPostCategory.cs" />
     <Compile Include="Data\Blog\AddBlogPostCommand.cs" />
+    <Compile Include="Data\Blog\DeleteBlogPostHandler.cs" />
+    <Compile Include="Data\Blog\DeleteBlogPostCommand.cs" />
     <Compile Include="Data\Blog\UpdateBlogPostHandler.cs" />
     <Compile Include="Data\Blog\UpdateBlogPostCommand.cs" />
     <Compile Include="Data\Command.cs" />

@@ -45,6 +45,7 @@
   <ItemGroup>
     <Content Include="apple-touch-icon.png" />
     <Content Include="img\bg.png" />
+    <Content Include="img\icons\doc_delete_icon_16.png" />
     <Content Include="img\icons\doc_plus_icon_16.png" />
     <Content Include="img\icons\wmd-buttons.png" />
     <Content Include="js\dashboard.js" />

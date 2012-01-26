@@ -94,5 +94,14 @@ namespace NovusCraft.Web.Controllers
 
 			return View();
 		}
+
+		[HttpDelete, Authorize]
+		public ActionResult DeleteBlogPost(int id)
+		{
+			_commandDispatcher.Dispatch(new DeleteBlogPostCommand(id));
+
+			var dashboardUrl = Url.Permalink("Home", "Dashboard");
+			return Json(new { redirectTo = dashboardUrl.ToString() });
+		}
 	}
 }

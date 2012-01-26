@@ -40,12 +40,14 @@
     <Compile Include="DataSpecs\StructureMapConfigurationRegistrySpecs\structuremap_configuration_registry_spec.cs" />
     <Compile Include="DataSpecs\StructureMapConfigurationRegistrySpecs\when_instantiated.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\CastExtensions.cs" />
     <Compile Include="Utils\ReflectionExtensions.cs" />
     <Compile Include="Utils\RouteTestExtensions.cs" />
     <Compile Include="Utils\This.cs" />
     <Compile Include="WebSpecs\ActionFilterSpecs\RavenSessionAttributeSpecs\after_action_with_an_exception_is_executed.cs" />
     <Compile Include="WebSpecs\ActionFilterSpecs\RavenSessionAttributeSpecs\raven_session_attribute_spec.cs" />
     <Compile Include="WebSpecs\ActionResultSpecs\RssResultSpecs\when_result_is_executed.cs" />
+    <Compile Include="WebSpecs\ControllerSpecs\BlogControllerSpecs\when_blog_post_is_deleted.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\BlogControllerSpecs\when_edited_blog_post_is_submitted_with_invalid_details.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\BlogControllerSpecs\when_new_blog_post_is_submitted_with_invalid_details.cs" />
     <Compile Include="WebSpecs\ControllerSpecs\BlogControllerSpecs\when_new_blog_post_is_saved.cs" />

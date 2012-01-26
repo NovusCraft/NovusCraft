@@ -361,8 +361,9 @@ form input[type=submit]:active { border:solid 0.1em #ccc; color:#333; }
 /* tables */
 table { width:100%; }
 th { font-size:1.5em; line-height:1.5em; text-align:left; }
+th:first-child { padding-left:0.5em }
 td { font-size:1.5em; line-height:1.5em; }
-td a { display:block; padding:0.5em 0; width:auto; }
+td a { display:block; padding:0.5em 0 0.5em 0.5em; width:auto; }
 
 /* pagedown */
 .wmd-panel { }
@@ -396,6 +397,7 @@ td a { display:block; padding:0.5em 0; width:auto; }
 #contextual-actions li { list-style:none; }
 #contextual-actions a { font-size:1.5em; line-height:1.5em; }
 #contextual-actions a.create { background:url(/img/icons/doc_plus_icon_16.png) no-repeat 0 0.1em; padding-left:1.3em; }
+#contextual-actions a.delete { background:url(/img/icons/doc_delete_icon_16.png) no-repeat 0 0.1em; padding-left:1.3em; }
 
 
 /* =============================================================================

@@ -15,7 +15,7 @@ namespace NovusCraft.Web.Helpers
 			return new Uri(url.Action(null, null, null, protocol));
 		}
 
-		public static Uri Permalink(this UrlHelper url, string actionName, string controllerName, object routeValues)
+		public static Uri Permalink(this UrlHelper url, string actionName, string controllerName, object routeValues = null)
 		{
 			var protocol = GetContextRequestProtocol(url.RequestContext);
 			return new Uri(url.Action(actionName, controllerName, routeValues, protocol));

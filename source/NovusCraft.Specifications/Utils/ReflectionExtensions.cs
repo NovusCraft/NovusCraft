@@ -13,5 +13,10 @@ namespace NovusCraft.Specifications.Utils
 		{
 			method.IsDefined(typeof(TAttribute), inherit: false).ShouldBeTrue();
 		}
+
+		public static T Property<T>(this object source, string propertyName)
+		{
+			return (T)source.GetType().GetProperty(propertyName).GetValue(source, null);
+		}
 	}
 }

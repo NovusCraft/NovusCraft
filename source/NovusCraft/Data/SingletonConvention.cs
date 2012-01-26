@@ -24,7 +24,7 @@ namespace NovusCraft.Data
 			if (!type.IsConcrete() || !type.CanBeCreated() || !type.Closes(_pluginFamily))
 				return;
 
-			registry.For(type.BaseType).Singleton().Use(type);
+			registry.For(type.BaseType).HybridHttpOrThreadLocalScoped().Use(type);
 		}
 
 		#endregion

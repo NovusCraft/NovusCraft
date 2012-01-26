@@ -46,5 +46,7 @@
 	</article>
 </section>
 <aside>
-	Contextual information
+	<ul id="contextual-actions">
+		<li>@Html.ActionLink("Delete permanently", "DeleteBlogPost", "Blog", new { id = Model.Id }, new { @class = "delete" })</li>
+	</ul>
 </aside>

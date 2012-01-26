@@ -11,6 +11,7 @@ using NovusCraft.Data.Blog;
 using NovusCraft.Specifications.Utils;
 using NovusCraft.Web.Controllers;
 using NovusCraft.Web.ViewModels;
+using Raven.Client;
 
 namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 {
@@ -30,6 +31,8 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 				                                   		Content = "Blog Content",
 				                                   		CategoryTitle = "Category A"
 				                                   	});
+
+				container.GetInstance<IDocumentSession>().SaveChanges(); // normally called by StructureMapControllerFactory.ReleaseController(IController)
 			};
 
 		It should_save_blog_post_with_title =

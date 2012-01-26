@@ -6,6 +6,7 @@
     <ExcludeFilters>
       <Filter ModuleMask="NovusCraft" ClassMask="NovusCraft.Resources.*" FunctionMask="*" />
       <Filter ModuleMask="NovusCraft" ClassMask="NovusCraft.Security.FormsAuthenticationWrapper" FunctionMask="*" />
+      <Filter ModuleMask="NovusCraft" ClassMask="NovusCraft.Web.ActionFilters.RavenSessionAttribute" FunctionMask="OnActionExecuting" />
     </ExcludeFilters>
   </CoverageFilters>
   <SnapshotDialog>

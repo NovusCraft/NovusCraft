@@ -1,6 +1,13 @@
 /* Author: Arnold Zokas */
 $(document).ready(function() {
 	$('#blog-post-editor').each(function() { var editor = new BlogPostEditor(); });
+
+	$("#contextual-actions a.delete").requireConfirmation({ text: "Are you sure you want to delete this permanently?" });
+	$("#contextual-actions a.delete").ajaxButton({
+		success: function(data) {
+			window.location = data.redirectTo;
+		}
+	});
 });
 
 var BlogPostEditor = Backbone.View.extend({
@@ -35,3 +42,94 @@ var BlogPostEditor = Backbone.View.extend({
 		return this.titleInput.val() != "";
 	}
 });
+
+
+/*	PLUGIN
+	Name:			requireConfirmation
+	Description:	Adds a click event that displays confirmation dialog on target items
+*/
+(function($, window, document, undefined) {
+	var pluginName = 'requireConfirmation';
+	var defaults = { };
+
+	function plugin(element, options) {
+		this.element = element;
+		this.options = $.extend({ }, defaults, options);
+		this._defaults = defaults;
+		this._name = pluginName;
+
+		this.init();
+	}
+
+	plugin.prototype.init = function() {
+		var options = this.options;
+		$(this.element).click(function(e) {
+			var response = confirm(options.text);
+			if (response)
+				return;
+
+			e.stopPropagation();
+			e.preventDefault();
+		});
+	};
+
+	$.fn[pluginName] = function(options) {
+		return this.each(function() {
+			if (!$.data(this, 'plugin_' + pluginName)) {
+				$.data(this, 'plugin_' + pluginName,
+					new plugin(this, options));
+			}
+		});
+	};
+})(jQuery, window, document);
+
+
+/*	PLUGIN
+	Name:			ajaxButton
+	Description:	Intercepts default hyperlink and, instead, executes an ajax request
+*/
+(function($, window, document, undefined) {
+	var pluginName = 'ajaxButton';
+	var defaults = {
+		verb: "DELETE"
+	};
+
+	function plugin(element, options) {
+		this.element = element;
+		this.options = $.extend({ }, defaults, options);
+		this._defaults = defaults;
+		this._name = pluginName;
+
+		this.init();
+	}
+
+	plugin.prototype.init = function() {
+		var options = this.options;
+		$(this.element).click(function(e) {
+			if (e.isPropagationStopped())
+				return;
+
+			var targetUrl = $(this).attr("href");
+
+			$.ajax({
+				url: targetUrl,
+				type: options.verb,
+				success: function(data) {
+					options.success(data);
+				}
+			});
+
+			e.preventDefault();
+		});
+		;
+	};
+
+	$.fn[pluginName] = function(options) {
+		return this.each(function() {
+			if (!$.data(this, 'plugin_' + pluginName)) {
+				$.data(this, 'plugin_' + pluginName,
+					new plugin(this, options));
+			}
+		});
+	};
+})(jQuery, window, document);
