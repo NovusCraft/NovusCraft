@@ -23,6 +23,9 @@ var BlogPostEditor = Backbone.View.extend({
 		this.titleInput = $(this.el).find(".title");
 		this.titlePreview = $(this.el).find(".titlePreview");
 
+		this.publishDateInput = $(this.el).find(".publishDate");
+		this.publishDatePreview = $(this.el).find(".publishDatePreview");
+
 		this.categoryTitleInput = $(this.el).find(".category");
 		this.categoryTitlePreview = $(this.el).find(".categoryPreview");
 
@@ -37,10 +40,14 @@ var BlogPostEditor = Backbone.View.extend({
 	},
 	events: {
 		"keyup .title": "titleChanged",
+		"change .publishDate": "publishDateChanged",
 		"keyup .category": "categoryTitleChanged"
 	},
 	titleChanged: function() {
 		this.titlePreview.text(this.titleInput.val());
+	},
+	publishDateChanged: function() {
+		this.publishDatePreview.text(this.publishDateInput.val());
 	},
 	categoryTitleChanged: function() {
 		this.categoryTitlePreview.text(this.categoryTitleInput.val());
