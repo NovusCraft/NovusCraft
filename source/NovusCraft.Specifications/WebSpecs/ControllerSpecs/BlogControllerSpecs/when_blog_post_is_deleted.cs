@@ -63,6 +63,9 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 		It should_return_json_result_with_redirect_target =
 			() => result.As<JsonResult>().Data.Property<string>("redirectTo").ShouldEqual("http://novuscraft.com/dashboard");
 
+		It should_validate_anti_forgery_token =
+			() => This.Action<BlogController>(bc => bc.DeleteBlogPost(1)).ShouldBeDecoratedWith<ValidateAntiForgeryTokenAttribute>();
+
 		It should_only_allow_http_delete =
 			() => This.Action<BlogController>(bc => bc.DeleteBlogPost(1)).ShouldBeDecoratedWith<HttpDeleteAttribute>();
 

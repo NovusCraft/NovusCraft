@@ -53,6 +53,9 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 		It should_display_dashboard_page =
 			() => result.ShouldRedirectToAction<DashboardController>(c => c.Home());
 
+		It should_validate_anti_forgery_token =
+			() => This.Action<BlogController>(bc => bc.CreateBlogPost(null)).ShouldBeDecoratedWith<ValidateAntiForgeryTokenAttribute>();
+
 		It should_only_allow_http_post =
 			() => This.Action<BlogController>(bc => bc.CreateBlogPost(null)).ShouldBeDecoratedWith<HttpPostAttribute>();
 	}

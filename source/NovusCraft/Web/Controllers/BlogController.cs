@@ -53,7 +53,7 @@ namespace NovusCraft.Web.Controllers
 			return View();
 		}
 
-		[HttpPost, Authorize]
+		[HttpPost, Authorize, ValidateAntiForgeryToken]
 		public ActionResult CreateBlogPost(CreateBlogPostModel blogPost)
 		{
 			if (ModelState.IsValid)
@@ -83,7 +83,7 @@ namespace NovusCraft.Web.Controllers
 			return View(model);
 		}
 
-		[HttpPost, Authorize]
+		[HttpPost, Authorize, ValidateAntiForgeryToken]
 		public ActionResult EditBlogPost(EditBlogPostModel blogPost)
 		{
 			if (ModelState.IsValid)
@@ -95,7 +95,7 @@ namespace NovusCraft.Web.Controllers
 			return View();
 		}
 
-		[HttpDelete, Authorize]
+		[HttpDelete, Authorize, ValidateAntiForgeryToken]
 		public ActionResult DeleteBlogPost(int id)
 		{
 			_commandDispatcher.Dispatch(new DeleteBlogPostCommand(id));

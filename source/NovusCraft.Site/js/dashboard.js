@@ -110,9 +110,11 @@ var BlogPostEditor = Backbone.View.extend({
 				return;
 
 			var targetUrl = $(this).attr("href");
+			var antiForgeryToken = $('input[name=__RequestVerificationToken]').val();
 
 			$.ajax({
 				url: targetUrl,
+				data: { __RequestVerificationToken: antiForgeryToken },
 				type: options.verb,
 				success: function(data) {
 					options.success(data);
