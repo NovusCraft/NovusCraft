@@ -32,7 +32,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 				                                   		CategoryTitle = "Category A"
 				                                   	});
 
-				container.GetInstance<IDocumentSession>().SaveChanges(); // normally called by StructureMapControllerFactory.ReleaseController(IController)
+				container.GetInstance<IDocumentSession>().SaveChanges(); // normally called by RavenSessionAttribute.OnActionExecuted(ActionExecutedContext)
 			};
 
 		It should_save_blog_post_with_title =

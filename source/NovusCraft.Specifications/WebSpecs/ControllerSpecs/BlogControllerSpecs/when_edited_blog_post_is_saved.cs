@@ -50,7 +50,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 
 				result = controller.EditBlogPost(editPostModel);
 
-				container.GetInstance<IDocumentSession>().SaveChanges(); // normally called by StructureMapControllerFactory.ReleaseController(IController)
+				container.GetInstance<IDocumentSession>().SaveChanges(); // normally called by RavenSessionAttribute.OnActionExecuted(ActionExecutedContext)
 			};
 
 		It should_update_blog_post_title =

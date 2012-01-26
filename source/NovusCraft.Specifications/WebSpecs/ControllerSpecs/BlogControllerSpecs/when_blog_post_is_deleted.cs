@@ -51,7 +51,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 
 				result = controller.DeleteBlogPost(1);
 
-				container.GetInstance<IDocumentSession>().SaveChanges(); // normally called by StructureMapControllerFactory.ReleaseController(IController)
+				container.GetInstance<IDocumentSession>().SaveChanges(); // normally called by RavenSessionAttribute.OnActionExecuted(ActionExecutedContext)
 			};
 
 		It should_delete_blog_post =
