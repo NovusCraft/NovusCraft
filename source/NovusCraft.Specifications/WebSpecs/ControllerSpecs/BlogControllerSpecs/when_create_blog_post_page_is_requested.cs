@@ -17,7 +17,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 		static ActionResult result;
 		Because of = () => result = controller.CreateBlogPost();
 
-		It should_display_post_for_editing =
+		It should_display_blog_post_for_editing =
 			() => result.ShouldBeAView().And().ShouldUseDefaultView();
 
 		It should_return_blog_post_with_current_date_and_time_as_publish_date =
