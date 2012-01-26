@@ -5,6 +5,7 @@ using System;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+using MarkdownSharp;
 using NovusCraft.Data;
 using NovusCraft.Data.Blog;
 using NovusCraft.Web.Helpers;
@@ -34,12 +35,16 @@ namespace NovusCraft.Web.Controllers
 				return View("PageNotFound");
 			}
 
+			var markdownTransformer = new Markdown();
+			var content = markdownTransformer.Transform(blogPost.Content);
+
 			var permalink = Url.Permalink("ViewBlogPost", "Blog", new { slug });
-			var model = new ViewBlogPostModel // TODO: Consider using AutoMapper?
+
+			var model = new ViewBlogPostModel
 			            	{
 			            		Id = blogPost.Id,
 			            		Title = blogPost.Title,
-			            		Content = blogPost.Content,
+			            		Content = content,
 			            		CategoryTitle = blogPost.Category.Title,
 			            		PublishedOn = blogPost.PublishedOn,
 			            		Permalink = permalink.ToString()
