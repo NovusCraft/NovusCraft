@@ -1,6 +1,7 @@
 ﻿// # Copyright © 2011, Novus Craft
 // # All rights reserved. 
 
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace NovusCraft.Web.ViewModels
@@ -19,5 +20,9 @@ namespace NovusCraft.Web.ViewModels
 		[Required]
 		[Display(Name = "Category")]
 		public string CategoryTitle { get; set; }
+
+		[Required]
+		[Display(Name = "Publish date")]
+		public DateTimeOffset PublishedOn { get; set; }
 	}
 }

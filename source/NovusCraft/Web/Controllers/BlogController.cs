@@ -1,6 +1,7 @@
 ﻿// # Copyright © 2011, Novus Craft
 // # All rights reserved. 
 
+using System;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
@@ -50,7 +51,9 @@ namespace NovusCraft.Web.Controllers
 		[Authorize]
 		public ActionResult CreateBlogPost()
 		{
-			return View();
+			var model = new CreateBlogPostModel { PublishedOn = DateTimeOffset.Now };
+
+			return View(model);
 		}
 
 		[HttpPost, Authorize, ValidateAntiForgeryToken]

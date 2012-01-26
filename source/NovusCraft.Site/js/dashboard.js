@@ -8,6 +8,13 @@ $(document).ready(function() {
 			window.location = data.redirectTo;
 		}
 	});
+
+	$(".datetime-picker").datetimepicker({
+		hourGrid: 4,
+		minuteGrid: 10,
+		dateFormat: "dd MM yy",
+		showButtonPanel: false
+	});
 });
 
 var BlogPostEditor = Backbone.View.extend({

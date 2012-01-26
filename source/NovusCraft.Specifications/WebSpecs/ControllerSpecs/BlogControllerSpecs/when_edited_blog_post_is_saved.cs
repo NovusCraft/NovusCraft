@@ -33,7 +33,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 					              		Slug = "test-title",
 					              		Content = "Test Content",
 					              		Category = new BlogPostCategory { Title = "Category A" },
-					              		PublishedOn = new DateTimeOffset(2011, 11, 10, 09, 08, 07, TimeSpan.Zero)
+					              		PublishedOn = new DateTimeOffset(2012, 11, 10, 09, 08, 07, TimeSpan.Zero)
 					              	});
 
 					session.SaveChanges();
@@ -45,7 +45,8 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 				                    		Title = "New Test Title",
 				                    		Slug = "new-test-title",
 				                    		Content = "New Test Content",
-				                    		CategoryTitle = "Category B"
+				                    		CategoryTitle = "Category B",
+				                    		PublishedOn = new DateTimeOffset(2012, 11, 10, 09, 08, 08, TimeSpan.Zero)
 				                    	};
 
 				result = controller.EditBlogPost(editPostModel);
@@ -65,8 +66,8 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 		It should_update_blog_post_category =
 			() => document_store.OpenSession().Query<BlogPost>().Single(bp => bp.Id == 1).Category.Title.ShouldEqual("Category B");
 
-		It should_update_blog_post_publish_date =
-			() => document_store.OpenSession().Query<BlogPost>().Single(bp => bp.Id == 1).PublishedOn.ShouldBeGreaterThan(DateTimeOffset.Now.AddMinutes(-1));
+		It should_update_blog_post_with_publish_date =
+			() => document_store.OpenSession().Query<BlogPost>().Single(bp => bp.Id == 1).PublishedOn.ShouldEqual(new DateTimeOffset(2012, 11, 10, 09, 08, 08, TimeSpan.Zero));
 
 		It should_display_dashboard_page =
 			() => result.ShouldRedirectToAction<DashboardController>(c => c.Home());

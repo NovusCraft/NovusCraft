@@ -1,7 +1,6 @@
 ﻿// # Copyright © 2011, Novus Craft
 // # All rights reserved. 
 
-using System;
 using Raven.Client;
 
 namespace NovusCraft.Data.Blog
@@ -20,7 +19,7 @@ namespace NovusCraft.Data.Blog
 			              		Slug = command.Model.Slug,
 			              		Content = command.Model.Content,
 			              		Category = new BlogPostCategory { Title = command.Model.CategoryTitle },
-			              		PublishedOn = DateTimeOffset.Now
+			              		PublishedOn = command.Model.PublishedOn
 			              	});
 		}
 	}

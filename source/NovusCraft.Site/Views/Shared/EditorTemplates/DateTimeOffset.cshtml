@@ -1,0 +1,10 @@
+﻿@model DateTimeOffset
+
+@{
+	Layout = null;
+}
+
+<div>
+	@Html.LabelFor(m => m)
+	@Html.TextBoxFor(m => m, new { Value = Model.ToEditorLongDateTime(), @class = "datetime-picker " + ViewData["class"] })
+</div>

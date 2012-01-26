@@ -29,7 +29,8 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 				                                   		Title = "Test Title",
 				                                   		Slug = "test-title",
 				                                   		Content = "Blog Content",
-				                                   		CategoryTitle = "Category A"
+				                                   		CategoryTitle = "Category A",
+				                                   		PublishedOn = new DateTimeOffset(2012, 11, 10, 9, 8, 7, TimeSpan.Zero)
 				                                   	});
 
 				container.GetInstance<IDocumentSession>().SaveChanges(); // normally called by RavenSessionAttribute.OnActionExecuted(ActionExecutedContext)
@@ -47,8 +48,8 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 		It should_save_blog_post_with_category_title =
 			() => document_store.OpenSession().Query<BlogPost>().Count(bp => bp.Category.Title == "Category A").ShouldEqual(1);
 
-		It should_save_blog_blog_post_publish_date =
-			() => document_store.OpenSession().Query<BlogPost>().Single(bp => bp.Id == 1).PublishedOn.ShouldBeGreaterThan(DateTimeOffset.Now.AddMinutes(-1));
+		It should_save_blog_post_with_publish_date =
+			() => document_store.OpenSession().Query<BlogPost>().Count(bp => bp.PublishedOn == new DateTimeOffset(2012, 11, 10, 9, 8, 7, TimeSpan.Zero)).ShouldEqual(1);
 
 		It should_display_dashboard_page =
 			() => result.ShouldRedirectToAction<DashboardController>(c => c.Home());

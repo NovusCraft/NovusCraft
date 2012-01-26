@@ -17,6 +17,11 @@ namespace NovusCraft.Web.Utils
 			return string.Format("{0:%d}{1} {0:MMMM} {0:yyyy}", date, GetDaySuffix(date.Day));
 		}
 
+		public static string ToEditorLongDateTime(this DateTimeOffset date)
+		{
+			return string.Format("{0:%d} {0:MMMM} {0:yyyy} {0:HH:mm}", date);
+		}
+
 		static object GetDaySuffix(int dayNumber)
 		{
 			switch (dayNumber % 100)

@@ -31,6 +31,7 @@
 				@Html.LabelFor(m => m.CategoryTitle)
 				@Html.TextBoxFor(m => m.CategoryTitle, new { @class = "category" })
 			</div>
+			@Html.EditorFor(m => m.PublishedOn, new { @class = "publishDate" })
 			<div>
 				<input type="submit" value="Save changes" />
 			</div>

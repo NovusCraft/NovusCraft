@@ -84,6 +84,7 @@
     <Compile Include="WebSpecs\ActionFilterSpecs\RavenSessionAttributeSpecs\after_action_is_executed.cs" />
     <Compile Include="WebSpecs\StructureMapControllerFactorySpecs\structure_map_controller_factory_spec.cs" />
     <Compile Include="WebSpecs\StructureMapControllerFactorySpecs\when_controller_instance_is_requested.cs" />
+    <Compile Include="WebSpecs\UtilSpecs\FormatExtensionSpecs\when_date_is_formatted_to_editor_long_datetime.cs" />
     <Compile Include="WebSpecs\UtilSpecs\FormatExtensionSpecs\when_date_is_formatted_to_iso_date.cs" />
     <Compile Include="WebSpecs\UtilSpecs\FormatExtensionSpecs\when_date_is_formatted_to_long_date.cs" />
   </ItemGroup>
