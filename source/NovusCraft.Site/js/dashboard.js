@@ -15,6 +15,8 @@ $(document).ready(function() {
 		dateFormat: "dd MM yy",
 		showButtonPanel: false
 	});
+
+	$("textarea").autoResize();
 });
 
 var BlogPostEditor = Backbone.View.extend({
@@ -31,7 +33,7 @@ var BlogPostEditor = Backbone.View.extend({
 
 		this.contentInput = $(this.el).find(".content");
 		this.contentPreview = $(this.el).find(".contentPreview");
-		
+
 		// if in edit mode - force validation to display correct validity status
 		if (this.isInEditMode())
 			$(this.el).find("form").valid();
@@ -51,7 +53,7 @@ var BlogPostEditor = Backbone.View.extend({
 	categoryTitleChanged: function() {
 		this.categoryTitlePreview.text(this.categoryTitleInput.val());
 	},
-	contentChanged: function () {
+	contentChanged: function() {
 		this.contentPreview.html(this.contentInput.val());
 	},
 	isInEditMode: function() {
