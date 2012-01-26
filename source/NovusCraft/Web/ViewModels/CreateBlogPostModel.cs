@@ -3,6 +3,7 @@
 
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace NovusCraft.Web.ViewModels
 {
@@ -14,15 +15,13 @@ namespace NovusCraft.Web.ViewModels
 		[Required]
 		public string Slug { get; set; }
 
-		[Required]
+		[Required, AllowHtml]
 		public string Content { get; set; }
 
-		[Required]
-		[Display(Name = "Category")]
+		[Required, Display(Name = "Category")]
 		public string CategoryTitle { get; set; }
 
-		[Required]
-		[Display(Name = "Publish date")]
+		[Required, Display(Name = "Publish date")]
 		public DateTimeOffset PublishedOn { get; set; }
 	}
 }
