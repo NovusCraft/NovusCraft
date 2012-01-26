@@ -26,7 +26,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.HomeControllerSpecs
 					              		Id = 1,
 					              		Title = "Test Title 1",
 					              		Slug = "test-title-1",
-					              		Content = "**Test Content 1**",
+					              		Content = "Test Content 1",
 					              		Category = new BlogPostCategory { Title = "Category A" },
 					              		PublishedOn = new DateTimeOffset(2011, 11, 12, 13, 14, 15, TimeSpan.Zero)
 					              	});
@@ -35,7 +35,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.HomeControllerSpecs
 					              		Id = 2,
 					              		Title = "Test Title 2",
 					              		Slug = "test-title-2",
-					              		Content = "**Test Content 2**",
+					              		Content = "Test Content 2",
 					              		Category = new BlogPostCategory { Title = "Category B" },
 					              		PublishedOn = new DateTimeOffset(2011, 12, 13, 14, 15, 16, TimeSpan.Zero)
 					              	});
@@ -82,7 +82,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.HomeControllerSpecs
 			() => ((RssResult)result).Feed.Items.First().Categories.First().Name.ShouldEqual("Category B");
 
 		It should_set_feed_item_content =
-			() => ((TextSyndicationContent)((RssResult)result).Feed.Items.First().Content).Text.ShouldEqual("<p><strong>Test Content 2</strong></p>\n");
+			() => ((TextSyndicationContent)((RssResult)result).Feed.Items.First().Content).Text.ShouldEqual("Test Content 2");
 
 		It should_set_feed_item_content_type_to_html =
 			() => ((RssResult)result).Feed.Items.First().Content.Type.ShouldEqual("html");

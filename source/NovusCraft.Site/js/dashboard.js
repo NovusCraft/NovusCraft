@@ -29,11 +29,9 @@ var BlogPostEditor = Backbone.View.extend({
 		this.categoryTitleInput = $(this.el).find(".category");
 		this.categoryTitlePreview = $(this.el).find(".categoryPreview");
 
-		// initialise Pagedown
-		var converter = new Markdown.Converter();
-		var editor = new Markdown.Editor(converter);
-		editor.run();
-
+		this.contentInput = $(this.el).find(".content");
+		this.contentPreview = $(this.el).find(".contentPreview");
+		
 		// if in edit mode - force validation to display correct validity status
 		if (this.isInEditMode())
 			$(this.el).find("form").valid();
@@ -41,7 +39,8 @@ var BlogPostEditor = Backbone.View.extend({
 	events: {
 		"keyup .title": "titleChanged",
 		"change .publishDate": "publishDateChanged",
-		"keyup .category": "categoryTitleChanged"
+		"keyup .category": "categoryTitleChanged",
+		"keyup .content": "contentChanged"
 	},
 	titleChanged: function() {
 		this.titlePreview.text(this.titleInput.val());
@@ -51,6 +50,9 @@ var BlogPostEditor = Backbone.View.extend({
 	},
 	categoryTitleChanged: function() {
 		this.categoryTitlePreview.text(this.categoryTitleInput.val());
+	},
+	contentChanged: function () {
+		this.contentPreview.html(this.contentInput.val());
 	},
 	isInEditMode: function() {
 		return this.titleInput.val() != "";

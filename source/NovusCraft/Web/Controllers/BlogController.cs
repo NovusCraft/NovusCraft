@@ -5,7 +5,6 @@ using System;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
-using MarkdownSharp;
 using NovusCraft.Data;
 using NovusCraft.Data.Blog;
 using NovusCraft.Web.Helpers;
@@ -35,16 +34,13 @@ namespace NovusCraft.Web.Controllers
 				return View("PageNotFound");
 			}
 
-			var markdownTransformer = new Markdown();
-			var content = markdownTransformer.Transform(blogPost.Content);
-
 			var permalink = Url.Permalink("ViewBlogPost", "Blog", new { slug });
 
 			var model = new ViewBlogPostModel
 			            	{
 			            		Id = blogPost.Id,
 			            		Title = blogPost.Title,
-			            		Content = content,
+			            		Content = blogPost.Content,
 			            		CategoryTitle = blogPost.Category.Title,
 			            		PublishedOn = blogPost.PublishedOn,
 			            		Permalink = permalink.ToString()
@@ -76,9 +72,9 @@ namespace NovusCraft.Web.Controllers
 		[Authorize]
 		public ActionResult EditBlogPost(int id)
 		{
-			var blogPost = _documentSession.Query<BlogPost>().SingleOrDefault(bp => bp.Id == id);
+			var blogPost = _documentSession.Query<BlogPost>().Single(bp => bp.Id == id);
 
-			var model = new EditBlogPostModel // TODO: Use AutoMapper?
+			var model = new EditBlogPostModel
 			            	{
 			            		Id = blogPost.Id,
 			            		Title = blogPost.Title,

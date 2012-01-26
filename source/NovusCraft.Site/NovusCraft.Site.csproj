@@ -48,7 +48,6 @@
     <Content Include="img\bg.png" />
     <Content Include="img\icons\doc_delete_icon_16.png" />
     <Content Include="img\icons\doc_plus_icon_16.png" />
-    <Content Include="img\icons\wmd-buttons.png" />
     <Content Include="img\jQuery-UI-lightness\ui-bg_diagonals-thick_18_b81900_40x40.png" />
     <Content Include="img\jQuery-UI-lightness\ui-bg_diagonals-thick_20_666666_40x40.png" />
     <Content Include="img\jQuery-UI-lightness\ui-bg_flat_10_000000_40x100.png" />
@@ -66,7 +65,6 @@
     <Content Include="js\dashboard.js" />
     <Content Include="js\libs\jquery-ui-timepicker-0.9.8.js" />
     <Content Include="js\libs\jquery-ui-1.8.17.custom.min.js" />
-    <Content Include="js\libs\pagedown.js" />
     <Content Include="Raven.Studio.xap" />
     <Content Include="_App_Offline.htm" />
     <Content Include="crossdomain.xml" />

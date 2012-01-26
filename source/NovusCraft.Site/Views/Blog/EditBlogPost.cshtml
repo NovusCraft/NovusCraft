@@ -24,9 +24,8 @@
 				@Html.TextBoxFor(m => m.Slug)
 			</div>
 			<div>
-				<label for="wmd-input">Content</label>
-				<div id="wmd-button-bar"></div>
-				@Html.TextAreaFor(m => m.Content, new { id = "wmd-input" })
+				@Html.LabelFor(m => m.Content)
+				@Html.TextAreaFor(m => m.Content, new { @class = "content" })
 			</div>
 			<div>
 				@Html.LabelFor(m => m.CategoryTitle)
@@ -43,7 +42,9 @@
 			<h1 class="titlePreview">@Model.Title</h1>
 			<p class="meta">Published by <a href="#">Arnold Zokas</a> <a class="profile-link" rel="author" href="#"><img alt="Arnold Zokas's profile on Google Plus" src="http://www.google.com/images/icons/ui/gprofile_button-16.png" width="16" height="16"></a> on <span class="publishDatePreview">@Model.PublishedOn.ToEditorLongDateTime()</span> in category <strong class="categoryPreview">@Model.CategoryTitle</strong>.</p>
 		</header>
-		<div id="wmd-preview"></div>
+		<div class="contentPreview">
+			@Html.Raw(Model.Content)
+		</div>
 	</article>
 </section>
 <aside>

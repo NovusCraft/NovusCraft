@@ -351,11 +351,12 @@ pre code { border:solid 0.1em #ddd; font-size:1.4em; line-height:1.3em; padding:
 form div { clear:both; padding:0.5em 0; }
 form label { float:left; font-size:1.5em; line-height:1.5em; padding-right:0.5em; width:8em; }
 form input { border:solid 0.1em #aaa; border-left-width:0.2em; font-size:1.5em; padding:0.2em; width:12em; }
-form textarea { border:solid 0.1em #aaa; border-left-width:0.2em; font-size:1.5em; height:12em; margin-left:8.5em; padding:0.2em; width:33.5em; }
+form textarea { border:solid 0.1em #aaa; border-left-width:0.3em; clear:both; font-family:"Consolas", monospace; font-size:1.2em; height:5em; overflow:hidden; padding:0.2em; width:42em; }
 form input:focus,
 form textarea:focus { border-color:#e0b554; outline:none; }
 form input[type=submit] { background:#eeeeee; background:-moz-linear-gradient(top, #eeeeee 0%, #dddddd 100%); background:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #eeeeee), color-stop(100%, #dddddd)); background:-webkit-linear-gradient(top, #eeeeee 0%, #dddddd 100%); background:-o-linear-gradient(top, #eeeeee 0%, #dddddd 100%); background:-ms-linear-gradient(top, #eeeeee 0%, #dddddd 100%); background:linear-gradient(top, #eeeeee 0%, #dddddd 100%); border:solid 0.1em #dddddd; color:#555; font-size:1.25em; margin-left:10.2em; padding:0.4em 0; width:8em; -webkit-border-radius:0.3em; -moz-border-radius:0.3em; border-radius:0.3em; }
 form input[type=submit]:active { border:solid 0.1em #ccc; color:#333; }
+#blog-post-editor .post { padding-bottom:0; }
 #live-preview { border-top:solid 0.2em #ccc; margin-top:3em; padding-top:2em; width:100%; }
 
 /* tables */
@@ -364,27 +365,6 @@ th { font-size:1.5em; line-height:1.5em; text-align:left; }
 th:first-child { padding-left:0.5em }
 td { font-size:1.5em; line-height:1.5em; }
 td a { display:block; padding:0.5em 0 0.5em 0.5em; width:auto; }
-
-/* pagedown */
-.wmd-panel { }
-.wmd-button-bar { }
-.wmd-input { }
-.wmd-preview { }
-#wmd-button-bar { border-bottom:none; clear:none; float:left; padding:0; position:relative; width:37.4em; }
-.wmd-button-row { height:1.6em; margin:0 0 1em 0; padding:0; }
-.wmd-spacer { background-color:#C0C0C0; display:inline-block; height:2em; list-style:none; margin-left:1.4em; position:absolute; width:0.1em; }
-.wmd-button { cursor:pointer; display:inline-block; height:2em; list-style:none; padding:0 0.3em 0 0.2em; position:absolute; width:2em; }
-.wmd-button > span { background:url(/img/icons/wmd-buttons.png) no-repeat 0px 0px; display:inline-block; height:2em; width:2em; }
-.wmd-spacer1 { left:4.8em; }
-.wmd-spacer2 { left:17.5em; }
-.wmd-spacer3 { left:30em; }
-.wmd-prompt-background { background-color:#000; }
-.wmd-prompt-dialog { background-color:#fff; border:solid 0.2em #777; padding:1em; -webkit-border-radius:0.5em; -moz-border-radius:0.5em; border-radius:0.5em; }
-.wmd-prompt-dialog > div { font-size:1.5em; font-family:arial, helvetica, sans-serif; }
-.wmd-prompt-dialog > form > input[type="text"] { border:solid 0.1em #aaa; font-size:1.5em; margin:1em; width:12em; }
-.wmd-prompt-dialog > form > input[type="button"] { background:#eeeeee; background:-moz-linear-gradient(top, #eeeeee 0%, #dddddd 100%); background:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #eeeeee), color-stop(100%, #dddddd)); background:-webkit-linear-gradient(top, #eeeeee 0%, #dddddd 100%); background:-o-linear-gradient(top, #eeeeee 0%, #dddddd 100%); background:-ms-linear-gradient(top, #eeeeee 0%, #dddddd 100%); background:linear-gradient(top, #eeeeee 0%, #dddddd 100%); border:solid 0.1em #dddddd; color:#555; margin-left:10.2em; padding:0.4em 0; width:8em; font-size:1.25em; }
-.wmd-prompt-dialog > form > input[type="button"]:active { border:solid 0.1em #ccc; color:#333; }
-
 
 /* ASIDE */
 #subscribe { background:url("/img/icons/feed-icon-28x28.png") no-repeat; border:none; display:block; font-size:1.4em; margin-bottom:1em; padding:0.4em 0 1em 2.5em; }
