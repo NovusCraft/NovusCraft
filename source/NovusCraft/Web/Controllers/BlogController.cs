@@ -41,7 +41,7 @@ namespace NovusCraft.Web.Controllers
 				Id = blogPost.Id,
 				Title = blogPost.Title,
 				Content = blogPost.Content,
-				CategoryTitle = blogPost.Category.Title,
+				Category = blogPost.Category,
 				PublishedOn = blogPost.PublishedOn,
 				Permalink = permalink.ToString()
 			};
@@ -80,7 +80,7 @@ namespace NovusCraft.Web.Controllers
 				Title = blogPost.Title,
 				Slug = blogPost.Slug,
 				Content = blogPost.Content,
-				CategoryTitle = blogPost.Category.Title,
+				Category = blogPost.Category,
 				PublishedOn = blogPost.PublishedOn,
 			};
 

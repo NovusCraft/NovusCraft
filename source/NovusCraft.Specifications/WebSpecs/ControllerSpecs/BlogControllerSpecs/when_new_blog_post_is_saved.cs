@@ -29,7 +29,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 				Title = "Test Title",
 				Slug = "test-title",
 				Content = "Blog Content",
-				CategoryTitle = "Category A",
+				Category = "Category A",
 				PublishedOn = new DateTimeOffset(2012, 11, 10, 9, 8, 7, TimeSpan.Zero)
 			});
 
@@ -46,7 +46,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 			() => document_store.OpenSession().Query<BlogPost>().Count(bp => bp.Content == "Blog Content").ShouldEqual(1);
 
 		It should_save_blog_post_with_category_title =
-			() => document_store.OpenSession().Query<BlogPost>().Count(bp => bp.Category.Title == "Category A").ShouldEqual(1);
+			() => document_store.OpenSession().Query<BlogPost>().Count(bp => bp.Category == "Category A").ShouldEqual(1);
 
 		It should_save_blog_post_with_publish_date =
 			() => document_store.OpenSession().Query<BlogPost>().Count(bp => bp.PublishedOn == new DateTimeOffset(2012, 11, 10, 9, 8, 7, TimeSpan.Zero)).ShouldEqual(1);

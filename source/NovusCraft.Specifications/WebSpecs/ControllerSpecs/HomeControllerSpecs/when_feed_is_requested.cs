@@ -27,7 +27,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.HomeControllerSpecs
 					Title = "Test Title 1",
 					Slug = "test-title-1",
 					Content = "Test Content 1",
-					Category = new BlogPostCategory { Title = "Category A" },
+					Category = "Category A",
 					PublishedOn = new DateTimeOffset(2011, 11, 12, 13, 14, 15, TimeSpan.Zero)
 				});
 				session.Store(new BlogPost
@@ -36,7 +36,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.HomeControllerSpecs
 					Title = "Test Title 2",
 					Slug = "test-title-2",
 					Content = "Test Content 2",
-					Category = new BlogPostCategory { Title = "Category B" },
+					Category = "Category B",
 					PublishedOn = new DateTimeOffset(2011, 12, 13, 14, 15, 16, TimeSpan.Zero)
 				});
 

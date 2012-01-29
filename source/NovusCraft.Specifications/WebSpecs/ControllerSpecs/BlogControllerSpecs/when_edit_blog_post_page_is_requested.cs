@@ -27,7 +27,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 					Title = "Test Title",
 					Slug = "test-title",
 					Content = "Test Content",
-					Category = new BlogPostCategory { Title = "Category A" },
+					Category = "Category A",
 					PublishedOn = new DateTimeOffset(2011, 11, 10, 09, 08, 07, TimeSpan.Zero)
 				});
 
@@ -53,7 +53,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 			() => result.Model<EditBlogPostModel>().Content.ShouldEqual("Test Content");
 
 		It should_return_blog_post_with_category_title =
-			() => result.Model<EditBlogPostModel>().CategoryTitle.ShouldEqual("Category A");
+			() => result.Model<EditBlogPostModel>().Category.ShouldEqual("Category A");
 
 		It should_return_blog_post_with_publish_date =
 			() => result.Model<EditBlogPostModel>().PublishedOn.ShouldEqual(new DateTimeOffset(2011, 11, 10, 09, 08, 07, TimeSpan.Zero));

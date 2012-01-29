@@ -19,7 +19,7 @@ namespace NovusCraft.Web.ViewModels
 		public string Content { get; set; }
 
 		[Required, Display(Name = "Category")]
-		public string CategoryTitle { get; set; }
+		public string Category { get; set; }
 
 		[Required, Display(Name = "Publish date")]
 		public DateTimeOffset PublishedOn { get; set; }

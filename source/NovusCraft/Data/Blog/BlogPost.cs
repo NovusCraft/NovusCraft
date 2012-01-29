@@ -11,7 +11,7 @@ namespace NovusCraft.Data.Blog
 		public string Title { get; set; }
 		public string Slug { get; set; }
 		public string Content { get; set; }
-		public BlogPostCategory Category { get; set; }
+		public string Category { get; set; }
 		public DateTimeOffset PublishedOn { get; set; }
 	}
 }

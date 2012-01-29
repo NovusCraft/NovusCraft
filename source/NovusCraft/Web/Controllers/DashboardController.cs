@@ -25,7 +25,7 @@ namespace NovusCraft.Web.Controllers
 				.Query<BlogPost>()
 				.Customize(c => c.WaitForNonStaleResults())
 				.OrderByDescending(bp => bp.PublishedOn)
-				.ToArray(); // NOTE: .ToArray() is a temporary workaround to handle failing projections
+				.ToArray(); // TODO: .ToArray() is a temporary workaround to handle failing projections
 
 			var model = (from blogPost in blogPosts
 			             select new ViewBlogPostModel
@@ -33,7 +33,7 @@ namespace NovusCraft.Web.Controllers
 			             	Id = blogPost.Id,
 			             	Title = blogPost.Title,
 			             	Content = blogPost.Content,
-			             	CategoryTitle = blogPost.Category.Title,
+			             	Category = blogPost.Category,
 			             	PublishedOn = blogPost.PublishedOn
 			             }).ToList();
 

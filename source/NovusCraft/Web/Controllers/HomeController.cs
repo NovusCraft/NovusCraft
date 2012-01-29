@@ -61,7 +61,7 @@ namespace NovusCraft.Web.Controllers
 			{
 				var syndicationItem = new SyndicationItem();
 				syndicationItem.Title = new TextSyndicationContent(blogPost.Title);
-				syndicationItem.Categories.Add(new SyndicationCategory(blogPost.Category.Title));
+				syndicationItem.Categories.Add(new SyndicationCategory(blogPost.Category));
 				syndicationItem.Content = new TextSyndicationContent(blogPost.Content, TextSyndicationContentKind.Html);
 				syndicationItem.LastUpdatedTime = blogPost.PublishedOn;
 				syndicationItem.PublishDate = blogPost.PublishedOn;

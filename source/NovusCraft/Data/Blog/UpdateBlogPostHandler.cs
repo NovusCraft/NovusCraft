@@ -19,7 +19,7 @@ namespace NovusCraft.Data.Blog
 			blogPost.Title = command.Model.Title;
 			blogPost.Slug = command.Model.Slug;
 			blogPost.Content = command.Model.Content;
-			blogPost.Category.Title = command.Model.CategoryTitle;
+			blogPost.Category = command.Model.Category;
 			blogPost.PublishedOn = command.Model.PublishedOn;
 
 			Session.Store(blogPost);

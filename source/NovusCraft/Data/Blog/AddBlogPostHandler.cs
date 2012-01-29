@@ -18,7 +18,7 @@ namespace NovusCraft.Data.Blog
 				Title = command.Model.Title,
 				Slug = command.Model.Slug,
 				Content = command.Model.Content,
-				Category = new BlogPostCategory { Title = command.Model.CategoryTitle },
+				Category = command.Model.Category,
 				PublishedOn = command.Model.PublishedOn
 			});
 		}

@@ -28,7 +28,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.DashboardController
 					Id = 1,
 					Title = "Test Title",
 					Content = "Test Content",
-					Category = new BlogPostCategory { Title = "Category A" },
+					Category = "Category A",
 					PublishedOn = new DateTimeOffset(2012, 11, 10, 09, 08, 07, TimeSpan.Zero)
 				});
 
@@ -37,7 +37,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.DashboardController
 					Id = 2,
 					Title = "Test Title 2",
 					Content = "Test Content 2",
-					Category = new BlogPostCategory { Title = "Category B" },
+					Category = "Category B",
 					PublishedOn = new DateTimeOffset(2012, 11, 10, 09, 08, 08, TimeSpan.Zero)
 				});
 
@@ -63,7 +63,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.DashboardController
 			() => result.Model<List<ViewBlogPostModel>>().First().Content.ShouldEqual("Test Content 2");
 
 		It should_return_list_of_blog_posts_with_blog_post_having_category_title =
-			() => result.Model<List<ViewBlogPostModel>>().First().CategoryTitle.ShouldEqual("Category B");
+			() => result.Model<List<ViewBlogPostModel>>().First().Category.ShouldEqual("Category B");
 
 		It should_return_list_of_blog_posts_with_blog_post_having_publish_date =
 			() => result.Model<List<ViewBlogPostModel>>().First().PublishedOn.ShouldEqual(new DateTimeOffset(2012, 11, 10, 09, 08, 08, TimeSpan.Zero));
