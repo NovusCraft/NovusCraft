@@ -4,7 +4,7 @@
 using System;
 using System.Web.Routing;
 using Machine.Specifications;
-using NovusCraft.Data;
+using NovusCraft.Infrastructure;
 using NovusCraft.Web.Controllers;
 using Raven.Client;
 using Raven.Client.Embedded;

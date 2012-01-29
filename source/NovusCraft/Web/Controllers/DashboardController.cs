@@ -3,7 +3,7 @@
 
 using System.Linq;
 using System.Web.Mvc;
-using NovusCraft.Data.Blog;
+using NovusCraft.Model;
 using NovusCraft.Web.ViewModels;
 using Raven.Client;
 

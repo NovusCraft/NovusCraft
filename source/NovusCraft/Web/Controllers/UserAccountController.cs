@@ -3,7 +3,7 @@
 
 using System.Linq;
 using System.Web.Mvc;
-using NovusCraft.Data.Security;
+using NovusCraft.Model;
 using NovusCraft.Resources;
 using NovusCraft.Security;
 using NovusCraft.Web.ViewModels;

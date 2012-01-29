@@ -1,1 +1,1 @@
-﻿<%@ Application Inherits="NovusCraft.Web.MvcApplication" Language="C#" %>
+﻿<%@ Application Inherits="NovusCraft.Infrastructure.MvcApplication" Language="C#" %>

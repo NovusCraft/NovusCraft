@@ -6,8 +6,8 @@ using System.Linq;
 using System.ServiceModel.Syndication;
 using System.Web.Mvc;
 using Machine.Specifications;
-using NovusCraft.Data.Blog;
-using NovusCraft.Web.ActionResults;
+using NovusCraft.Infrastructure.ActionResults;
+using NovusCraft.Model;
 using NovusCraft.Web.Controllers;
 
 namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.HomeControllerSpecs

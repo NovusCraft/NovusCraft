@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using Machine.Specifications;
 using Moq;
-using NovusCraft.Web;
+using NovusCraft.Infrastructure;
 using NovusCraft.Web.Controllers;
 using Raven.Client.Embedded;
 using It = Moq.It;

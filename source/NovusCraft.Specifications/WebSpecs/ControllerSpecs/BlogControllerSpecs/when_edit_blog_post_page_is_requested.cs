@@ -5,8 +5,8 @@ using System;
 using System.Web.Mvc;
 using Machine.Specifications;
 using Machine.Specifications.Mvc;
-using NovusCraft.Data.Blog;
-using NovusCraft.Specifications.Utils;
+using NovusCraft.Model;
+using NovusCraft.Specifications.SpecUtils;
 using NovusCraft.Web.Controllers;
 using NovusCraft.Web.ViewModels;
 

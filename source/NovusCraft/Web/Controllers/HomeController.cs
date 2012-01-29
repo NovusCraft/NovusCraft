@@ -6,8 +6,8 @@ using System.Linq;
 using System.Net;
 using System.ServiceModel.Syndication;
 using System.Web.Mvc;
-using NovusCraft.Data.Blog;
-using NovusCraft.Web.ActionResults;
+using NovusCraft.Infrastructure.ActionResults;
+using NovusCraft.Model;
 using NovusCraft.Web.Helpers;
 using Raven.Client;
 
