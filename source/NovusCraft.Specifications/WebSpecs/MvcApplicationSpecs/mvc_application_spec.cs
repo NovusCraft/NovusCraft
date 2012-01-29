@@ -16,11 +16,11 @@ namespace NovusCraft.Specifications.WebSpecs.MvcApplicationSpecs
 		Establish context = () => { application = new MvcApplication(); };
 
 		Cleanup after = () =>
-			{
-				RouteTable.Routes.Clear();
+		{
+			RouteTable.Routes.Clear();
 
-				var documentStore = ObjectFactory.GetInstance<IDocumentStore>();
-				if (documentStore != null) documentStore.Dispose();
-			};
+			var documentStore = ObjectFactory.GetInstance<IDocumentStore>();
+			if (documentStore != null) documentStore.Dispose();
+		};
 	}
 }

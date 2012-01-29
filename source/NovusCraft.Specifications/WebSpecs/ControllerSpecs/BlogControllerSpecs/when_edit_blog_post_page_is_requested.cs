@@ -18,24 +18,24 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 		static ActionResult result;
 
 		Because of = () =>
+		{
+			using (var session = document_store.OpenSession())
 			{
-				using (var session = document_store.OpenSession())
+				session.Store(new BlogPost
 				{
-					session.Store(new BlogPost
-					              	{
-					              		Id = 1,
-					              		Title = "Test Title",
-					              		Slug = "test-title",
-					              		Content = "Test Content",
-					              		Category = new BlogPostCategory { Title = "Category A" },
-					              		PublishedOn = new DateTimeOffset(2011, 11, 10, 09, 08, 07, TimeSpan.Zero)
-					              	});
+					Id = 1,
+					Title = "Test Title",
+					Slug = "test-title",
+					Content = "Test Content",
+					Category = new BlogPostCategory { Title = "Category A" },
+					PublishedOn = new DateTimeOffset(2011, 11, 10, 09, 08, 07, TimeSpan.Zero)
+				});
 
-					session.SaveChanges();
-				}
+				session.SaveChanges();
+			}
 
-				result = controller.EditBlogPost(1);
-			};
+			result = controller.EditBlogPost(1);
+		};
 
 		It should_display_blog_post_for_editing =
 			() => result.ShouldBeAView().And().ShouldUseDefaultView();

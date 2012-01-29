@@ -21,25 +21,25 @@ namespace NovusCraft.Specifications.WebSpecs.ActionResultSpecs.RssResultSpecs
 		static StringWriter output_writer;
 
 		Because of = () =>
-			{
-				http_response = new Mock<HttpResponseBase>();
-				output_writer = new StringWriter();
-				http_response.SetupGet(hr => hr.Output).Returns(output_writer);
+		{
+			http_response = new Mock<HttpResponseBase>();
+			output_writer = new StringWriter();
+			http_response.SetupGet(hr => hr.Output).Returns(output_writer);
 
-				var controllerContext = new Mock<ControllerContext>();
-				controllerContext.SetupGet(cc => cc.HttpContext.Response).Returns(http_response.Object);
+			var controllerContext = new Mock<ControllerContext>();
+			controllerContext.SetupGet(cc => cc.HttpContext.Response).Returns(http_response.Object);
 
-				var feed = new SyndicationFeed();
-				feed.Id = "novus_craft";
-				feed.Title = new TextSyndicationContent("Novus Craft");
-				feed.Authors.Add(new SyndicationPerson("arnold.zokas@novuscraft.com"));
-				feed.Copyright = new TextSyndicationContent("Copyright © 2011 Novus Craft");
-				feed.Language = "en-GB";
-				feed.LastUpdatedTime = new DateTimeOffset(2011, 11, 12, 13, 14, 15, TimeSpan.Zero);
+			var feed = new SyndicationFeed();
+			feed.Id = "novus_craft";
+			feed.Title = new TextSyndicationContent("Novus Craft");
+			feed.Authors.Add(new SyndicationPerson("arnold.zokas@novuscraft.com"));
+			feed.Copyright = new TextSyndicationContent("Copyright © 2011 Novus Craft");
+			feed.Language = "en-GB";
+			feed.LastUpdatedTime = new DateTimeOffset(2011, 11, 12, 13, 14, 15, TimeSpan.Zero);
 
-				rss_result = new RssResult(feed);
-				rss_result.ExecuteResult(controllerContext.Object);
-			};
+			rss_result = new RssResult(feed);
+			rss_result.ExecuteResult(controllerContext.Object);
+		};
 
 		It should_set_content_type =
 			() => http_response.VerifySet(hr => hr.ContentType = "application/rss+xml");

@@ -21,38 +21,38 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 		static ActionResult result;
 
 		Because of = () =>
+		{
+			container.Configure(ce => ce.For<CommandHandler<UpdateBlogPostCommand>>().Use<UpdateBlogPostHandler>());
+
+			using (var session = document_store.OpenSession())
 			{
-				container.Configure(ce => ce.For<CommandHandler<UpdateBlogPostCommand>>().Use<UpdateBlogPostHandler>());
-
-				using (var session = document_store.OpenSession())
+				session.Store(new BlogPost
 				{
-					session.Store(new BlogPost
-					              	{
-					              		Id = 1,
-					              		Title = "Test Title",
-					              		Slug = "test-title",
-					              		Content = "Test Content",
-					              		Category = new BlogPostCategory { Title = "Category A" },
-					              		PublishedOn = new DateTimeOffset(2012, 11, 10, 09, 08, 07, TimeSpan.Zero)
-					              	});
+					Id = 1,
+					Title = "Test Title",
+					Slug = "test-title",
+					Content = "Test Content",
+					Category = new BlogPostCategory { Title = "Category A" },
+					PublishedOn = new DateTimeOffset(2012, 11, 10, 09, 08, 07, TimeSpan.Zero)
+				});
 
-					session.SaveChanges();
-				}
+				session.SaveChanges();
+			}
 
-				var editPostModel = new EditBlogPostModel
-				                    	{
-				                    		Id = 1,
-				                    		Title = "New Test Title",
-				                    		Slug = "new-test-title",
-				                    		Content = "New Test Content",
-				                    		CategoryTitle = "Category B",
-				                    		PublishedOn = new DateTimeOffset(2012, 11, 10, 09, 08, 08, TimeSpan.Zero)
-				                    	};
-
-				result = controller.EditBlogPost(editPostModel);
-
-				container.GetInstance<IDocumentSession>().SaveChanges(); // normally called by RavenSessionAttribute.OnActionExecuted(ActionExecutedContext)
+			var editPostModel = new EditBlogPostModel
+			{
+				Id = 1,
+				Title = "New Test Title",
+				Slug = "new-test-title",
+				Content = "New Test Content",
+				CategoryTitle = "Category B",
+				PublishedOn = new DateTimeOffset(2012, 11, 10, 09, 08, 08, TimeSpan.Zero)
 			};
+
+			result = controller.EditBlogPost(editPostModel);
+
+			container.GetInstance<IDocumentSession>().SaveChanges(); // normally called by RavenSessionAttribute.OnActionExecuted(ActionExecutedContext)
+		};
 
 		It should_update_blog_post_title =
 			() => document_store.OpenSession().Query<BlogPost>().Single(bp => bp.Id == 1).Title.ShouldEqual("New Test Title");

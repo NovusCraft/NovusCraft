@@ -13,13 +13,13 @@ namespace NovusCraft.Specifications.WebSpecs.HelperSpecs.UrlHelperSpecs
 		static Uri permalink;
 
 		Because of = () =>
-			{
-				route_data.Values.Add("controller", "Home");
-				route_data.Values.Add("action", "RouteA");
-				route_data.Values.Add("param1", "param1Value");
+		{
+			route_data.Values.Add("controller", "Home");
+			route_data.Values.Add("action", "RouteA");
+			route_data.Values.Add("param1", "param1Value");
 
-				permalink = helper.Permalink();
-			};
+			permalink = helper.Permalink();
+		};
 
 		It should_return_absolute_url_created_using_context_information =
 			() => permalink.ShouldEqual(new Uri("http://www.novuscraft.com/route-a/param1Value"));

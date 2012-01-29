@@ -16,15 +16,15 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.UserAccountControll
 		protected static Mock<IFormsAuthenticationWrapper> forms_authentication_wrapper;
 
 		Establish context = () =>
-			{
-				forms_authentication_wrapper = new Mock<IFormsAuthenticationWrapper>();
+		{
+			forms_authentication_wrapper = new Mock<IFormsAuthenticationWrapper>();
 
-				document_store = new EmbeddableDocumentStore { RunInMemory = true };
-				document_store.Initialize();
+			document_store = new EmbeddableDocumentStore { RunInMemory = true };
+			document_store.Initialize();
 
-				var session = document_store.OpenSession();
+			var session = document_store.OpenSession();
 
-				controller = new UserAccountController(session, forms_authentication_wrapper.Object);
-			};
+			controller = new UserAccountController(session, forms_authentication_wrapper.Object);
+		};
 	}
 }

@@ -15,12 +15,12 @@ namespace NovusCraft.Specifications.WebSpecs.DataAnnotationSpecs.ResourceAwareRe
 		static RequiredAttribute attribute;
 
 		Because of = () =>
-			{
-				var modelMetadata = new ModelMetadata(new EmptyModelMetadataProvider(), null, null, typeof(object), null);
-				attribute = new RequiredAttribute();
-				var controllerContext = new ControllerContext();
-				new ResourceAwareRequiredAttributeAdapter(modelMetadata, controllerContext, attribute);
-			};
+		{
+			var modelMetadata = new ModelMetadata(new EmptyModelMetadataProvider(), null, null, typeof(object), null);
+			attribute = new RequiredAttribute();
+			var controllerContext = new ControllerContext();
+			new ResourceAwareRequiredAttributeAdapter(modelMetadata, controllerContext, attribute);
+		};
 
 		It should_set_error_message_resource_type =
 			() => attribute.ErrorMessageResourceType.ShouldEqual(typeof(ValidationMessages));

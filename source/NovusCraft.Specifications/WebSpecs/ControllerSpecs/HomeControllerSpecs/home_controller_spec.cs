@@ -21,29 +21,29 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.HomeControllerSpecs
 		protected static EmbeddableDocumentStore document_store;
 
 		Establish context = () =>
-			{
-				http_request = new Mock<HttpRequestBase>();
-				http_response = new Mock<HttpResponseBase>();
-				http_response.Setup(hrb => hrb.ApplyAppPathModifier(It.IsAny<string>())).Returns((string s) => s);
+		{
+			http_request = new Mock<HttpRequestBase>();
+			http_response = new Mock<HttpResponseBase>();
+			http_response.Setup(hrb => hrb.ApplyAppPathModifier(It.IsAny<string>())).Returns((string s) => s);
 
-				var controllerContext = new Mock<ControllerContext>();
-				controllerContext.SetupGet(cc => cc.HttpContext.Request).Returns(http_request.Object);
-				controllerContext.SetupGet(cc => cc.HttpContext.Response).Returns(http_response.Object);
+			var controllerContext = new Mock<ControllerContext>();
+			controllerContext.SetupGet(cc => cc.HttpContext.Request).Returns(http_request.Object);
+			controllerContext.SetupGet(cc => cc.HttpContext.Response).Returns(http_response.Object);
 
-				var httpContext = new Mock<HttpContextBase>();
-				httpContext.SetupGet(hc => hc.Request).Returns(http_request.Object);
-				httpContext.SetupGet(hc => hc.Response).Returns(http_response.Object);
-				var urlHelper = new UrlHelper(new RequestContext(httpContext.Object, new RouteData()));
+			var httpContext = new Mock<HttpContextBase>();
+			httpContext.SetupGet(hc => hc.Request).Returns(http_request.Object);
+			httpContext.SetupGet(hc => hc.Response).Returns(http_response.Object);
+			var urlHelper = new UrlHelper(new RequestContext(httpContext.Object, new RouteData()));
 
-				RouteConfigurator.Initialise(); // this populates route table, so ensure RouteTable.Routes.Clear() is called during cleanup
+			RouteConfigurator.Initialise(); // this populates route table, so ensure RouteTable.Routes.Clear() is called during cleanup
 
-				document_store = new EmbeddableDocumentStore { RunInMemory = true };
-				document_store.Initialize();
+			document_store = new EmbeddableDocumentStore { RunInMemory = true };
+			document_store.Initialize();
 
-				var session = document_store.OpenSession();
+			var session = document_store.OpenSession();
 
-				controller = new HomeController(session) { ControllerContext = controllerContext.Object, Url = urlHelper };
-			};
+			controller = new HomeController(session) { ControllerContext = controllerContext.Object, Url = urlHelper };
+		};
 
 		Cleanup after = () => RouteTable.Routes.Clear();
 	}

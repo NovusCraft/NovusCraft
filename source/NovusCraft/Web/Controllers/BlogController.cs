@@ -37,14 +37,14 @@ namespace NovusCraft.Web.Controllers
 			var permalink = Url.Permalink("ViewBlogPost", "Blog", new { slug });
 
 			var model = new ViewBlogPostModel
-			            	{
-			            		Id = blogPost.Id,
-			            		Title = blogPost.Title,
-			            		Content = blogPost.Content,
-			            		CategoryTitle = blogPost.Category.Title,
-			            		PublishedOn = blogPost.PublishedOn,
-			            		Permalink = permalink.ToString()
-			            	};
+			{
+				Id = blogPost.Id,
+				Title = blogPost.Title,
+				Content = blogPost.Content,
+				CategoryTitle = blogPost.Category.Title,
+				PublishedOn = blogPost.PublishedOn,
+				Permalink = permalink.ToString()
+			};
 
 			return View(model);
 		}
@@ -75,14 +75,14 @@ namespace NovusCraft.Web.Controllers
 			var blogPost = _documentSession.Query<BlogPost>().Single(bp => bp.Id == id);
 
 			var model = new EditBlogPostModel
-			            	{
-			            		Id = blogPost.Id,
-			            		Title = blogPost.Title,
-			            		Slug = blogPost.Slug,
-			            		Content = blogPost.Content,
-			            		CategoryTitle = blogPost.Category.Title,
-			            		PublishedOn = blogPost.PublishedOn,
-			            	};
+			{
+				Id = blogPost.Id,
+				Title = blogPost.Title,
+				Slug = blogPost.Slug,
+				Content = blogPost.Content,
+				CategoryTitle = blogPost.Category.Title,
+				PublishedOn = blogPost.PublishedOn,
+			};
 
 			return View(model);
 		}

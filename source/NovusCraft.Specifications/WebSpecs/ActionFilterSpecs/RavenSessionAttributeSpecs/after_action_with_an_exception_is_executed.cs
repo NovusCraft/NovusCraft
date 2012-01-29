@@ -17,23 +17,23 @@ namespace NovusCraft.Specifications.WebSpecs.ActionFilterSpecs.RavenSessionAttri
 	public class after_action_with_an_exception_is_executed : raven_session_attribute_spec
 	{
 		Because of = () =>
+		{
+			ObjectFactory.Container.Configure(c => c.For<IDocumentSession>().Singleton().Use(() =>
 			{
-				ObjectFactory.Container.Configure(c => c.For<IDocumentSession>().Singleton().Use(() =>
-					{
-						var documentStore = new EmbeddableDocumentStore { RunInMemory = true };
-						documentStore.Initialize();
-						var session = documentStore.OpenSession();
+				var documentStore = new EmbeddableDocumentStore { RunInMemory = true };
+				documentStore.Initialize();
+				var session = documentStore.OpenSession();
 
-						session.Store(new { });
+				session.Store(new { });
 
-						return session;
-					}));
+				return session;
+			}));
 
-				var filterContext = new Mock<ActionExecutedContext>();
-				filterContext.SetupGet(fc => fc.Exception).Returns(new Exception());
+			var filterContext = new Mock<ActionExecutedContext>();
+			filterContext.SetupGet(fc => fc.Exception).Returns(new Exception());
 
-				attribute.OnActionExecuted(filterContext.Object);
-			};
+			attribute.OnActionExecuted(filterContext.Object);
+		};
 
 		It should_commit_changes_in_ravendb_session =
 			() => ObjectFactory.Container.GetInstance<IDocumentSession>().Advanced.HasChanges.ShouldBeTrue();

@@ -17,16 +17,16 @@ namespace NovusCraft.Specifications.WebSpecs.StructureMapControllerFactorySpecs
 		static IController controller;
 
 		Because of = () =>
+		{
+			ObjectFactory.Container.Configure(c => c.For<IDocumentStore>().Use(() =>
 			{
-				ObjectFactory.Container.Configure(c => c.For<IDocumentStore>().Use(() =>
-					{
-						var documentStore = new EmbeddableDocumentStore { RunInMemory = true };
-						documentStore.Initialize();
-						return documentStore;
-					}));
+				var documentStore = new EmbeddableDocumentStore { RunInMemory = true };
+				documentStore.Initialize();
+				return documentStore;
+			}));
 
-				controller = factory.GetControllerInstance(typeof(TestController));
-			};
+			controller = factory.GetControllerInstance(typeof(TestController));
+		};
 
 		It should_return_controller_instance =
 			() => controller.ShouldBeOfType<TestController>();

@@ -16,11 +16,11 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.UserAccountControll
 		static ActionResult result;
 
 		Because of = () =>
-			{
-				controller.ModelState.AddModelError(string.Empty, "invalid credentials");
+		{
+			controller.ModelState.AddModelError(string.Empty, "invalid credentials");
 
-				result = controller.LogIn(new LogInModel());
-			};
+			result = controller.LogIn(new LogInModel());
+		};
 
 		It should_redisplay_login_page =
 			() => result.ShouldBeAView().And().ShouldUseDefaultView();

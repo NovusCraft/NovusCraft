@@ -21,20 +21,20 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 		static ActionResult result;
 
 		Because of = () =>
+		{
+			container.Configure(ce => ce.For<CommandHandler<AddBlogPostCommand>>().Use<AddBlogPostHandler>());
+
+			result = controller.CreateBlogPost(new CreateBlogPostModel
 			{
-				container.Configure(ce => ce.For<CommandHandler<AddBlogPostCommand>>().Use<AddBlogPostHandler>());
+				Title = "Test Title",
+				Slug = "test-title",
+				Content = "Blog Content",
+				CategoryTitle = "Category A",
+				PublishedOn = new DateTimeOffset(2012, 11, 10, 9, 8, 7, TimeSpan.Zero)
+			});
 
-				result = controller.CreateBlogPost(new CreateBlogPostModel
-				                                   	{
-				                                   		Title = "Test Title",
-				                                   		Slug = "test-title",
-				                                   		Content = "Blog Content",
-				                                   		CategoryTitle = "Category A",
-				                                   		PublishedOn = new DateTimeOffset(2012, 11, 10, 9, 8, 7, TimeSpan.Zero)
-				                                   	});
-
-				container.GetInstance<IDocumentSession>().SaveChanges(); // normally called by RavenSessionAttribute.OnActionExecuted(ActionExecutedContext)
-			};
+			container.GetInstance<IDocumentSession>().SaveChanges(); // normally called by RavenSessionAttribute.OnActionExecuted(ActionExecutedContext)
+		};
 
 		It should_save_blog_post_with_title =
 			() => document_store.OpenSession().Query<BlogPost>().Count(bp => bp.Title == "Test Title").ShouldEqual(1);

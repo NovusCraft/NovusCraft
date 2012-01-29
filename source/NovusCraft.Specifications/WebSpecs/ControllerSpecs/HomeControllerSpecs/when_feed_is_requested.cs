@@ -18,35 +18,35 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.HomeControllerSpecs
 		static ActionResult result;
 
 		Because of = () =>
+		{
+			using (var session = document_store.OpenSession())
 			{
-				using (var session = document_store.OpenSession())
+				session.Store(new BlogPost
 				{
-					session.Store(new BlogPost
-					              	{
-					              		Id = 1,
-					              		Title = "Test Title 1",
-					              		Slug = "test-title-1",
-					              		Content = "Test Content 1",
-					              		Category = new BlogPostCategory { Title = "Category A" },
-					              		PublishedOn = new DateTimeOffset(2011, 11, 12, 13, 14, 15, TimeSpan.Zero)
-					              	});
-					session.Store(new BlogPost
-					              	{
-					              		Id = 2,
-					              		Title = "Test Title 2",
-					              		Slug = "test-title-2",
-					              		Content = "Test Content 2",
-					              		Category = new BlogPostCategory { Title = "Category B" },
-					              		PublishedOn = new DateTimeOffset(2011, 12, 13, 14, 15, 16, TimeSpan.Zero)
-					              	});
+					Id = 1,
+					Title = "Test Title 1",
+					Slug = "test-title-1",
+					Content = "Test Content 1",
+					Category = new BlogPostCategory { Title = "Category A" },
+					PublishedOn = new DateTimeOffset(2011, 11, 12, 13, 14, 15, TimeSpan.Zero)
+				});
+				session.Store(new BlogPost
+				{
+					Id = 2,
+					Title = "Test Title 2",
+					Slug = "test-title-2",
+					Content = "Test Content 2",
+					Category = new BlogPostCategory { Title = "Category B" },
+					PublishedOn = new DateTimeOffset(2011, 12, 13, 14, 15, 16, TimeSpan.Zero)
+				});
 
-					session.SaveChanges();
-				}
+				session.SaveChanges();
+			}
 
-				http_request.SetupGet(hr => hr.Url).Returns(new Uri("http://novuscraft.com/"));
+			http_request.SetupGet(hr => hr.Url).Returns(new Uri("http://novuscraft.com/"));
 
-				result = controller.Feed();
-			};
+			result = controller.Feed();
+		};
 
 		It should_return_rss_feed =
 			() => result.ShouldBeOfType<RssResult>();

@@ -15,11 +15,11 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 		static ActionResult result;
 
 		Because of = () =>
-			{
-				controller.ModelState.AddModelError(string.Empty, "error");
+		{
+			controller.ModelState.AddModelError(string.Empty, "error");
 
-				result = controller.EditBlogPost(new EditBlogPostModel());
-			};
+			result = controller.EditBlogPost(new EditBlogPostModel());
+		};
 
 		It should_redisplay_page =
 			() => result.ShouldBeAView().And().ShouldUseDefaultView();

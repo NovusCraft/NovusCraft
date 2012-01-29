@@ -18,12 +18,12 @@ namespace NovusCraft.Data
 
 			// Blog
 			Scan(scanner =>
-				{
-					scanner.AssemblyContainingType<ICommand>();
-					scanner.IncludeNamespaceContainingType<ICommand>();
-					scanner.AddAllTypesOf(typeof(CommandHandler<>));
-					scanner.With(new SingletonConvention(typeof(CommandHandler<>)));
-				});
+			{
+				scanner.AssemblyContainingType<ICommand>();
+				scanner.IncludeNamespaceContainingType<ICommand>();
+				scanner.AddAllTypesOf(typeof(CommandHandler<>));
+				scanner.With(new SingletonConvention(typeof(CommandHandler<>)));
+			});
 
 			// Security
 			For<IFormsAuthenticationWrapper>().HybridHttpOrThreadLocalScoped().Use<FormsAuthenticationWrapper>();

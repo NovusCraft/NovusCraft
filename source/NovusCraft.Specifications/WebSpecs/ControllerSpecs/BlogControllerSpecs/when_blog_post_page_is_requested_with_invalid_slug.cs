@@ -18,17 +18,17 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 		static ActionResult result;
 
 		Because of = () =>
-			{
-				http_response = new Mock<HttpResponseBase>();
+		{
+			http_response = new Mock<HttpResponseBase>();
 
-				var controllerContext = new Mock<ControllerContext>();
-				controllerContext.SetupGet(cc => cc.HttpContext.Request).Returns(new Mock<HttpRequestBase>().Object);
-				controllerContext.SetupGet(cc => cc.HttpContext.Response).Returns(http_response.Object);
+			var controllerContext = new Mock<ControllerContext>();
+			controllerContext.SetupGet(cc => cc.HttpContext.Request).Returns(new Mock<HttpRequestBase>().Object);
+			controllerContext.SetupGet(cc => cc.HttpContext.Response).Returns(http_response.Object);
 
-				controller.ControllerContext = controllerContext.Object;
+			controller.ControllerContext = controllerContext.Object;
 
-				result = controller.ViewBlogPost(slug: "test-slug-?");
-			};
+			result = controller.ViewBlogPost(slug: "test-slug-?");
+		};
 
 		It should_display_page =
 			() => result.ShouldBeAView().And().ViewName.ShouldEqual("PageNotFound");

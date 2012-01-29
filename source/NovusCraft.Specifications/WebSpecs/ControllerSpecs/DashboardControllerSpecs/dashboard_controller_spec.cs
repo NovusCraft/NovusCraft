@@ -13,12 +13,12 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.DashboardController
 		protected static EmbeddableDocumentStore document_store;
 
 		Establish context = () =>
-			{
-				document_store = new EmbeddableDocumentStore { RunInMemory = true };
-				document_store.Initialize();
-				var session = document_store.OpenSession();
+		{
+			document_store = new EmbeddableDocumentStore { RunInMemory = true };
+			document_store.Initialize();
+			var session = document_store.OpenSession();
 
-				controller = new DashboardController(session);
-			};
+			controller = new DashboardController(session);
+		};
 	}
 }

@@ -20,32 +20,32 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.DashboardController
 		static ActionResult result;
 
 		Because of = () =>
+		{
+			using (var session = document_store.OpenSession())
 			{
-				using (var session = document_store.OpenSession())
+				session.Store(new BlogPost
 				{
-					session.Store(new BlogPost
-					              	{
-					              		Id = 1,
-					              		Title = "Test Title",
-					              		Content = "Test Content",
-					              		Category = new BlogPostCategory { Title = "Category A" },
-					              		PublishedOn = new DateTimeOffset(2012, 11, 10, 09, 08, 07, TimeSpan.Zero)
-					              	});
+					Id = 1,
+					Title = "Test Title",
+					Content = "Test Content",
+					Category = new BlogPostCategory { Title = "Category A" },
+					PublishedOn = new DateTimeOffset(2012, 11, 10, 09, 08, 07, TimeSpan.Zero)
+				});
 
-					session.Store(new BlogPost
-					              	{
-					              		Id = 2,
-					              		Title = "Test Title 2",
-					              		Content = "Test Content 2",
-					              		Category = new BlogPostCategory { Title = "Category B" },
-					              		PublishedOn = new DateTimeOffset(2012, 11, 10, 09, 08, 08, TimeSpan.Zero)
-					              	});
+				session.Store(new BlogPost
+				{
+					Id = 2,
+					Title = "Test Title 2",
+					Content = "Test Content 2",
+					Category = new BlogPostCategory { Title = "Category B" },
+					PublishedOn = new DateTimeOffset(2012, 11, 10, 09, 08, 08, TimeSpan.Zero)
+				});
 
-					session.SaveChanges();
-				}
+				session.SaveChanges();
+			}
 
-				result = controller.Home();
-			};
+			result = controller.Home();
+		};
 
 		It should_display_home_page =
 			() => result.ShouldBeAView().And().ShouldUseDefaultView();

@@ -22,17 +22,17 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 		protected static IContainer container;
 
 		Establish context = () =>
-			{
-				document_store = new EmbeddableDocumentStore { RunInMemory = true };
-				document_store.Initialize();
-				session = document_store.OpenSession();
+		{
+			document_store = new EmbeddableDocumentStore { RunInMemory = true };
+			document_store.Initialize();
+			session = document_store.OpenSession();
 
-				container = new Container();
-				container.Configure(ce => ce.For<IDocumentSession>().Singleton().Use(document_store.OpenSession));
-				var dispatcher = new CommandDispatcher(container);
+			container = new Container();
+			container.Configure(ce => ce.For<IDocumentSession>().Singleton().Use(document_store.OpenSession));
+			var dispatcher = new CommandDispatcher(container);
 
-				controller = new BlogController(session, dispatcher) { };
-			};
+			controller = new BlogController(session, dispatcher) { };
+		};
 
 		Cleanup after = () => RouteTable.Routes.Clear();
 	}

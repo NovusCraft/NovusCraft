@@ -29,13 +29,13 @@ namespace NovusCraft.Web.Controllers
 
 			var model = (from blogPost in blogPosts
 			             select new ViewBlogPostModel
-			                    	{
-			                    		Id = blogPost.Id,
-			                    		Title = blogPost.Title,
-			                    		Content = blogPost.Content,
-			                    		CategoryTitle = blogPost.Category.Title,
-			                    		PublishedOn = blogPost.PublishedOn
-			                    	}).ToList();
+			             {
+			             	Id = blogPost.Id,
+			             	Title = blogPost.Title,
+			             	Content = blogPost.Content,
+			             	CategoryTitle = blogPost.Category.Title,
+			             	PublishedOn = blogPost.PublishedOn
+			             }).ToList();
 
 			return View(model);
 		}
