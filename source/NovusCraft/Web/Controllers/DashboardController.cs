@@ -21,7 +21,12 @@ namespace NovusCraft.Web.Controllers
 		[Authorize]
 		public ActionResult Home()
 		{
-			var blogPosts = _documentSession.Query<BlogPost>().Customize(c => c.WaitForNonStaleResults()).ToArray(); // NOTE: .ToArray() is a temporary workaround to handle failing projections
+			var blogPosts = _documentSession
+				.Query<BlogPost>()
+				.Customize(c => c.WaitForNonStaleResults())
+				.OrderByDescending(bp => bp.PublishedOn)
+				.ToArray(); // NOTE: .ToArray() is a temporary workaround to handle failing projections
+
 			var model = (from blogPost in blogPosts
 			             select new ViewBlogPostModel
 			                    	{

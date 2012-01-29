@@ -29,7 +29,16 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.DashboardController
 					              		Title = "Test Title",
 					              		Content = "Test Content",
 					              		Category = new BlogPostCategory { Title = "Category A" },
-					              		PublishedOn = new DateTimeOffset(2012, 01, 17, 0, 0, 0, TimeSpan.Zero)
+					              		PublishedOn = new DateTimeOffset(2012, 11, 10, 09, 08, 07, TimeSpan.Zero)
+					              	});
+
+					session.Store(new BlogPost
+					              	{
+					              		Id = 2,
+					              		Title = "Test Title 2",
+					              		Content = "Test Content 2",
+					              		Category = new BlogPostCategory { Title = "Category B" },
+					              		PublishedOn = new DateTimeOffset(2012, 11, 10, 09, 08, 08, TimeSpan.Zero)
 					              	});
 
 					session.SaveChanges();
@@ -41,23 +50,23 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.DashboardController
 		It should_display_home_page =
 			() => result.ShouldBeAView().And().ShouldUseDefaultView();
 
-		It should_return_list_of_blog_posts =
-			() => result.Model<List<ViewBlogPostModel>>().Count.ShouldBeGreaterThan(0);
+		It should_return_list_of_blog_posts_sorted_by_publish_date_most_recent_first =
+			() => result.Model<List<ViewBlogPostModel>>().First().PublishedOn.ShouldBeGreaterThan(result.Model<List<ViewBlogPostModel>>()[1].PublishedOn);
 
 		It should_return_list_of_blog_posts_with_blog_post_having_id =
-			() => result.Model<List<ViewBlogPostModel>>().First().Id.ShouldEqual(1);
+			() => result.Model<List<ViewBlogPostModel>>().First().Id.ShouldEqual(2);
 
 		It should_return_list_of_blog_posts_with_blog_post_having_title =
-			() => result.Model<List<ViewBlogPostModel>>().First().Title.ShouldEqual("Test Title");
+			() => result.Model<List<ViewBlogPostModel>>().First().Title.ShouldEqual("Test Title 2");
 
 		It should_return_list_of_blog_posts_with_blog_post_having_content =
-			() => result.Model<List<ViewBlogPostModel>>().First().Content.ShouldEqual("Test Content");
+			() => result.Model<List<ViewBlogPostModel>>().First().Content.ShouldEqual("Test Content 2");
 
 		It should_return_list_of_blog_posts_with_blog_post_having_category_title =
-			() => result.Model<List<ViewBlogPostModel>>().First().CategoryTitle.ShouldEqual("Category A");
+			() => result.Model<List<ViewBlogPostModel>>().First().CategoryTitle.ShouldEqual("Category B");
 
 		It should_return_list_of_blog_posts_with_blog_post_having_publish_date =
-			() => result.Model<List<ViewBlogPostModel>>().First().PublishedOn.ShouldEqual(new DateTimeOffset(2012, 01, 17, 0, 0, 0, TimeSpan.Zero));
+			() => result.Model<List<ViewBlogPostModel>>().First().PublishedOn.ShouldEqual(new DateTimeOffset(2012, 11, 10, 09, 08, 08, TimeSpan.Zero));
 
 		It requires_authentication =
 			() => This.Action<DashboardController>(controller => controller.Home()).ShouldBeDecoratedWith<AuthorizeAttribute>();
