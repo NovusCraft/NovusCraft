@@ -1,0 +1,10 @@
+﻿@model String
+
+@{
+	Layout = null;
+}
+
+<div>
+	@Html.LabelFor(m => m)
+	@Html.TextBoxFor(m => m, new { @class = ViewData["class"], autocomplete = "off" })
+</div>
