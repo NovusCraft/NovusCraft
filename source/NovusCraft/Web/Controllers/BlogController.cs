@@ -44,7 +44,7 @@ namespace NovusCraft.Web.Controllers
 		[Authorize]
 		public ActionResult CreateBlogPost()
 		{
-			var model = new CreateBlogPostModel { PublishedOn = DateTimeOffset.Now };
+			var model = new BlogPost { PublishedOn = DateTimeOffset.Now };
 
 			return View(model);
 		}
@@ -64,18 +64,7 @@ namespace NovusCraft.Web.Controllers
 		[Authorize]
 		public ActionResult EditBlogPost(int id)
 		{
-			//var model = _documentSession.Query<BlogPost>().AsProjection<EditBlogPostModel>().Single(bp => bp.Id == id); TODO: looks like this needs an index to work correctly
-
-			var blogPost = _documentSession.Query<BlogPost>().Single(bp => bp.Id == id);
-			var model = new EditBlogPostModel
-			{
-				Id = blogPost.Id,
-				Title = blogPost.Title,
-				Slug = blogPost.Slug,
-				Content = blogPost.Content,
-				Category = blogPost.Category,
-				PublishedOn = blogPost.PublishedOn,
-			};
+			var model = _documentSession.Query<BlogPost>().Single(bp => bp.Id == id);
 
 			return View(model);
 		}
