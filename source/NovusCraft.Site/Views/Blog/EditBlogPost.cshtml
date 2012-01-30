@@ -17,19 +17,19 @@
 		<fieldset>
 			<div>
 				@Html.LabelFor(m => m.Title)
-				@Html.TextBoxFor(m => m.Title, new { @class = "title" })
+				@Html.TextBoxFor(m => m.Title, new { @class = "title", autocomplete = "off" })
 			</div>
 			<div>
 				@Html.LabelFor(m => m.Slug)
-				@Html.TextBoxFor(m => m.Slug)
+				@Html.TextBoxFor(m => m.Slug, new { autocomplete = "off" })
 			</div>
 			<div>
 				@Html.LabelFor(m => m.Content)
-				@Html.TextAreaFor(m => m.Content, new { @class = "content" })
+				@Html.TextAreaFor(m => m.Content, new { @class = "content", autocomplete = "off" })
 			</div>
 			<div>
 				@Html.LabelFor(m => m.Category)
-				@Html.TextBoxFor(m => m.Category, new { @class = "category" })
+				@Html.TextBoxFor(m => m.Category, new { @class = "category", autocomplete = "off" })
 			</div>
 			@Html.EditorFor(m => m.PublishedOn, new { @class = "publishDate" })
 			<div>
