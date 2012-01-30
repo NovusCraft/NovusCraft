@@ -38,20 +38,16 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 
 			controller.Url = urlHelper;
 
-			using (var session = document_store.OpenSession())
+			session.Store(new BlogPost
 			{
-				session.Store(new BlogPost
-				{
-					Id = 1,
-					Title = "Test Title",
-					Slug = "test-title",
-					Content = "Test Content",
-					Category = "Category A",
-					PublishedOn = new DateTimeOffset(2011, 11, 10, 09, 08, 07, TimeSpan.Zero)
-				});
-
-				session.SaveChanges();
-			}
+				Id = 1,
+				Title = "Test Title",
+				Slug = "test-title",
+				Content = "Test Content",
+				Category = "Category A",
+				PublishedOn = new DateTimeOffset(2011, 11, 10, 09, 08, 07, TimeSpan.Zero)
+			});
+			session.SaveChanges();
 
 			result = controller.ViewBlogPost(slug: "test-title");
 		};

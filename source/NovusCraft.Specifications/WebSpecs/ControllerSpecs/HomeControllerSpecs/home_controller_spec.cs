@@ -8,7 +8,10 @@ using Machine.Specifications;
 using Moq;
 using NovusCraft.Infrastructure;
 using NovusCraft.Web.Controllers;
+using Raven.Client;
+using Raven.Client.Document;
 using Raven.Client.Embedded;
+using Raven.Client.Indexes;
 using It = Moq.It;
 
 namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.HomeControllerSpecs
@@ -19,6 +22,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.HomeControllerSpecs
 		protected static Mock<HttpRequestBase> http_request;
 		protected static Mock<HttpResponseBase> http_response;
 		protected static EmbeddableDocumentStore document_store;
+		protected static IDocumentSession session;
 
 		Establish context = () =>
 		{
@@ -37,10 +41,12 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.HomeControllerSpecs
 
 			RouteConfigurator.Initialise(); // this populates route table, so ensure RouteTable.Routes.Clear() is called during cleanup
 
-			document_store = new EmbeddableDocumentStore { RunInMemory = true };
+			document_store = new EmbeddableDocumentStore { RunInMemory = true, Conventions = new DocumentConvention { DefaultQueryingConsistency = ConsistencyOptions.QueryYourWrites } };
 			document_store.Initialize();
 
-			var session = document_store.OpenSession();
+			IndexCreation.CreateIndexes(typeof(DocumentStoreFactory).Assembly, document_store);
+
+			session = document_store.OpenSession();
 
 			controller = new HomeController(session) { ControllerContext = controllerContext.Object, Url = urlHelper };
 		};

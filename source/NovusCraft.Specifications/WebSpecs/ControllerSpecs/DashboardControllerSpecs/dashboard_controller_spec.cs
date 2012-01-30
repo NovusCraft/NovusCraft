@@ -2,8 +2,12 @@
 // # All rights reserved. 
 
 using Machine.Specifications;
+using NovusCraft.Infrastructure;
 using NovusCraft.Web.Controllers;
+using Raven.Client;
+using Raven.Client.Document;
 using Raven.Client.Embedded;
+using Raven.Client.Indexes;
 
 namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.DashboardControllerSpecs
 {
@@ -11,12 +15,15 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.DashboardController
 	{
 		protected static DashboardController controller;
 		protected static EmbeddableDocumentStore document_store;
+		protected static IDocumentSession session;
 
 		Establish context = () =>
 		{
-			document_store = new EmbeddableDocumentStore { RunInMemory = true };
+			document_store = new EmbeddableDocumentStore { RunInMemory = true, Conventions = new DocumentConvention { DefaultQueryingConsistency = ConsistencyOptions.QueryYourWrites } };
 			document_store.Initialize();
-			var session = document_store.OpenSession();
+			session = document_store.OpenSession();
+
+			IndexCreation.CreateIndexes(typeof(DocumentStoreFactory).Assembly, document_store);
 
 			controller = new DashboardController(session);
 		};

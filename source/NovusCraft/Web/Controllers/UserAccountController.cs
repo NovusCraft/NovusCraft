@@ -3,6 +3,7 @@
 
 using System.Linq;
 using System.Web.Mvc;
+using NovusCraft.Infrastructure.Indexes;
 using NovusCraft.Model;
 using NovusCraft.Resources;
 using NovusCraft.Security;
@@ -33,7 +34,7 @@ namespace NovusCraft.Web.Controllers
 			if (ModelState.IsValid)
 			{
 				var passwordHash = HashUtility.GenerateHash(logInModel.Password);
-				var userAccountExists = _documentSession.Query<UserAccount>().Any(ua => ua.Email == logInModel.Email && ua.PasswordHash == passwordHash);
+				var userAccountExists = _documentSession.Query<UserAccount>(UserAccounts_ByEmailAndPasswordHash.Name).Any(ua => ua.Email == logInModel.Email && ua.PasswordHash == passwordHash);
 
 				if (userAccountExists)
 				{

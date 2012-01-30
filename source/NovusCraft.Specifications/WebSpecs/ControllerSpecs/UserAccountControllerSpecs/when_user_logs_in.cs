@@ -21,16 +21,12 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.UserAccountControll
 
 		Because of = () =>
 		{
-			using (var session = document_store.OpenSession())
+			session.Store(new UserAccount
 			{
-				session.Store(new UserAccount
-				{
-					Email = "example@company.com",
-					PasswordHash = "虜ꘕ‷倯॰៘倂쭮猱◡參齙甇⽯䅖"
-				});
-
-				session.SaveChanges();
-			}
+				Email = "example@company.com",
+				PasswordHash = "虜ꘕ‷倯॰៘倂쭮猱◡參齙甇⽯䅖"
+			});
+			session.SaveChanges();
 
 			result = controller.LogIn(log_in_model);
 		};

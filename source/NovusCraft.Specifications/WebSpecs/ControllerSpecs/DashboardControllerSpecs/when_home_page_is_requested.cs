@@ -20,28 +20,23 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.DashboardController
 
 		Because of = () =>
 		{
-			using (var session = document_store.OpenSession())
+			session.Store(new BlogPost
 			{
-				session.Store(new BlogPost
-				{
-					Id = 1,
-					Title = "Test Title",
-					Content = "Test Content",
-					Category = "Category A",
-					PublishedOn = new DateTimeOffset(2012, 11, 10, 09, 08, 07, TimeSpan.Zero)
-				});
-
-				session.Store(new BlogPost
-				{
-					Id = 2,
-					Title = "Test Title 2",
-					Content = "Test Content 2",
-					Category = "Category B",
-					PublishedOn = new DateTimeOffset(2012, 11, 10, 09, 08, 08, TimeSpan.Zero)
-				});
-
-				session.SaveChanges();
-			}
+				Id = 1,
+				Title = "Test Title",
+				Content = "Test Content",
+				Category = "Category A",
+				PublishedOn = new DateTimeOffset(2012, 11, 10, 09, 08, 07, TimeSpan.Zero)
+			});
+			session.Store(new BlogPost
+			{
+				Id = 2,
+				Title = "Test Title 2",
+				Content = "Test Content 2",
+				Category = "Category B",
+				PublishedOn = new DateTimeOffset(2012, 11, 10, 09, 08, 08, TimeSpan.Zero)
+			});
+			session.SaveChanges();
 
 			result = controller.Home();
 		};

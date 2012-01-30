@@ -1,7 +1,6 @@
 ﻿// # Copyright © 2011, Novus Craft
 // # All rights reserved. 
 
-using System.Linq;
 using NovusCraft.Model;
 using Raven.Client;
 
@@ -15,7 +14,7 @@ namespace NovusCraft.Infrastructure.Commands
 
 		public override void Execute(DeleteBlogPostCommand command)
 		{
-			var blogPost = Session.Query<BlogPost>().Single(bp => bp.Id == command.Model);
+			var blogPost = Session.Load<BlogPost>(command.Model);
 
 			Session.Delete(blogPost);
 		}

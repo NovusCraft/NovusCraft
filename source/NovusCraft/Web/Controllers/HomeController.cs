@@ -7,6 +7,7 @@ using System.Net;
 using System.ServiceModel.Syndication;
 using System.Web.Mvc;
 using NovusCraft.Infrastructure.ActionResults;
+using NovusCraft.Infrastructure.Indexes;
 using NovusCraft.Model;
 using NovusCraft.Web.Helpers;
 using Raven.Client;
@@ -46,7 +47,7 @@ namespace NovusCraft.Web.Controllers
 
 		public RssResult Feed()
 		{
-			var recentBlogPosts = _documentSession.Query<BlogPost>().OrderByDescending(bp => bp.PublishedOn).ToList();
+			var recentBlogPosts = _documentSession.Query<BlogPost>(BlogPosts_ByPublishDate.Name).OrderByDescending(bp => bp.PublishedOn).ToList();
 
 			var feed = new SyndicationFeed();
 			feed.Id = "novus_craft"; // TODO: Move to config

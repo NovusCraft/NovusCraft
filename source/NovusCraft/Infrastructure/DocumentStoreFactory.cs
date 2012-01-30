@@ -1,7 +1,9 @@
 ﻿// # Copyright © 2011, Novus Craft
 // # All rights reserved. 
 
+using System.Reflection;
 using Raven.Client.Embedded;
+using Raven.Client.Indexes;
 
 namespace NovusCraft.Infrastructure
 {
@@ -11,8 +13,10 @@ namespace NovusCraft.Infrastructure
 
 		public static EmbeddableDocumentStore CreateEmbeddableDocumentStore()
 		{
-			var documentStore = new EmbeddableDocumentStore { ConnectionStringName = ConnectionStringName };
+			var documentStore = new EmbeddableDocumentStore { ConnectionStringName = ConnectionStringName, UseEmbeddedHttpServer = true };
 			documentStore.Initialize();
+
+			IndexCreation.CreateIndexes(Assembly.GetExecutingAssembly(), documentStore);
 
 			return documentStore;
 		}

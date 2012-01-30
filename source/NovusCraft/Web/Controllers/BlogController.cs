@@ -7,6 +7,7 @@ using System.Net;
 using System.Web.Mvc;
 using NovusCraft.Infrastructure;
 using NovusCraft.Infrastructure.Commands;
+using NovusCraft.Infrastructure.Indexes;
 using NovusCraft.Model;
 using NovusCraft.Web.Helpers;
 using NovusCraft.Web.ViewModels;
@@ -28,7 +29,7 @@ namespace NovusCraft.Web.Controllers
 
 		public ActionResult ViewBlogPost(string slug)
 		{
-			var model = _documentSession.Query<BlogPost>().AsProjection<ViewBlogPostModel>().SingleOrDefault(bp => bp.Slug == slug);
+			var model = _documentSession.Query<BlogPost>(BlogPosts_BySlug.Name).AsProjection<ViewBlogPostModel>().SingleOrDefault(bp => bp.Slug == slug);
 
 			if (model == null)
 			{
@@ -64,7 +65,7 @@ namespace NovusCraft.Web.Controllers
 		[Authorize]
 		public ActionResult EditBlogPost(int id)
 		{
-			var model = _documentSession.Query<BlogPost>().Single(bp => bp.Id == id);
+			var model = _documentSession.Load<BlogPost>(id);
 
 			return View(model);
 		}

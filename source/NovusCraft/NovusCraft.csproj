@@ -36,6 +36,9 @@
       <Link>Properties\GlobalAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Infrastructure\Commands\AddBlogPostHandler.cs" />
+    <Compile Include="Infrastructure\Indexes\BlogPosts_ByPublishDate.cs" />
+    <Compile Include="Infrastructure\Indexes\BlogPosts_BySlug.cs" />
+    <Compile Include="Infrastructure\Indexes\UserAccounts_ByEmailAndPasswordHash.cs" />
     <Compile Include="Model\BlogPost.cs" />
     <Compile Include="Infrastructure\Commands\AddBlogPostCommand.cs" />
     <Compile Include="Infrastructure\Commands\DeleteBlogPostHandler.cs" />

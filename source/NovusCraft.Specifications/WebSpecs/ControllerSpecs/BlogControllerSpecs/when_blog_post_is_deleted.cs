@@ -42,12 +42,8 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 
 			container.Configure(ce => ce.For<CommandHandler<DeleteBlogPostCommand>>().Use<DeleteBlogPostHandler>());
 
-			using (var session = document_store.OpenSession())
-			{
-				session.Store(new BlogPost { Id = 1 });
-
-				session.SaveChanges();
-			}
+			session.Store(new BlogPost { Id = 1 });
+			session.SaveChanges();
 
 			result = controller.DeleteBlogPost(1);
 
