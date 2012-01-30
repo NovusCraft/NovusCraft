@@ -46,7 +46,7 @@ var hljs = new function () { function m(p) { return p.replace(/&/gm, "&amp;").re
 
 
 /*
-* Note: While Microsoft is not the author of this file, Microsoft is
+* Note:While Microsoft is not the author of this file, Microsoft is
 * offering you a license subject to the terms of the Microsoft Software
 * License Terms for Microsoft ASP.NET Model View Controller 3.
 * Microsoft reserves all other rights. The notices below are provided
