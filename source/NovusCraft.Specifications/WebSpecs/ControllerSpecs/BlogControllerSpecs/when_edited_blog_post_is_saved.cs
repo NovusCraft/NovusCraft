@@ -40,7 +40,9 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 				session.SaveChanges();
 			}
 
-			var editPostModel = new EditBlogPostModel
+			AutoMapperConfigurator.Initialise();
+
+			result = controller.EditBlogPost(new UpdateBlogPostModel
 			{
 				Id = 1,
 				Title = "New Test Title",
@@ -48,11 +50,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 				Content = "New Test Content",
 				Category = "Category B",
 				PublishedOn = new DateTimeOffset(2012, 11, 10, 09, 08, 08, TimeSpan.Zero)
-			};
-
-			AutoMapperConfigurator.Initialise();
-
-			result = controller.EditBlogPost(editPostModel);
+			});
 
 			container.GetInstance<IDocumentSession>().SaveChanges(); // normally called by RavenSessionAttribute.OnActionExecuted(ActionExecutedContext)
 		};

@@ -3,7 +3,7 @@
 
 namespace NovusCraft.Web.ViewModels
 {
-	public sealed class ViewBlogPostModel : EditBlogPostModel
+	public sealed class ViewBlogPostModel : UpdateBlogPostModel
 	{
 		public string Permalink { get; set; }
 	}

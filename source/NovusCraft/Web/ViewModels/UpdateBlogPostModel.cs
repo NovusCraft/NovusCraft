@@ -3,7 +3,7 @@
 
 namespace NovusCraft.Web.ViewModels
 {
-	public class EditBlogPostModel : CreateBlogPostModel
+	public class UpdateBlogPostModel : CreateBlogPostModel
 	{
 		public int Id { get; set; }
 	}

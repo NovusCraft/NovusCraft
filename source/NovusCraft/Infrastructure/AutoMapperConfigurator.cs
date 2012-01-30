@@ -12,7 +12,7 @@ namespace NovusCraft.Infrastructure
 		public static void Initialise()
 		{
 			Mapper.CreateMap<CreateBlogPostModel, BlogPost>().ForMember(m => m.Id, options => options.Ignore());
-			Mapper.CreateMap<EditBlogPostModel, BlogPost>();
+			Mapper.CreateMap<UpdateBlogPostModel, BlogPost>();
 
 			Mapper.AssertConfigurationIsValid();
 		}

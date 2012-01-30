@@ -71,7 +71,7 @@ namespace NovusCraft.Web.Controllers
 		}
 
 		[HttpPost, Authorize, ValidateAntiForgeryToken]
-		public ActionResult EditBlogPost(EditBlogPostModel blogPost)
+		public ActionResult EditBlogPost(UpdateBlogPostModel blogPost)
 		{
 			if (ModelState.IsValid)
 			{

@@ -18,7 +18,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 		{
 			controller.ModelState.AddModelError(string.Empty, "error");
 
-			result = controller.EditBlogPost(new EditBlogPostModel());
+			result = controller.EditBlogPost(new UpdateBlogPostModel());
 		};
 
 		It should_redisplay_page =
