@@ -7,9 +7,9 @@ using NovusCraft.Web.ViewModels;
 namespace NovusCraft.Infrastructure.Commands
 {
 	[DebuggerStepThrough]
-	public sealed class AddBlogPostCommand : Command<CreateBlogPostModel>
+	public sealed class CreateBlogPostCommand : Command<CreateBlogPostModel>
 	{
-		public AddBlogPostCommand(CreateBlogPostModel model) : base(model)
+		public CreateBlogPostCommand(CreateBlogPostModel model) : base(model)
 		{
 		}
 	}

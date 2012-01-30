@@ -23,7 +23,7 @@ namespace NovusCraft.Specifications.InfrastructureSpecs.StructureMapConfiguratio
 
 		// Blog
 		It should_register_hybrid_add_blog_post_handler =
-			() => container.Model.PluginTypes.Single(pt => pt.PluginType == typeof(CommandHandler<AddBlogPostCommand>) && pt.Default.ConcreteType == typeof(AddBlogPostHandler)).Lifecycle.ShouldEqual(InstanceScope.Hybrid.ToString());
+			() => container.Model.PluginTypes.Single(pt => pt.PluginType == typeof(CommandHandler<CreateBlogPostCommand>) && pt.Default.ConcreteType == typeof(CreateBlogPostHandler)).Lifecycle.ShouldEqual(InstanceScope.Hybrid.ToString());
 
 		It should_register_hybrid_update_blog_post_handler =
 			() => container.Model.PluginTypes.Single(pt => pt.PluginType == typeof(CommandHandler<UpdateBlogPostCommand>) && pt.Default.ConcreteType == typeof(UpdateBlogPostHandler)).Lifecycle.ShouldEqual(InstanceScope.Hybrid.ToString());

@@ -23,7 +23,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 
 		Because of = () =>
 		{
-			container.Configure(ce => ce.For<CommandHandler<AddBlogPostCommand>>().Use<AddBlogPostHandler>());
+			container.Configure(ce => ce.For<CommandHandler<CreateBlogPostCommand>>().Use<CreateBlogPostHandler>());
 
 			AutoMapperConfigurator.Initialise();
 

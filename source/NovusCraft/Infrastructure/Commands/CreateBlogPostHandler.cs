@@ -8,13 +8,13 @@ using Raven.Client;
 
 namespace NovusCraft.Infrastructure.Commands
 {
-	public sealed class AddBlogPostHandler : CommandHandler<AddBlogPostCommand>
+	public sealed class CreateBlogPostHandler : CommandHandler<CreateBlogPostCommand>
 	{
-		public AddBlogPostHandler(IDocumentSession session) : base(session)
+		public CreateBlogPostHandler(IDocumentSession session) : base(session)
 		{
 		}
 
-		public override void Execute(AddBlogPostCommand command)
+		public override void Execute(CreateBlogPostCommand command)
 		{
 			var blogPost = Mapper.Map<CreateBlogPostModel, BlogPost>(command.Model);
 			Session.Store(blogPost);

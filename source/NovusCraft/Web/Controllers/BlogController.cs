@@ -55,7 +55,7 @@ namespace NovusCraft.Web.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				_commandDispatcher.Dispatch(new AddBlogPostCommand(blogPost));
+				_commandDispatcher.Dispatch(new CreateBlogPostCommand(blogPost));
 				return RedirectToAction("Home", "Dashboard");
 			}
 
