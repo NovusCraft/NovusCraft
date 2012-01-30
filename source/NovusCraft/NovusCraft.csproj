@@ -35,16 +35,13 @@
     <Compile Include="..\GlobalAssemblyInfo.cs">
       <Link>Properties\GlobalAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="Infrastructure\Commands\CreateBlogPostHandler.cs" />
     <Compile Include="Infrastructure\AutoMapperConfigurator.cs" />
     <Compile Include="Infrastructure\Indexes\BlogPosts_ByPublishDate.cs" />
     <Compile Include="Infrastructure\Indexes\BlogPosts_BySlug.cs" />
     <Compile Include="Infrastructure\Indexes\UserAccounts_ByEmailAndPasswordHash.cs" />
     <Compile Include="Model\BlogPost.cs" />
     <Compile Include="Infrastructure\Commands\CreateBlogPostCommand.cs" />
-    <Compile Include="Infrastructure\Commands\DeleteBlogPostHandler.cs" />
     <Compile Include="Infrastructure\Commands\DeleteBlogPostCommand.cs" />
-    <Compile Include="Infrastructure\Commands\UpdateBlogPostHandler.cs" />
     <Compile Include="Infrastructure\Commands\UpdateBlogPostCommand.cs" />
     <Compile Include="Infrastructure\Command.cs" />
     <Compile Include="Infrastructure\CommandHandler.cs" />
