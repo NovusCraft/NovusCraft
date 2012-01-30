@@ -101,6 +101,9 @@
     <Reference Include="dotless.Core">
       <HintPath>..\packages\dotless.1.2.2.0\lib\dotless.Core.dll</HintPath>
     </Reference>
+    <Reference Include="EcmaScript.NET.modified">
+      <HintPath>..\packages\YUICompressor.NET.1.7.0.0\lib\net35\EcmaScript.NET.modified.dll</HintPath>
+    </Reference>
     <Reference Include="ICSharpCode.NRefactory, Version=3.0.0.3800, Culture=neutral, PublicKeyToken=efe927acf176eea2, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\RavenDB-Embedded.1.0.573\lib\net40\ICSharpCode.NRefactory.dll</HintPath>
@@ -122,6 +125,9 @@
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Yahoo.Yui.Compressor">
+      <HintPath>..\packages\YUICompressor.NET.1.7.0.0\lib\net35\Yahoo.Yui.Compressor.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NovusCraft\NovusCraft.csproj">
