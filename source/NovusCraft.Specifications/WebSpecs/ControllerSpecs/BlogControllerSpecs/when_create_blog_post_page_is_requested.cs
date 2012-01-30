@@ -5,9 +5,9 @@ using System;
 using System.Web.Mvc;
 using Machine.Specifications;
 using Machine.Specifications.Mvc;
-using NovusCraft.Model;
 using NovusCraft.Specifications.SpecUtils;
 using NovusCraft.Web.Controllers;
+using NovusCraft.Web.ViewModels;
 
 namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 {
@@ -21,7 +21,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 			() => result.ShouldBeAView().And().ShouldUseDefaultView();
 
 		It should_return_blog_post_with_current_date_and_time_as_publish_date =
-			() => result.Model<BlogPost>().PublishedOn.ShouldBeGreaterThan(DateTimeOffset.Now.AddMinutes(-1));
+			() => result.Model<CreateBlogPostModel>().PublishedOn.ShouldBeGreaterThan(DateTimeOffset.Now.AddMinutes(-1));
 
 		It requires_authentication =
 			() => This.Action<BlogController>(controller => controller.CreateBlogPost()).ShouldBeDecoratedWith<AuthorizeAttribute>();

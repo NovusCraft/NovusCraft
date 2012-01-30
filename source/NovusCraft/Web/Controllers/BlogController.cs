@@ -5,6 +5,7 @@ using System;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+using AutoMapper;
 using NovusCraft.Infrastructure;
 using NovusCraft.Infrastructure.Commands;
 using NovusCraft.Infrastructure.Indexes;
@@ -45,7 +46,7 @@ namespace NovusCraft.Web.Controllers
 		[Authorize]
 		public ActionResult CreateBlogPost()
 		{
-			var model = new BlogPost { PublishedOn = DateTimeOffset.Now };
+			var model = new CreateBlogPostModel { PublishedOn = DateTimeOffset.Now };
 
 			return View(model);
 		}
@@ -65,7 +66,8 @@ namespace NovusCraft.Web.Controllers
 		[Authorize]
 		public ActionResult EditBlogPost(int id)
 		{
-			var model = _documentSession.Load<BlogPost>(id);
+			var blogPost = _documentSession.Load<BlogPost>(id);
+			var model = Mapper.Map<BlogPost, UpdateBlogPostModel>(blogPost);
 
 			return View(model);
 		}

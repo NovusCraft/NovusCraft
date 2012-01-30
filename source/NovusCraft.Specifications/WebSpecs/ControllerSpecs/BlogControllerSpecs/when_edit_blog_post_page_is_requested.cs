@@ -5,9 +5,11 @@ using System;
 using System.Web.Mvc;
 using Machine.Specifications;
 using Machine.Specifications.Mvc;
+using NovusCraft.Infrastructure;
 using NovusCraft.Model;
 using NovusCraft.Specifications.SpecUtils;
 using NovusCraft.Web.Controllers;
+using NovusCraft.Web.ViewModels;
 
 namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 {
@@ -29,6 +31,8 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 			});
 			session.SaveChanges();
 
+			AutoMapperConfigurator.Initialise();
+
 			result = controller.EditBlogPost(1);
 		};
 
@@ -36,22 +40,22 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 			() => result.ShouldBeAView().And().ShouldUseDefaultView();
 
 		It should_return_blog_post_with_id =
-			() => result.Model<BlogPost>().Id.ShouldEqual(1);
+			() => result.Model<UpdateBlogPostModel>().Id.ShouldEqual(1);
 
 		It should_return_blog_post_with_title =
-			() => result.Model<BlogPost>().Title.ShouldEqual("Test Title");
+			() => result.Model<UpdateBlogPostModel>().Title.ShouldEqual("Test Title");
 
 		It should_return_blog_post_with_slug =
-			() => result.Model<BlogPost>().Slug.ShouldEqual("test-title");
+			() => result.Model<UpdateBlogPostModel>().Slug.ShouldEqual("test-title");
 
 		It should_return_blog_post_with_content =
-			() => result.Model<BlogPost>().Content.ShouldEqual("Test Content");
+			() => result.Model<UpdateBlogPostModel>().Content.ShouldEqual("Test Content");
 
 		It should_return_blog_post_with_category_title =
-			() => result.Model<BlogPost>().Category.ShouldEqual("Category A");
+			() => result.Model<UpdateBlogPostModel>().Category.ShouldEqual("Category A");
 
 		It should_return_blog_post_with_publish_date =
-			() => result.Model<BlogPost>().PublishedOn.ShouldEqual(new DateTimeOffset(2011, 11, 10, 09, 08, 07, TimeSpan.Zero));
+			() => result.Model<UpdateBlogPostModel>().PublishedOn.ShouldEqual(new DateTimeOffset(2011, 11, 10, 09, 08, 07, TimeSpan.Zero));
 
 		It requires_authentication =
 			() => This.Action<BlogController>(controller => controller.EditBlogPost(0)).ShouldBeDecoratedWith<AuthorizeAttribute>();
