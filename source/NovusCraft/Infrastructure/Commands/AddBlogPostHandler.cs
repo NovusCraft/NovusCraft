@@ -1,7 +1,9 @@
 ﻿// # Copyright © 2011, Novus Craft
 // # All rights reserved. 
 
+using AutoMapper;
 using NovusCraft.Model;
+using NovusCraft.Web.ViewModels;
 using Raven.Client;
 
 namespace NovusCraft.Infrastructure.Commands
@@ -14,14 +16,8 @@ namespace NovusCraft.Infrastructure.Commands
 
 		public override void Execute(AddBlogPostCommand command)
 		{
-			Session.Store(new BlogPost
-			{
-				Title = command.Model.Title,
-				Slug = command.Model.Slug,
-				Content = command.Model.Content,
-				Category = command.Model.Category,
-				PublishedOn = command.Model.PublishedOn
-			});
+			var blogPost = Mapper.Map<CreateBlogPostModel, BlogPost>(command.Model);
+			Session.Store(blogPost);
 		}
 	}
 }

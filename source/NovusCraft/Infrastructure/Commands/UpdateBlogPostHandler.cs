@@ -1,6 +1,7 @@
 ﻿// # Copyright © 2011, Novus Craft
 // # All rights reserved. 
 
+using AutoMapper;
 using NovusCraft.Model;
 using Raven.Client;
 
@@ -16,12 +17,7 @@ namespace NovusCraft.Infrastructure.Commands
 		{
 			var blogPost = Session.Load<BlogPost>(command.Model.Id);
 
-			blogPost.Title = command.Model.Title;
-			blogPost.Slug = command.Model.Slug;
-			blogPost.Content = command.Model.Content;
-			blogPost.Category = command.Model.Category;
-			blogPost.PublishedOn = command.Model.PublishedOn;
-
+			Mapper.Map(command.Model, blogPost);
 			Session.Store(blogPost);
 		}
 	}

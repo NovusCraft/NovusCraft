@@ -25,6 +25,8 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 		{
 			container.Configure(ce => ce.For<CommandHandler<AddBlogPostCommand>>().Use<AddBlogPostHandler>());
 
+			AutoMapperConfigurator.Initialise();
+
 			result = controller.CreateBlogPost(new CreateBlogPostModel
 			{
 				Title = "Test Title",

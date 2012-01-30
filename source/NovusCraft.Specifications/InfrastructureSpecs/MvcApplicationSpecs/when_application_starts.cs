@@ -4,6 +4,7 @@
 using System.Linq;
 using System.Web.Mvc;
 using System.Web.Routing;
+using AutoMapper;
 using Machine.Specifications;
 using NovusCraft.Infrastructure;
 using StructureMap;
@@ -18,8 +19,11 @@ namespace NovusCraft.Specifications.InfrastructureSpecs.MvcApplicationSpecs
 		It should_add_handle_error_filter_to_global_filters =
 			() => GlobalFilters.Filters.ShouldContain(f => f.Instance.GetType().Name == typeof(HandleErrorAttribute).Name);
 
-		It should_register_routes =
+		It should_register_mvc_routes =
 			() => RouteTable.Routes.Count.ShouldBeGreaterThan(0);
+
+		It should_register_automapper_mappings =
+			() => Mapper.GetAllTypeMaps().Length.ShouldBeGreaterThan(0);
 
 		// if current plugin instance count is greater than default plugin instance count, then StructureMap is initialised
 		It should_initialise_structuremap_container =

@@ -21,6 +21,9 @@ namespace NovusCraft.Infrastructure
 			// register routes
 			RouteConfigurator.Initialise();
 
+			// register AutoMapper mappings
+			AutoMapperConfigurator.Initialise();
+
 			// initialise structure map
 			ObjectFactory.Initialize(ie => ie.AddRegistry<StructureMapConfigurationRegistry>());
 
