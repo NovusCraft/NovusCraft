@@ -4,8 +4,8 @@
 using System.Linq;
 using System.Web.Mvc;
 using NovusCraft.Model;
-using NovusCraft.Web.ViewModels;
 using Raven.Client;
+using Raven.Client.Linq;
 
 namespace NovusCraft.Web.Controllers
 {
@@ -21,21 +21,7 @@ namespace NovusCraft.Web.Controllers
 		[Authorize]
 		public ActionResult Home()
 		{
-			var blogPosts = _documentSession
-				.Query<BlogPost>()
-				.Customize(c => c.WaitForNonStaleResults())
-				.OrderByDescending(bp => bp.PublishedOn)
-				.ToArray(); // TODO: .ToArray() is a temporary workaround to handle failing projections
-
-			var model = (from blogPost in blogPosts
-			             select new ViewBlogPostModel
-			             {
-			             	Id = blogPost.Id,
-			             	Title = blogPost.Title,
-			             	Content = blogPost.Content,
-			             	Category = blogPost.Category,
-			             	PublishedOn = blogPost.PublishedOn
-			             }).ToList();
+			var model = _documentSession.Query<BlogPost>().OrderByDescending(bp => bp.PublishedOn).ToList();
 
 			return View(model);
 		}

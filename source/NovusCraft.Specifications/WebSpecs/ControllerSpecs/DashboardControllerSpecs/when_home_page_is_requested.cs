@@ -10,7 +10,6 @@ using Machine.Specifications.Mvc;
 using NovusCraft.Model;
 using NovusCraft.Specifications.SpecUtils;
 using NovusCraft.Web.Controllers;
-using NovusCraft.Web.ViewModels;
 
 namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.DashboardControllerSpecs
 {
@@ -51,22 +50,22 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.DashboardController
 			() => result.ShouldBeAView().And().ShouldUseDefaultView();
 
 		It should_return_list_of_blog_posts_sorted_by_publish_date_most_recent_first =
-			() => result.Model<List<ViewBlogPostModel>>().First().PublishedOn.ShouldBeGreaterThan(result.Model<List<ViewBlogPostModel>>()[1].PublishedOn);
+			() => result.Model<List<BlogPost>>().First().PublishedOn.ShouldBeGreaterThan(result.Model<List<BlogPost>>()[1].PublishedOn);
 
 		It should_return_list_of_blog_posts_with_blog_post_having_id =
-			() => result.Model<List<ViewBlogPostModel>>().First().Id.ShouldEqual(2);
+			() => result.Model<List<BlogPost>>().First().Id.ShouldEqual(2);
 
 		It should_return_list_of_blog_posts_with_blog_post_having_title =
-			() => result.Model<List<ViewBlogPostModel>>().First().Title.ShouldEqual("Test Title 2");
+			() => result.Model<List<BlogPost>>().First().Title.ShouldEqual("Test Title 2");
 
 		It should_return_list_of_blog_posts_with_blog_post_having_content =
-			() => result.Model<List<ViewBlogPostModel>>().First().Content.ShouldEqual("Test Content 2");
+			() => result.Model<List<BlogPost>>().First().Content.ShouldEqual("Test Content 2");
 
 		It should_return_list_of_blog_posts_with_blog_post_having_category_title =
-			() => result.Model<List<ViewBlogPostModel>>().First().Category.ShouldEqual("Category B");
+			() => result.Model<List<BlogPost>>().First().Category.ShouldEqual("Category B");
 
 		It should_return_list_of_blog_posts_with_blog_post_having_publish_date =
-			() => result.Model<List<ViewBlogPostModel>>().First().PublishedOn.ShouldEqual(new DateTimeOffset(2012, 11, 10, 09, 08, 08, TimeSpan.Zero));
+			() => result.Model<List<BlogPost>>().First().PublishedOn.ShouldEqual(new DateTimeOffset(2012, 11, 10, 09, 08, 08, TimeSpan.Zero));
 
 		It requires_authentication =
 			() => This.Action<DashboardController>(controller => controller.Home()).ShouldBeDecoratedWith<AuthorizeAttribute>();

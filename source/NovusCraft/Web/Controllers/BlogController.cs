@@ -11,6 +11,7 @@ using NovusCraft.Model;
 using NovusCraft.Web.Helpers;
 using NovusCraft.Web.ViewModels;
 using Raven.Client;
+using Raven.Client.Linq;
 
 namespace NovusCraft.Web.Controllers
 {
@@ -27,25 +28,15 @@ namespace NovusCraft.Web.Controllers
 
 		public ActionResult ViewBlogPost(string slug)
 		{
-			var blogPost = _documentSession.Query<BlogPost>().SingleOrDefault(bp => bp.Slug == slug);
+			var model = _documentSession.Query<BlogPost>().AsProjection<ViewBlogPostModel>().SingleOrDefault(bp => bp.Slug == slug);
 
-			if (blogPost == null)
+			if (model == null)
 			{
 				Response.StatusCode = (int)HttpStatusCode.NotFound;
 				return View("PageNotFound");
 			}
 
-			var permalink = Url.Permalink("ViewBlogPost", "Blog", new { slug });
-
-			var model = new ViewBlogPostModel
-			{
-				Id = blogPost.Id,
-				Title = blogPost.Title,
-				Content = blogPost.Content,
-				Category = blogPost.Category,
-				PublishedOn = blogPost.PublishedOn,
-				Permalink = permalink.ToString()
-			};
+			model.Permalink = Url.Permalink("ViewBlogPost", "Blog", new { slug }).ToString();
 
 			return View(model);
 		}
@@ -73,8 +64,9 @@ namespace NovusCraft.Web.Controllers
 		[Authorize]
 		public ActionResult EditBlogPost(int id)
 		{
-			var blogPost = _documentSession.Query<BlogPost>().Single(bp => bp.Id == id);
+			//var model = _documentSession.Query<BlogPost>().AsProjection<EditBlogPostModel>().Single(bp => bp.Id == id); TODO: looks like this needs an index to work correctly
 
+			var blogPost = _documentSession.Query<BlogPost>().Single(bp => bp.Id == id);
 			var model = new EditBlogPostModel
 			{
 				Id = blogPost.Id,

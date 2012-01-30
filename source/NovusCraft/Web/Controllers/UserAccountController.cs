@@ -33,9 +33,9 @@ namespace NovusCraft.Web.Controllers
 			if (ModelState.IsValid)
 			{
 				var passwordHash = HashUtility.GenerateHash(logInModel.Password);
-				var userAccount = _documentSession.Query<UserAccount>().SingleOrDefault(ua => ua.Email == logInModel.Email && ua.PasswordHash == passwordHash);
+				var userAccountExists = _documentSession.Query<UserAccount>().Any(ua => ua.Email == logInModel.Email && ua.PasswordHash == passwordHash);
 
-				if (userAccount != null)
+				if (userAccountExists)
 				{
 					// authentication successful
 					_formsAuthentication.SetAuthCookie(logInModel.Email);

@@ -1,4 +1,4 @@
-﻿@model IList<ViewBlogPostModel>
+﻿@model IList<BlogPost>
 		   
 @{
 	Layout = "~/Views/Shared/_DashboardLayout.cshtml";
@@ -22,7 +22,7 @@
 				{
 					<tr>
 						<td>@Html.ActionLink(@viewBlogPostModel.Title, "EditBlogPost", "Blog", new { viewBlogPostModel.Id }, null)</td>
-						<td>@viewBlogPostModel.CategoryTitle</td>
+						<td>@viewBlogPostModel.Category</td>
 						<td>@viewBlogPostModel.PublishedOn</td>
 					</tr>
 				}
