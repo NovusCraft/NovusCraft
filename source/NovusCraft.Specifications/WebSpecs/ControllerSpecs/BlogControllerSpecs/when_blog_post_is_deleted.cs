@@ -35,9 +35,6 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 			httpContext.SetupGet(hc => hc.Request).Returns(httpRequest.Object);
 			httpContext.SetupGet(hc => hc.Response).Returns(httpResponse.Object);
 			var urlHelper = new UrlHelper(new RequestContext(httpContext.Object, new RouteData()));
-
-			RouteConfigurator.Initialise(); // this populates route table, so ensure RouteTable.Routes.Clear() is called during cleanup
-
 			controller.Url = urlHelper;
 
 			container.Configure(ce => ce.For<CommandHandler<DeleteBlogPostCommand>>().Use<DeleteBlogPostHandler>());
@@ -51,7 +48,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 		};
 
 		It should_delete_blog_post =
-			() => document_store.OpenSession().Query<BlogPost>().Customize(c => c.WaitForNonStaleResults()).Count(bp => bp.Id == 1).ShouldEqual(0);
+			() => session.Query<BlogPost>().Customize(c => c.WaitForNonStaleResults()).Count(bp => bp.Id == 1).ShouldEqual(0);
 
 		It should_return_json_result =
 			() => result.ShouldBeOfType<JsonResult>();

@@ -8,7 +8,6 @@ using System.Web.Routing;
 using Machine.Specifications;
 using Machine.Specifications.Mvc;
 using Moq;
-using NovusCraft.Infrastructure;
 using NovusCraft.Model;
 using NovusCraft.Web.Controllers;
 using NovusCraft.Web.ViewModels;
@@ -33,9 +32,6 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 			httpContext.SetupGet(hc => hc.Request).Returns(httpRequest.Object);
 			httpContext.SetupGet(hc => hc.Response).Returns(httpResponse.Object);
 			var urlHelper = new UrlHelper(new RequestContext(httpContext.Object, new RouteData()));
-
-			RouteConfigurator.Initialise(); // this populates route table, so ensure RouteTable.Routes.Clear() is called during cleanup
-
 			controller.Url = urlHelper;
 
 			session.Store(new BlogPost

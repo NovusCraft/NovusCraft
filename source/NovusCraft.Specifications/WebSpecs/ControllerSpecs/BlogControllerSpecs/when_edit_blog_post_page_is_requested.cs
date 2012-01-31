@@ -5,7 +5,6 @@ using System;
 using System.Web.Mvc;
 using Machine.Specifications;
 using Machine.Specifications.Mvc;
-using NovusCraft.Infrastructure;
 using NovusCraft.Model;
 using NovusCraft.Specifications.SpecUtils;
 using NovusCraft.Web.Controllers;
@@ -31,7 +30,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 			});
 			session.SaveChanges();
 
-			AutoMapperConfigurator.Initialise();
+			Spec.RequiresAutoMapperConfiguration();
 
 			result = controller.EditBlogPost(1);
 		};

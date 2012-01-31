@@ -6,9 +6,7 @@ using System.Web.Mvc;
 using Machine.Specifications;
 using Moq;
 using NovusCraft.Infrastructure.ActionFilters;
-using Raven.Client;
-using Raven.Client.Embedded;
-using StructureMap;
+using NovusCraft.Specifications.SpecUtils;
 using It = Machine.Specifications.It;
 
 namespace NovusCraft.Specifications.InfrastructureSpecs.ActionFilterSpecs.RavenSessionAttributeSpecs
@@ -18,17 +16,6 @@ namespace NovusCraft.Specifications.InfrastructureSpecs.ActionFilterSpecs.RavenS
 	{
 		Because of = () =>
 		{
-			ObjectFactory.Container.Configure(c => c.For<IDocumentSession>().Singleton().Use(() =>
-			{
-				var documentStore = new EmbeddableDocumentStore { RunInMemory = true };
-				documentStore.Initialize();
-				var session = documentStore.OpenSession();
-
-				session.Store(new { });
-
-				return session;
-			}));
-
 			var filterContext = new Mock<ActionExecutedContext>();
 			filterContext.SetupGet(fc => fc.Exception).Returns(new Exception());
 
@@ -36,6 +23,6 @@ namespace NovusCraft.Specifications.InfrastructureSpecs.ActionFilterSpecs.RavenS
 		};
 
 		It should_commit_changes_in_ravendb_session =
-			() => ObjectFactory.Container.GetInstance<IDocumentSession>().Advanced.HasChanges.ShouldBeTrue();
+			() => Spec.ContextDocumentSession.Advanced.HasChanges.ShouldBeTrue();
 	}
 }

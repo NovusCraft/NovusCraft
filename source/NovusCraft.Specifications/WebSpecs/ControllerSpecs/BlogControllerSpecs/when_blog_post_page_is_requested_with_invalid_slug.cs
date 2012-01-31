@@ -24,7 +24,6 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 			var controllerContext = new Mock<ControllerContext>();
 			controllerContext.SetupGet(cc => cc.HttpContext.Request).Returns(new Mock<HttpRequestBase>().Object);
 			controllerContext.SetupGet(cc => cc.HttpContext.Response).Returns(http_response.Object);
-
 			controller.ControllerContext = controllerContext.Object;
 
 			result = controller.ViewBlogPost(slug: "test-slug-?");

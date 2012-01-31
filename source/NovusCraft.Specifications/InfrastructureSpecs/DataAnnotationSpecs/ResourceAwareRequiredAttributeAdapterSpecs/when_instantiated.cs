@@ -17,8 +17,9 @@ namespace NovusCraft.Specifications.InfrastructureSpecs.DataAnnotationSpecs.Reso
 		Because of = () =>
 		{
 			var modelMetadata = new ModelMetadata(new EmptyModelMetadataProvider(), null, null, typeof(object), null);
-			attribute = new RequiredAttribute();
 			var controllerContext = new ControllerContext();
+			attribute = new RequiredAttribute();
+
 			new ResourceAwareRequiredAttributeAdapter(modelMetadata, controllerContext, attribute);
 		};
 

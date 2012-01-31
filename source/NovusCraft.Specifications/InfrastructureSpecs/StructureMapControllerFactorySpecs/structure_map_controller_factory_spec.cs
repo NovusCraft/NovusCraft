@@ -5,7 +5,6 @@ using System;
 using System.Web.Mvc;
 using Machine.Specifications;
 using NovusCraft.Infrastructure;
-using StructureMap;
 
 namespace NovusCraft.Specifications.InfrastructureSpecs.StructureMapControllerFactorySpecs
 {
@@ -14,8 +13,6 @@ namespace NovusCraft.Specifications.InfrastructureSpecs.StructureMapControllerFa
 		protected static StructureMapControllerFactoryProxy factory;
 
 		Establish context = () => factory = new StructureMapControllerFactoryProxy();
-
-		Cleanup cleanup = () => ObjectFactory.ResetDefaults();
 
 		#region Nested type: StructureMapControllerFactoryProxy
 

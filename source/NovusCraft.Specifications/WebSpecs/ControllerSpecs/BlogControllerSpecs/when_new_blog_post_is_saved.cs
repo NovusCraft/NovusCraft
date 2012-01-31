@@ -12,7 +12,6 @@ using NovusCraft.Model;
 using NovusCraft.Specifications.SpecUtils;
 using NovusCraft.Web.Controllers;
 using NovusCraft.Web.ViewModels;
-using Raven.Client;
 
 namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 {
@@ -25,7 +24,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 		{
 			container.Configure(ce => ce.For<CommandHandler<CreateBlogPostCommand>>().Use<CreateBlogPostHandler>());
 
-			AutoMapperConfigurator.Initialise();
+			Spec.RequiresAutoMapperConfiguration();
 
 			result = controller.CreateBlogPost(new CreateBlogPostModel
 			{
@@ -36,23 +35,23 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 				PublishedOn = new DateTimeOffset(2012, 11, 10, 9, 8, 7, TimeSpan.Zero)
 			});
 
-			container.GetInstance<IDocumentSession>().SaveChanges(); // normally called by RavenSessionAttribute.OnActionExecuted(ActionExecutedContext)
+			session.SaveChanges(); // normally called by RavenSessionAttribute.OnActionExecuted(ActionExecutedContext)
 		};
 
 		It should_save_blog_post_with_title =
-			() => document_store.OpenSession().Query<BlogPost>().Count(bp => bp.Title == "Test Title").ShouldEqual(1);
+			() => session.Query<BlogPost>().Count(bp => bp.Title == "Test Title").ShouldEqual(1);
 
 		It should_save_blog_post_with_slug =
-			() => document_store.OpenSession().Query<BlogPost>().Count(bp => bp.Slug == "test-title").ShouldEqual(1);
+			() => session.Query<BlogPost>().Count(bp => bp.Slug == "test-title").ShouldEqual(1);
 
 		It should_save_blog_post_with_content =
-			() => document_store.OpenSession().Query<BlogPost>().Count(bp => bp.Content == "Blog Content").ShouldEqual(1);
+			() => session.Query<BlogPost>().Count(bp => bp.Content == "Blog Content").ShouldEqual(1);
 
 		It should_save_blog_post_with_category_title =
-			() => document_store.OpenSession().Query<BlogPost>().Count(bp => bp.Category == "Category A").ShouldEqual(1);
+			() => session.Query<BlogPost>().Count(bp => bp.Category == "Category A").ShouldEqual(1);
 
 		It should_save_blog_post_with_publish_date =
-			() => document_store.OpenSession().Query<BlogPost>().Count(bp => bp.PublishedOn == new DateTimeOffset(2012, 11, 10, 9, 8, 7, TimeSpan.Zero)).ShouldEqual(1);
+			() => session.Query<BlogPost>().Count(bp => bp.PublishedOn == new DateTimeOffset(2012, 11, 10, 9, 8, 7, TimeSpan.Zero)).ShouldEqual(1);
 
 		It should_display_dashboard_page =
 			() => result.ShouldRedirectToAction<DashboardController>(c => c.Home());

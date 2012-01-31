@@ -41,8 +41,10 @@
     <Compile Include="InfrastructureSpecs\StructureMapConfigurationRegistrySpecs\when_instantiated.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpecUtils\CastExtensions.cs" />
+    <Compile Include="SpecUtils\StructureMapExtensions.cs" />
     <Compile Include="SpecUtils\ReflectionExtensions.cs" />
     <Compile Include="SpecUtils\RouteTestExtensions.cs" />
+    <Compile Include="SpecUtils\Spec.cs" />
     <Compile Include="SpecUtils\This.cs" />
     <Compile Include="InfrastructureSpecs\ActionFilterSpecs\RavenSessionAttributeSpecs\after_action_with_an_exception_is_executed.cs" />
     <Compile Include="InfrastructureSpecs\ActionFilterSpecs\RavenSessionAttributeSpecs\raven_session_attribute_spec.cs" />

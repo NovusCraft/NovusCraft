@@ -3,6 +3,9 @@
 
 using Machine.Specifications;
 using NovusCraft.Infrastructure.ActionFilters;
+using NovusCraft.Specifications.SpecUtils;
+using Raven.Client;
+using StructureMap;
 
 namespace NovusCraft.Specifications.InfrastructureSpecs.ActionFilterSpecs.RavenSessionAttributeSpecs
 {
@@ -10,6 +13,17 @@ namespace NovusCraft.Specifications.InfrastructureSpecs.ActionFilterSpecs.RavenS
 	{
 		protected static RavenSessionAttribute attribute;
 
-		Establish context = () => attribute = new RavenSessionAttribute();
+		Establish context = () =>
+		{
+			ObjectFactory.Container.Configure(c => c.For<IDocumentSession>().Singleton().Use(() =>
+			{
+				var session = Spec.RequiresRavenDBDocumentSession();
+				session.Store(new { });
+
+				return session;
+			}));
+
+			attribute = new RavenSessionAttribute();
+		};
 	}
 }

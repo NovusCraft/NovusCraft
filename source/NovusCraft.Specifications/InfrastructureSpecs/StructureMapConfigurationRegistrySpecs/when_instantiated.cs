@@ -1,11 +1,11 @@
 ﻿// # Copyright © 2011, Novus Craft
 // # All rights reserved. 
 
-using System.Linq;
 using Machine.Specifications;
 using NovusCraft.Infrastructure;
 using NovusCraft.Infrastructure.Commands;
 using NovusCraft.Security;
+using NovusCraft.Specifications.SpecUtils;
 using Raven.Client;
 using Raven.Client.Embedded;
 using StructureMap;
@@ -19,20 +19,20 @@ namespace NovusCraft.Specifications.InfrastructureSpecs.StructureMapConfiguratio
 
 		// RavenDB
 		It should_register_singleton_ravendb_document_store =
-			() => container.Model.PluginTypes.Single(pt => pt.PluginType == typeof(IDocumentStore) && pt.Default.ConcreteType == typeof(EmbeddableDocumentStore)).Lifecycle.ShouldEqual(InstanceScope.Singleton.ToString());
+			() => container.ShouldContainSingletonPluginFor<IDocumentStore, EmbeddableDocumentStore>();
 
 		// Blog
 		It should_register_hybrid_add_blog_post_handler =
-			() => container.Model.PluginTypes.Single(pt => pt.PluginType == typeof(CommandHandler<CreateBlogPostCommand>) && pt.Default.ConcreteType == typeof(CreateBlogPostHandler)).Lifecycle.ShouldEqual(InstanceScope.Hybrid.ToString());
+			() => container.ShouldContainHybridPluginFor<CommandHandler<CreateBlogPostCommand>, CreateBlogPostHandler>();
 
 		It should_register_hybrid_update_blog_post_handler =
-			() => container.Model.PluginTypes.Single(pt => pt.PluginType == typeof(CommandHandler<UpdateBlogPostCommand>) && pt.Default.ConcreteType == typeof(UpdateBlogPostHandler)).Lifecycle.ShouldEqual(InstanceScope.Hybrid.ToString());
+			() => container.ShouldContainHybridPluginFor<CommandHandler<UpdateBlogPostCommand>, UpdateBlogPostHandler>();
 
 		It should_register_hybrid_delete_blog_post_handler =
-			() => container.Model.PluginTypes.Single(pt => pt.PluginType == typeof(CommandHandler<DeleteBlogPostCommand>) && pt.Default.ConcreteType == typeof(DeleteBlogPostHandler)).Lifecycle.ShouldEqual(InstanceScope.Hybrid.ToString());
+			() => container.ShouldContainHybridPluginFor<CommandHandler<DeleteBlogPostCommand>, DeleteBlogPostHandler>();
 
 		// Security
 		It should_register_hybrid_forms_authentication_wrapper =
-			() => container.Model.PluginTypes.Single(pt => pt.PluginType == typeof(IFormsAuthenticationWrapper) && pt.Default.ConcreteType == typeof(FormsAuthenticationWrapper)).Lifecycle.ShouldEqual(InstanceScope.Hybrid.ToString());
+			() => container.ShouldContainHybridPluginFor<IFormsAuthenticationWrapper, FormsAuthenticationWrapper>();
 	}
 }

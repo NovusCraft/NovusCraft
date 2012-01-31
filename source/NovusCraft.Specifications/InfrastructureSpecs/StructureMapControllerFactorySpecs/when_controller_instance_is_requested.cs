@@ -1,12 +1,12 @@
 ﻿// # Copyright © 2011, Novus Craft
 // # All rights reserved. 
 
-using System.Linq;
 using System.Web.Mvc;
 using Machine.Specifications;
 using NovusCraft.Infrastructure;
+using NovusCraft.Specifications.SpecUtils;
 using Raven.Client;
-using Raven.Client.Embedded;
+using Raven.Client.Document;
 using StructureMap;
 
 namespace NovusCraft.Specifications.InfrastructureSpecs.StructureMapControllerFactorySpecs
@@ -18,12 +18,7 @@ namespace NovusCraft.Specifications.InfrastructureSpecs.StructureMapControllerFa
 
 		Because of = () =>
 		{
-			ObjectFactory.Container.Configure(c => c.For<IDocumentStore>().Use(() =>
-			{
-				var documentStore = new EmbeddableDocumentStore { RunInMemory = true };
-				documentStore.Initialize();
-				return documentStore;
-			}));
+			ObjectFactory.Container.Configure(c => c.For<IDocumentStore>().Use(Spec.RequiresRavenDBDocumentStore));
 
 			controller = factory.GetControllerInstance(typeof(TestController));
 		};
@@ -31,8 +26,8 @@ namespace NovusCraft.Specifications.InfrastructureSpecs.StructureMapControllerFa
 		It should_return_controller_instance =
 			() => controller.ShouldBeOfType<TestController>();
 
-		It should_register_hybrin_forms_authentication_wrapper =
-			() => ObjectFactory.Container.Model.PluginTypes.Single(pt => pt.PluginType == typeof(IDocumentSession)).Lifecycle.ShouldEqual(InstanceScope.Hybrid.ToString());
+		It should_set_context_document_session =
+			() => ObjectFactory.Container.ShouldContainHybridPluginFor<IDocumentSession, DocumentSession>();
 
 		#region Nested type: TestController
 
