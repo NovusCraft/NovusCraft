@@ -13,7 +13,7 @@ namespace NovusCraft.Infrastructure
 
 		public static EmbeddableDocumentStore CreateEmbeddableDocumentStore()
 		{
-			var documentStore = new EmbeddableDocumentStore { ConnectionStringName = ConnectionStringName, UseEmbeddedHttpServer = true };
+			var documentStore = new EmbeddableDocumentStore { ConnectionStringName = ConnectionStringName };
 			documentStore.Initialize();
 
 			IndexCreation.CreateIndexes(Assembly.GetExecutingAssembly(), documentStore);
