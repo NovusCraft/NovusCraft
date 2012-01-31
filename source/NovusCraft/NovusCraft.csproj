@@ -38,6 +38,7 @@
     <Compile Include="Infrastructure\AutoMapperConfigurator.cs" />
     <Compile Include="Infrastructure\Indexes\BlogPosts_ByPublishDate.cs" />
     <Compile Include="Infrastructure\Indexes\BlogPosts_BySlug.cs" />
+    <Compile Include="Infrastructure\Indexes\BlogPostCategories.cs" />
     <Compile Include="Infrastructure\Indexes\UserAccounts_ByEmailAndPasswordHash.cs" />
     <Compile Include="Model\BlogPost.cs" />
     <Compile Include="Infrastructure\Commands\CreateBlogPostCommand.cs" />

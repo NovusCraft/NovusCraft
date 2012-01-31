@@ -24,15 +24,19 @@ var BlogPostEditor = Backbone.View.extend({
 	initialize: function() {
 		this.titleInput = $(this.el).find(".title");
 		this.titlePreview = $(this.el).find(".titlePreview");
-
 		this.publishDateInput = $(this.el).find(".publishDate");
 		this.publishDatePreview = $(this.el).find(".publishDatePreview");
-
 		this.categoryTitleInput = $(this.el).find(".category");
 		this.categoryTitlePreview = $(this.el).find(".categoryPreview");
-
 		this.contentInput = $(this.el).find(".content");
 		this.contentPreview = $(this.el).find(".contentPreview");
+		
+		// initialise autocomplete for category
+		var categoryTitlePreview = this.categoryTitlePreview;
+		this.categoryTitleInput.autocomplete({
+			source: this.categoryTitleInput.data("options"),
+			select: function(event, selection) { categoryTitlePreview.text(selection.item.label); }
+		});
 
 		// if in edit mode - force validation to display correct validity status
 		if (this.isInEditMode())
@@ -40,9 +44,9 @@ var BlogPostEditor = Backbone.View.extend({
 	},
 	events: {
 		"keyup .title": "titleChanged",
-		"change .publishDate": "publishDateChanged",
-		"keyup .category": "categoryTitleChanged",
-		"keyup .content": "contentChanged"
+		"blur .category": "categoryTitleChanged",
+		"keyup .content": "contentChanged",
+		"change .publishDate": "publishDateChanged"
 	},
 	titleChanged: function() {
 		this.titlePreview.text(this.titleInput.val());

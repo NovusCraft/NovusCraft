@@ -2,6 +2,7 @@
 // # All rights reserved. 
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
@@ -46,7 +47,11 @@ namespace NovusCraft.Web.Controllers
 		[Authorize]
 		public ActionResult CreateBlogPost()
 		{
-			var model = new CreateBlogPostModel { PublishedOn = DateTimeOffset.Now };
+			var model = new CreateBlogPostModel
+			{
+				PublishedOn = DateTimeOffset.Now,
+				ExistingCategories = GetExistingCategories()
+			};
 
 			return View(model);
 		}
@@ -68,6 +73,7 @@ namespace NovusCraft.Web.Controllers
 		{
 			var blogPost = _documentSession.Load<BlogPost>(id);
 			var model = Mapper.Map<BlogPost, UpdateBlogPostModel>(blogPost);
+			model.ExistingCategories = GetExistingCategories();
 
 			return View(model);
 		}
@@ -91,6 +97,13 @@ namespace NovusCraft.Web.Controllers
 
 			var dashboardUrl = Url.Permalink("Home", "Dashboard");
 			return Json(new { redirectTo = dashboardUrl.ToString() });
+		}
+
+		List<string> GetExistingCategories()
+		{
+			return (from result in _documentSession.Query<BlogPostCategories.ReduceResult>(BlogPostCategories.Name)
+			        orderby result.Category
+			        select result.Category).ToList();
 		}
 	}
 }

@@ -2,6 +2,7 @@
 // # All rights reserved. 
 
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 
@@ -23,5 +24,7 @@ namespace NovusCraft.Web.ViewModels
 
 		[Required, Display(Name = "Publish date")]
 		public DateTimeOffset PublishedOn { get; set; }
+
+		public IList<string> ExistingCategories { get; set; }
 	}
 }
