@@ -323,7 +323,7 @@ a:visited { color:#a33131; }
 .post p + p { margin-top:1em; text-indent:1em; }
 .post ul,
 .post ol { padding-left:2em; }
-.post ul > li { font-size:1.5em; line-height:1.6em; list-style-type:disc; } /* child selected can be removed when Disqus is removed */
+.post ul > li { font-size:1.5em; line-height:1.6em; list-style-type:disc; margin-left:1em; } /* child selector can be removed when Disqus is removed */
 .post ol li { font-size:1.5em; line-height:1.6em; list-style-type:decimal; }
 .post p code,
 .post li code { background-color:#eee; color:#444; font-family:Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif; padding:0.1em 0.3em; }
