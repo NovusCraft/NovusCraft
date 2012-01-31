@@ -25,7 +25,9 @@ namespace NovusCraft.Web.Controllers
 
 		public ActionResult Home()
 		{
-			return View();
+			var recentBlogPosts = _documentSession.Query<BlogPost>(BlogPosts_ByPublishDate.Name).OrderByDescending(bp => bp.PublishedOn).ToList();
+
+			return View(recentBlogPosts);
 		}
 
 		public ActionResult About()
