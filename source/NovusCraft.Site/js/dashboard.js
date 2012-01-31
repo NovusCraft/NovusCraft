@@ -16,7 +16,9 @@ $(document).ready(function() {
 		showButtonPanel: false
 	});
 
-	$("textarea").autoResize();
+	$("textarea").autoResize({
+		maxHeight: "auto"
+	});
 });
 
 var BlogPostEditor = Backbone.View.extend({
@@ -30,7 +32,7 @@ var BlogPostEditor = Backbone.View.extend({
 		this.categoryTitlePreview = $(this.el).find(".categoryPreview");
 		this.contentInput = $(this.el).find(".content");
 		this.contentPreview = $(this.el).find(".contentPreview");
-		
+
 		// initialise autocomplete for category
 		var categoryTitlePreview = this.categoryTitlePreview;
 		this.categoryTitleInput.autocomplete({
