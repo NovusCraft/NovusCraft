@@ -15,7 +15,7 @@
 		@Html.AntiForgeryToken()
 		@Html.HiddenFor(m => m.Id)
 		<fieldset>
-			@Html.EditorFor(m => m.Title, new { @class = "title" })
+			@Html.EditorFor(m => m.Title, new { @class = "title autofocus" })
 			@Html.EditorFor(m => m.Slug)
 			@Html.EditorFor(m => m.Content, "TextArea", new { @class = "content" })
 			@Html.EditorFor(m => m.Category, "AutoComplete", new { @class = "category", options = Model.ExistingCategories })

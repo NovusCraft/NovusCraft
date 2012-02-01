@@ -1,10 +1,10 @@
 /* Author: Arnold Zokas */
-$(document).ready(function() {
-	$('#blog-post-editor').each(function() { var editor = new BlogPostEditor(); });
+$(document).ready(function () {
+	$('#blog-post-editor').each(function () { var editor = new BlogPostEditor(); });
 
 	$("#contextual-actions a.delete").requireConfirmation({ text: "Are you sure you want to delete this permanently?" });
 	$("#contextual-actions a.delete").ajaxButton({
-		success: function(data) {
+		success: function (data) {
 			window.location = data.redirectTo;
 		}
 	});
@@ -19,6 +19,8 @@ $(document).ready(function() {
 	$("textarea").autoResize({
 		maxHeight: "auto"
 	});
+
+	$(".autofocus").focus();
 });
 
 var BlogPostEditor = Backbone.View.extend({
