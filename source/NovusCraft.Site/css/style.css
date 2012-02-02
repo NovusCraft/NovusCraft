@@ -320,6 +320,8 @@ a:visited { color:#a33131; }
 .post h3 { color:#777; font-size:1.5em; }
 .post p { font-size:1.5em; line-height:1.6em; }
 .post pre + p,
+.post ul + p,
+.post ol + p,
 .post p + p { margin-top:1em; text-indent:1em; }
 .post ul,
 .post ol { padding-left:2em; }
