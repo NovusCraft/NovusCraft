@@ -1,6 +1,7 @@
 ﻿@model LogInModel
 
 @{
+	Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 	ViewBag.Title = "Log In";
 }
 
@@ -13,16 +14,8 @@
 		@Html.AntiForgeryToken()
 		<fieldset>
 			@Html.ValidationSummary(true, "Login was unsuccessful. Please correct the errors and try again.")
-			<div>
-				@Html.LabelFor(m => m.Email)
-				@Html.TextBoxFor(m => m.Email)
-				@Html.ValidationMessageFor(m => m.Email)
-			</div>
-			<div>
-				@Html.LabelFor(m => m.Password)
-				@Html.PasswordFor(m => m.Password)
-				@Html.ValidationMessageFor(m => m.Password)
-			</div>
+			@Html.EditorFor(m => m.Email, new { @class = "autofocus", autoComplete = "on", enabledInlineValidationMessages = true })
+			@Html.EditorFor(m => m.Password, "Password")
 			<div>
 				<input type="submit" value="Log In" />
 			</div>
