@@ -63,6 +63,7 @@ var BlogPostEditor = Backbone.View.extend({
 	},
 	contentChanged: function() {
 		this.contentPreview.html(this.contentInput.val());
+		this.contentPreview.find('pre code').each(function (i, e) { hljs.highlightBlock(e, '    '); });
 	},
 	isInEditMode: function() {
 		return this.titleInput.val() != "";
