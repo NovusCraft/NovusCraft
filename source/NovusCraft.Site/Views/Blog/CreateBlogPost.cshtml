@@ -19,8 +19,9 @@
 			@Html.EditorFor(m => m.Content, "TextArea", new { @class = "content" })
 			@Html.EditorFor(m => m.Category, "AutoComplete", new { @class = "category", options = Model.ExistingCategories })
 			@Html.EditorFor(m => m.PublishedOn, new { @class = "publishDate" })
-			<div>
+			<div class="commands">
 				<input type="submit" value="Save changes" />
+				@Html.ActionLink("Cancel and go back", "Home", "Dashboard")
 			</div>
 		</fieldset>
 	}

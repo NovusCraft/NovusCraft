@@ -16,7 +16,7 @@
 			@Html.ValidationSummary(true, "Login was unsuccessful. Please correct the errors and try again.")
 			@Html.EditorFor(m => m.Email, new { @class = "autofocus", autoComplete = "on", enabledInlineValidationMessages = true })
 			@Html.EditorFor(m => m.Password, "Password")
-			<div>
+			<div class="commands">
 				<input type="submit" value="Log In" />
 			</div>
 		</fieldset>

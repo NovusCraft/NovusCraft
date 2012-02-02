@@ -445,6 +445,14 @@
 
 
 
+#contextual-actions { margin:0; padding:0; }
+#contextual-actions li { list-style:none; }
+#contextual-actions a { font-size:1.5em; line-height:1.5em; }
+#contextual-actions .icon-create { background:url(/img/icons/doc_plus_icon_16.png) no-repeat 0 0.1em; padding-left:1.3em; }
+#contextual-actions .icon-delete { background:url(/img/icons/doc_delete_icon_16.png) no-repeat 0 0.1em; padding-left:1.3em; }
+
+
+
 /* forms */
 .primary-content > header > h1 { color:#333; font-size:2.5em; font-weight:normal; line-height:1.5em; margin:0 0 0.5em 0; }
 .validation-summary-valid { display:none; }
@@ -455,11 +463,14 @@
 .field-validation-error { color:#d93c3c; font-size:1.4em; line-height:1.5em; margin-left:1em; }
 form div { clear:both; padding:0.5em 0; }
 form label { float:left; font-size:1.5em; line-height:1.5em; padding-right:0.5em; width:8em; }
-form input { border:solid 0.1em #aaa; border-left-width:0.2em; font-size:1.5em; padding:0.2em; width:12em; }
+form input { border:solid 0.1em #aaa; border-left-width:0.2em; font-size:1.5em; padding:0.2em; width:14em; }
 form textarea { border:solid 0.1em #aaa; border-left-width:0.3em; clear:both; font-family:"Consolas", monospace; font-size:1.2em; height:5em; overflow:hidden; padding:0.2em; width:42em; }
 form input:focus,
 form textarea:focus { border-color:#e0b554; outline:none; }
-form input[type=submit] { background:#eee; background:-moz-linear-gradient(top, #eeeeee 0%, #dddddd 100%); background:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #eeeeee), color-stop(100%, #dddddd)); background:-webkit-linear-gradient(top, #eeeeee 0%, #dddddd 100%); background:-o-linear-gradient(top, #eeeeee 0%, #dddddd 100%); background:-ms-linear-gradient(top, #eeeeee 0%, #dddddd 100%); background:linear-gradient(top, #eeeeee 0%, #dddddd 100%); border:solid 0.1em #dddddd; color:#555; font-size:1.25em; margin-left:10.2em; padding:0.4em 0; width:8em; -webkit-border-radius:0.3em; -moz-border-radius:0.3em; border-radius:0.3em; }
+form .commands { margin-top:1.5em; }
+form .commands a { border:solid 0.1em #f7c8c8; display:block; float:left; font-size:1.25em; line-height:normal; margin:0 0 0 1em; padding:0.3em 0.4em 0.4em 0.4em; -webkit-border-radius:0.3em; -moz-border-radius:0.3em; border-radius:0.3em; }
+form .commands a:hover { background:none; border-color:#ee8888; }
+form input[type=submit] { background:#eee; background:-moz-linear-gradient(top, #eeeeee 0%, #dddddd 100%); background:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #eeeeee), color-stop(100%, #dddddd)); background:-webkit-linear-gradient(top, #eeeeee 0%, #dddddd 100%); background:-o-linear-gradient(top, #eeeeee 0%, #dddddd 100%); background:-ms-linear-gradient(top, #eeeeee 0%, #dddddd 100%); background:linear-gradient(top, #eeeeee 0%, #dddddd 100%); border:solid 0.1em #dddddd; color:#555; float:left; font-size:1.25em; margin-left:10.2em; padding:0.4em 0; width:8em; -webkit-border-radius:0.3em; -moz-border-radius:0.3em; border-radius:0.3em; }
 form input[type=submit]:hover { border:solid 0.1em #ccc; color:#222; }
 form input[type=submit]:active { border:solid 0.1em #aaa; color:#333; }
 #blog-post-editor .post { padding-bottom:0; }
