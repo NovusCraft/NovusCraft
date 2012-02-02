@@ -340,32 +340,6 @@ p + pre { margin-top:1em; }
 pre + pre { margin-top:2em; }
 pre code { border:solid 0.1em #ddd; font-size:1.4em; line-height:1.3em; padding:1em; -webkit-border-radius:0.5em; -moz-border-radius:0.5em; border-radius:0.5em; }
 
-/* forms */
-.primary-content > header > h1 { color:#333; font-size:2.5em; font-weight:normal; line-height:1.5em; margin:0 0 0.5em 0; }
-.validation-summary-valid { display:none; }
-.validation-summary-errors { color:#d93c3c; font-size:1.4em; line-height:1.5em; padding:0; }
-.validation-summary-errors ul { padding:0 0 0 1.5em; }
-.input-validation-error { border-left-color:#ee8888; }
-.valid { border-left-color:#a1ee88; }
-.field-validation-error { color:#d93c3c; font-size:1.4em; line-height:1.5em; margin-left:1em; }
-form div { clear:both; padding:0.5em 0; }
-form label { float:left; font-size:1.5em; line-height:1.5em; padding-right:0.5em; width:8em; }
-form input { border:solid 0.1em #aaa; border-left-width:0.2em; font-size:1.5em; padding:0.2em; width:12em; }
-form textarea { border:solid 0.1em #aaa; border-left-width:0.3em; clear:both; font-family:"Consolas", monospace; font-size:1.2em; height:5em; overflow:hidden; padding:0.2em; width:42em; }
-form input:focus,
-form textarea:focus { border-color:#e0b554; outline:none; }
-form input[type=submit] { background:#eeeeee; background:-moz-linear-gradient(top, #eeeeee 0%, #dddddd 100%); background:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #eeeeee), color-stop(100%, #dddddd)); background:-webkit-linear-gradient(top, #eeeeee 0%, #dddddd 100%); background:-o-linear-gradient(top, #eeeeee 0%, #dddddd 100%); background:-ms-linear-gradient(top, #eeeeee 0%, #dddddd 100%); background:linear-gradient(top, #eeeeee 0%, #dddddd 100%); border:solid 0.1em #dddddd; color:#555; font-size:1.25em; margin-left:10.2em; padding:0.4em 0; width:8em; -webkit-border-radius:0.3em; -moz-border-radius:0.3em; border-radius:0.3em; }
-form input[type=submit]:active { border:solid 0.1em #ccc; color:#333; }
-#blog-post-editor .post { padding-bottom:0; }
-#live-preview { border-top:solid 0.2em #ccc; margin-top:3em; padding-top:2em; width:100%; }
-
-/* tables */
-table { width:100%; }
-th { font-size:1.5em; line-height:1.5em; text-align:left; }
-th:first-child { padding-left:0.5em }
-td { font-size:1.5em; line-height:1.5em; }
-td a { display:block; padding:0.5em 0 0.5em 0.5em; width:auto; }
-
 /* ASIDE */
 #subscribe { background:url("/img/icons/feed-icon-28x28.png") no-repeat; border:none; display:block; font-size:1.4em; margin-bottom:1em; padding:0.4em 0 1em 2.5em; }
 
