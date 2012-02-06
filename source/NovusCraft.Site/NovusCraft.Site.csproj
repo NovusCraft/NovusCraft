@@ -45,6 +45,8 @@
   <ItemGroup>
     <Content Include="apple-touch-icon.png" />
     <Content Include="css\dashboard.css" />
+    <Content Include="css\libs\jquery-ui-timepicker-0.9.8.css" />
+    <Content Include="css\libs\jquery-ui-1.8.17.custom.css" />
     <Content Include="img\bg.png" />
     <Content Include="img\icons\doc_delete_icon_16.png" />
     <Content Include="img\icons\doc_plus_icon_16.png" />
@@ -66,10 +68,14 @@
     <Content Include="js\libs\jquery-autoResize-1.14.js" />
     <Content Include="js\libs\jquery-ui-timepicker-0.9.8.js" />
     <Content Include="js\libs\jquery-ui-1.8.17.custom.min.js" />
+    <Content Include="js\libs\highlight-6.1.js" />
+    <Content Include="js\libs\jquery-validation-1.7-ms.js" />
+    <Content Include="js\libs\underscore-1.3.1.js" />
+    <Content Include="js\utils.js" />
     <Content Include="Raven.Studio.xap" />
     <Content Include="_App_Offline.htm" />
     <Content Include="crossdomain.xml" />
-    <Content Include="css\style.css" />
+    <Content Include="css\master.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="humans.txt" />
@@ -77,8 +83,8 @@
     <Content Include="img\logo.png" />
     <Content Include="js\libs\jquery-1.7.1.min.js" />
     <Content Include="js\libs\modernizr-2.0.6.min.js" />
-    <Content Include="js\plugins.js" />
-    <Content Include="js\script.js" />
+    <Content Include="js\libs\backbone-0.5.3.js" />
+    <Content Include="js\master.js" />
     <Content Include="robots.txt" />
     <Content Include="sitemap.xml" />
     <Content Include="Web.config" />

@@ -21,7 +21,7 @@
 	
 	<link rel="alternate" type="application/rss+xml" title="Novus Craft RSS feed" href="http://feeds.feedburner.com/novuscraft">
 
-	@Html.Raw(Bundle.Css().Add("~/css/style.css", "~/css/dashboard.css").Render("~/css/novuscraft_#.css"))
+	@Html.Raw(Bundle.Css().Add("~/css/master.css", "~/css/libs/jquery-ui-1.8.17.custom.css", "~/css/jquery-ui-timepicker-0.9.8.css", "~/css/dashboard.css").Render("~/css/novuscraft_dashboard_#.css"))
 	<script src="/js/libs/modernizr-2.0.6.min.js"> </script>
 </head>
 <body>
@@ -43,7 +43,18 @@
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"> </script>
 	<script> window.jQuery || document.write('<script src="/js/libs/jquery-1.7.1.min.js"><\/script>') </script>
-	@Html.Raw(Bundle.JavaScript().Add("~/js/plugins.js", "~/js/libs/jquery-ui-1.8.17.custom.min.js", "~/js/libs/jquery-ui-timepicker-0.9.8.js", "~/js/libs/jquery-autoResize-1.14.js", "~/js/script.js", "~/js/dashboard.js").Render("~/js/novuscraft_dashboard_#.js"))
+	@Html.Raw(Bundle.JavaScript()
+		.Add(
+			"~/js/libs/jquery-ui-1.8.17.custom.min.js"
+			, "~/js/libs/jquery-ui-timepicker-0.9.8.js"
+			, "~/js/libs/jquery-validation-1.7-ms.js"
+			, "~/js/libs/underscore-1.3.1.js"
+			, "~/js/libs/backbone-0.5.3.js"
+			, "~/js/libs/highlight-6.1.js"
+			, "~/js/libs/jquery-autoResize-1.14.js"
+			, "~/js/utils.js"
+			, "~/js/dashboard.js"
+			).Render("~/js/novuscraft_dashboard_#.js"))
 	
 </body>
 </html>
