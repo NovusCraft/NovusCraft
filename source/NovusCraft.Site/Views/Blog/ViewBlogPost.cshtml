@@ -4,10 +4,10 @@
 	ViewBag.Title = @Model.Title;
 }
 
-<article class="post">
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 	<header>
-		<h1>@Model.Title</h1>
-		<p class="meta">Published by @Html.ActionLink("Arnold Zokas", "About", "Home") <a class="profile-link" rel="author" href="https://plus.google.com/105019550316988242906"><img alt="Arnold Zokas's profile on Google Plus" src="http://www.google.com/images/icons/ui/gprofile_button-16.png" width="16" height="16"></a> on <time datetime="@Model.PublishedOn.ToIsoDate()" pubdate>@Model.PublishedOn.ToLongDate()</time> in category <strong>@Model.Category</strong>.</p>
+		<h1 itemprop="name">@Model.Title</h1>
+		<p class="meta">Published by @Html.ActionLink("Arnold Zokas", "About", "Home", null, new { itemprop = "author" }) <a class="profile-link" rel="author" href="https://plus.google.com/105019550316988242906?rel=author"><img alt="Arnold Zokas's profile on Google Plus" src="http://www.google.com/images/icons/ui/gprofile_button-16.png" width="16" height="16"></a> on <time datetime="@Model.PublishedOn.ToIsoDate()" pubdate itemprop="datePublished">@Model.PublishedOn.ToLongDate()</time> in category <strong itemprop="genre">@Model.Category</strong>.</p>
 	</header>
 	@Html.Raw(Model.Content)
 	<footer>
