@@ -331,6 +331,8 @@ a:visited { color:#a33131; }
 .post li code { background-color:#eee; color:#444; font-family:Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif; padding:0.1em 0.3em; }
 .post .warning { background:#feffc3; border:solid 0.1em #e0bc4a; padding:0.5em 1em; text-indent:0; -webkit-border-radius:0.5em; -moz-border-radius:0.5em; border-radius:0.5em; }
 .post .warning:before { content:"Note: "; font-weight:bold; }
+.post .update { background:#f6dcdc; border:solid 0.1em #f07373; padding:0.5em 1em; text-indent:0; -webkit-border-radius:0.5em; -moz-border-radius:0.5em; border-radius:0.5em; }
+.post .update:before { content:"Update: "; font-weight:bold; }
 .post footer { margin-top:1.6em; }
 .post .share { background:#efefef; border:solid 0.1em #ddd; margin-top:1.6em; padding:1em 1em 0.5em 12em; -webkit-border-radius:0.5em; -moz-border-radius:0.5em; border-radius:0.5em; }
 #disqus_thread a { font-size:1.4em; }
