@@ -1,3 +1,4 @@
-$(document).ready(function() {
-	$('pre code').each(function(i, e) { hljs.highlightBlock(e, '    '); });
+$(document).ready(function () {
+	$('pre').addClass("prettyprint");
+	prettyPrint();
 });

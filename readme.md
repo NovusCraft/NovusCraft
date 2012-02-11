@@ -25,7 +25,7 @@ Developer: Arnold Zokas (Novus Craft)
 * jQuery (goes without saying)
 * jQuery UI (datepicker, slider)
 * timepicker.js (extends datepicker to also allow input of time)
-* highlight.js (syntax highlighter)
+* prettify.js (syntax highlighter)
 * backbone.js (for MVC style javascript goodness)
 
 ## Target browsers
