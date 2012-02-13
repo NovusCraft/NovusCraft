@@ -1,18 +1,28 @@
-﻿<div class="share">
-	<div class="addthis_toolbox addthis_default_style ">
-		<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-		<a class="addthis_button_tweet"></a>
-		<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
-		<a class="addthis_counter addthis_pill_style"></a>
-	</div>
-	<script>
-		window.___gcfg = { lang: 'en-GB' };
+﻿@model string
 
-		(function () {
-			var script = document.createElement("script");
-			script.async = true;
-			script.src = '//s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4f1594be73ac262e';
-			document.getElementsByTagName("body")[0].appendChild(script);
-		})();
-	</script>
-</div>
+<section class="share">
+	<div class="channel">
+		<a href="https://twitter.com/share" class="twitter-share-button" data-url="@Model" data-via="arnoldzokas" data-related="arnoldzokas">Tweet</a>
+		<script>
+			(function () {
+				var script = document.createElement("script");
+				script.async = true;
+				script.src = "//platform.twitter.com/widgets.js";
+				document.getElementsByTagName("body")[0].appendChild(script);
+			})();
+		</script>
+	</div>
+	<div class="channel">
+		<div class="g-plusone" data-annotation="inline" data-width="150" data-href="@Model"></div>
+		<script>
+			window.___gcfg = { lang: 'en-GB' };
+
+			(function () {
+				var script = document.createElement("script");
+				script.async = true;
+				script.src = "https://apis.google.com/js/plusone.js";
+				document.getElementsByTagName("body")[0].appendChild(script);
+			})();
+		</script>
+	</div>
+</section>

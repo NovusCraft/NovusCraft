@@ -291,9 +291,12 @@ p code,
 li code { background:#eee; color:#444; font-family:Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif; font-size:0.9em; padding:1px 3px; }
 pre { background:#fafafa; border-left:#efefef solid 4px; font-family:Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif; font-size:1.2em; line-height:2; margin:0 0 24px; padding:12px 12px; }
 
-/* footer */
-.post footer { margin-top:1.6em; }
-.share { background:#efefef; border:solid 0.1em #ddd; margin-top:1.6em; padding:1em 1em 0.5em 12em; -webkit-border-radius:0.5em; -moz-border-radius:0.5em; border-radius:0.5em; }
+/* share */
+.share { height:48px; }
+.channel { float:left; height:100%; line-height:60px; }
+.channel iframe { display:block; margin:12px auto; width:100px !important; }
+
+/* comments */
 #disqus_thread a { font-size:1.4em; }
 #dsq-footer { margin:0 !important; }
 
