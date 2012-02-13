@@ -1,7 +1,7 @@
 ﻿@model List<BlogPost>
 
 @{
-	ViewBag.Description = "Novus Craft are a software development consultancy delivering top solutions using Sitecore CMS, ASP.NET, ASP.NET MVC and other Microsoft technologies.";
+	ViewBag.Description = "Novus Craft are a software development consultancy delivering top solutions using Sitecore CMS, .NET, ASP.NET MVC, RavenDB and other technologies.";
 }
 
 <section class="primary-content">
@@ -14,11 +14,12 @@
 			<header>
 				<h1>@Html.ActionLink(blogPost.Title, "ViewBlogPost", "Blog", new { slug = blogPost.Slug }, null)</h1>
 				<p class="meta">
-					Published by @Html.ActionLink("Arnold Zokas", "About") 
+					Written by @Html.ActionLink("Arnold Zokas", "About") 
 					<a class="profile-link" rel="author" href="https://plus.google.com/105019550316988242906">
 						<img alt="Arnold Zokas's profile on Google Plus" src="http://www.google.com/images/icons/ui/gprofile_button-16.png" width="16" height="16">
 					</a> 
-					on <time datetime="@blogPost.PublishedOn.ToIsoDate()" pubdate>@blogPost.PublishedOn.ToLongDate()</time> in category <strong>@blogPost.Category</strong>.
+					on <time datetime="@blogPost.PublishedOn.ToIsoDate()" pubdate>@blogPost.PublishedOn.ToLongDate()</time> 
+					on topic of <span>@blogPost.Category</span>.
 				</p>
 			</header>
 			@Html.Raw(blogPost.Content)

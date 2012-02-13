@@ -244,8 +244,8 @@ a:hover { color:#a33131; text-decoration:underline; }
 
 /* container */
 #container { margin:0 auto; width:960px; }
-.primary-content { float:left; padding:20px 10px 10px; width:700px; }
-article.primary-content { padding-top:30px; }
+.primary-content { float:left; padding:20px 0 10px; width:720px; }
+article.primary-content { padding-top:20px; }
 .secondary-content { float:left; padding:20px 0 10px 10px; width:230px; }
 
 /* footer */
@@ -254,7 +254,7 @@ article.primary-content { padding-top:30px; }
 
 /* == POST */
 /* base */
-.post { float:left; margin-bottom:14px; padding-top:10px; }
+.post { float:left; margin-bottom:14px; padding:0 10px; width:700px; }
 .post p { font-size:1.6em; line-height:1.5; margin-bottom:24px; }
 .post pre + p,
 .post ul + p,
@@ -262,12 +262,14 @@ article.primary-content { padding-top:30px; }
 .post p + p { text-indent:1em; }
 
 /* headers */
+.post header { background-color:#f7f7f7; border-bottom:#ccc dotted 1px; margin:0 0 11px -10px; padding:10px 10px 12px; text-align:center; }
+.post.page header { background:none; border:none; margin:0; padding:10px 0 0; text-align:left; }
 .post h1 { color:#333; font-size:2.4em; font-weight:normal; line-height:1; margin:0 0 24px; }
 .post h2 { color:#555; font-size:2.2em; font-weight:normal; line-height:1.1; margin:0 0 24px; }
-.post h3 { color:#444; font-size:2.0em; font-weight:normal; line-height:1.2; margin:0 0 24px; }
+.post h3 { color:#777; font-size:2.0em; font-weight:normal; line-height:1.2; margin:0 0 24px; }
 
 /* meta */
-.post .meta { font-style:italic; }
+.post .meta { font-style:italic; margin-bottom:0; }
 .post .profile-link { border:none; text-decoration:none; }
 
 /* lists */
@@ -323,7 +325,7 @@ pre { background:#fafafa; font-family:Consolas, Menlo, Monaco, Lucida Console, L
 #dsq-footer { margin:0 !important; }
 
 /* == ASIDE */
-.component { background:#f7f7f7; margin-bottom:12px; padding:10px 10px 12px 10px; }
+.component { border-left:#ccc dotted 1px; margin-bottom:12px; padding:10px 10px 12px 9px; }
 .component h1 { color:#555; font-size:1.8em; font-weight:normal; line-height:1.35; margin:0 0 24px; }
 .component p { color:#777; font-size:1.6em; line-height:1.5; }
 
