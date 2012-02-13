@@ -227,7 +227,7 @@ table { border-collapse:collapse; border-spacing:0; }
 body { color:#555; font-family:"Segoe UI", Segoe, Tahoma, Geneva, sans-serif; font-size:62.5%; margin:0; padding:0; }
 p { margin:0; }
 a { color:#d93c3c; text-decoration:none; }
-a:hover { background:#efefef; color:#000; }
+a:hover { color:#000; text-decoration:underline; }
 a:visited { color:#a33131; }
 
 /* header */
@@ -275,7 +275,7 @@ article.primary-content { padding-top:30px; }
 
 /* meta */
 .post .meta { font-style:italic; }
-.post .profile-link { background:none; border:none; }
+.post .profile-link { border:none; text-decoration:none; }
 
 /* lists */
 .post ul,
@@ -304,7 +304,6 @@ pre { background:#fafafa; border-left:#efefef solid 4px; font-family:Consolas, M
 .component { background:#f7f7f7; margin-bottom:12px; padding:10px 10px 12px 10px; }
 .component h1 { color:#555; font-size:1.8em; font-weight:normal; line-height:1.35; margin:0 0 24px; }
 .component p { color:#777; font-size:1.6em; line-height:1.5; }
-.component a:hover { text-decoration:underline; }
 
 #about-mini a { background:none; display:block; margin:12px 0; width:208px; }
 #subscribe a { background:url("/img/icons/feed_icon.png") no-repeat; border:none; display:block; font-size:1.6em; height:24px; line-height:1.5; padding-left:36px; }
