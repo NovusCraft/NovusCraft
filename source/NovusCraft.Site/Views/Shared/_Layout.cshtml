@@ -55,13 +55,8 @@
 			}
 			else
 			{
-				Html.RenderPartial("Bio");
-				<section id="subscribe" class="component">
-					<header>
-						<h1>Subscribe to updates</h1>
-					</header>
-					<a href="http://feeds.feedburner.com/novuscraft" title="Subcribe to latest articles published on novuscraft.com">Recent posts (RSS)</a>
-				</section>
+				Html.RenderPartial("AuthorBio");
+				Html.RenderPartial("Subscribe");
 			}
 		</aside>
 		<div class="clearfix"></div>

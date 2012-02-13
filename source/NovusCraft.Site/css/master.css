@@ -302,7 +302,7 @@ pre { background:#fafafa; border-left:#efefef solid 4px; font-family:Consolas, M
 .component h1 { color:#555; font-size:1.8em; font-weight:normal; line-height:1.35; margin:0 0 24px; }
 .component p { color:#777; font-size:1.6em; line-height:1.5; }
 
-#about-mini a { background:none; display:block; margin:12px 0; width:208px; }
+#author-bio a { background:none; display:block; margin:12px 0; width:208px; }
 #subscribe a { background:url("/img/icons/feed_icon.png") no-repeat; border:none; display:block; font-size:1.6em; height:24px; line-height:1.5; padding-left:36px; }
 
 /* =============================================================================
