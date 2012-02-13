@@ -48,7 +48,7 @@
     <Content Include="css\libs\jquery-ui-timepicker-0.9.8.css" />
     <Content Include="css\libs\jquery-ui-1.8.17.custom.css" />
     <Content Include="css\libs\prettify-01.June.2011.css" />
-    <Content Include="img\bg.png" />
+    <Content Include="img\grid.png" />
     <Content Include="img\icons\doc_delete_icon_16.png" />
     <Content Include="img\icons\doc_plus_icon_16.png" />
     <Content Include="img\jquery-ui-lightness\ui-bg_diagonals-thick_18_b81900_40x40.png" />

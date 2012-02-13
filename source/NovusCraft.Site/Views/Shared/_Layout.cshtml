@@ -48,15 +48,20 @@
 	<div class="clearfix"></div>
 	<div id="container">
 		@RenderBody()
-		<aside>
+		<aside class="secondary-content">
 			@if (IsSectionDefined("aside"))
 			{
 				@RenderSection("aside")
 			}
 			else
 			{
-				<a id="subscribe" href="http://feeds.feedburner.com/novuscraft" title="Subcribe to latest articles published on novuscraft.com">Subcribe to the RSS feed</a>
 				Html.RenderPartial("Bio");
+				<section id="subscribe" class="component">
+					<header>
+						<h1>Subscribe to updates</h1>
+					</header>
+					<a href="http://feeds.feedburner.com/novuscraft" title="Subcribe to latest articles published on novuscraft.com">Recent posts (RSS)</a>
+				</section>
 			}
 		</aside>
 		<div class="clearfix"></div>
@@ -70,7 +75,7 @@
 	@Html.Raw(Bundle.JavaScript().Add("~/js/libs/prettify/prettify-01.June.2011.js", "~/js/master.js").Render("~/js/novuscraft_#.js"))
 	
 	@if (HttpContext.Current.IsDebuggingEnabled == false)
-	{
+ {
 		<script type="text/javascript">
 			var _gaq = _gaq || [];
 			_gaq.push(['_setAccount', 'UA-6456308-6']);

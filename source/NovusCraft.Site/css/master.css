@@ -216,76 +216,98 @@ table { border-collapse:collapse; border-spacing:0; }
    Author: Arnold Zokas
    ========================================================================== */
 
-/* GLOBAL */
-body { background:url(/img/bg.png); color:#555; font-family:"Segoe UI", Segoe, Tahoma, Geneva, sans-serif; font-size:62.5%; margin:0; padding:0; }
-aside { color:#444; }
+/* == DEBUG STYLES */
+/*
+#header,
+#container,
+#footer { background:url(/img/grid.png) !important; }
+*/
+
+/* [GLOBAL] */
+body { color:#555; font-family:"Segoe UI", Segoe, Tahoma, Geneva, sans-serif; font-size:62.5%; margin:0; padding:0; }
 p { margin:0; }
 a { color:#d93c3c; text-decoration:none; }
 a:hover { background:#efefef; color:#000; }
 a:visited { color:#a33131; }
 
-/* PAGE */
-#header { margin:0 auto; width:96em; }
-#header h1 { float:left; font-size:1em; margin:1em 0 0 2em; }
-#header h1 a { background:url(../img/logo.png) no-repeat; border:none; display:block; height:4em; text-indent:-9999em; width:15em; }
+/* header */
+#header { margin:0 auto; height:72px; width:960px; }
+#header h1 { float:left; font-size:1em; margin:16px 0 0 10px; }
+#header h1 a { background:url(/img/logo.png) no-repeat; border:none; display:block; height:40px; text-indent:-99999px; width:150px; }
 
-#header nav { background:#fff; float:right; margin-top:2em; -webkit-box-shadow:0 0 0.6em rgba(0, 0, 0, 0.2); -moz-box-shadow:0 0 0.6em rgba(0, 0, 0, 0.2); box-shadow:0 0 0.6em rgba(0, 0, 0, 0.2); -webkit-border-radius:0.5em; -moz-border-radius:0.5em; border-radius:0.5em; }
+/* nav */
+#header nav { float:left; left:570px; position:relative; }
 #header li { float:left; }
-#header li a { border:none; color:#888; display:block; font-size:1.4em; padding:0.4em 1em; text-decoration:none; text-transform:uppercase; }
-#header li a:hover { background:none; color:#d93c3c; }
-#header .active { color:#d93c3c; }
+#header li a { color:#888; display:block; padding:33px 10px 10px 10px; font-size:1.6em; line-height:1; text-decoration:none; text-transform:uppercase; }
+#header li a:hover,
+#header .active { border:#efefef solid 1px; border-top:none; border-bottom:none; color:#333; padding:33px 9px 10px 9px;
+                  background-color: #efefef;
+				  background-image: url(images/fallback-gradient.png);
+				  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#efefef), to(#fff));
+				  background-image: -webkit-linear-gradient(top, #efefef, #fff);
+				  background-image:    -moz-linear-gradient(top, #efefef, #fff);
+				  background-image:     -ms-linear-gradient(top, #efefef, #fff);
+				  background-image:      -o-linear-gradient(top, #efefef, #fff); }
 
-#container { background:#fff; margin:2em auto 0 auto; width:96em; -webkit-box-shadow:0 0 0.6em rgba(0, 0, 0, 0.1); -moz-box-shadow:0 0 0.6em rgba(0, 0, 0, 0.1); box-shadow:0 0 0.6em rgba(0, 0, 0, 0.1); -webkit-border-radius:0.5em; -moz-border-radius:0.5em; border-radius:0.5em; }
-#container .primary-content { float:left; padding:2em; width:63.9em; }
-#container aside { border-left:solid 0.1em #eee; float:left; padding:3em 2em 2em 3em; width:23em; }
+/* container */
+#container { margin:0 auto; width:960px; }
+.primary-content { float:left; padding:20px 10px 10px; width:700px; }
+article.primary-content { padding-top:30px; }
+.secondary-content { float:left; padding:20px 0 10px 10px; width:230px; }
 
-#footer { background:#efefef; border-top:solid 0.1em #ddd; padding:3em 2em 2em 2em; width:92em; -webkit-border-bottom-right-radius:0.5em; -webkit-border-bottom-left-radius:0.5em; -moz-border-radius-bottomright:0.5em; -moz-border-radius-bottomleft:0.5em; border-bottom-right-radius:0.5em; border-bottom-left-radius:0.5em; }
-#footer span { display:block; font-size:1.4em; }
+/* footer */
+#footer { padding:24px 10px; width:940px; }
+#footer span { color:#777; font-size:1.2em; font-weight:bold; line-height:2; }
 
-
-/* CONTENT */
-/* post */
-.post { background:#fff; float:left; padding:2em; width:63.9em; -webkit-border-top-left-radius:0.5em; -moz-border-radius-topleft:0.5em; border-top-left-radius:0.5em; }
-.primary-content .post { border-top-left-radius:0; padding:0 0 4em 0; width:auto; }
-.post header { border-bottom:dotted 0.1em #ccc; margin-bottom:1em; }
-.post h1 { color:#333; font-size:2.5em; font-weight:normal; line-height:1.5em; margin:0 0 0.5em 0; }
-.post .meta { font-size:1.4em; font-style:italic; }
-.post .profile-link { background:none; border:none; vertical-align:middle; }
-.post h2 { color:#555; font-size:2em; }
-.post h3 { color:#777; font-size:1.5em; }
-.post p { font-size:1.5em; line-height:1.6em; }
+/* == POST */
+/* base */
+.post { float:left; margin-bottom:14px; padding-top:10px; }
+.post p { font-size:1.6em; line-height:1.5; margin-bottom:24px; }
 .post pre + p,
 .post ul + p,
 .post ol + p,
-.post p + p { margin-top:1em; text-indent:1em; }
+.post p + p { text-indent:1em; }
+
+/* headers */
+.post h1 { color:#333; font-size:2.4em; font-weight:normal; line-height:1; margin:0 0 24px; }
+.post h2 { color:#555; font-size:2.2em; font-weight:normal; line-height:1.1; margin:0 0 24px; }
+.post h3 { color:#444; font-size:2.0em; font-weight:normal; line-height:1.2; margin:0 0 24px; }
+
+/* meta */
+.post .meta { font-style:italic; }
+.post .profile-link { background:none; border:none; }
+
+/* lists */
 .post ul,
-.post ol { padding-left:2em; }
-.post ul > li { font-size:1.5em; line-height:1.6em; list-style-type:disc; margin-left:1em; } /* child selector can be removed when Disqus is removed */
-.post ol li { font-size:1.5em; line-height:1.6em; list-style-type:decimal; }
-.post p code,
-.post li code { background-color:#eee; color:#444; font-family:Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif; padding:0.1em 0.3em; }
-.post .warning { background:#feffc3; border:solid 0.1em #e0bc4a; padding:0.5em 1em; text-indent:0; -webkit-border-radius:0.5em; -moz-border-radius:0.5em; border-radius:0.5em; }
-.post .warning:before { content:"Note: "; font-weight:bold; }
-.post .update { background:#f6dcdc; border:solid 0.1em #f07373; padding:0.5em 1em; text-indent:0; -webkit-border-radius:0.5em; -moz-border-radius:0.5em; border-radius:0.5em; }
+.post ol { margin:0 0 24px; padding-left:20px; }
+.post ul > li { font-size:1.6em; line-height:1.5; list-style-type:disc; margin-left:1em; } /* needed for Disqus, <sigh...> */
+.post ol li { font-size:1.6em; line-height:1.5; list-style-type:decimal; }
+
+/* attention blocks */
+.post .update { background:#f6dcdc; border:solid 1px #f07373; padding:11px; text-indent:0; -webkit-border-radius:0.5em; -moz-border-radius:0.5em; border-radius:0.5em; }
 .post .update:before { content:"Update: "; font-weight:bold; }
+.post .warning { background:#feffc3; border:solid 1px #e0bc4a; padding:11px; text-indent:0; -webkit-border-radius:0.5em; -moz-border-radius:0.5em; border-radius:0.5em; }
+.post .warning:before { content:"Note: "; font-weight:bold; }
+
+/* code */
+p code,
+li code { background:#eee; color:#444; font-family:Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif; font-size:0.9em; padding:1px 3px; }
+pre { background:#fafafa; border-left:#efefef solid 4px; font-family:Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif; font-size:1.2em; line-height:2; margin:0 0 24px; padding:12px 12px; }
+
+/* footer */
 .post footer { margin-top:1.6em; }
-.post .share { background:#efefef; border:solid 0.1em #ddd; margin-top:1.6em; padding:1em 1em 0.5em 12em; -webkit-border-radius:0.5em; -moz-border-radius:0.5em; border-radius:0.5em; }
+.share { background:#efefef; border:solid 0.1em #ddd; margin-top:1.6em; padding:1em 1em 0.5em 12em; -webkit-border-radius:0.5em; -moz-border-radius:0.5em; border-radius:0.5em; }
 #disqus_thread a { font-size:1.4em; }
 #dsq-footer { margin:0 !important; }
 
-/* post (code sample) */
-pre { font-family:Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif; margin:0; }
-p + pre { margin-top:1em; }
-pre + pre { margin-top:2em; }
-pre { border:solid 0.1em #ddd; font-size:1.3em; line-height:1.3em; padding:1em; -webkit-border-radius:0.5em; -moz-border-radius:0.5em; border-radius:0.5em; }
+/* == ASIDE */
+.component { background:#f7f7f7; margin-bottom:12px; padding:10px 10px 12px 10px; }
+.component h1 { color:#555; font-size:1.8em; font-weight:normal; line-height:1.35; margin:0 0 24px; }
+.component p { color:#777; font-size:1.6em; line-height:1.5; }
+.component a:hover { text-decoration:underline; }
 
-/* ASIDE */
-#subscribe { background:url("/img/icons/feed-icon-28x28.png") no-repeat; border:none; display:block; font-size:1.4em; margin-bottom:1em; padding:0.4em 0 1em 2.5em; }
-
-#about-mini { }
-#about-mini p { font-size:1.4em; line-height:1.6em; }
-#about-mini a { background:none; display:block; margin-top:1.6em; width:20.8em; }
-
+#about-mini a { background:none; display:block; margin:12px 0; width:208px; }
+#subscribe a { background:url("/img/icons/feed_icon.png") no-repeat; border:none; display:block; font-size:1.6em; height:24px; line-height:1.5; padding-left:36px; }
 
 /* =============================================================================
    Non-semantic helper classes
