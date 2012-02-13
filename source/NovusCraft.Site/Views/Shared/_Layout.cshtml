@@ -19,18 +19,22 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width,initial-scale=1">
 	
 	<title>@GeneratePageTitle(@ViewBag.Title)</title>
 	<meta name="author" content="Arnold Zokas">
 	<meta name="description" content="@ViewBag.Description">
 	
+	<meta name="viewport" content="width=device-width">
 	<link rel="alternate" type="application/rss+xml" title="Novus Craft RSS feed" href="http://feeds.feedburner.com/novuscraft">
 
 	@Html.Raw(Bundle.Css().Add("~/css/libs/prettify-01.June.2011.css", "~/css/master.css").Render("~/css/novuscraft_#.css"))
-	<script src="/js/libs/modernizr-2.0.6.min.js"> </script>
+	<script src="/js/libs/modernizr-2.5.2.min.js"></script>
 </head>
 <body>
+	<!--[if lt IE 7]>
+		<p class=chromeframe>Your browser is <em>not supported.</em> 
+		<a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p>
+	<![endif]-->
 	<header id="header">
 		<h1>
 			<a href="/" title="NovusCraft homepage">
@@ -46,7 +50,7 @@
 		</nav>
 	</header>
 	<div class="clearfix"></div>
-	<div id="container">
+	<div id="container" role="main">
 		@RenderBody()
 		<aside class="secondary-content">
 			@if (IsSectionDefined("aside"))
@@ -70,26 +74,18 @@
 	@Html.Raw(Bundle.JavaScript().Add("~/js/libs/prettify/prettify-01.June.2011.js", "~/js/master.js").Render("~/js/novuscraft_#.js"))
 	
 	@if (HttpContext.Current.IsDebuggingEnabled == false)
- {
+	{
 		<script>
-			var _gaq = _gaq || [];
-			_gaq.push(['_setAccount', 'UA-6456308-6']);
-			_gaq.push(['_trackPageview']);
-			_gaq.push(['_trackPageLoadTime']);
+			var _gaq = [['_setAccount', 'UA-6456308-6'], ['_trackPageview'], ['_trackPageLoadTime']];
+			(function(d, t) {
+				var e = d.createElement(t),
+				    s = d.getElementsByTagName(t)[0];
 
-			(function() {
-				var script = document.createElement("script");
-				script.async = true;
-				script.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-				document.getElementsByTagName("body")[0].appendChild(script);
-			})();
+				e.src = '//www.google-analytics.com/ga.js';
+				s.parentNode.insertBefore(e, s);
+			}(document, 'script'));
 		</script>
 	}
-	
-	<!--[if lt IE 7 ]>
-		<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"> </script>
-		<script> window.attachEvent("onload", function() { CFInstall.check({ mode: "overlay" }); }) </script>
-	<![endif]-->
 	
 </body>
 </html>

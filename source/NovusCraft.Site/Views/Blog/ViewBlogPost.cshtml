@@ -26,12 +26,13 @@
 			var disqus_developer = @(HttpContext.Current.IsDebuggingEnabled ? "1" : "0");
 			var disqus_identifier = "@Model.Id";
 			var disqus_url = "@Model.Permalink";
-			(function() {
-				var script = document.createElement("script");
-				script.async = true;
-				script.src = "http://" + disqus_shortname + ".disqus.com/embed.js";
-				document.getElementsByTagName("body")[0].appendChild(script);
-			})();
+			(function(d,t) {
+				var e = d.createElement(t),
+				    s = d.getElementsByTagName(t)[0];
+				
+				e.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				s.parentNode.insertBefore(e, s);
+			}(document, 'script'));
 		</script>
 		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 	</footer>

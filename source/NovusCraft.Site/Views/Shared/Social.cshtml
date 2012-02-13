@@ -4,25 +4,26 @@
 	<div class="channel">
 		<a href="https://twitter.com/share" class="twitter-share-button" data-url="@Model" data-via="arnoldzokas" data-related="arnoldzokas">Tweet</a>
 		<script>
-			(function () {
-				var script = document.createElement("script");
-				script.async = true;
-				script.src = "//platform.twitter.com/widgets.js";
-				document.getElementsByTagName("body")[0].appendChild(script);
-			})();
+			(function (d, t) {
+				var e = d.createElement(t),
+				    s = d.getElementsByTagName(t)[0];
+
+				e.src = '//platform.twitter.com/widgets.js';
+				s.parentNode.insertBefore(e, s);
+			} (document, 'script'));
 		</script>
 	</div>
 	<div class="channel">
 		<div class="g-plusone" data-annotation="inline" data-width="450" data-href="@Model"></div>
 		<script>
 			window.___gcfg = { lang: 'en-GB' };
+			(function (d, t) {
+				var e = d.createElement(t),
+				    s = d.getElementsByTagName(t)[0];
 
-			(function () {
-				var script = document.createElement("script");
-				script.async = true;
-				script.src = "https://apis.google.com/js/plusone.js";
-				document.getElementsByTagName("body")[0].appendChild(script);
-			})();
+				e.src = 'https://apis.google.com/js/plusone.js';
+				s.parentNode.insertBefore(e, s);
+			} (document, 'script'));
 		</script>
 	</div>
 </section>
