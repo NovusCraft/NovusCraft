@@ -227,8 +227,10 @@ table { border-collapse:collapse; border-spacing:0; }
 body { color:#555; font-family:"Segoe UI", Segoe, Tahoma, Geneva, sans-serif; font-size:62.5%; margin:0; padding:0; }
 p { margin:0; }
 a { color:#d93c3c; text-decoration:none; }
-a:hover { color:#000; text-decoration:underline; }
 a:visited { color:#a33131; }
+a:hover,
+a:hover:visited { color:#000; text-decoration:underline; }
+
 
 /* header */
 #header { margin:0 auto; height:72px; width:960px; }
@@ -240,14 +242,7 @@ a:visited { color:#a33131; }
 #header li { float:left; }
 #header li a { color:#888; display:block; padding:33px 10px 10px 10px; font-size:1.6em; line-height:1; text-decoration:none; text-transform:uppercase; }
 #header li a:hover,
-#header .active { border:#efefef solid 1px; border-top:none; border-bottom:none; color:#333; padding:33px 9px 10px 9px;
-                  background-color: #efefef;
-				  background-image: url(images/fallback-gradient.png);
-				  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#efefef), to(#fff));
-				  background-image: -webkit-linear-gradient(top, #efefef, #fff);
-				  background-image:    -moz-linear-gradient(top, #efefef, #fff);
-				  background-image:     -ms-linear-gradient(top, #efefef, #fff);
-				  background-image:      -o-linear-gradient(top, #efefef, #fff); }
+#header .active { border-bottom:#777 solid 2px; color:#333; padding:33px 10px 10px 10px; }
 
 /* container */
 #container { margin:0 auto; width:960px; }
@@ -282,6 +277,8 @@ article.primary-content { padding-top:30px; }
 .post ol { margin:0 0 24px; padding-left:20px; }
 .post ul > li { font-size:1.6em; line-height:1.5; list-style-type:disc; margin-left:1em; } /* needed for Disqus, <sigh...> */
 .post ol li { font-size:1.6em; line-height:1.5; list-style-type:decimal; }
+.ie ul,
+.ie ol { margin-bottom:23px; }
 
 /* attention blocks */
 .post .update { background:#f6dcdc; border:solid 1px #f07373; padding:11px; text-indent:0; -webkit-border-radius:0.5em; -moz-border-radius:0.5em; border-radius:0.5em; }
@@ -359,7 +356,7 @@ pre { background:#fafafa; border-left:#efefef solid 4px; font-family:Consolas, M
    Inlined to avoid required HTTP connection: www.phpied.com/delay-loading-your-print-css/
    ========================================================================== */
    
-	/*For print debugging use: @media screen and (max-width:8.5in)*/
+/*For print debugging use: media screen and (max-width:8.5in)*/
 @media print {
 	* { background:transparent !important; color:black !important; font-family:"Times New Roman", Times, serif; text-shadow:none !important; filter:none !important; -ms-filter:none !important; } /* Black prints faster: sanbeiji.com/archives/953 */
 	a,
