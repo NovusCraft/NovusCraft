@@ -15,10 +15,10 @@ namespace NovusCraft.Specifications.WebSpecs.HelperSpecs.HtmlHelperSpecs
 		Because of = () =>
 		{
 			route_data.Values["action"] = "RouteB";
-			menu_link = helper.MenuLink("RouteB", "Home", "Test", "test page");
+			menu_link = helper.MenuLink("RouteB", "Home", "Test");
 		};
 
 		It should_return_anchor_html_with_css_class_active =
-			() => menu_link.ToHtmlString().ShouldEqual("<a class=\"active\" href=\"/route-b\" title=\"test page\">Test</a>");
+			() => menu_link.ToHtmlString().ShouldEqual("<a class=\"active\" href=\"/route-b\">Test</a>");
 	}
 }

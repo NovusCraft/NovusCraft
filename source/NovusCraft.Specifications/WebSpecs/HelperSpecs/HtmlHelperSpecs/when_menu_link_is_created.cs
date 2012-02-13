@@ -11,9 +11,9 @@ namespace NovusCraft.Specifications.WebSpecs.HelperSpecs.HtmlHelperSpecs
 	public class when_menu_link_is_created : html_helper_spec
 	{
 		static MvcHtmlString menu_link;
-		Because of = () => menu_link = helper.MenuLink("RouteA", "Home", "Test", "test page");
+		Because of = () => menu_link = helper.MenuLink("RouteA", "Home", "Test");
 
 		It should_return_anchor_html =
-			() => menu_link.ToHtmlString().ShouldEqual("<a href=\"/route-a\" title=\"test page\">Test</a>");
+			() => menu_link.ToHtmlString().ShouldEqual("<a href=\"/route-a\">Test</a>");
 	}
 }

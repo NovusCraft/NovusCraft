@@ -51,6 +51,7 @@
     <Content Include="img\grid.png" />
     <Content Include="img\icons\doc_delete_icon_16.png" />
     <Content Include="img\icons\doc_plus_icon_16.png" />
+    <Content Include="img\icons\feed_icon.png" />
     <Content Include="img\jquery-ui-lightness\ui-bg_diagonals-thick_18_b81900_40x40.png" />
     <Content Include="img\jquery-ui-lightness\ui-bg_diagonals-thick_20_666666_40x40.png" />
     <Content Include="img\jquery-ui-lightness\ui-bg_flat_10_000000_40x100.png" />
@@ -98,7 +99,6 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="humans.txt" />
-    <Content Include="img\icons\feed-icon-28x28.png" />
     <Content Include="img\logo.png" />
     <Content Include="js\libs\jquery-1.7.1.min.js" />
     <Content Include="js\libs\modernizr-2.0.6.min.js" />
@@ -179,7 +179,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\Bio.cshtml" />
+    <Content Include="Views\Shared\AuthorBio.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Dashboard\Home.cshtml" />
@@ -210,6 +210,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\EditorTemplates\Password.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\Subscribe.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
