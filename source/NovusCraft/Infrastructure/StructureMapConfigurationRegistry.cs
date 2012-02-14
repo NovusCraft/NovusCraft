@@ -15,6 +15,7 @@ namespace NovusCraft.Infrastructure
 		{
 			// RavenDB
 			ForSingletonOf<IDocumentStore>().Use(DocumentStoreFactory.CreateEmbeddableDocumentStore());
+			For<IDocumentSession>().HybridHttpOrThreadLocalScoped().Use(context => context.GetInstance<IDocumentStore>().OpenSession());
 
 			// Blog
 			Scan(scanner =>

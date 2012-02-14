@@ -6,7 +6,6 @@ using Machine.Specifications;
 using NovusCraft.Infrastructure;
 using NovusCraft.Specifications.SpecUtils;
 using Raven.Client;
-using Raven.Client.Document;
 using StructureMap;
 
 namespace NovusCraft.Specifications.InfrastructureSpecs.StructureMapControllerFactorySpecs
@@ -25,9 +24,6 @@ namespace NovusCraft.Specifications.InfrastructureSpecs.StructureMapControllerFa
 
 		It should_return_controller_instance =
 			() => controller.ShouldBeOfType<TestController>();
-
-		It should_set_context_document_session =
-			() => ObjectFactory.Container.ShouldContainHybridPluginFor<IDocumentSession, DocumentSession>();
 
 		#region Nested type: TestController
 

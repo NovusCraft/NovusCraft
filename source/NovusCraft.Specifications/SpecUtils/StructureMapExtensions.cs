@@ -31,8 +31,19 @@ namespace NovusCraft.Specifications.SpecUtils
 			if (plugin.Lifecycle != scope.ToString())
 				throw new SpecificationException(string.Format("Expected lifecycle \"{0}\", actual lifecycle is \"{1}\".", scope.ToString(), plugin.Lifecycle));
 
-			if (plugin.Default.ConcreteType != typeof(TConcreteType))
-				throw new SpecificationException(string.Format("Expected concrete type \"{0}\", actual concrete type is \"{1}\".", typeof(TConcreteType).FullName, plugin.Default.ConcreteType.FullName));
+			if (plugin.Default.ConcreteType != null)
+			{
+				// statically registered default instance type
+				if (plugin.Default.ConcreteType != typeof(TConcreteType))
+					throw new SpecificationException(string.Format("Expected concrete type \"{0}\", actual concrete type is \"{1}\".", typeof(TConcreteType).FullName, plugin.Default.ConcreteType.FullName));
+			}
+			else
+			{
+				// dynamically constructed instance type
+				var instance = container.GetInstance<TPlugin>();
+				if (instance.GetType() != typeof(TConcreteType))
+					throw new SpecificationException(string.Format("Expected concrete type \"{0}\", actual concrete type is \"{1}\".", typeof(TConcreteType).FullName, instance.GetType().FullName));
+			}
 		}
 	}
 }

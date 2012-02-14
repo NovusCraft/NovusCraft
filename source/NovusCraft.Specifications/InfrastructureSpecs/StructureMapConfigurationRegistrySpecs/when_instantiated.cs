@@ -7,6 +7,7 @@ using NovusCraft.Infrastructure.Commands;
 using NovusCraft.Security;
 using NovusCraft.Specifications.SpecUtils;
 using Raven.Client;
+using Raven.Client.Document;
 using Raven.Client.Embedded;
 using StructureMap;
 
@@ -20,6 +21,9 @@ namespace NovusCraft.Specifications.InfrastructureSpecs.StructureMapConfiguratio
 		// RavenDB
 		It should_register_singleton_ravendb_document_store =
 			() => container.ShouldContainSingletonPluginFor<IDocumentStore, EmbeddableDocumentStore>();
+
+		It should_register_hybrid_ravendb_document_session =
+			() => container.ShouldContainHybridPluginFor<IDocumentSession, DocumentSession>();
 
 		// Blog
 		It should_register_hybrid_add_blog_post_handler =
