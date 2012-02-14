@@ -7,7 +7,9 @@ using System.Web.Routing;
 using AutoMapper;
 using Machine.Specifications;
 using NovusCraft.Infrastructure;
+using NovusCraft.Infrastructure.ActionFilters;
 using StructureMap;
+using HandleErrorAttribute = NovusCraft.Infrastructure.Diagnostics.HandleErrorAttribute;
 
 namespace NovusCraft.Specifications.InfrastructureSpecs.MvcApplicationSpecs
 {
@@ -18,6 +20,9 @@ namespace NovusCraft.Specifications.InfrastructureSpecs.MvcApplicationSpecs
 
 		It should_add_handle_error_filter_to_global_filters =
 			() => GlobalFilters.Filters.ShouldContain(f => f.Instance.GetType().Name == typeof(HandleErrorAttribute).Name);
+
+		It should_add_raven_session_filter_to_global_filters =
+			() => GlobalFilters.Filters.ShouldContain(f => f.Instance.GetType().Name == typeof(RavenSessionAttribute).Name);
 
 		It should_register_mvc_routes =
 			() => RouteTable.Routes.Count.ShouldBeGreaterThan(0);

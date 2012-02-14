@@ -8,6 +8,7 @@
       <Filter ModuleMask="NovusCraft" ClassMask="NovusCraft.Security.FormsAuthenticationWrapper" FunctionMask="*" />
       <Filter ModuleMask="NovusCraft" ClassMask="NovusCraft.Infrastructure.ActionFilters.RavenSessionAttribute" FunctionMask="OnActionExecuting" />
       <Filter ModuleMask="NovusCraft.Specifications" ClassMask="NovusCraft.Specifications.SpecUtils.StructureMapExtensions" FunctionMask="*" />
+      <Filter ModuleMask="NovusCraft" ClassMask="NovusCraft.Infrastructure.Diagnostics.*" FunctionMask="*" />
     </ExcludeFilters>
   </CoverageFilters>
   <SnapshotDialog>

@@ -15,7 +15,7 @@ namespace NovusCraft.Infrastructure
 		public void Application_Start()
 		{
 			// register global filters
-			GlobalFilters.Filters.Add(new HandleErrorAttribute());
+			GlobalFilters.Filters.Add(new Diagnostics.HandleErrorAttribute());
 			GlobalFilters.Filters.Add(new RavenSessionAttribute());
 
 			// register routes
