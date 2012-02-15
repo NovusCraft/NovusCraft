@@ -29,6 +29,7 @@ namespace NovusCraft.Web.Controllers
 			_commandDispatcher = commandDispatcher;
 		}
 
+		[OutputCache(CacheProfile = "DynamicContent")]
 		public ActionResult ViewBlogPost(string slug)
 		{
 			var model = _documentSession.Query<BlogPost>(BlogPosts_BySlug.Name).AsProjection<ViewBlogPostModel>().SingleOrDefault(bp => bp.Slug == slug);

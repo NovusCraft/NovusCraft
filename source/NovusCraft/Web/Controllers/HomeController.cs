@@ -23,6 +23,7 @@ namespace NovusCraft.Web.Controllers
 			_documentSession = documentSession;
 		}
 
+		[OutputCache(CacheProfile = "DynamicContent")]
 		public ActionResult Home()
 		{
 			var recentBlogPosts = _documentSession.Query<BlogPost>(BlogPosts_ByPublishDate.Name).OrderByDescending(bp => bp.PublishedOn).ToList();
@@ -30,16 +31,19 @@ namespace NovusCraft.Web.Controllers
 			return View(recentBlogPosts);
 		}
 
+		[OutputCache(CacheProfile = "StaticContent")]
 		public ActionResult About()
 		{
 			return View();
 		}
 
+		[OutputCache(CacheProfile = "StaticContent")]
 		public ActionResult Contact()
 		{
 			return View();
 		}
 
+		[OutputCache(CacheProfile = "StaticContent")]
 		public ActionResult PageNotFound()
 		{
 			Response.StatusCode = (int)HttpStatusCode.NotFound;
@@ -47,6 +51,7 @@ namespace NovusCraft.Web.Controllers
 			return View();
 		}
 
+		[OutputCache(CacheProfile = "DynamicContent")]
 		public RssResult Feed()
 		{
 			var recentBlogPosts = _documentSession.Query<BlogPost>(BlogPosts_ByPublishDate.Name).OrderByDescending(bp => bp.PublishedOn).ToList();

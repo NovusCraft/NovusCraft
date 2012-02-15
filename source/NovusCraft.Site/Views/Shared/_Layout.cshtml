@@ -27,7 +27,7 @@
 	<meta name="viewport" content="width=device-width">
 	<link rel="alternate" type="application/rss+xml" title="Novus Craft RSS feed" href="http://feeds.feedburner.com/novuscraft">
 
-	@Html.Raw(Bundle.Css().Add("~/css/libs/prettify-01.June.2011.css", "~/css/master.css").Render("~/css/novuscraft_#.css"))
+	@Html.Raw(Bundle.Css().Add("~/css/libs/prettify-01.June.2011.css", "~/css/master.css").Render("~/css/novuscraft_#.css").ToLower())
 	<script src="/js/libs/modernizr-2.5.2.min.js"></script>
 </head>
 <body>
@@ -71,7 +71,7 @@
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"> </script>
 	<script> window.jQuery || document.write('<script src="/js/libs/jquery-1.7.1.min.js"><\/script>') </script>
-	@Html.Raw(Bundle.JavaScript().Add("~/js/libs/prettify/prettify-01.June.2011.js", "~/js/master.js").Render("~/js/novuscraft_#.js"))
+	@Html.Raw(Bundle.JavaScript().Add("~/js/libs/prettify/prettify-01.June.2011.js", "~/js/master.js").Render("~/js/novuscraft_#.js").ToLower())
 	
 	@if (HttpContext.Current.IsDebuggingEnabled == false)
 	{

@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using NovusCraft.Infrastructure.ActionFilters;
 using NovusCraft.Infrastructure.DataAnnotations;
 using StructureMap;
+using HandleErrorAttribute = NovusCraft.Infrastructure.Diagnostics.HandleErrorAttribute;
 
 namespace NovusCraft.Infrastructure
 {
@@ -15,7 +16,7 @@ namespace NovusCraft.Infrastructure
 		public void Application_Start()
 		{
 			// register global filters
-			GlobalFilters.Filters.Add(new Diagnostics.HandleErrorAttribute());
+			GlobalFilters.Filters.Add(new HandleErrorAttribute());
 			GlobalFilters.Filters.Add(new RavenSessionAttribute());
 
 			// register routes
