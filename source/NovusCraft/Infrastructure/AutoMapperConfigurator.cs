@@ -14,8 +14,6 @@ namespace NovusCraft.Infrastructure
 			Mapper.CreateMap<CreateBlogPostModel, BlogPost>().ForMember(m => m.Id, options => options.Ignore());
 			Mapper.CreateMap<UpdateBlogPostModel, BlogPost>();
 			Mapper.CreateMap<BlogPost, UpdateBlogPostModel>().ForMember(m => m.ExistingCategories, options => options.Ignore());
-
-			Mapper.AssertConfigurationIsValid();
 		}
 	}
 }

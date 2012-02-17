@@ -4,14 +4,13 @@
 using System.Web.Routing;
 using Machine.Specifications;
 using NovusCraft.Infrastructure;
-using NovusCraft.Specifications.InfrastructureSpecs.MvcApplicationSpecs;
 using NovusCraft.Specifications.SpecUtils;
 using NovusCraft.Web.Controllers;
 
 namespace NovusCraft.Specifications.InfrastructureSpecs.RouteConfiguratorSpecs
 {
 	[Subject(typeof(RouteConfigurator))]
-	public class when_initialised : mvc_application_spec
+	public class when_initialised
 	{
 		Because of = () => RouteConfigurator.Initialise();
 
