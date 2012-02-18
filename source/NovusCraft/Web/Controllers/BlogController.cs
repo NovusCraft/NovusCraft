@@ -7,7 +7,6 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using AutoMapper;
-using NovusCraft.Infrastructure;
 using NovusCraft.Infrastructure.Commands;
 using NovusCraft.Infrastructure.Indexes;
 using NovusCraft.Model;

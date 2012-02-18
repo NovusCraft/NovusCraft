@@ -4,7 +4,7 @@
 using System;
 using StructureMap;
 
-namespace NovusCraft.Infrastructure
+namespace NovusCraft.Infrastructure.Commands
 {
 	public sealed class CommandDispatcher
 	{

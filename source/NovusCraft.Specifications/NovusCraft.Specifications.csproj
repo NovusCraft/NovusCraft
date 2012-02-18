@@ -36,6 +36,7 @@
     <Compile Include="..\GlobalAssemblyInfo.cs">
       <Link>Properties\GlobalAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="InfrastructureSpecs\ConfigSpecs\when_string_setting_is_requested.cs" />
     <Compile Include="InfrastructureSpecs\DocumentStoreFactorySpecs\when_embeddable_document_store_is_created.cs" />
     <Compile Include="InfrastructureSpecs\RouteConfiguratorSpecs\when_initialised.cs" />
     <Compile Include="InfrastructureSpecs\StructureMapConfigurationRegistrySpecs\structuremap_configuration_registry_spec.cs" />

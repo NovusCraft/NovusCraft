@@ -3,7 +3,7 @@
 
 using Raven.Client;
 
-namespace NovusCraft.Infrastructure
+namespace NovusCraft.Infrastructure.Commands
 {
 	public abstract class CommandHandler<TCommand>
 	{

@@ -11,7 +11,7 @@ namespace NovusCraft.Security
 	{
 		public static string GenerateHash(string password)
 		{
-			var key = new Guid("ee9935ff-a9d5-44c3-ac00-c923783e9265").ToByteArray(); // TODO: Move to config
+			var key = new Guid("ee9935ff-a9d5-44c3-ac00-c923783e9265").ToByteArray();
 
 			using (var hmac = new HMACSHA256(key))
 			{

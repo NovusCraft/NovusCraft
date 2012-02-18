@@ -30,12 +30,12 @@
 	@Html.Raw(Bundle.Css()
 					.Add("~/css/libs/prettify-01.June.2011.css")
 					.Add("~/css/master.css")
-					.WithOutputBaseHref("//d2x4yq112b10ze.cloudfront.net")
+					.WithOutputBaseHref(Config.Get("CDNUrl"))
 					.Render("~/css/novuscraft_#.css").ToLower())
 
 	@Html.Raw(Bundle.JavaScript()
 					.Add("~/js/libs/modernizr-2.5.2.min.js")
-					.WithOutputBaseHref("//d2x4yq112b10ze.cloudfront.net")
+					.WithOutputBaseHref(Config.Get("CDNUrl"))
 					.Render("~/js/modernizr_#.js").ToLower())
 </head>
 <body>
@@ -82,7 +82,7 @@
 	@Html.Raw(Bundle.JavaScript()
 					.Add("~/js/libs/prettify/prettify-01.June.2011.js")
 					.Add("~/js/master.js")
-					.WithOutputBaseHref("//d2x4yq112b10ze.cloudfront.net")
+					.WithOutputBaseHref(Config.Get("CDNUrl"))
 					.Render("~/js/novuscraft_#.js").ToLower())
 	
 	@if (HttpContext.Current.IsDebuggingEnabled == false)

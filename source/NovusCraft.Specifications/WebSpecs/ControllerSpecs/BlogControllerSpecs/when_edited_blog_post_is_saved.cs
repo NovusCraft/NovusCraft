@@ -6,7 +6,6 @@ using System.Linq;
 using System.Web.Mvc;
 using Machine.Specifications;
 using Machine.Specifications.Mvc;
-using NovusCraft.Infrastructure;
 using NovusCraft.Infrastructure.Commands;
 using NovusCraft.Model;
 using NovusCraft.Specifications.SpecUtils;

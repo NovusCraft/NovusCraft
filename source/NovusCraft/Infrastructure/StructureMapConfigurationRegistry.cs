@@ -2,6 +2,7 @@
 // # All rights reserved. 
 
 using System;
+using NovusCraft.Infrastructure.Commands;
 using NovusCraft.Security;
 using Raven.Client;
 using StructureMap.Configuration.DSL;

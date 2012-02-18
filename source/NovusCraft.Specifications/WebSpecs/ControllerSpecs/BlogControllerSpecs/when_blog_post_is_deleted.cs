@@ -8,7 +8,6 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using Machine.Specifications;
 using Moq;
-using NovusCraft.Infrastructure;
 using NovusCraft.Infrastructure.Commands;
 using NovusCraft.Model;
 using NovusCraft.Specifications.SpecUtils;

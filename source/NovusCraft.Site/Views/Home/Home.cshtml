@@ -15,7 +15,7 @@
 				<h1>@Html.ActionLink(blogPost.Title, "ViewBlogPost", "Blog", new { slug = blogPost.Slug }, null)</h1>
 				<p class="meta">
 					Written by @Html.ActionLink("Arnold Zokas", "About") 
-					<a class="profile-link" rel="author" href="https://plus.google.com/105019550316988242906">
+					<a class="profile-link" rel="author" href="@Config.Get("GooglePlusProfileUrl")">
 						<img alt="Arnold Zokas's profile on Google Plus" src="http://www.google.com/images/icons/ui/gprofile_button-16.png" width="16" height="16">
 					</a> 
 					on <time datetime="@blogPost.PublishedOn.ToIsoDate()" pubdate>@blogPost.PublishedOn.ToLongDate()</time> 
