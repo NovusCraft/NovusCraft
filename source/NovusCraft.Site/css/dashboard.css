@@ -1,4 +1,8 @@
-﻿#contextual-actions { margin:0; padding:0; }
+﻿/* # Copyright © 2011-2012, Novus Craft
+// # All rights reserved.
+*/
+
+#contextual-actions { margin:0; padding:0; }
 #contextual-actions li { list-style:none; }
 #contextual-actions a { font-size:1.5em; line-height:1.5em; }
 #contextual-actions .icon-create { background:url(/img/icons/doc_plus_icon_16.png) no-repeat 0 0.1em; padding-left:1.3em; }

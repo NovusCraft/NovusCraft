@@ -1,4 +1,4 @@
-﻿// # Copyright © 2011, Novus Craft
+﻿// # Copyright © 2011-2012, Novus Craft
 // # All rights reserved. 
 
 using System;
@@ -15,7 +15,7 @@ namespace NovusCraft.Web.Helpers
 			var contextActionName = html.ViewContext.RouteData.Values["action"] ?? string.Empty;
 			if (string.Compare(contextActionName.ToString(), actionName, StringComparison.OrdinalIgnoreCase) == 0)
 				htmlAttributes = new { @class = "active" };
-			
+
 			return html.ActionLink(linkText, actionName, controllerName, null, htmlAttributes);
 		}
 	}

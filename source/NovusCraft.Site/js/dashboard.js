@@ -1,4 +1,6 @@
-/* Author: Arnold Zokas */
+// # Copyright © 2011-2012, Novus Craft
+// # All rights reserved.
+
 $(document).ready(function () {
 	$('#blog-post-editor').each(function () { var editor = new BlogPostEditor(); });
 
