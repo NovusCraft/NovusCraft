@@ -35,6 +35,7 @@
 
 	@Html.Raw(Bundle.JavaScript()
 					.Add("~/js/libs/modernizr-2.5.2.min.js")
+					.Add("~/js/libs/respond.min.js")
 					.WithOutputBaseHref(Config.Get("CDNUrl"))
 					.Render("~/js/modernizr_#.js").ToLower())
 </head>
