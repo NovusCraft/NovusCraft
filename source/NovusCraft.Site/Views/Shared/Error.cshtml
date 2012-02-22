@@ -2,14 +2,90 @@
 	Layout = null;
 }
 
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Error</title>
-	</head>
-	<body>
-		<h2>
-			Sorry, an error occurred while processing your request.
-		</h2>
-	</body>
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	
+	<title>Error (500)</title>
+	<meta name="author" content="Arnold Zokas">
+
+	<meta name="robots" content="noindex, nofollow">
+
+	<style>
+		body { background:#fff; color:#555; font-family:"Segoe UI", Segoe, Tahoma, Geneva, sans-serif; font-size:62.5%; margin:0; padding:2em 0; }
+		h1 { color:#333; font-size:2.4em; font-weight:normal; line-height:1.4em; margin:0 0 30px 0; }
+		p { font-size:1.5em; line-height:1.6em; margin:0; }
+		a { border-bottom:dotted 1px #d93c3c; color:#d93c3c; text-decoration:none; }
+		a:hover { background:#efefef; border-bottom-style:solid; }
+	</style>
+</head>
+<body>
+	<div style="margin:0 auto; width:60em;">
+		<div style="overflow:hidden; width:18em;">
+			<img alt="Novus Craft" src="data:image/png;base64,
+									iVBORw0KGgoAAAANSUhEUgAAAV4AAAAyCAMAAAAjtEO9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+									bWFnZVJlYWR5ccllPAAAAYBQTFRF7Jqa3VJS20dH6peX9tDQ54CA7J+f+/Dw88bG4Who54mJ6pGR
+									88HB6IaG/PPz+eLi9MvL43Nz////99vb65iY5G5u9tLS+eHh7KCg7aKi+u/v8LS06IqK9tTU8K6u
+									5X1942ho2Tw8//7+/vv7/v39/fj4/vz86pWV76ur/vr6/fn5/ff39c/P8sTE/fb24Wdn6YiI5HBw
+									//395nh47qys88XF+unp+uzs5X5++ujo+N3d/Pb2+uvr31xc9dHR/PX16YmJ8r29+Nzc99nZ/PT0
+									9dDQ8Li4311d8LOz8ry89tjY76ys8by8762t5X9/+urq5np6+u3t7qur7qmp6IiI++3t9c7O/O/v
+									6ZOT8sPD9tfX7qSk88fH6oyM76qq87+/6pSU4WZm54aG766u7qqq5XNz+uTk99jY++jo8Le3+eXl
+									+efn315e6ZSU539/77Oz9dLS43R0+d/f++rq8rq699zc6pKS5Xd37q2t42pq++zs4Wlp88rK+enp
+									++vr8bu7QuauwgAAChZJREFUeNrsmvl700gShm3FIoQA3jghBwnQ3VLLlmTLlh2fsZ2LJJAEMjAc
+									A2Q45j72vnfZ41/fqpZkHSi2IeZ52HmkH+LYUlpfv+qu+qqcVC45PuKRShAkeBO8yZHgTfAmeJMj
+									wZvgTfAmR4I3wZvgTY5fOF6mVtn/G78RmlOMha/W1MlNUVUM07JMro8zJtMb9bqpqQbXRl39CWlu
+									ZjLDNKeyN5Tg4KdTp+qkhPJ+vixRSstrJXMkspyxBpfSU/6WnlZHTOqHTkjz4r3FyWneLVRsQkhl
+									pTiO5hW4lCzyNbIYrzl1UdrR/LfKFJ1SJrNr9P4MHRzpfWOEVrUPV5WlU7NMS+qoS+1sUPMROZqU
+									5t0tMjhq9ZGad+Gqir1oVkgxXnOqRHsN/5SSp/mJSGXGOlBt7Xc2rPZ+C9bwfXO4Vniwc1c5f8rH
+									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" />
+		</div>
+		
+		<h1>An error has occurred :(</h1>
+		<p>We apologise for the inconveniece.</p>
+		<p>We will fix this as soon as possible.</p>
+		<p>Please try again or come back later.</p>
+	</div>
+</body>
 </html>
