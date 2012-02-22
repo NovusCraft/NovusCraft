@@ -29,7 +29,7 @@
 	<article id="live-preview" class="post">
 		<header>
 			<h1 class="titlePreview">@Model.Title</h1>
-			<p class="meta">Published by <a href="#">Arnold Zokas</a> <a class="profile-link" rel="author" href="#"><img alt="Arnold Zokas's profile on Google Plus" src="http://www.google.com/images/icons/ui/gprofile_button-16.png" width="16" height="16"></a> on <span class="publishDatePreview">@Model.PublishedOn.ToEditorLongDateTime()</span> in category <strong class="categoryPreview">@Model.Category</strong>.</p>
+			<p class="meta">Published by <a href="#">Arnold Zokas</a> <a class="profile-link" rel="author" href="#"><img alt="Arnold Zokas's profile on Google Plus" src="http://www.google.com/images/icons/ui/gprofile_button-16.png" width="16" height="16"></a> on <span class="publishDatePreview">@Model.PublishedOn.ToUniversalTime().ToEditorLongDateTime()</span> in category <strong class="categoryPreview">@Model.Category</strong>.</p>
 		</header>
 		<div class="contentPreview">
 			@Html.Raw(Model.Content)

@@ -1,11 +1,13 @@
 ﻿// # Copyright © 2011-2012, Novus Craft
 // # All rights reserved. 
 
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.Web;
 using System.Web.Mvc;
 using NovusCraft.Infrastructure.ActionFilters;
 using NovusCraft.Infrastructure.DataAnnotations;
+using NovusCraft.Infrastructure.ModelBinders;
 using StructureMap;
 using HandleErrorAttribute = NovusCraft.Infrastructure.Diagnostics.HandleErrorAttribute;
 
@@ -25,7 +27,7 @@ namespace NovusCraft.Infrastructure
 			// register AutoMapper mappings
 			AutoMapperConfigurator.Initialise();
 
-			// initialise structure map
+			// initialise StructureMap
 			ObjectFactory.Initialize(ie => ie.AddRegistry<StructureMapConfigurationRegistry>());
 
 			// register controller factory
@@ -33,6 +35,9 @@ namespace NovusCraft.Infrastructure
 
 			// register adapter to force correct resource file resolution
 			DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(RequiredAttribute), typeof(ResourceAwareRequiredAttributeAdapter));
+
+			// registed custom model binders
+			System.Web.Mvc.ModelBinders.Binders.Add(typeof(DateTimeOffset), new UtcDateTimeOffsetModelBinder());
 		}
 	}
 }

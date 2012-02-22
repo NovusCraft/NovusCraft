@@ -31,7 +31,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 			() => result.ShouldBeAView().And().ShouldUseDefaultView();
 
 		It should_return_model_with_current_date_and_time_as_publish_date =
-			() => result.Model<CreateBlogPostModel>().PublishedOn.ShouldBeGreaterThan(DateTimeOffset.Now.AddMinutes(-1));
+			() => result.Model<CreateBlogPostModel>().PublishedOn.ShouldBeGreaterThan(DateTimeOffset.Now.AddSeconds(-1));
 
 		It should_return_model_with_existing_categories =
 			() => result.Model<CreateBlogPostModel>().ExistingCategories.First().ShouldEqual("Category A");

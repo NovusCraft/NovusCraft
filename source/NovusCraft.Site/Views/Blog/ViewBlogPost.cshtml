@@ -12,7 +12,7 @@
 			<a class="profile-link" rel="author" href="@Config.Get("GooglePlusProfileUrl")?rel=author">
 				<img alt="Arnold Zokas's profile on Google Plus" src="http://www.google.com/images/icons/ui/gprofile_button-16.png" width="16" height="16">
 			</a> 
-			on <time datetime="@Model.PublishedOn.ToIsoDate()" pubdate itemprop="datePublished">@Model.PublishedOn.ToLongDate()</time> 
+			on <time datetime="@Model.PublishedOn.ToIsoDate()" pubdate itemprop="datePublished">@Model.PublishedOn.ToUniversalTime().ToLongDate()</time> 
 			on topic of <span itemprop="genre">@Model.Category</span>.
 		</p>
 	</header>

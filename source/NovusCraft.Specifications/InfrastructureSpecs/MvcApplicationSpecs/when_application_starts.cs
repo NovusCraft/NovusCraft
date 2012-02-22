@@ -1,6 +1,7 @@
 ﻿// # Copyright © 2011-2012, Novus Craft
 // # All rights reserved. 
 
+using System;
 using System.Linq;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -8,6 +9,7 @@ using AutoMapper;
 using Machine.Specifications;
 using NovusCraft.Infrastructure;
 using NovusCraft.Infrastructure.ActionFilters;
+using NovusCraft.Infrastructure.ModelBinders;
 using StructureMap;
 using HandleErrorAttribute = NovusCraft.Infrastructure.Diagnostics.HandleErrorAttribute;
 
@@ -36,5 +38,8 @@ namespace NovusCraft.Specifications.InfrastructureSpecs.MvcApplicationSpecs
 
 		It should_register_structuremap_controller_factory =
 			() => ControllerBuilder.Current.GetControllerFactory().ShouldBeOfType<StructureMapControllerFactory>();
+
+		It should_register_utc_datetimeoffset_model_binder =
+			() => ModelBinders.Binders.Any(b => b.Key == typeof(DateTimeOffset) && b.Value.GetType() == typeof(UtcDateTimeOffsetModelBinder)).ShouldBeTrue();
 	}
 }
