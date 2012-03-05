@@ -1,0 +1,15 @@
+﻿@model MenuHelperModel
+
+<nav>
+	<ul>
+		@foreach (var node in Model.Nodes)
+		{
+			<li>@Html.DisplayFor(m => node) 
+				@if (node.Children.Any())
+				{
+					@Html.DisplayFor(m => node.Children)
+				}
+			</li>
+		}
+	</ul>
+</nav>

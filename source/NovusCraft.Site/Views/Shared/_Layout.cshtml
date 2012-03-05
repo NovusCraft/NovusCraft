@@ -48,13 +48,7 @@
 		<h1>
 			<a href="/" title="NovusCraft homepage">Novus Craft</a>
 		</h1>
-		<nav>
-			<ul>
-				<li>@Html.MenuLink("Home", "Home", "Home")</li>
-				<li>@Html.MenuLink("About", "Home", "About")</li>
-				<li>@Html.MenuLink("Contact", "Home", "Contact")</li>
-			</ul>
-		</nav>
+		@Html.MvcSiteMap().Menu(false, true, true)
 	</header>
 	<div class="clearfix"></div>
 	<div id="container" role="main">

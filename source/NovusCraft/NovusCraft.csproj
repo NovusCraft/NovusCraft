@@ -71,6 +71,7 @@
     <Compile Include="Security\IFormsAuthenticationWrapper.cs" />
     <Compile Include="Infrastructure\ActionFilters\RavenSessionAttribute.cs" />
     <Compile Include="Infrastructure\ActionResults\RssResult.cs" />
+    <Compile Include="Utils\FormatExtensions.cs" />
     <Compile Include="Web\Controllers\DashboardController.cs" />
     <Compile Include="Web\Controllers\UserAccountController.cs" />
     <Compile Include="Web\Controllers\BlogController.cs" />
@@ -81,7 +82,6 @@
     <Compile Include="Infrastructure\MvcApplication.cs" />
     <Compile Include="Infrastructure\RouteConfigurator.cs" />
     <Compile Include="Infrastructure\StructureMapControllerFactory.cs" />
-    <Compile Include="Utils\FormatExtensions.cs" />
     <Compile Include="Web\ViewModels\CreateBlogPostModel.cs" />
     <Compile Include="Web\ViewModels\LogInModel.cs" />
     <Compile Include="Web\ViewModels\UpdateBlogPostModel.cs" />
@@ -115,6 +115,9 @@
     </Reference>
     <Reference Include="Lucene.Net.Contrib.SpellChecker, Version=2.9.2.1, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
       <HintPath>..\packages\RavenDB-Embedded.1.0.701\lib\net40\Lucene.Net.Contrib.SpellChecker.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcSiteMapProvider">
+      <HintPath>..\packages\MvcSiteMapProvider.3.2.1.0\lib\net40\MvcSiteMapProvider.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.0.8.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -162,7 +165,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Resources\ValidationMessages.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
