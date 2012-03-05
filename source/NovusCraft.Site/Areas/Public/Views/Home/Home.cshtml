@@ -1,0 +1,26 @@
+﻿@model List<BlogPost>
+
+@{ ViewBag.Description = "Novus Craft are a software development consultancy delivering top solutions using Sitecore CMS, .NET, ASP.NET MVC, RavenDB and other technologies."; }
+
+<section class="primary-content">
+	<header class="visuallyhidden">
+		<h1>Recent Articles</h1>
+	</header>
+	@foreach (var blogPost in Model)
+	{
+		<article class="post">
+			<header>
+				<h1>@Html.ActionLink(blogPost.Title, "ViewBlogPost", "Blog", new { slug = blogPost.Slug }, null)</h1>
+				<p class="meta">
+					Written by @Html.ActionLink("Arnold Zokas", "About") 
+					<a class="profile-link" rel="author" href="@Config.Get("GooglePlusProfileUrl")">
+						<img alt="Arnold Zokas's profile on Google Plus" src="http://www.google.com/images/icons/ui/gprofile_button-16.png" width="16" height="16">
+					</a> 
+					on <time datetime="@blogPost.PublishedOn.ToIsoDate()" pubdate>@blogPost.PublishedOn.ToLongDate()</time> 
+					on topic of <span>@blogPost.Category</span>.
+				</p>
+			</header>
+			@Html.Raw(blogPost.Content)
+		</article>
+	}
+</section>

@@ -1,16 +1,13 @@
 ﻿@model UpdateBlogPostModel
 
-@{
-	Layout = "~/Views/Shared/_DashboardLayout.cshtml";
-	ViewBag.Title = "Edit blog post";
-}
+@{ ViewBag.Title = "Edit blog post"; }
 
 <section id="blog-post-editor" class="primary-content">
 	<header>
 		<h1>Edit blog post</h1>
 	</header>
 	@using (Html.BeginForm())
-	{
+ {
 		@Html.ValidationSummary("Please correct the errors below:")
 		@Html.AntiForgeryToken()
 		@Html.HiddenFor(m => m.Id)
@@ -25,7 +22,7 @@
 				@Html.ActionLink("Cancel and go back", "Home", "Dashboard")
 			</div>
 		</fieldset>
-	}
+ }
 	<article id="live-preview" class="post">
 		<header>
 			<h1 class="titlePreview">@Model.Title</h1>
