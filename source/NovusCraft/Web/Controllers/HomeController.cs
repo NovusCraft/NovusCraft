@@ -8,6 +8,7 @@ using System.ServiceModel.Syndication;
 using System.Web.Mvc;
 using MvcSiteMapProvider;
 using NovusCraft.Infrastructure.ActionResults;
+using NovusCraft.Infrastructure.AreaRegistrations;
 using NovusCraft.Infrastructure.Indexes;
 using NovusCraft.Model;
 using NovusCraft.Web.Helpers;
@@ -24,7 +25,7 @@ namespace NovusCraft.Web.Controllers
 			_documentSession = documentSession;
 		}
 
-		[MvcSiteMapNode(Title = "Home", AreaName = "1"), OutputCache(CacheProfile = "DynamicContent")]
+		[MvcSiteMapNode(Title = "Home", AreaName = "Public"), OutputCache(CacheProfile = "DynamicContent")]
 		public ActionResult Home()
 		{
 			var recentBlogPosts = _documentSession.Query<BlogPost>(BlogPosts_ByPublishDate.Name).OrderByDescending(bp => bp.PublishedOn).ToList();
@@ -32,13 +33,13 @@ namespace NovusCraft.Web.Controllers
 			return View(recentBlogPosts);
 		}
 
-		[MvcSiteMapNode(Title = "About", ParentKey = "Home"), OutputCache(CacheProfile = "StaticContent")]
+		[MvcSiteMapNode(Title = "About", AreaName = "Public", ParentKey = "Home"), OutputCache(CacheProfile = "StaticContent")]
 		public ActionResult About()
 		{
 			return View();
 		}
 
-		[MvcSiteMapNode(Title = "Contact", ParentKey = "Contact"), OutputCache(CacheProfile = "StaticContent")]
+		[MvcSiteMapNode(Title = "Contact", AreaName = "Public", ParentKey = "Contact"), OutputCache(CacheProfile = "StaticContent")]
 		public ActionResult Contact()
 		{
 			return View();
@@ -75,7 +76,7 @@ namespace NovusCraft.Web.Controllers
 				syndicationItem.LastUpdatedTime = blogPost.PublishedOn;
 				syndicationItem.PublishDate = blogPost.PublishedOn;
 
-				syndicationItem.AddPermalink(Url.Permalink("ViewBlogPost", "Blog", new { slug = blogPost.Slug }));
+				syndicationItem.AddPermalink(Url.Permalink("ViewBlogPost", "Blog", new { area = PublicAreaRegistration.Name, slug = blogPost.Slug }));
 
 				syndicationItems.Add(syndicationItem);
 			}

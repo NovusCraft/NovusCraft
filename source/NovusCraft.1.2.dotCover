@@ -9,6 +9,7 @@
       <Filter ModuleMask="NovusCraft" ClassMask="NovusCraft.Infrastructure.ActionFilters.RavenSessionAttribute" FunctionMask="OnActionExecuting" />
       <Filter ModuleMask="NovusCraft.Specifications" ClassMask="NovusCraft.Specifications.SpecUtils.StructureMapExtensions" FunctionMask="*" />
       <Filter ModuleMask="NovusCraft" ClassMask="NovusCraft.Infrastructure.Diagnostics.*" FunctionMask="*" />
+      <Filter ModuleMask="NovusCraft" ClassMask="NovusCraft.Infrastructure.MvcApplication" FunctionMask="RegisterAllAreas" />
     </ExcludeFilters>
   </CoverageFilters>
   <SnapshotDialog>

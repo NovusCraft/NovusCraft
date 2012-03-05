@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using AutoMapper;
+using NovusCraft.Infrastructure.AreaRegistrations;
 using NovusCraft.Infrastructure.Commands;
 using NovusCraft.Infrastructure.Indexes;
 using NovusCraft.Model;
@@ -39,7 +40,7 @@ namespace NovusCraft.Web.Controllers
 				return View("PageNotFound");
 			}
 
-			model.Permalink = Url.Permalink("ViewBlogPost", "Blog", new { slug }).ToString();
+			model.Permalink = Url.Permalink("ViewBlogPost", "Blog", new { area = PublicAreaRegistration.Name, slug }).ToString();
 
 			return View(model);
 		}
@@ -95,7 +96,7 @@ namespace NovusCraft.Web.Controllers
 		{
 			_commandDispatcher.Dispatch(new DeleteBlogPostCommand(id));
 
-			var dashboardUrl = Url.Permalink("Home", "Dashboard");
+			var dashboardUrl = Url.Permalink("Home", "Dashboard", new { area = DashboardAreaRegistration.Name });
 			return Json(new { redirectTo = dashboardUrl.ToString() });
 		}
 

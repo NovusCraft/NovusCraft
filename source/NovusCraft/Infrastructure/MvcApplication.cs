@@ -21,6 +21,9 @@ namespace NovusCraft.Infrastructure
 			GlobalFilters.Filters.Add(new HandleErrorAttribute());
 			GlobalFilters.Filters.Add(new RavenSessionAttribute());
 
+			// register areas
+			RegisterAllAreas();
+
 			// register routes
 			RouteConfigurator.Initialise();
 
@@ -38,6 +41,11 @@ namespace NovusCraft.Infrastructure
 
 			// registed custom model binders
 			System.Web.Mvc.ModelBinders.Binders.Add(typeof(DateTimeOffset), new UtcDateTimeOffsetModelBinder());
+		}
+
+		protected virtual void RegisterAllAreas()
+		{
+			AreaRegistration.RegisterAllAreas();
 		}
 	}
 }

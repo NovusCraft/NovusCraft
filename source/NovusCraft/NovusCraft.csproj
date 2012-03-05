@@ -37,12 +37,14 @@
     </Compile>
     <Compile Include="Infrastructure\AutoMapperConfigurator.cs" />
     <Compile Include="Infrastructure\Config.cs" />
+    <Compile Include="Infrastructure\AreaRegistrations\DashboardAreaRegistration.cs" />
     <Compile Include="Infrastructure\Diagnostics\HandleErrorAttribute.cs" />
     <Compile Include="Infrastructure\Indexes\BlogPosts_ByPublishDate.cs" />
     <Compile Include="Infrastructure\Indexes\BlogPosts_BySlug.cs" />
     <Compile Include="Infrastructure\Indexes\BlogPostCategories.cs" />
     <Compile Include="Infrastructure\Indexes\UserAccounts_ByEmailAndPasswordHash.cs" />
     <Compile Include="Infrastructure\ModelBinders\UtcDateTimeOffsetModelBinder.cs" />
+    <Compile Include="Infrastructure\AreaRegistrations\PublicAreaRegistration.cs" />
     <Compile Include="Model\BlogPost.cs" />
     <Compile Include="Infrastructure\Commands\CreateBlogPostCommand.cs" />
     <Compile Include="Infrastructure\Commands\DeleteBlogPostCommand.cs" />

@@ -26,6 +26,9 @@ namespace NovusCraft.Specifications.InfrastructureSpecs.MvcApplicationSpecs
 		It should_add_raven_session_filter_to_global_filters =
 			() => GlobalFilters.Filters.ShouldContain(f => f.Instance.GetType().Name == typeof(RavenSessionAttribute).Name);
 
+		It should_register_mvc_areas =
+			() => areas_registered.ShouldBeTrue();
+
 		It should_register_mvc_routes =
 			() => RouteTable.Routes.Count.ShouldBeGreaterThan(0);
 

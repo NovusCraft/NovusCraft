@@ -4,7 +4,6 @@
 using System;
 using System.Web.Routing;
 using Machine.Specifications;
-using NovusCraft.Infrastructure;
 using NovusCraft.Infrastructure.Commands;
 using NovusCraft.Specifications.SpecUtils;
 using NovusCraft.Web.Controllers;
@@ -23,7 +22,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.BlogControllerSpecs
 
 		Establish context = () =>
 		{
-			RouteConfigurator.Initialise(); // this populates route table, so ensure RouteTable.Routes.Clear() is called during cleanup
+			Spec.RequiresRoutes();
 
 			session = Spec.RequiresRavenDBDocumentSession();
 

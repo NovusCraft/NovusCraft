@@ -6,7 +6,6 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using Machine.Specifications;
 using Moq;
-using NovusCraft.Infrastructure;
 using NovusCraft.Specifications.SpecUtils;
 using NovusCraft.Web.Controllers;
 using Raven.Client;
@@ -23,7 +22,7 @@ namespace NovusCraft.Specifications.WebSpecs.ControllerSpecs.HomeControllerSpecs
 
 		Establish context = () =>
 		{
-			RouteConfigurator.Initialise(); // this populates route table, so ensure RouteTable.Routes.Clear() is called during cleanup
+			Spec.RequiresRoutes();
 
 			http_request = new Mock<HttpRequestBase>();
 			http_response = new Mock<HttpResponseBase>();

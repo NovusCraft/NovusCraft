@@ -12,8 +12,9 @@ namespace NovusCraft.Specifications.InfrastructureSpecs.MvcApplicationSpecs
 	public abstract class mvc_application_spec
 	{
 		protected static MvcApplication application;
+		protected static bool areas_registered;
 
-		Establish context = () => { application = new MvcApplication(); };
+		Establish context = () => application = new MvcApplicationProxy();
 
 		Cleanup after = () =>
 		{
@@ -22,5 +23,13 @@ namespace NovusCraft.Specifications.InfrastructureSpecs.MvcApplicationSpecs
 			var documentStore = ObjectFactory.GetInstance<IDocumentStore>();
 			if (documentStore != null) documentStore.Dispose();
 		};
+
+		class MvcApplicationProxy : MvcApplication
+		{
+			protected override void RegisterAllAreas()
+			{
+				areas_registered = true;
+			}
+		}
 	}
 }
