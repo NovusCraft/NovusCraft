@@ -7,6 +7,7 @@ using System.Net;
 using System.ServiceModel.Syndication;
 using System.Web.Mvc;
 using MvcSiteMapProvider;
+using MvcSiteMapProvider.Web;
 using NovusCraft.Infrastructure.ActionResults;
 using NovusCraft.Infrastructure.AreaRegistrations;
 using NovusCraft.Infrastructure.Indexes;
@@ -25,7 +26,7 @@ namespace NovusCraft.Web.Controllers
 			_documentSession = documentSession;
 		}
 
-		[MvcSiteMapNode(Title = "Home", AreaName = "Public"), OutputCache(CacheProfile = "DynamicContent")]
+		[MvcSiteMapNode(Title = "Home", AreaName = "Public", UpdatePriority = UpdatePriority.Critical), OutputCache(CacheProfile = "DynamicContent")]
 		public ActionResult Home()
 		{
 			var recentBlogPosts = _documentSession.Query<BlogPost>(BlogPosts_ByPublishDate.Name).OrderByDescending(bp => bp.PublishedOn).ToList();
@@ -33,13 +34,13 @@ namespace NovusCraft.Web.Controllers
 			return View(recentBlogPosts);
 		}
 
-		[MvcSiteMapNode(Title = "About", AreaName = "Public", ParentKey = "Home"), OutputCache(CacheProfile = "StaticContent")]
+		[MvcSiteMapNode(Title = "About", AreaName = "Public", ParentKey = "Home", UpdatePriority = UpdatePriority.Normal), OutputCache(CacheProfile = "StaticContent")]
 		public ActionResult About()
 		{
 			return View();
 		}
 
-		[MvcSiteMapNode(Title = "Contact", AreaName = "Public", ParentKey = "Contact"), OutputCache(CacheProfile = "StaticContent")]
+		[MvcSiteMapNode(Title = "Contact", AreaName = "Public", ParentKey = "Contact", UpdatePriority = UpdatePriority.Normal), OutputCache(CacheProfile = "StaticContent")]
 		public ActionResult Contact()
 		{
 			return View();
@@ -83,6 +84,12 @@ namespace NovusCraft.Web.Controllers
 			feed.Items = syndicationItems;
 
 			return new RssResult(feed);
+		}
+
+		[OutputCache(CacheProfile = "DynamicContent")]
+		public ActionResult XmlSitemap()
+		{
+			return new XmlSiteMapResult();
 		}
 	}
 }

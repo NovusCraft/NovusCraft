@@ -14,6 +14,9 @@ namespace NovusCraft.Infrastructure
 
 			routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+			// sitemap.xml
+			routes.MapRoute("sitemap.xml", "sitemap.xml", new { controller = "Home", action = "XmlSitemap" });
+
 			// 404 page
 			routes.MapRoute("404", "{*url}", new { controller = "Home", action = "PageNotFound" });
 		}

@@ -10,6 +10,7 @@
       <Filter ModuleMask="NovusCraft.Specifications" ClassMask="NovusCraft.Specifications.SpecUtils.StructureMapExtensions" FunctionMask="*" />
       <Filter ModuleMask="NovusCraft" ClassMask="NovusCraft.Infrastructure.Diagnostics.*" FunctionMask="*" />
       <Filter ModuleMask="NovusCraft" ClassMask="NovusCraft.Infrastructure.MvcApplication" FunctionMask="RegisterAllAreas" />
+      <Filter ModuleMask="NovusCraft" ClassMask="NovusCraft.Web.Controllers.HomeController" FunctionMask="XmlSitemap" />
     </ExcludeFilters>
   </CoverageFilters>
   <SnapshotDialog>

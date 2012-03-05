@@ -106,7 +106,6 @@
     <Content Include="js\libs\backbone-0.5.3.js" />
     <Content Include="js\master.js" />
     <Content Include="robots.txt" />
-    <Content Include="sitemap.xml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

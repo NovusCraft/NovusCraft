@@ -19,6 +19,9 @@ namespace NovusCraft.Specifications.InfrastructureSpecs.RouteConfiguratorSpecs
 		It should_register_axd_ignore_route =
 			() => "resource.axd".ShouldBeIgnored();
 
+		It should_register_xml_sitemap_route =
+			() => "~/sitemap.xml".ShouldMapTo<HomeController>(controller => controller.XmlSitemap());
+
 		It should_register_404_route =
 			() => "~/this-page-does-not-exist".ShouldMapTo<HomeController>(controller => controller.PageNotFound());
 	}
