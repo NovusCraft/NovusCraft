@@ -6,7 +6,14 @@
 }
 else if (Model.IsClickable)
 {
-	<a href="@Model.Url">@Model.Title</a>
+	if (Model.IsCurrentNode)
+	{
+		<a class="active" href="@Model.Url">@Model.Title</a>
+	}
+	else
+	{
+		<a href="@Model.Url">@Model.Title</a>
+	}
 }
 else
 {
