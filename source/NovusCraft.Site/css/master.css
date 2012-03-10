@@ -373,7 +373,8 @@ pre { background:#fafafa; font-family:Consolas, Menlo, Monaco, Lucida Console, L
 .channel iframe { display:block; margin:12px auto; }
 
 /* comments */
-#disqus_thread a { font-size:1.4em; }
+#disqus_thread p { font-size:1em; }
+#dsq-subscribe a { font-size:1.6em; }
 #dsq-footer { margin:0 !important; }
 
 /* == ASIDE */
