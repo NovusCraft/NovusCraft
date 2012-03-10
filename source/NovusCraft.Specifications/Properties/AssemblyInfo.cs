@@ -3,5 +3,5 @@
 
 using System.Reflection;
 
-[assembly: AssemblyTitle("NovusCraft.Specification")]
-[assembly: AssemblyDescription("Novus Craft Specification")]
+[assembly: AssemblyTitle("NovusCraft.Specifications")]
+[assembly: AssemblyDescription("Novus Craft Specifications")]

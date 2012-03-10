@@ -13,7 +13,7 @@ using System.Runtime.InteropServices;
 #endif
 
 [assembly: AssemblyCompany("Novus Craft")]
-[assembly: AssemblyCopyright("Copyright © Novus Craft 2011")]
+[assembly: AssemblyCopyright("Copyright © Novus Craft 2011-2012")]
 [assembly: AssemblyProduct("Novus Craft Website")]
 [assembly: ComVisible(false)]
 [assembly: CLSCompliant(true)]
