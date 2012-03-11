@@ -373,8 +373,10 @@ pre { background:#fafafa; font-family:Consolas, Menlo, Monaco, Lucida Console, L
 .channel iframe { display:block; margin:12px auto; }
 
 /* comments */
-#disqus_thread p { font-size:1em; }
-#dsq-subscribe a { font-size:1.6em; }
+#disqus_thread h3 { font-size:19px; }
+#disqus_thread p { font-size:16px; }
+#disqus_thread p + p { text-indent:0; }
+#dsq-subscribe a { font-size:16px; }
 #dsq-footer { margin:0 !important; }
 
 /* == ASIDE */
